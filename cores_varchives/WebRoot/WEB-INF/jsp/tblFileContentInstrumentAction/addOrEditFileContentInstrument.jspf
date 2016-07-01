@@ -1,0 +1,128 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileContentInstrumentDialog" class="easyui-dialog" title="新建仪器档案" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:420px;" closable="true">
+		<div id="AddOrEditFileContentInstrumentDialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileContentInstrumentForm">
+		      	<input id="addOrEditInstrument" type="hidden">
+		      	<input id="oneFileRecordId4" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag4" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateInstrumentRsn" name="operateRsn" type="hidden"/>
+			  	
+			  	 <div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:213px;left:30px;background-color: #fff;">归档记录</div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8;margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		<table style="width:100%;">
+			  			<tr>
+			  				<td width="68">仪器编号</td>
+			  				<td><input id="instrumentId" name="instrumentId" class="easyui-validatebox" required="true" onblur="if($('#addOrEditInstrument').val()==1||$('#addOrEditInstrument').val()==3){getInstrumentById();}"/></td>
+			  				<td colspan="2"></td>
+			  				<td align="right" colspan="2">
+			  					归档介质：
+								<label for="archiveMediaFlag14">
+									<input id="archiveMediaFlag14" type="radio" name="tblFileRecord.archiveMediaFlag" value="1" checked="checked" onclick="$('#oneArchiveMedia4').attr('disabled',true);"/>纸质
+								</label>
+								<label for="archiveMediaFlag24">
+									<input id="archiveMediaFlag24" type="radio" name="tblFileRecord.archiveMediaFlag" value="2" onclick="$('#oneArchiveMedia4').attr('disabled',true);"/>电子
+								</label>
+								<label for="archiveMediaFlag34">
+									<input id="archiveMediaFlag34" type="radio" name="tblFileRecord.archiveMediaFlag" value="3" onclick="$('#oneArchiveMedia4').attr('disabled',false);"/>其他
+								</label>
+								<input id="oneArchiveMedia4" type="text" disabled name="tblFileRecord.archiveMedia" style="width:100px;"/>
+							</td>
+			  			</tr>
+			  			<tr>
+			  				<td>仪器名称：</td>
+			  				<td colspan="5"><input id="instrumentName" class="easyui-validatebox" required="true" name="instrumentName" onblur="if($('#addOrEditInstrument').val()==1){$('#oneArchiveTitle4').val($(this).val());}"/></td>
+			  				
+			  			</tr>
+			  			<tr>
+			  				<td>仪器型号：</td>
+			  				<td colspan="5"><input id="instrumentModel" class="easyui-validatebox" name="instrumentModel" required="true"  style="width:550px;"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td>仪器厂商：</td>
+			  				<td colspan="5"><input id="instrumentManufacturer" class="easyui-validatebox" name="instrumentManufacturer" required="true" style="width:550px;"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td>购买日期：</td>
+			  				<td colspan="5"><input id="instrumentPurchaseDate" name="instrumentPurchaseDate" required="true" class="easyui-datebox"/></td>
+			  			</tr>
+			  			
+			  			
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+	    			<table border="0">
+				    	<tr>
+				    		<td width="100">分类代号：</td>
+				    		<td width="100">
+				    			<input id="oneArchiveTypeCode4" name="archiveTypeCode" type="hidden"/>
+				    			<input id="oneArchiveTypeName4" name="archiveTypeName" readOnly="readonly" required="true" onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode4').click();}" style="width:72%;"/>
+				    			<input type="button" id="chooseOneArchiveTypeCode4" class="easyui-linkbutton" style="width:30px;" onclick="chooseArchiveType();" value="..."/>
+				    		</td>
+				    		<td width="100">档案编号：</td>
+				    			<td colspan="3" width="300"><input id="oneArchiveCode4" name="archiveCode" type="text" required="true" style="100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">储存位置：</td>
+				    			<td width="100"><input id="oneStorePosition4"  required="true" 
+				    			class="easyui-combotree"/>
+				    			<input id="oneStorePosition4L" type="hidden" name="storePosition"/></td>
+				    			
+				    			<td width="100">题名：</td>
+				    			<td width="300" colspan="3"><input id="oneArchiveTitle4" name="archiveTitle" required="true"  style="width:100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">立卷人：</td>
+				    			<td width="100">
+				    			<input id="oneArchiveMaker4" name="tblFileRecord.archiveMaker" required="true" 
+				    				class="easyui-combobox" />
+				    						
+				    			</td>
+				    			<td width="100">归档人：</td>
+				    			<td width="100">
+				    				<input id="oneFileOperator4" name="tblFileRecord.fileOperator" required="true"
+				    					 class="easyui-validatebox" />
+				    				</td>
+				    			<td width="100">归档日期：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneFileDate4" name="tblFileRecord.fileDate" required="true"/>
+				    				
+				    			</td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">备注：</td>
+				    			<td width="300" colspan="3"><input id="oneRemark4" name="tblFileRecord.remark" type="text" style="width:100%"/></td>
+				    			<td width="100">保存期限：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneKeepDate4" name="tblFileRecord.keepDate" data-options="width:120," />
+				    				<input type="checkbox" class="checkboxC" id="isLong4" name="isLong" checked="checked"
+				    				onclick="if($('#isLong4').attr('checked')=='checked'){$('#oneKeepDate4').datebox('setValue','');$('#oneKeepDate4').datebox('disable');}else{$('#oneKeepDate4').datebox('setValue',$('#todayDate').val());$('#oneKeepDate4').datebox('enable');}">长期
+				
+				    			</td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">关键字：</td>
+				    			<td width="300" colspan="3"><input id="oneKeyWord4" name="tblFileRecord.keyWord" type="text" style="width:100%"/></td>
+				    			
+				    			<td width="100" id="oneDestoryDate4Label" style="display:none;">销毁日期</td>
+				    			<td width="100" id="oneDestoryDate4Label2" style="display:none;"><input class="easyui-datebox" id="oneDestoryDate4" name="tblFileRecord.destoryDate"/></td>
+				    			
+				    		</tr>
+				    			
+				    </table>
+	    	   </div>
+		    </form>
+			<div id="positionTipCode4"></div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton4" class="easyui-linkbutton" onclick="saveOneFileContentInstrument();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileContentInstrumentDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddInstrumentButton" type="checkbox" class="checkboxC"/><span id="continueAddInstrumentLabel"></span>
+		<input id="isForValidInstrument" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidInstrumentLabel" style="position:absolute;top:35px;right: 10px;">验证记录 </span>
+	</div>
+	<!-- 工具栏 结束-->

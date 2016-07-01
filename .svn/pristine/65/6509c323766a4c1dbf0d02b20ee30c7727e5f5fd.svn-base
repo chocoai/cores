@@ -1,0 +1,39 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="replyMessageDialog" class="easyui-dialog" title="回复信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:750px;height:430px;" closable="true">
+			<div id="replyMessageDialog2" style="display:'';" closable="true">
+		   	 	<input type="hidden" id="reportId"/>
+		   	 	<div id="replyMessageList" class="easyui-datagrid"></div>
+		   	 	<form id="oneReplyMessage" >
+			   			<div style="border: 1px solid #fff; width:730px;">
+				   			<table style="border: 1px solid #c8c8c8;" width="100%" height="100%">
+					   			<tr>
+					   				<td style="text-align: right;width: 100;">检查内容</td>
+					   				<td >
+					   					<input  id="oneChkContent" readonly="readonly" name="oneChkContent" style="width: 400px;" required="true"/>
+					   				</td>
+					   			</tr>
+					   			<tr>
+					   				<td style="text-align: right;" >回复内容</td>
+					   				<td >
+					   					<input  id="oneMessage" name="replyContent" style="width: 400px;"  required="true" />
+					   					<a id="saveOneReplyMessageButton" disabled class="easyui-linkbutton" onclick="saveOneReplyMessage();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+					   				</td>
+					   			</tr>
+					   			
+					   			
+				   		
+				   			</table>
+				   	
+			  	 		</div>
+			   	 	
+			   		</form>
+				
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a class="easyui-linkbutton" onclick="saveReportReply();" data-options="iconCls:'icon-ok',plain:true">提交QAU</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#replyMessageDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">关闭</a>
+	</div>
+	<!-- 工具栏 结束-->

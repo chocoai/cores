@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblPathStudyIndex" table="tblPathStudyIndex" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+        <property name="histopathCheckFinishSign" type="java.lang.String">
+            <column name="histopathCheckFinishSign" length="20" />
+        </property>
+        <property name="histopathReviewRequirement" type="java.lang.Integer">
+            <column name="histopathReviewRequirement" />
+        </property>
+        <property name="histopathReviewFlag" type="java.lang.Integer">
+            <column name="histopathReviewFlag"  />
+        </property>
+        <property name="histopathReviewer" type="java.lang.String">
+            <column name="histopathReviewer" length="20"/>
+        </property>       
+        
+        <property name="histopathReviewSubmitTime" type="java.sql.Timestamp">
+            <column name="histopathReviewSubmitTime" />
+        </property>
+        <property name="histopathReviewSign" type="java.lang.String">
+            <column name="histopathReviewSign" length="20"/>
+        </property>
+        <property name="histopathReviewFinalSign" type="java.lang.String">
+            <column name="histopathReviewFinalSign" length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

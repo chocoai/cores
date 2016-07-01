@@ -1,0 +1,37 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="selectPADialog" class="easyui-dialog" title="病理SD任命" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:400px;height:360px;" closable="true">
+			<div id="selectPADialog2" style="display:'';" closable="true">
+		    <div >
+		    <input type="hidden" id="selectPAAddOrEdit"/>
+			  <form id="selectPAForm" action="" method="post">
+		   	  <table width="365px;" style="margin-top:5px;margin-left:10px;" class="table0">
+				 <tr>
+				 		<td width="70px;" height="30px;" align="right" >选择病理SD:</td>
+						<td>
+						    <input id="selectPAinput" name="selectPathSD" 
+						     class="easyui-combobox" style="width:166px;height:19px;"
+						      data-options="valueField:'id',textField:'text',editable:true" />  
+						</td>
+				 </tr>
+				 <tr>
+				 	<td width="70px;" height="30px;" align="right" >已选专题:</td>
+				    <td>
+				       <div style="overflow-y:auto; height:220px;">
+				       <table id="studyNoPAtable" >
+				          <tr><td  width="30px;">序号</td><td  width="280px;">专题编号</td></tr>
+				       </table>
+				       </div>
+ 					</td>
+				 </tr>
+			</table>
+               </form>	   
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="savePADialogButton" class="easyui-linkbutton" onclick="saveAppointPA();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backPAButton" class="easyui-linkbutton" onclick="onBackButton_selectPADialog();" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->

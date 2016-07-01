@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblClinicalTestReq" table="tblClinicalTestReq" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="reqNo" type="java.lang.Integer">
+            <column name="reqNo" />
+        </property>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="50"/>
+        </property>
+        <property name="testPhase" type="java.lang.String">
+            <column name="testPhase"  length="40"/>
+        </property>
+        <property name="beginDate" type="timestamp">
+            <column name="beginDate" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="endDate" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="createDate" />
+        </property>
+        <property name="testOther" type="java.lang.String">
+            <column name="testOther"  length="20"/>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="100"/>
+        </property>
+        <property name="es" type="integer">
+            <column name="es" />
+        </property>
+        <property name="temp" type="integer">
+            <column name="temp" />
+        </property>
+        <property name="parentReqNo" type="integer">
+            <column name="parentReqNo" />
+        </property>
+        
+        <!-- tblStudyPlan, 本类与TblStudyPlan的多对一的关系 -->
+        <many-to-one name="tblStudyPlan" class="TblStudyPlan" column="studyNoId" lazy="false"></many-to-one>
+        
+        <!-- tblClinicalTestReqIndexs,本类与TblClinicalTestReqIndex的一对多的关系 -->
+        <set name="tblClinicalTestReqIndexs" >
+          <key column="tblClinicalTestReqId"></key>
+           <one-to-many class="TblClinicalTestReqIndex"/>
+        </set>
+        <!-- tblClinicalTestReqIndex2s,本类与TblClinicalTestReqIndex2的一对多的关系 -->
+        <set name="tblClinicalTestReqIndex2s"  order-by="animalCode , animalId"  >
+          <key column="tblClinicalTestReqId"></key>
+           <one-to-many class="TblClinicalTestReqIndex2"/>
+        </set>
+    </class>
+</hibernate-mapping>

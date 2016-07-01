@@ -1,0 +1,17 @@
+* { margin: 0; padding: 0;}
+html,body{
+	height:100%;
+	color:#000;
+	font-size:12px;
+	font-family:SimSun; /*microsoft yahei;*/
+}
+.absoluteMainBox{
+	position:absolute;
+    top:30px;
+	left:1px;
+	right:1px;
+    bottom:5px;
+	display:block;
+	padding:0px 0px 0px 0px;
+	overflow:hidden;
+}

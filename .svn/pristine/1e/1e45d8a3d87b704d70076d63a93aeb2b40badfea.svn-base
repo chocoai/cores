@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.User" table="tbluser" >
+        <id name="id" type="java.lang.String">
+            <column name="id" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="userName" />
+        </property>
+        <property name="userCode" type="java.lang.String">
+            <column name="userCode" />
+        </property>
+        <property name="realName" type="java.lang.String">
+            <column name="realName" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" />
+        </property>
+        <property name="userNumber" type="java.lang.String">
+            <column name="userNumber" />
+        </property>
+        <property name="flag" type="java.lang.String">
+            <column name="flag" />
+        </property>
+        <property name="flagRemark" type="java.lang.String">
+            <column name="flagRemark" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="createTime" />
+        </property>
+        <property name="updatePasswordTime" type="timestamp">
+            <column name="updatePasswordTime" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" />
+        </property>
+        
+        <!-- user属性，本类与User的多对一关系-->
+        <many-to-one name="user" class="com.lanen.model.User" column="authorId" lazy="false"></many-to-one>
+         
+        <!-- roles属性，本类与Role的多对多的关系  -->
+        <set name="roles" table="tbl_user_role" >
+           <key column="userId"></key>
+           <many-to-many class="Role" column="roleId"></many-to-many>
+        </set>
+        <!-- department, 本类与Department的多对一的关系 -->
+        <many-to-one name="department" class="Department" column="departmentId" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

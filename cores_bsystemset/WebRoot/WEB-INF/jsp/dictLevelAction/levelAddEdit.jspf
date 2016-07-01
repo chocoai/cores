@@ -1,0 +1,33 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 程度 edit/add  start -->
+<div id="levelAddEditDialog" class="easyui-dialog" title="新建" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:542px;height:367px;" closable="true">
+	<div id="levelAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="levelAddOrEdit"/>
+			<form id="levelAddEditForm" action="" method="post">
+		   	  <table>
+        			<tr >
+        				<td width="80px;" align="right" height="30px;">病变程度</td>
+        				<td>
+        				    <input type="hidden" id="id" name="id" />
+        				    <input type="hidden" id="oldLevel"  />
+                            <input id="level" type="text" name="level" 
+                        	 class="easyui-validatebox" style="width:220px;" data-options="validType:'maxLength[20]'"
+                        	required="true" missingMessage="必填项" invalidMessage="病变程度已存在"
+                        	validType="remotett[sybp()+'/dictLevelAction_checkLevel.action','level','#oldLevel']" />
+       				 	</td>
+        			</tr>
+        		</table>
+		    </form>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="confirmButton" class="easyui-linkbutton" onclick="onConfirmButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#levelAddEditDialog').dialog('close');" 
+		data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 程度 edit/add end -->

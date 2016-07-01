@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblApplyRevise" table="tblApplyRevise" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="applyUser" type="java.lang.String">
+            <column name="applyUser" />
+        </property>
+		
+		<property name="applyDate" type="timestamp">
+            <column name="applyDate" />
+        </property>
+
+		<property name="approvalUser" type="java.lang.String">
+            <column name="approvalUser"  length="20"/>
+        </property>
+		
+		<property name="approvalDate" type="timestamp">
+            <column name="approvalDate" />
+        </property>
+        
+        <property name="doseEffectiveDate" type="timestamp">
+            <column name="doseEffectiveDate" />
+        </property>
+		
+		<property name="reason" type="java.lang.String">
+            <column name="reason"  length="500" />
+        </property>
+		
+		<property name="refusalReason" type="java.lang.String">
+            <column name="refusalReason"  length="500" />
+        </property>
+		<property name="applyFlag" type="integer">
+            <column name="applyFlag" />
+        </property>
+		
+		<property name="submitDate" type="timestamp">
+            <column name="submitDate" />
+        </property>
+		
+		<property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type"/>
+        </property>
+         <property name="version" type="integer">
+            <column name="version" />
+        </property>
+    </class>
+</hibernate-mapping>

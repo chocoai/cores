@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 文件限制  100M -->
+	<constant name="struts.multipart.maxSize" value="104857600"/>
+	
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限-->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI">/WEB-INF/jsp/userAction/logout.jsp</result>
+		
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="systemError">/systemError.jsp</result>
+			<result name="toIndex" type="redirectAction">homeAction_indexArchive?ticket=${ticket}</result>
+			<result name="toLogout" type="redirectAction">userAction_logout</result>
+			
+		</global-results>
+	
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp
+			</result>
+			<result name="success">/xls_test.jsp</result>
+		</action>
+
+		<!-- 首页 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+		
+		<!-- 行政综合资料 -->
+		<action name="tblFileContentAdministrationAction_*" class="tblFileContentAdministrationAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentAdministrationAction/{1}.jsp</result>
+		</action>
+		<!-- 合同 -->
+		<action name="tblFileContentContractAction_*" class="tblFileContentContractAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentContractAction/{1}.jsp</result>
+		</action>
+		<!-- 人员档案 -->
+		<action name="tblFileContentEmployeeAction_*" class="tblFileContentEmployeeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentEmployeeAction/{1}.jsp</result>
+		</action>
+		<!-- 综合资料 -->
+		<action name="tblFileContentGlpSynthesisAction_*" class="tblFileContentGlpSynthesisAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentGlpSynthesisAction/{1}.jsp</result>
+		</action>
+		<!-- 基建档案是和综合资料是同一个对象，标识不一样而已 -->
+		<action name="tblFileContentGlpSynthesis2Action_*" class="tblFileContentGlpSynthesis2Action" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentGlpSynthesis2Action/{1}.jsp</result>
+		</action>
+		<!-- 设备 -->
+		<action name="tblFileContentInstrumentAction_*" class="tblFileContentInstrumentAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentInstrumentAction/{1}.jsp</result>
+		</action>
+		<!-- QA检查 -->
+		<action name="tblFileContentQACheckAction_*" class="tblFileContentQACheckAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentQACheckAction/{1}.jsp</result>
+		</action>
+		<!-- SOP -->
+		<action name="tblFileContentSOPAction_*" class="tblFileContentSOPAction" method="{1}">
+			<result name="download2" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${downFileName}</param>
+        		<param name="bufferSize">4096</param>  
+    		</result> 
+    		<result name="list">/WEB-INF/jsp/tblFileContentSOPAction/list.jsp</result>
+    		<interceptor-ref name="fileUpload">
+    			<!-- 
+    			<param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+    			 -->
+    			<param name="maximumSize">10485760</param>
+    			<param name="savePath">/upload</param>
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+			
+		</action>
+		<!-- 专题 -->
+		<action name="tblFileContentStudyAction_*" class="tblFileContentStudyAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileContentStudyAction/{1}.jsp</result>
+		</action>
+		<!-- 供试品留样 -->
+		<action name="tblFileRecordSmplReserveAction_*" class="tblFileRecordSmplReserveAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileRecordSmplReserveAction/{1}.jsp</result>
+		</action>
+		<!-- 标本 -->
+		<action name="tblFileRecordSpecimenAction_*" class="tblFileRecordSpecimenAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileRecordSpecimenAction/{1}.jsp</result>
+		</action>
+		<action name="tblFileIndexAction_*" class="tblFileIndexAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblFileIndexAction/{1}.jsp</result>
+		</action>
+		<!-- 日志 -->
+		<action name="tblLogAction_*" class="tblLogAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblLogAction/{1}.jsp</result>
+		</action>
+		<action name="importedSpecimenAction_*" class="importedSpecimenAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/importedSpecimenAction/{1}.jsp</result>
+			<interceptor-ref name="fileUpload">
+    			<param name="maximumSize">10485760</param>
+    			<param name="savePath">/upload</param>
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="importedExistArchiveDataAction_*" class="importedExistArchiveDataAction" method="{1}">
+			<interceptor-ref name="fileUpload">
+				<!-- 50000000 -->
+    			<param name="maximumSize">2048000000</param>
+    			<param name="savePath">/upload</param>
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		
+	</package>
+</struts>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.clinicaltest.PoolSpecimenCode" table="poolSpecimenCode" >
+        <id name="id" type="java.lang.String">
+            <column name="id" />
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="50"/>
+        </property>
+        <property name="reqNo" type="integer">
+        	<column name="reqNo"></column>
+        </property>
+        <property name="testItem" type="integer">
+        	<column name="testItem"></column>
+        </property>
+        <property name="createDate" type="java.lang.String">
+        	<column name="createDate"  length="20"></column>
+        </property>
+        <property name="specimenCode" type="java.lang.String">
+        	<column name="specimenCode"  length="20"></column>
+        </property>
+        <property name="animalId" type="java.lang.String">
+        	<column name="animalId"  length="20"></column>
+        </property>
+        <property name="flag" type="integer">
+        	<column name="flag"></column>
+        </property>
+    </class>
+</hibernate-mapping>

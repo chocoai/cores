@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+           >
+	  <!-- DictHematService配置 血常规 -->
+    <bean id="serviceExporter51" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictHematServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictHematService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictHematService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- DictBloodCoagService配置  血凝-->
+    <bean id="serviceExporter52" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictBloodCoagServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictBloodCoagService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictBloodCoagService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- DictBioChemService配置  生化-->
+    <bean id="serviceExporter53" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictBioChemServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictBioChemService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictBioChemService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- DictUrineService配置  尿常规-->
+    <bean id="serviceExporter54" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictUrineServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictUrineService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictUrineService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+         <!-- DictSpecimenService配置      字典-标本类型  -->
+    <bean id="serviceExporter55" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictSpecimenServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictSpecimenService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.DictSpecimenService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+         <!-- DictDoseUnitService配置       -->
+    <bean id="serviceExporter56" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictDoseUnitServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictDoseUnitService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictDoseUnitService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+         <!-- DictStudyTestIndexService配置       -->
+    <bean id="serviceExporter57" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictStudyTestIndexServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictStudyTestIndexService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictStudyTestIndexService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+         <!-- DictStudyTypeService配置       -->
+    <bean id="serviceExporter58" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictStudyTypeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictStudyTypeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictStudyTypeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+         <!-- DictTestItemTypeService配置       -->
+    <bean id="serviceExporter59" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictTestItemTypeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictTestItemTypeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictTestItemTypeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="serviceExporter510" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnimalHouseServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnimalHouseService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblAnimalHouseService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter511" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblTaskTypeFieldServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblTaskTypeFieldService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblTaskTypeFieldService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter512" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblTaskTypeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblTaskTypeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblTaskTypeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <bean id="serviceExporter513" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblTaskTypeLeaderServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblTaskTypeLeaderService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblTaskTypeLeaderService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <!-- 病理 -->
+     <bean id="serviceExporter514" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictPathCommonServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictPathCommonService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.DictPathCommonService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <bean id="serviceExporter515" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictVisceraServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictVisceraService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.DictVisceraService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+	 <!-- 字典-报表编号    从专题工程里移来-->
+    <bean id="serviceExporter516" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictReportNumberServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictReportNumberService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictReportNumberService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <!-- QA -->
+    
+     <bean id="serviceExporter517" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictChkItemQAFileRegServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictChkItemQAFileRegService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictChkItemQAFileRegService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter518" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictScheduleChkItemServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictScheduleChkItemService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictScheduleChkItemService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <bean id="serviceExporter519" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictChkItemChkTblRegServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictChkItemChkTblRegService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictChkItemChkTblRegService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <bean id="serviceExporter520" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictQACheckContentTableServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictQACheckContentTableService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictQACheckContentTableService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter521" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictQACheckTableServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictQACheckTableService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictQACheckTableService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter522" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictQACheckItemServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictQACheckItemService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictQACheckItemService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter523" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictChkItemStudyGroupRegServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictChkItemStudyGroupRegService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictChkItemStudyGroupRegService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter524" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictQAStatementTempleServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictQAStatementTempleService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictQAStatementTempleService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter525" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblSuperficialTumorVisceraServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblSuperficialTumorVisceraService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblSuperficialTumorVisceraService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter526" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictLevelServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictLevelService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.DictLevelService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+     <!-- DictStudyGroupService配置       -->
+    <bean id="serviceExporter527" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictStudyGroupServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictStudyGroupService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictStudyGroupService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter528" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictChkAreaServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictChkAreaService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.qa.DictChkAreaService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 档案管理 -->
+     <bean id="serviceExporter529" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictArchiveTypeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictArchiveTypeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictArchiveTypeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <bean id="serviceExporter530" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictSOPTypeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictSOPTypeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictSOPTypeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter531" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictAdministrationTypeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictAdministrationTypeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictAdministrationTypeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <bean id="serviceExporter532" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictArchivePositionServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictArchivePositionService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictArchivePositionService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="service533" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="companyInfoServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>CompanyInfoService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.company.CompanyInfoService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+</beans>

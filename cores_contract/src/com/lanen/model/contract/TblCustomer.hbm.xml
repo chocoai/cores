@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblCustomer" table="tblCustomer" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="customerName" type="java.lang.String">
+            <column name="customerName"  length="200"/>
+        </property>
+        <property name="customerType" type="java.lang.Integer">
+            <column name="customerType" />
+        </property>
+        <property name="regionId" type="java.lang.String">
+            <column name="regionId"  length="20" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address"  length="200" />
+        </property>
+        <property name="linkman" type="java.lang.String">
+            <column name="linkman"  length="50" />
+        </property>
+        <property name="tel" type="java.lang.String">
+            <column name="tel"  length="50" />
+        </property>
+        <property name="mobile" type="java.lang.String">
+            <column name="mobile"  length="50" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email"  length="50" />
+        </property>
+        <property name="http" type="java.lang.String">
+            <column name="http"  length="50" />
+        </property>
+        <property name="fax" type="java.lang.String">
+            <column name="fax"  length="50" />
+        </property>
+        <property name="postalCode" type="java.lang.String">
+            <column name="postalCode"  length="20" />
+        </property>
+        <property name="deleteFlag" type="java.lang.Integer" >
+            <column name="deleteFlag" />
+        </property>
+        <property name="tiCode" type="java.lang.String">
+            <column name="tiCode"  length="50" />
+        </property>
+        
+        <!-- tblRigon,本类与TblRigon的多对一的关系
+        <many-to-one name="tblRigon" column="regionCode" class="TblRigon" lazy="false"></many-to-one>
+         -->
+        
+    </class>
+</hibernate-mapping>

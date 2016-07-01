@@ -1,0 +1,48 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="delayApplyDialog" class="easyui-dialog" title="延迟申请" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:970px;height:450px;" closable="true">
+			<div id="delayApplyDialog2" style="display:'';" closable="true">
+		   	 	<input type="hidden" id="reportId"/>
+		   	 	<div id="delayApplyList" class="easyui-datagrid"></div>
+		   	 	<form  id="recordDelayForm">
+			   			<div style="border: 1px solid #fff; width:420;">
+				   			<table style="border: 1px solid #c8c8c8;" width="100%" height="100%">
+					   			<tr>
+					   				<td style="text-align: right;width: 100;">申请延迟整改项</td>
+					   				<td colspan="4">
+					   					<input  id="oneDelayItem" name="oneDelayItem" readonly="readonly" style="width: 400px;" required="true"/>
+					   				</td>
+					   			</tr>
+					   			<tr>
+					   				<td style="text-align: right;width: 100;" >申请延迟原因</td>
+					   				<td >
+					   					<input  id="oneDelayRsn" name="delayRsn" style="width: 300px;"  required="true" />
+					   				</td>
+					   				<td style="text-align: right;width: 100;">
+					   					预计落实日期
+					   				</td>
+					   				<td >
+					   					<input  id="oneDelayPlanDate" name="delayPlanFinishDate" class="easyui-datebox" style="width: 100px;"  required="true" />
+					   				</td>
+					   				<td style="text-align: right;width: 100;">
+					   						<a id="saveReportRecordDelayButton" disabled class="easyui-linkbutton" onclick="saveReportRecordDelay();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+					   						<a id="removeReportRecordDelayButton" disabled class="easyui-linkbutton" onclick="removeReportRecordDelay();" data-options="iconCls:'icon-cancel',plain:true">撤销申请</a>
+					   				</td>
+					   			</tr>
+					   			
+					   			
+				   		
+				   			</table>
+				   	
+			  	 		</div>
+			   	 	
+			   		</form>
+				
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a class="easyui-linkbutton" onclick="saveReportDelay();" data-options="iconCls:'icon-ok',plain:true">提交QAU</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#delayApplyDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">关闭</a>
+	</div>
+	<!-- 工具栏 结束-->

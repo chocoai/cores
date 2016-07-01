@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblPathPlanAttachedVisceraVersion" table="tblPathPlanAttachedVisceraVersion" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="VisceraWeighPlanID" type="java.lang.String">
+            <column name="VisceraWeighPlanID" length="20" />
+        </property>
+        <property name="visceraType" type="java.lang.Integer">
+            <column name="visceraType" />
+        </property>
+        <property name="visceraCode" type="java.lang.String">
+            <column name="visceraCode" length="20" />
+        </property>
+        <property name="visceraName" type="java.lang.String">
+            <column name="visceraName" length="60"/>
+        </property>       
+        <property name="version" type="integer">
+            <column name="version" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

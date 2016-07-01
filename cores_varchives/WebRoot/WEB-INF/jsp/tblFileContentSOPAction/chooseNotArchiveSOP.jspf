@@ -1,0 +1,81 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseNotArchiveSOPDialog" class="easyui-dialog" title="选择未归档SOP" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar2'" style="display:'';width:870px;height:450px;" closable="true">
+		<div id="chooseNotArchiveSOPDialog2" style="display:none;" closable="true">
+		
+		     <table id="chooseNotArchiveSOPDataGrid" class="easyui-treegrid" 
+		      data-options="singleSelect:true,
+		      				width:840,height:300,
+		      				onDblClickRow:function(rowIndex,rowData){chooseOneNotArchiveSOP();},
+					      				onClickRow:function(rowData){
+								if(rowData!=null&&rowData.children!=''&&rowData.children!=null&&typeof(rowData.children)!='undefined')
+								{
+									$(this).treegrid('unselect',rowData.fileRecordId);
+								}
+							},
+							idField:'fileRecordId',
+	             			treeField:'soptypeCode',">
+			    <thead>
+			        <tr>
+			        
+			         <th data-options="title:'SOP类别',field:'soptypeCode',width:260,formatter: function(value,row,index){
+							if(value!=''&&value!=null)
+							{
+								return row.soptypeName+'('+value+')';
+							}else{
+								return '';
+							}
+							
+						}"></th>
+					 <th data-options="title:'SOP类别名称',field:'soptypeName',width:120,hidden:true,"></th>
+					<!-- 
+					 <th data-options="title:'分类代号',field:'archiveTypeCode',width:100,"></th>
+					 <th data-options="title:'档案编号',field:'archiveCode',"></th>
+					 -->
+					 <th data-options="title:'SOP编号',field:'sopcode',width:100,formatter: function(value,row,index){
+												if(value!=''&&value!=null)
+												{
+													return value+'-'+row.sopver;
+												}else{
+													return '';
+												}
+												
+											}"></th>
+					 <th data-options="title:'SOP版本',field:'sopver',	width:60,"></th>
+					 <th data-options="title:'SOP生效日期',field:'sopeffectiveDate',width:70,"></th>
+					 <th data-options="title:'id',field:'fileRecordId',hidden:true,"></th>
+					 <th data-options="title:'archiveTypeName',field:'archiveTypeName',hidden:true,"></th>
+					 <th data-options="title:'序号',field:'fileRecordSn',hidden:true,"></th>
+					 <th data-options="title:'类型',field:'sopflag',width:50,formatter: function(value,row,index){
+													if(value==''||value==null||value=='0')
+													{
+														return 'SOP资料';	
+													}
+													if(value=='1')
+													{
+														return 'SOP表格';
+													}
+													
+												}"></th>
+					 <th data-options="title:'SOP名称',field:'sopname',width:200,"></th>
+					 <th data-options="title:'SOP作废日期',field:'sopinvalidDate',width:70,"></th>
+					 <th data-options="title:'SOP是否作废',field:'isInvalid',hidden:true,"></th>
+					 <th data-options="title:'销毁日期',field:'destoryDate',width:80,hidden:true"></th>
+					 <th data-options="title:'备注',field:'remark',width:120,hidden:true"></th>
+					 <th data-options="title:'是否是最高版本', field:'delFlag',hidden:true,"></th>
+					 <!-- 1是 0 不是 -->
+			        </tr>
+			        
+			    </thead>
+			   
+			</table>
+		
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar2">
+		<a class="easyui-linkbutton" onclick="chooseOneNotArchiveSOP();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#chooseNotArchiveSOPDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		
+	</div>
+	<!-- 工具栏 结束-->

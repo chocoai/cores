@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.TblDataSource" table="tblDataSource" >
+        <id name="dsId" type="java.lang.String">
+            <column name="dsId"  length="20"/>
+        </id>
+        <property name="dsHost" type="java.lang.String">
+            <column name="dsHost"  length="50"/>
+        </property>
+        <property name="dsInstrumentId" type="java.lang.String">
+            <column name="dsInstrumentId"  length="20"/>
+        </property>
+        <property name="dsInstrumentName" type="java.lang.String">
+            <column name="dsInstrumentName"  length="200"/>
+        </property>
+        <property name="dsSoftware" type="java.lang.String">
+            <column name="dsSoftware"  length="100"/>
+        </property>
+        <property name="dsVersion" type="java.lang.String">
+            <column name="dsVersion" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

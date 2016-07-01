@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Systems" table="tblsystem" >
+        <id name="id" type="java.lang.String">
+            <column name="id" />
+        </id>
+        <property name="systemName" type="java.lang.String">
+            <column name="systemName" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="createTime" />
+        </property>
+        
+        <!-- user属性，本类与User的多对一关系-->
+        <many-to-one name="user" class="User" column="authorId" lazy="false"></many-to-one>
+         <!-- privileges属性，本类与Privilege的一对多的关系order-by="approveTime ASC"-->
+        <!-- roles,本类与Role 的一对多的关系 -->
+        <set name="roles"  order-by="id ASC">
+            <key column="systemId"></key>
+            <one-to-many class="Role"/>
+        </set>
+        <!-- modules ,本类与Module的一对多的关系 -->
+        <set name="modules" lazy="false" order-by="createTime ASC">
+            <key column="systemId"></key>
+            <one-to-many class="Module"/>
+        </set>
+    </class>
+</hibernate-mapping>

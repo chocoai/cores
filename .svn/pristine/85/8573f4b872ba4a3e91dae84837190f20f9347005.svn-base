@@ -1,0 +1,20 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="animalCodeDialog" class="easyui-dialog" title="动物编号" modal="true" closed="true" 
+		data-options="" style="display:'';width:580px;height:417px;" closable="false">
+	<div id="animalCodeDialog2" style="display:none;">
+			<input type="hidden" id="selectedId2" />
+			<table id="animalCodeTable"></table>        				
+	</div>
+</div>
+<!-- 工具栏 start-->
+<!-- 工具栏 end-->
+<div id="animalCodeToolbar" style="display:none;">
+	<a id="animalCodeAddbutton" class = "easyui-linkbutton" plain="true" disabled="disabled" onclick="onAnimalCodeAddButton();"
+   	    data-options="iconCls:'icon-add'">添加</a>
+   	<a id="animalCodeEditbutton" class = "easyui-linkbutton" plain="true" disabled="disabled" onclick="onAnimalCodeEditButton();"
+   	    data-options="iconCls:'icon-edit'">编辑</a>
+	<a id="animalCodeDelButton" class = "easyui-linkbutton" plain="true" disabled="disabled" onclick="onAnimalCodeDelButton();"
+   	    data-options="iconCls:'icon-remove'">删除</a>
+   	<a class="easyui-linkbutton" onclick="javascript:$('#animalCodeDialog').dialog('close');" 
+   		data-options="iconCls:'icon-back',plain:true">关闭</a>
+</div>

@@ -1,0 +1,10 @@
+jdbcUrl		= jdbc\:jtds\:sqlserver\://172.16.10.246\:1433/coresqa
+driverClass	= net.sourceforge.jtds.jdbc.Driver
+username = GPG2zBi2kKE=
+password = D4ZuqJVDxUo5nCrbLqnTng==
+#192.168.51.3
+#172.16.10.246
+#jdbcUrl_studyitem		= jdbc\:jtds\:sqlserver\://172.16.10.246\:1433/CoresStudyItem
+#driverClass_studyitem	= net.sourceforge.jtds.jdbc.Driver
+
+userprivilegeIP		=127.0.0.1

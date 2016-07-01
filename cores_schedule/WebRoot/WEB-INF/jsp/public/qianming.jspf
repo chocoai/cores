@@ -1,0 +1,35 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 电子签名开始 -->
+	<div id="qianming" class="easyui-dialog" title="电子签名" modal="true" closed="true" style="display:'';width:300px;height:196px;" closable="true">
+			<div id="qianming2" style="display:none;">
+		    <div class="content" style="height:140px;	background:#ededed;	font-size:12px;	border-radius:0px 0px 6px 6px;	padding:10px 30px;
+				border:0px;	color:#999999;">
+			  <form id="qianmingForm" action="" method="post">
+		   	  <table width="100%">
+		          <tr>
+		            <td>已登录用户</td>
+		          </tr>
+		          <tr>
+		            <td><input type="text" id="" value="${user.userName}" readonly="readonly"  class="input_user" style="height:20px!important;
+						line-height:20px!important;	width:100%;	text-indent:25px!important;
+						background: url(${pageContext.request.contextPath}/style/images/icon_user2.png) no-repeat 5px 1px #FFFFFF;"
+						/></td>
+		          </tr>
+		          <tr>
+		            <td>请输入密码<span id="qianming_message" style="margin-left:15px; color:#FF0000; "></span></td>
+		          </tr>
+		          <tr>
+		            <td><input type="password" onkeydown="qm_EnterPress();" onclick="qm_clearMessage();" class="easyui-validatebox" data-options="required:true,validType:'length[1,11]'" name="password" id="password"  style="height:20px!important;
+						line-height:20px!important;	width:100%;	text-indent:25px!important;
+						background: url(${pageContext.request.contextPath}/style/images/icon_password.png) no-repeat 5px 1px #FFFFFF;"/></td>
+		          </tr>
+		          <tr>
+		            <td align="center" valign="bottom" height="35px;"><a class="easyui-linkbutton" onclick="qm_passwordCheck();">确定</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" onclick="qm_cancelQianming();">取消</a></td>
+		          </tr>
+		        </table>
+		        </form>
+		        <a id="qm_sign"></a>
+		    </div>
+		    </div>
+		</div>
+	<!-- 电子签名结束 -->

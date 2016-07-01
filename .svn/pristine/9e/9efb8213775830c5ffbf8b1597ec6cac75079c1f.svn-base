@@ -1,0 +1,75 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="reChkResultDialog" class="easyui-dialog" title="再检查记录" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbarForReChkResult'" style="display:'';width:320px;height:200px;" closable="true">
+			<div id="reChkResultDialog2" style="display:'';" closable="true">
+				<div id="formDiv">
+			   		<form id="oneReChkResult" >
+			   			<div style="border: 1px solid #fff; ">
+				   			<table id="oneQAChkPlanTable" style="border: 0px solid #c8c8c8; position:relative;top:10px;">
+					   			<tr id="reChkResultTableRow">
+					   				<td style="text-align: right;" >再检查结果</td>
+					   				<td >
+					   					<label for="problemSolved">
+					   						<input id="problemSolved" name="reChkResult" style="width: 15px;" onchange="selectReChkResult();" type="radio" value="1" checked="checked"/>问题已解决
+					   					</label>
+					   				</td>
+					   				<td>
+					   					<label for="problemNoSolved">
+					   						<input id="problemNoSolved" name="reChkResult" style="width: 15px;" onchange="selectReChkResult();" type="radio" value="-1"/>问题未解决
+					   					</label>
+					   				</td>
+					   			</tr>
+					   			<tr id="realGetTime">
+					   				<td style="text-align: right;" >实际落实时间</td>
+					   				<td colspan="2">
+					   					<input id="delayFinishTimeTD" name="delayFinishTime" class="easyui-datebox" data-options="editable:false"/>
+					   				</td>
+					   				
+					   			</tr>
+					   			<tr id="isNeedReChkTableRow">
+					   				<td style="text-align: right;">是否需要再检查</td>
+					   				<td >
+					   					<label for="recordNeedReChk">
+					   						<input id="recordNeedReChk" name="reChkFlag" style="width: 15px;" type="radio" value="1" />是
+					   					</label>
+					   				</td>
+					   				<td>
+						   				<label for="recordNotNeedReChk">
+						   					<input id="recordNotNeedReChk" name="reChkFlag" style="width: 15px;" type="radio" value="0" checked="checked"/>否
+					   					</label>
+					   				</td>
+					   			</tr>
+					   			<!-- 
+					   			<tr>
+					   				<td style="text-align: right;" >备注说明：</td>
+					   				<td >
+					   					<input name="planChkTime" style="width: 85px;" class="easyui-datebox" required="true" />
+					   				</td>
+					   			</tr>
+					   			 -->
+					   			<tr >
+					   				<td style="text-align: right;" ></td>
+					   				<td >
+					   					</td>
+					   				<td>
+										
+					   				</td>
+					   			
+					   			</tr>
+				   		
+				   			</table>
+				   	
+			  	 		</div>
+			   	 	
+			   		</form>
+				</div> 
+				
+		 	</div>
+		 	
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbarForReChkResult">
+		<a  class="easyui-linkbutton" onclick="saveOneReChk();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#reChkResultDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">关闭</a>	 
+	</div>
+	<!-- 工具栏 结束-->

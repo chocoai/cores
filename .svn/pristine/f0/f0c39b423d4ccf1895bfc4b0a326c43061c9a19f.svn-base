@@ -1,0 +1,27 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="tblTiprpAppDataDialog" class="easyui-dialog" title="新增供试品胶囊配制申请确认" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:440px;height:350px;" closable="true">
+			<div id="tblTiprpAppDataDialog2" style="display:'';" closable="true">
+		    <div >
+		     <s:hidden id="AppDataIndex" name="AppDataIndex"></s:hidden>
+		    
+			  <form id="tblTiprpAppDataForm" method="post">
+		   	  <div class="edit_table" style="border-collapse:collapse;position: absolute;top:60px;left:30px;">
+                <table id="tblTiprpAppData" ></table>
+              </div>
+		      </form>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+	<a id="submitClinicalTestReqButton" class="easyui-linkbutton" onclick="checkBeforeTiprpAppSign();" data-options="iconCls:'icon-redo',plain:true">提交</a>
+	    <a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#tblTiprpAppDataDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	    
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->
+	
+
+	

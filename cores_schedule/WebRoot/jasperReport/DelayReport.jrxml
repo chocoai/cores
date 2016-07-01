@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DelayReport" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="1a515ca7-c5da-4ce7-a434-5686d037346b">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="aafdc927-6e9c-4d63-a44e-40789b63dba1"/>
+	<parameter name="studyNo" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="reportCode" class="java.lang.String"/>
+	<parameter name="logoImage" class="java.lang.String"/>
+	<parameter name="reportQAM" class="java.lang.String"/>
+	<parameter name="delayDate" class="java.lang.String"/>
+	<parameter name="hasComment" class="java.lang.String"/>
+	<parameter name="comment" class="java.lang.String"/>
+	<parameter name="checkImage" class="java.lang.String"/>
+	<field name="chkItemName" class="java.lang.String"/>
+	<field name="chkContent" class="java.lang.String"/>
+	<field name="chkResult" class="java.lang.String"/>
+	<field name="advice" class="java.lang.String"/>
+	<field name="replyContent" class="java.lang.String"/>
+	<field name="needDelay" class="java.lang.String"/>
+	<field name="delayRsn" class="java.lang.String"/>
+	<field name="delayPlanFinishDate" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<image isLazy="true">
+				<reportElement uuid="37bd3bfa-eb16-4023-88e7-b2cb8f7f2eac" x="2" y="0" width="41" height="31"/>
+				<imageExpression><![CDATA[$P{logoImage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="81ee7fe2-e8be-4e91-83f2-002ec3cf6705" x="43" y="10" width="43" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[西山中科]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f6a9c97f-5a01-45a6-b003-401337a64a02" x="480" y="8" width="75" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[编号：QA-07-4]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="5ec3ae3d-a62a-4034-88ab-c27a87e06fbe" x="2" y="31" width="555" height="2"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5de04784-51df-4343-99c1-75118e131301" style="table_TH" x="8" y="98" width="172" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[检查项]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5fd08a86-47d3-47a9-bb8c-eb7cdca6cd60" style="table_TH" x="180" y="98" width="60" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[申请延迟]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a445dfd9-5103-4243-802e-501ffd7c466d" style="table_TH" x="240" y="98" width="248" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[延迟原因]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4c06187d-dfb8-42d9-aa42-aab452b9e75a" style="table_TH" x="488" y="98" width="58" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[预计落实整改措施的日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bd90bf75-7d4c-4473-829f-00fb2fe4af0f" x="8" y="78" width="538" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[QAU检查报告整改措施延迟落实申请]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7f67d43e-0fce-4bc3-a336-b4b82a0cc6ac" x="86" y="38" width="131" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6503634c-12a3-4e52-a248-c93d5d2d9fc7" x="22" y="38" width="64" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" size="10" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[检查报告编号]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f6f628ca-3111-4d30-a1b0-77d008e3d8bd" x="290" y="38" width="76" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportQAM}==null?"":$P{reportQAM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ae50e37-2b11-442d-a74f-014c2f40c1f4" x="458" y="38" width="72" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{delayDate}==null?"":$P{delayDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a3a4a76e-e18c-4b87-88f9-63af452f11c7" x="409" y="38" width="49" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[批复日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="452601f2-9acd-49c5-bc28-7d311279be0b" x="228" y="38" width="63" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[相关负责人]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="ad56fdcb-b52d-47b9-be73-eca934a9d493" x="158" y="0" width="230" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f2cc83be-d9fa-48f4-b91d-76b0f9e389e5" style="table_TD" x="8" y="0" width="172" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chkItemName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="249fe9d9-e78e-4e5a-a30a-5006c0d0dcfa" style="table_TD" x="240" y="0" width="248" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{delayRsn}==null?"":$F{delayRsn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ce6c2433-24fc-4894-85f6-6b132cb35de1" style="table_TD" x="180" y="0" width="60" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{needDelay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="50d9422d-a178-4bd0-b857-6e0c99ea5575" style="table_TD" x="488" y="0" width="58" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{delayPlanFinishDate}==null?"":$F{delayPlanFinishDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="191" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ab92b754-1b72-45c4-ac90-f845e5c8d835" x="12" y="151" width="115" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[QAU接收申请单的日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b1461fad-8ab1-4173-b6f5-80e54b537896" x="321" y="151" width="75" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[接收人/日期]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="af76e99d-48e4-4a80-8264-276187918587" x="9" y="135" width="537" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="4bf95b9c-6f3a-408f-8c14-bcff83c71a9e" x="9" y="135" width="1" height="49"/>
+			</line>
+			<line>
+				<reportElement uuid="d880873e-e643-4069-aef1-2d8d7c55cfe0" x="127" y="171" width="110" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="5cf60cc8-d6cd-4bf6-be2a-894b5568ff57" x="396" y="172" width="100" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="1c8fc683-2e35-4463-aa92-f7312d17394a" x="9" y="184" width="538" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="4f22d496-9910-4197-9897-af299ebd0524" x="8" y="113" width="538" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="a970f05e-ed76-4361-b78c-fd114430e704" x="228" y="68" width="302" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="bfe08fe9-c1e9-43ea-9fe3-5381b79e7c81" x="138" y="24" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[无意见]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="de257f5f-cc9b-4475-95e7-7776e6904b59" x="8" y="8" width="1" height="105"/>
+			</line>
+			<line>
+				<reportElement uuid="b0dfb436-d7be-4642-bbd9-759c7110feb4" x="435" y="99" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="ea10f54c-12c0-488e-bdc9-b80229178ebc" x="12" y="24" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[机构负责人审阅：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="52b1fd46-2390-4bd3-b0a2-e92dc28cf94d" x="138" y="48" width="90" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[有意见，请简述：]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="b290df9a-5bfc-4bf8-bc79-504bf8c053bb" x="128" y="29" width="10" height="10"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="5bd8d96a-e5c3-43e0-9bc7-d868df5e8a8a" x="9" y="7" width="537" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="ff30c11f-aa4b-49d9-910f-475dee343575" x="355" y="80" width="75" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[机构负责人/日期]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="a2d5dd1a-917d-4319-94fd-9a98ce828537" x="128" y="51" width="10" height="10"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="c7b31e8c-2067-46f4-8eee-e9b1df0de512" x="546" y="135" width="1" height="49"/>
+			</line>
+			<line>
+				<reportElement uuid="b01ee7d3-e6f7-4a65-baf6-95530899ed3b" x="546" y="8" width="1" height="105"/>
+			</line>
+			<textField>
+				<reportElement uuid="3b3f0e9f-a456-4b7c-b274-6945fbebadad" x="228" y="48" width="302" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comment}==null?"":$P{comment}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="b95a4907-1142-44be-b6ed-fdcdede9b451" x="129" y="30" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{hasComment}.equals("0"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="f5f5c2fe-3544-4df5-a98d-a63485a722a5" x="129" y="52" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{hasComment}.equals("1"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f5d12b14-8c3d-4e4c-aa7a-be7ea903d299" x="253" y="14" width="37" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[页]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c9cb956b-cbd5-4071-a221-9fee3030bbdb" x="192" y="14" width="37" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[第]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="082df8fa-db9a-4070-8479-a4cbae48fdf7" x="229" y="34" width="24" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

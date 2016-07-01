@@ -1,0 +1,16 @@
+.table1{
+	border-collapse:collapse;
+	border-spacing:0;
+	
+	border-left:1px solid #c9c9c9;
+	border-top:1px solid #c9c9c9;
+	
+	background:white;
+}
+.table1 td{
+	
+	border-right:1px solid #c9c9c9;
+	border-bottom:1px solid #c9c9c9;
+	/*padding:5px;*/
+	
+}

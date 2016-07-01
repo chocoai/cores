@@ -1,0 +1,17 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+<div id="testItemAttachmentDialog" class="easyui-dialog" title="附件列表" modal="true" closed="true" draggable="false" 
+		data-options="toolbar:'#dialogToolbar5'" style="display:'';width:665px;height:490px;top:10px;" closable="true">
+	    <div id="testItemAttachmentDialog2" style="display:none;">
+	          <table style="margin-left:20px;"><tr><td> 供试品编号:</td><td> <input type="text" id="theTiNo" readonly="readonly"  style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;"/></td>
+	                 <td> 名称:</td><td> <input type="text" id="theTiName" readonly="readonly" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;"/></td></tr>
+	          </table>
+	         <div> <table id = "testItemAttachmentTable" ></table></div>
+		</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar5">
+	<a id="uploadAttachmentsButton" class="easyui-linkbutton" onclick="uploadAttachmentsButton();" data-options="iconCls:'icon-attach',plain:true">上传附件</a>
+	<a id="attachmentbackButton" class="easyui-linkbutton" onclick="javascript:$('#testItemAttachmentDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">关闭</a>
+</div>
+<!-- 工具栏 结束-->

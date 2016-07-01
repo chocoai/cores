@@ -1,0 +1,47 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+<div id="attachmentAddEditDialog" class="easyui-dialog" title="合同附件" modal="true" closed="true" 
+		data-options="toolbar:'#attachmentToolbar'" style="display:'';width:470px;height:230px;" closable="true">
+	<div id="attachmentAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="attachmentAddOrEdit"/>
+			<form id="attachmentAddEditForm" name="attachmentAddEditForm" action="" method="post" enctype="multipart/form-data" theme="simple">
+		   	  <table class="table0">
+		   	  		<tr >
+        				<td width="120px;" align="right">合同编号</td>
+        				<td>
+	        				<input id="attachment_contractCode" type="text" name="contractCode" value="${model.contractCode}" class="easyui-validatebox" readonly="true" data-options="validType:'maxLength[45]'"
+	        				 	required="true" style="width:260px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="120px;" align="right">选择附件</td>
+        				<td>
+	        				<input id="attachmentFile" type="file" onchange="attachmentFileChange(this);" name="attachment" class="easyui-validatebox" required="true" missingMessage="请选择文件" style="width:270px;">
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="120px;" align="right">附件名称</td>
+        				<td>
+	        				<input id="attachmentName" type="text" name="attachmentName" class="easyui-validatebox" data-options="validType:'maxLength[180]'"
+	        				 	required="true" style="width:260px;"></input>
+       				 	</td>
+        			</tr>
+        			<tr>
+        				<td align="right">备注</td>
+        				<td><textarea id="attachmentRemark" style="resize: none;" name="remark" class="easyui-validatebox" data-options="validType:'maxLength[350]'"  rows="3" cols="40"></textarea>
+						</td>
+        			</tr>
+        		</table>
+		    </form>
+			<a id="attachmentAddEdit_event"></a>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="attachmentToolbar">
+	<a id="saveAttachmentDialogButton" class="easyui-linkbutton" onclick="onDialogAttachmentSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#attachmentAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 试验计划 edit/add结束 -->

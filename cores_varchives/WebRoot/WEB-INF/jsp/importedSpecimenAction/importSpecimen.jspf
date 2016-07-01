@@ -1,0 +1,102 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<script language="javascript" src="${pageContext.request.contextPath}/script/ajaxfileupload.js" charset="utf-8"></script>
+
+	<div id="specimenFileDialog" class="easyui-dialog" title="标本导入" modal="true" closed="true" 
+		data-options="toolbar:'#specimenDialogToolbar'" style="display:'none';width:370px;height:320px;" closable="true">
+		<div id="specimenFileDialog2" style="display:none;">
+			<form id="codeFileFrom" action="" method="post"
+				enctype="multipart/form-data" theme="simple" >
+				<table width="100%">
+					<tr><td height="10px;" colspan="2"></td></tr>
+					<tr>
+						<td><s:file id="excelCodeFile" name="excelCodeFile" cssStyle="width:220px;height:30px;" onclick="javascript:$('#errorSpan').html('');"></s:file></td>
+						<td>
+							<input type="button" value="上传文件" onclick="ajaxFileUpload();"/>
+						</td>
+					</tr>
+					<tr><td height="10px;" colspan="2">&nbsp;<font color="red"><span id="errorSpan"></span></font></td></tr>
+					<tr><td height="10px;" colspan="2">样例：</td></tr>
+					<tr>
+					<td colspan="2">
+						<img id="exampleImage1" src="${pageContext.request.contextPath}/style/images/specimen.png" style="display:'';" alt="标本编号例子.xls" />
+						<!-- 
+						<img id="exampleImage2" src="${pageContext.request.contextPath}/style/images/idFile2.png" style="disply:none;" alt="标本编号例子.xls" />
+						 -->
+					</td>
+					</tr>
+				</table>
+				</form>
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+	/**执行文件上传操作*/
+	function ajaxFileUpload(){
+		$('#errorSpan').html('');
+		if($('#excelCodeFile').val()!=''){
+			//文件上传的form
+		    $('#codeFileFrom').form({    
+		        url:sybp()+'/importedSpecimenAction_importExcel.action',
+		        type:'post',
+		        dataType:'json',
+		        onSubmit: function(){    
+		        	//判断文件类型和大小之类
+		        	
+		        },    
+		        success:function(data){ 
+		    		
+			    		var r=$.parseJSON(data);
+			    		if(r &&r.success){
+				             $('#specimenFileDialog').dialog('close'); 
+				             $('#excelCodeFile').val('');
+				            	  
+				             getAnimalSpecimenByStudyNo();
+		
+							 parent.parent.parent.showMessager(1,r.msg,true,5000);
+				            	  
+				         }else if(r){
+				           	$('#errorSpan').html(r.msg);
+				         }else{
+				         	$('#errorSpan').html("上传过程中出错，请联系管理员查找问题！");
+				         }
+				     
+		        }
+		    
+		    });
+		    
+	      $('#codeFileFrom').submit();
+		/*
+	         $.ajaxFileUpload({
+		          url:sybp()+'/importedSpecimenAction_importExcel.action',      //需要链接到服务器地址
+		          secureuri:false,
+		          fileElementId:'excelCodeFile',                        //文件选择框的id属性
+		          dataType: 'json',                                     //服务器返回的格式，可以是xml
+		          success: function (data, status){     
+		              if(data &&data.success){
+		            	  $('#specimenFileDialog').dialog('close'); 
+		            	  $('#excelCodeFile').val('');
+		            	  
+		            	  getAnimalSpecimenByStudyNo();
+
+					 		parent.parent.parent.showMessager(1,data.msg,true,5000);
+		            	  
+		              }else{
+		            	$('#errorSpan').html(data.msg);
+		              }
+		          },
+		          error: function (data, status, e){
+		        	  $('#errorSpan').html('文件上传失败，请刷新页面后重试');
+		          }
+	      	});
+	      	*/
+		}else{
+			$('#errorSpan').html('请选择待上传的文件');
+		}
+    }
+   
+</script>
+
+
+	
+	

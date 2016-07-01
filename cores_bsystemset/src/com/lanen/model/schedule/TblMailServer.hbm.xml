@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.schedule">
+    <class name="com.lanen.model.schedule.TblMailServer" table="tblMailServer" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>    
+        
+        <property name="smtpServer" type="java.lang.String">
+            <column name="smtpServer"  length="50"/>
+        </property>
+        
+        <property name="mailCode" type="java.lang.String">
+            <column name="mailCode"  length="50"/>
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password"  length="50"/>
+        </property>
+        <property name="isAuto" type="java.lang.Integer">
+            <column name="isAuto"  />
+        </property>  
+    </class>
+</hibernate-mapping>

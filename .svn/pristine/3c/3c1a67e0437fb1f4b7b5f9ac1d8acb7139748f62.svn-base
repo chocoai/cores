@@ -1,0 +1,29 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/css/bases.css" media="screen" />
+	<!-- 选择剂量组edit/add开始 -->
+	<div id="determofdeathDialog" class="easyui-dialog" title="动物死亡登记" modal="true" closed="true"  draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:380px;height:380px;" closable="true">
+			<div id="determofdeathDialog2" style="display:'';" closable="true">
+		    <div class="edit_table" style="border-collapse:collapse;position: absolute;top:70px;left:30px;">     
+		             确认动物死亡信息录入完毕!
+		   	</div>
+		     <div id="determofdeath" class="edit_table" style="border-collapse:collapse;position: absolute;top:90px;left:30px;">
+             </div>
+             <div class="edit_table" style="border-collapse:collapse;position: absolute;top:260px;left:30px;">     
+		     <table> 
+		      <tr><td>  选择死亡动物 共计：<input id="totalofanimal" type="text"  style="width:30px;border:0px solid #c00;" readonly="true" >只</td></tr>
+		      <tr><td>  动物死亡原因：</td><td><input id="causeofdeath" type="text"   style="width:130px;border:0px solid #c00;" readonly="true"></td></tr>
+		      <tr><td>  动物死亡或解剖时间：</td><td><input id="timeofdeath" type="text"   style="width:100px;border:0px solid #c00;" readonly="true"></td></tr>
+		     </table>       
+		           
+		           
+		   	 </div>
+		     </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="determofdeathSave();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#determofdeathDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->

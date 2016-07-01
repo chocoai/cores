@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+           
+  
+   
+    <bean id="TblAnimalHouseService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblAnimalHouseService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblAnimalHouseService</value>
+       </property>
+   </bean>
+    <bean id="TblTaskTypeFieldService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblTaskTypeFieldService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblTaskTypeFieldService</value>
+       </property>
+   </bean>
+    <bean id="TblTaskTypeService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblTaskTypeService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblTaskTypeService</value>
+       </property>
+   </bean>
+   <bean id="TblTaskTypeLeaderService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblTaskTypeLeaderService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.schdeule.TblTaskTypeLeaderService</value>
+       </property>
+   </bean>
+  <bean id="DictTestItemTypeService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/DictTestItemTypeService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictTestItemTypeService</value>
+       </property>
+   </bean>
+  <bean id="DictStudyTypeService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/DictStudyTypeService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictStudyTypeService</value>
+       </property>
+   </bean>
+	<bean id="CompanyInfoService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/CompanyInfoService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.company.CompanyInfoService</value>
+       </property>
+   </bean>
+   
+</beans>

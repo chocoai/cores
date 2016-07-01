@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限-->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI">/WEB-INF/jsp/userAction/loginUI.jsp</result>
+		</global-results>
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp
+			</result>
+			<result name="menu">/WEB-INF/jsp/userAction/menu.jsp
+			</result>
+			<result name="success">/xls_test.jsp</result>
+		</action>
+		
+		
+	</package>
+</struts>

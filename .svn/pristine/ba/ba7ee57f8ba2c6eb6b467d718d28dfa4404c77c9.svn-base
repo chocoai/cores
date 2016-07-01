@@ -1,0 +1,29 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="schedulePlanListDialog" class="easyui-dialog" title="日程安排" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar3'" style="display:'';width:520px;height:410px;" closable="true">
+			<div id="schedulePlanListDialog2" style="display:'';" closable="true">
+		    
+              <div style="border-collapse:collapse;position: absolute;top:60px;left:10px;width:500px;height:350px;">
+              		<input type="hidden" id="isValidationPara" name="isValidationPara">                                   
+		            <input type="hidden" id="disPlaytype" name="disPlaytype">
+		            <label for="displayStyleTableDis">
+		            	<input id="displayStyleTableDis" name="displayStyle" onclick="tableDisplay();" type="radio" value='1' checked="checked">列表显示
+		            </label>
+		            <label for="displayStyleListDis">
+						<input id="displayStyleListDis" name="displayStyle" onclick="listDisplay();" type="radio" value='2'>表格显示
+                   </label>
+                    <input id="checkbox1" type='checkbox' ${isValidationPara == 1 ?'checked':''}  style="width:30px;vertical-align:middle" onclick="onCheckbox1();" /><a id="checkbox1" href="javascript:onCheckbox1();">显示空白日期</a>
+                         
+              		<div id="scheduleTableList" class="easyui-datagrid"></div>
+              </div>
+                
+		   
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar3">
+		<a  class="easyui-linkbutton" onclick="sign();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  class="easyui-linkbutton" onclick="javascript:$('#schedulePlanListDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">关闭</a>
+	   
+	</div>
+	<!-- 工具栏 结束-->

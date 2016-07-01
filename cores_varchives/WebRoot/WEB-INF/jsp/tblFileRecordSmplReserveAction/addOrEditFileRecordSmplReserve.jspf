@@ -1,0 +1,211 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileRecordSmplReserveDialog" class="easyui-dialog" title="新建留样资料" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:600px;" closable="true">
+		<div id="AddOrEditFileRecordSmplReserveDialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileRecordSmplReserveForm">
+		      	<input id="addOrEditSmplReserve" type="hidden">
+		      	<input id="oneFileRecordId8" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag8" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateSmplReserveRsn" name="operateRsn" type="hidden"/>
+			  <div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:400px;left:30px;background-color: #fff;">归档记录</div>			
+			  <div style="position: absolute; top:488px;left:350px;"
+				  		id="oneFileOperator8ListDiv" style="display:none;height:200px;width:150px;"
+				  		onmouseover="$('#oneFileOperator8ListDiv').css('display','');">
+					<table id="oneFileOperator8List" class="easyui-datagrid" 
+					 style="width:150px;height:250px"
+	       				 data-options="singleSelect:true,showHeader:false,
+	       				 onSelect:function(rowIndex,rowData){
+				  		 	$('#oneFileOperator8').val(rowData.fileOperator);
+				  		 	$('#oneFileOperator8ListDiv').css('display','none');
+				  		 }">
+					    <thead>
+					        <tr>
+					            <th data-options="field:'fileOperator',width:130">历史归档人</th>
+					        </tr>
+					    </thead>
+					</table>
+							
+			  </div>
+			  
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8;margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		<table style="width:100%;" border="0">
+			  			<tr>
+			  		
+			  				<td width="65">供试品类型</td>
+			  				<td colspan="5">
+			  					<select id="smplType" name="smplType" class="easyui-combobox" required="true">
+			  						<option value="农药">农药</option>
+			  						<option value="医药">医药</option>
+			  						<option value="化学品">化学品</option>
+			  					</select>
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td>供试品编号</td>
+			  				<td  colspan='5'><input id="smplCode" class="easyui-validatebox" required="true" name="smplCode" onblur="if($('#addOrEditSmplReserve').val()==1||$('#addOrEditSmplReserve').val()==3){getSmplReserveByCode();}"/></td>
+			  				
+			  			</tr>
+			  			<tr>
+			  				<td>名称：</td>
+			  				<td colspan="5">
+			  					<input id="smplName" name="smplName" onblur="if($('#addOrEditSmplReserve').val()==1){$('#oneArchiveTitle8').val($(this).val());}" class="easyui-validatebox" required="true" style="width:550px;"/>
+			  				</td>
+			  				
+			  			</tr>
+			  			<tr>
+			  				<td>委托单位：</td>
+			  				<td colspan="5">
+			  					<input id="sponsorName2" name="sponsorName" class="easyui-validatebox" required="true" style="width:200px;"	/>
+			  				</td>
+			  			</tr>
+			  			
+			  			<tr>
+			  				<td>报告出具：</td>
+			  				<td colspan="5">
+			  					<input id="reportUnitName" name="reportUnitName" class="easyui-validatebox" required="true" style="width:200px;"/>
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td>提供单位：</td>
+			  				<td colspan="5">
+			  					<input id="smplProvUnitName" name="smplProvUnitName" class="easyui-validatebox" required="true" style="width:200px;"/>
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td>批号：</td>
+			  				<td colspan="5">
+			  					<input id="batchCode" name="batchCode"  class="easyui-validatebox" required="true"/>
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td width="65">留样数量：</td>
+			  				<td colspan="2" >
+			  					<input id="reserveNum" name="reserveNum" class="easyui-validatebox" required="true" 
+			  						style="width:55px;"
+			  						onblur="if(isNaN(value)){value=''}"/>
+			  					<input id="reserveNumUnit" name="reserveNumUnit" required="true"
+				    					class="easyui-combobox"  
+				    					style="width:50px;"/>
+				    			<input id="chooseReserveButton" type="button" onclick="getSmplReserveByCode();" value="留样信息"/>
+			  				</td>
+			  				<td>留样天平：</td>
+			  				<td colspan="2"><input id="reserveBalance" name="reserveBalance" class="easyui-validatebox" required="true"/></td>
+			
+			  			</tr>
+			  			<tr>
+			  				<td >毛重：</td>
+			  				<td colspan="2">
+			  					<input id="gross" name="gross" class="easyui-validatebox" required="true" style="width:55px;"
+			  						onblur="if(isNaN(value)){value=''}"/>
+			  					<input id="grossUnit" name="grossUnit" required="true"
+				    					class="easyui-combobox"  
+				    					style="width:50px;"/>
+				    		
+			  					
+			  				</td>
+			  				<td>毛重天平：</td>
+			  				<td colspan="2"><input id="grossBalance" name="grossBalance" class="easyui-validatebox" required="true"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td>留样容器：</td>
+			  				<td >
+			  					<input id="container" name="container" class="easyui-validatebox" required="true" />
+			  				</td>
+			  				<td width="65">储存条件：</td>
+			  				<td colspan="3">
+			  					<input id="storageCondition" name="storageCondition" class="easyui-validatebox" required="true" style="width:400px;"/>
+			  				</td>
+			  			</tr>
+			  			
+			  			<tr>
+			  				<td>有效期：</td>
+			  				<td >
+			  					<input id="validDate" name="validDate" required="true" class="easyui-datebox"/>
+			  				</td>
+			  				<td>留样日期：</td>
+			  				<td colspan="2">
+			  					<input id="reserveDate" name="reserveDate" required="true" class="easyui-datebox"/>
+			  				</td>
+			  			</tr> 
+			  			<tr>
+			  				<td>留样人：</td>
+			  				<td width="115">
+			  					<input id="reserveMan" name="reserveMan" required="true"/>
+			  				</td>
+			  				<td>接收人：</td>
+			  				<td colspan="2">
+			  					<input id="reserveRecMan" name="reserveRecMan" required="true" 
+			  					class="easyui-combobox"  />
+			  				</td>
+			  			</tr> 				
+			  			
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+	    			<table border="0">
+				    	<tr>
+				    		<td width="100">分类代号：</td>
+				    		<td width="100">
+				    			<input id="oneArchiveTypeCode8" name="tblFileIndex.archiveTypeCode" type="hidden"/>
+				    			<input id="oneArchiveTypeName8" name="tblFileIndex.archiveTypeName" readOnly="readonly" required="true" onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode8').click();}" style="width:72%;"/>
+				    			<input type="button" id="chooseOneArchiveTypeCode8" class="easyui-linkbutton" style="width:30px;" onclick="chooseArchiveType();" value="..."/>
+				    		</td>
+				    		<td width="100">档案编号：</td>
+				    		<td colspan="3" width="300"><input id="oneArchiveCode8" name="tblFileIndex.archiveCode" type="text" required="true" style="100%;"/></td>
+				    	</tr>
+				    	<tr>
+				    			<td width="100">储存位置：</td>
+				    			<td width="100"><input id="oneStorePosition8"  onblur="" required="true" 
+				    			class="easyui-combotree"/>
+				    			<input id="oneStorePosition8L" type="hidden" name="tblFileIndex.storePosition"/></td>
+				    			
+				    			<td width="100">题名：</td>
+				    			<td width="300" colspan="3"><input id="oneArchiveTitle8" name="tblFileIndex.archiveTitle" required="true"  style="width:100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">保存期限：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneKeepDate8" name="keepDate" data-options="width:120,"/>
+							    	<input type="checkbox" class="checkboxC" id="isLong8" name="isLong" checked="checked"
+							    		onclick="if($('#isLong8').attr('checked')=='checked'){$('#oneKeepDate8').datebox('setValue','');$('#oneKeepDate8').datebox('disable');}else{$('#oneKeepDate8').datebox('setValue',$('#todayDate').val());$('#oneKeepDate8').datebox('enable');}">长期
+								
+				    			</td>
+				    			<td width="100">归档人：</td>
+				    			<td width="100">
+				    				<input id="oneFileOperator8" name="fileOperator" required="true" 
+				    				onclick="if($('#addOrEditSmplReserve').val()==1||$('#addOrEditSmplReserve').val()==2||$('#addOrEditSmplReserve').val()==3){displayLastOperateList();}"
+				    					 class="easyui-validatebox" onmouseout="$('#oneFileOperator8ListDiv').css('display','none');"/>
+				    				</td>
+				    			<td width="100">归档日期：</td>
+				    			<td width="100"><input class="easyui-datebox" id="oneFileDate8" name="fileDate" required="true"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">备注：</td>
+				    			<td width="300" colspan="5"><input id="oneRemark8" name="remark" type="text" style="width:100%"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">关键字：</td>
+				    			<td width="300" colspan="3"><input id="oneKeyWord8" name="keyWord" type="text" style="width:100%"/></td>
+				    			
+				    			<td width="100" id="oneDestoryDate8Label" style="display:none;">销毁日期</td>
+				    			<td width="100" id="oneDestoryDate8Label2" style="display:none;"><input class="easyui-datebox" id="oneDestoryDate8" name="destoryDate"/></td>
+				    			
+				    		</tr>
+				    			
+				    </table>
+	    	   </div>
+		    </form>
+		<div id="positionTipCode8"></div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton8" class="easyui-linkbutton" onclick="saveOneFileRecordSmplReserve();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileRecordSmplReserveDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddSmplReserveButton" type="checkbox" class="checkboxC"/><span id="continueAddSmplReserveLabel"></span>
+		<input id="isForValidSmplReserve" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidSmplReserveLabel" style="position:absolute;top:35px;right: 10px;">验证记录</span> 
+	</div>
+	<!-- 工具栏 结束-->

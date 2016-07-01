@@ -1,0 +1,145 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileContentStudyDialog" class="easyui-dialog" title="新建专题档案" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:440px;" closable="true">
+		<div id="AddOrEditFileContentStudyDialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileContentStudyForm">
+		      	<input id="addOrEditStudy" type="hidden">
+		      	<input id="oneFileRecordId" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateRsn" name="operateRsn" type="hidden"/>
+ 			  	
+			  	<div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:233px;left:30px;background-color: #fff;">归档记录</div>		
+			   
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8;margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		<table border="0" width="100%">
+			  			
+			  			<tr >
+			  				<td></td>
+			  				<td align="left" >
+			  					<label for="studyNoType1">
+				  					<input id="studyNoType1" type="radio" onclick="selectStudyType();" name="studyNoType" value="1" checked="checked"/>按专题编号
+			  					</label>
+			  				</td>
+			  				<td >
+			  					<label for="studyNoType2">
+				  					<input id="studyNoType2" type="radio" onclick="selectStudyType();" name="studyNoType" value="2"/>按合同编号
+			  					</label>
+			  				</td>
+			  				
+			  				<td colspan="3" align="right" width="400">
+			  					归档介质：
+								<label for="archiveMediaFlag1">
+									<input id="archiveMediaFlag1" type="radio" name="tblFileRecord.archiveMediaFlag" value="1" checked="checked" 
+									onclick="$('#oneArchiveMedia').val('');$('#oneArchiveMedia').attr('disabled',true);$('#oneArchiveMediaEleCode').attr('disabled',false);"/>纸质
+								</label>
+								<label for="archiveMediaFlag2">
+									<input id="archiveMediaFlag2" type="radio" name="tblFileRecord.archiveMediaFlag" value="2" 
+									onclick="$('#oneArchiveMedia').val('');$('#oneArchiveMedia').attr('disabled',true);$('#oneArchiveMediaEleCode').val('');$('#oneArchiveMediaEleCode').attr('disabled',true);"/>电子
+								</label>
+								<label for="archiveMediaFlag3">
+									<input id="archiveMediaFlag3" type="radio" name="tblFileRecord.archiveMediaFlag" value="3" 
+									onclick="$('#oneArchiveMediaEleCode').val('');$('#oneArchiveMedia').attr('disabled',false);$('#oneArchiveMediaEleCode').attr('disabled',true);"/>其他
+								</label>
+								<input id="oneArchiveMedia" type="text" disabled name="tblFileRecord.archiveMedia" style="width:100px;"/>
+							</td>
+			  			</tr>
+			  			<tr>
+			  				<td width="67"><span id="studyNoLabel">专题编号：</span></td>
+			  				<td colspan="3" align="left" ><input id="studyNo" name="studyNo" onblur="if($('#addOrEditStudy').val()==1||$('#addOrEditStudy').val()==3){getStudyName();}" class="easyui-validatebox" required="true" style="width:350px"/></td>
+			  				<td>电子档编号</td>
+			  				<td><input id="oneArchiveMediaEleCode" type="text" name="tblFileRecord.archiveMediaEleCode" style="width:100px;"/>
+							</td>
+			  			</tr>
+			  			<tr>
+			  				<td><span id="studyNameLabel">专题名称：</span></td>
+			  				<td colspan="5"  align="left" ><input id="studyName" readonly="readonly" name="studyName" class="easyui-validatebox" required="true" style="width:500px;"
+			  				onblur="if($('#oneArchiveTitle').val()==''){$('#oneArchiveTitle').val(value);}"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td>SD：</td>
+			  				<td colspan="5"  align="left"><input id="sdname" name="sdname" readonly="readonly" class="easyui-validatebox" required="true" style="width:350px;"
+			  				onblur="if($('#oneFileOperator').val()==''){$('#oneFileOperator').val(value);}"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td>合同编号：</td>
+			  				<td colspan="5"  align="left"><input id="contractCodeInStudy" name="contractCode" class="easyui-validatebox" required="true"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td><span id="studySponerNameLabel">委托单位：</span></td>
+			  				<td colspan="5"  align="left"><input id="studySponerName" readonly="readonly" name="studySponerName" class="easyui-validatebox" required="true" style="width:500px;"/></td>
+			  			</tr>
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+	    			<table border="0" width="100%">
+	    	<tr>
+	    		<td width="100">分类代号：</td>
+	    		<td width="100">
+	    			<input id="oneArchiveTypeCode" name="archiveTypeCode" type="hidden"/>
+	    			<input id="oneArchiveTypeName" name="archiveTypeName"  required="true" class="easyui-validatebox" onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode').click();}" style="width:72%;"/>
+	    			<input type="button" id="chooseOneArchiveTypeCode" class="easyui-linkbutton" style="width:30px;" onclick="chooseArchiveType();" value="...">
+	    		</td>
+	    		<td width="100">档案编号：</td>
+	    			<td colspan="3" width="300"><input id="oneArchiveCode" name="archiveCode" type="text" required="true" style="100%;"/></td>
+	    		</tr>
+	    		<tr>
+	    			<td width="100">储存位置：</td>
+	    			<td width="100"><input id="oneStorePosition" onblur="" required="true" 
+	    			class="easyui-combotree"/>
+				    <input id="oneStorePositionL" type="hidden" name="storePosition"/></td>
+				    			
+	    			<td width="100">题名：</td>
+	    			<td width="300" colspan="3"><input id="oneArchiveTitle" name="archiveTitle" required="true"  style="width:100%;"/></td>
+	    		</tr>
+	    		<tr>
+	    			<td width="100">立卷人：</td>
+	    			<td width="100">
+	    			<input id="oneArchiveMaker" name="tblFileRecord.archiveMaker" required="true" 
+	    				class="easyui-combobox"  />
+	    						
+	    			</td>
+	    			<td width="100">归档人：</td>
+	    			<td width="100">
+	    				<input id="oneFileOperator" name="tblFileRecord.fileOperator" required="true"
+	    					 class="easyui-validatebox"/>
+	    				</td>
+	    			<td width="100">归档日期：</td>
+	    			<td width="100"><input class="easyui-datebox" id="oneFileDate" name="tblFileRecord.fileDate" required="true"/></td>
+	    		</tr>
+	    		<tr>
+	    			<td width="100">备注：</td>
+	    			<td width="300" colspan="3"><input id="oneRemark" name="tblFileRecord.remark" type="text" style="width:100%"/></td>
+	    			<td width="100">保存期限：</td>
+	    			<td width="100">
+	    				<input class="easyui-datebox" id="oneKeepDate" name="tblFileRecord.keepDate" data-options="width:120,"/>
+				    	<input type="checkbox" class="checkboxC" id="isLong" name="isLong" checked="checked"
+				    		onclick="if($('#isLong').attr('checked')=='checked'){$('#oneKeepDate').datebox('setValue','');$('#oneKeepDate').datebox('disable');}else{$('#oneKeepDate').datebox('setValue',$('#todayDate').val());$('#oneKeepDate').datebox('enable');}">长期
+					
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<td width="100">关键字：</td>
+	    			<td width="300" colspan="3"><input id="oneKeyWord" name="tblFileRecord.keyWord" type="text" style="width:100%"/></td>
+	    			 
+	    			<td width="100" id="oneDestoryDateLabel" style="display:none;">销毁日期</td>
+	    			<td width="100" id="oneDestoryDateLabel2" style="display:none;"><input class="easyui-datebox" id="oneDestoryDate" name="tblFileRecord.destoryDate" type="text"/></td>
+	    			
+	    		</tr>
+	    			
+	    </table>
+	    	   </div>
+		    </form>
+			<div id="positionTipCode"></div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton" class="easyui-linkbutton" onclick="saveOneFileContentStudy();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileContentStudyDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddButton" type="checkbox" class="checkboxC"/><span id="continueAddLabel"></span>
+		<input id="isForValidStudy" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidStudyLabel" style="position:absolute;top:35px;right: 10px;">验证记录 </span>
+	</div>
+	<!-- 工具栏 结束-->

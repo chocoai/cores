@@ -1,0 +1,35 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<property name="dialect">
+		org.hibernate.dialect.SQLServerDialect
+	</property>
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+	<mapping resource="com/lanen/model/Department.hbm.xml" />
+	<mapping resource="com/lanen/model/Module.hbm.xml" />
+	<mapping resource="com/lanen/model/PoolDataId.hbm.xml" />
+	<mapping resource="com/lanen/model/Privilege.hbm.xml" />
+	<mapping resource="com/lanen/model/Regulation.hbm.xml" />
+	<mapping resource="com/lanen/model/Role.hbm.xml" />
+	<mapping resource="com/lanen/model/Systems.hbm.xml" />
+	<mapping resource="com/lanen/model/User.hbm.xml" />
+	<mapping resource="com/lanen/model/UserRoleLog.hbm.xml" />
+	<mapping resource="com/lanen/model/clinicaltest/TblES.hbm.xml" />
+	<mapping resource="com/lanen/model/clinicaltest/TblESLink.hbm.xml" />
+	<mapping resource="com/lanen/model/clinicaltest/TblLog.hbm.xml" />
+	<mapping resource="com/lanen/model/clinicaltest/TblTrace.hbm.xml" />
+	<mapping resource="com/lanen/model/VersionControl.hbm.xml" />
+
+
+
+</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,25 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="studyScheduleDialog" class="easyui-dialog" title="设置专题进度" modal="true" closed="true" 
+		data-options="toolbar:'#studyScheduleDialogToolbar'" style="display:'';width:400px;height:400px;" closable="true">
+	<div id="studyScheduleDialog2" style="display:'';" closable="true">
+		<table style="margin-top:5px;margin-left:5px;" >
+		<tr>
+			<td width="60px;" height="20px;" align="right" >专题编号：</td>
+			<td>
+				<span id="studyNode"></span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" >
+				<table id="studyScheduleTable"></table>
+			</td>
+		</tr>
+		</table>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="studyScheduleDialogToolbar">
+<!--  	<a class="easyui-linkbutton" onclick="" data-options="iconCls:'icon-ok',plain:true">提交</a>-->
+<a class="easyui-linkbutton" onclick="onCloseDialog();" data-options="iconCls:'icon-nook',plain:true">返回</a>
+</div>
+<!-- 工具栏 结束-->

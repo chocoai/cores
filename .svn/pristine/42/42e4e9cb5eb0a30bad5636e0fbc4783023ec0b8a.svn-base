@@ -1,0 +1,116 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addSchedulePlanDialog" class="easyui-dialog" title="日程安排" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:960px;height:410px;" closable="true">
+			<div id="addSchedulePlanDialog2" style="display:'';" closable="true">
+			
+		    <div style="width:550px;height:300px;float: left">
+			  <form id="tblSchedulePlanform" action="" method="post">
+			  <div style="width:150px;height:280px;">
+				 <div id="taskItemTypecomtree" class="easyui-tree" style="border:1px solid #d3d3d3;position: absolute;left:10px;top:110px;width:150px;height:280px;overflow: auto" ></div> 
+			  </div>
+			  
+		   	  <div class="edit_table" style="border-collapse:collapse;position: absolute;top:60px;left:10px;">
+                <input id="SchedulePlanstudyNoPara" type="text" name="tblSchedulePlan.taskCode" class="validatebox" readonly="true"  style="display:none" >
+                <input id="updateSchedulePlanscheduleID"  type="text" name="tblSchedulePlan.scheduleID" class="validatebox" readonly="true"  style="display:none">
+               
+                <table class="TblSchedulePlan" style="width:100%;height:30px;">
+                    <tr>
+                        <td width="80px">任务类别</td>
+                        <td width="130px">
+                            <!-- 	//任务类别 1:委托管理  2：动物试验3：临床检验 4：毒性病理 5：QA管理 6：供试品管理 -->
+                            <select id="taskKind" class="easyui-combobox" style="width:120px;height:22px;" editable="false" panelHeight="105" name="tblSchedulePlan.taskKind" >
+                        		<option value="1">委托管理</option>
+                        		<option value="2">动物试验</option>
+                        		<option value="3">临床检验 </option>
+                        		<option value="4">毒性病理</option>
+                        		<option value="5">QA管理</option>
+                        		<option value="6">供试品管理</option>
+                        		<option value="7">分析</option>
+                        		<option value="8">生态毒理</option>
+                              </select>
+                        </td>
+                  
+                       <td width="80px">任务名称</td>
+                        <td width="130px">
+                            <input id="taskName" type="text" name="tblSchedulePlan.taskName" style="border:solid 1px #d3d3d3;height:22px;width:120px;" onBlur="sameTaskName();" >
+                        </td>
+                        
+                        <td width="100px">日程预览&nbsp;&nbsp;</td>
+                        <td width="355px">   
+                        	<input type="hidden" id="isValidationPara" name="isValidationPara">                                   
+		              		<input type="hidden" id="disPlaytype" name="disPlaytype">
+		              		<label for="tableDisplay2Id">
+		              			<input id="tableDisplay2Id" name="displayStyle" onclick="tableDisplay2();" type="radio" >列表显示
+		              		</label>
+		              		<label for="listDisplay2Id">
+								<input id="listDisplay2Id" name="displayStyle" onclick="listDisplay2();" type="radio" checked="checked">表格显示
+		              		</label>
+                       		<input id="checkbox2Id" type='checkbox' ${isValidationPara == 1 ?'checked':''}  style="width:30px;vertical-align:middle" onclick="onCheckbox2();" /><a id="checkboxa2" href="javascript:onCheckbox2();">显示空白日期</a>
+                         
+                        </td>
+                         
+                        </tr>
+               			<tr><td colspan="6"><p style="color:#e8e8e8;height: 1px;">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p></td></tr>
+                      </table>
+                  </div>
+                  <div class="edit_table2" style="border-collapse:collapse;position: absolute;top:110px;left:180px;">
+                     <table>
+                    <tr><td><input id="selectOne" name="select" type="radio" value="1" onclick="SchedulePlannumber();" checked />&nbsp;&nbsp;单次日程</td>
+                    <td><input id="selectMore" name="select" type="radio" value="2" onclick="SchedulePlannumber();" />&nbsp;&nbsp;周期日程</td></tr>
+                    <tr><td colspan="2" ><p style="color:#e8e8e8;height: 5px;">   -------------------------------------------------------------</p></td></tr>
+                    <tr id="taskEndTypeTr" height="40px;">
+                    <td width="100px;"><input id="selectTime" checked name="taskEndType" type="radio" value="1" onclick="SelectTaskEndType();"/>&nbsp;&nbsp;指定日期结束</td>
+                    <td width="150px;"><input id="selectNum" name="taskEndType" type="radio" value="2" onclick="SelectTaskEndType();" />&nbsp;&nbsp;指定次数结束</td></tr>
+                    
+                     <tr><td width="100px;" ><input id="startTimeTr" style="width:80px;border:1px;border-bottom-style:none;border-top-style:10px;border-left-style:none;border-right-style:none;" readOnly="true"  value="执行日期"/></td>
+                        <td width="150px;">
+                            	<input id="startTime" type="text" name="tblSchedulePlan.startTime" class="easyui-datebox" style="width:100px" /> 
+                        </td>
+                     </tr>
+                      <tr id="endTimeTr">
+                      <td width="100px;">结束日期</td>
+                        <td width="150px;">
+                            	<input id="endTime" type="text" name="tblSchedulePlan.endTime" class="easyui-datebox" style="width:100px"  /> 
+                        </td>
+                     </tr>
+                    
+                     <tr id="periodTr" >
+                     
+                        <td width="250px;" colspan="2" style="text-align: center;height: 30px;">
+                                                                      每<input id="period" type="text" data-options="validType:'signlessInteger'"  class="easyui-numberbox" name="tblSchedulePlan.period" style="width:30px;height:22px;border:solid 1px #d3d3d3" >
+                            <select id="periodUnit" class="easyui-combobox" style="width:40px;height:22px;" editable="false" panelHeight="105" name="tblSchedulePlan.periodUnit" >
+                        		<option value="1">天</option>
+                        		<option value="2">周</option>
+                        		<option value="3" selected="true">月</option>
+                        		<option value="4">年</option>
+                              </select>
+                                                                                  执行一次
+                          <span  id="taskEndNumTr" >
+                          ,共执行<input id="taskEndNum" type="text" name="tblSchedulePlan.taskEndNum" style="border:solid 1px #d3d3d3;height:22px;width:40px;" class="easyui-numberbox" />次
+                              </span>
+                              &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                       
+                    </tr>
+                    </table>
+                    </div>
+                 <div style="border-collapse:collapse;position: absolute;top:365px;left:175px;width:280px;">
+                	<nobr>
+                	描述：<input id="remark" name="tblSchedulePlan.remark" style="width:250px;height:22px;font-size:13px;">
+                	</nobr> 
+                 </div>
+              <div style="border:1px solid #d3d3d3;border-collapse:collapse;position: absolute;top:110px;left:480px;width:450px;height:280px;">
+              		<table id="scheduleTable" style="border-collapse:collapse;border:medium;position: absolute;top:100px;left:480px;width:450px;height:280px;overflow: auto"></table>
+              </div>
+               </form>	   
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="schedulePlanDialogSave();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addSchedulePlanDialog').dialog('close');window.location.reload();$('#continueAddButton').prop('checked', false);" data-options="iconCls:'icon-back',plain:true">取消</a>
+	   	<a id="selectOtherButton" class="easyui-linkbutton" onclick="schedulePlanSelectOther();" data-options="iconCls:'',plain:true">查看同类日程</a>
+	 	&nbsp;&nbsp;<input id="continueAddButton" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel">连续添加</span>
+	</div>
+	<!-- 工具栏 结束-->

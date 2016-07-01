@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblStudyPlan" table="tblStudyPlan" >
+        <id name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </id>
+        <property name="studyTypeCode" type="java.lang.String">
+            <column name="studyTypeCode"  length="20"/>
+        </property>
+        <property name="studyName" type="java.lang.String">
+            <column name="studyName"  length="200"/>
+        </property>
+        <property name="studydirector" type="java.lang.String">
+            <column name="studydirector"  length="20"/>
+        </property>
+        <property name="isGLP" type="java.lang.Integer">
+            <column name="isGLP" />
+        </property>
+        <property name="animalType" type="java.lang.String">
+            <column name="animalType"  length="20"/>
+        </property>
+        <property name="animalStrain" type="java.lang.String">
+            <column name="animalStrain"  length="20"/>
+        </property>
+        <property name="studyStartDate" type="timestamp">
+            <column name="studyStartDate" />
+        </property>
+        <property name="animalImportDate" type="timestamp">
+            <column name="animalImportDate" />
+        </property>
+        <property name="preStudyDate" type="timestamp">
+            <column name="preStudyDate" />
+        </property>
+        <property name="studyBeginDate" type="timestamp">
+            <column name="studyBeginDate" />
+        </property>
+         <property name="studyGroupingDate" type="timestamp">
+            <column name="studyGroupingDate" />
+        </property>
+        <property name="dosageUnit" type="java.lang.String">
+            <column name="dosageUnit"  length="20"/>
+        </property>
+        <property name="smplCode" type="java.lang.String">
+            <column name="smplCode"  length="20"/>
+        </property>
+        <property name="qa" type="java.lang.String">
+            <column name="qa"  length="20"/>
+        </property>
+        <property name="pathDirector" type="java.lang.String">
+            <column name="pathDirector"  length="20"/>
+        </property>
+        <property name="clinicalTestDirector" type="java.lang.String">
+            <column name="clinicalTestDirector"  length="20"/>
+        </property>
+        <property name="studyState" type="java.lang.String">
+            <column name="studyState"  length="20"/>
+        </property>
+        <property name="scheduleState" type="java.lang.Integer">
+            <column name="scheduleState"/>
+        </property>
+        
+        <property name="temp" type="integer">
+            <column name="temp" />
+        </property>
+        <property name="client" type="java.lang.String">
+            <column name="client"  length="100"/>
+        </property>
+        <property name="isValidation" type="integer">
+            <column name="isValidation" />
+        </property>
+        <property name="animalCodeMode" type="integer">
+            <column name="animalCodeMode" />
+        </property>
+        
+        <property name="abnVisceraAnatomyCheck" type="integer">
+            <column name="abnVisceraAnatomyCheck" />
+        </property>
+        <property name="abnVisceraFixedFlag" type="integer">
+            <column name="abnVisceraFixedFlag" />
+        </property>
+        <property name="abnVisceraHistopathCheckFlag" type="integer">
+            <column name="abnVisceraHistopathCheckFlag" />
+        </property>
+        <property name="adminSiteHistopathCheck" type="integer">
+            <column name="adminSiteHistopathCheck" />
+        </property>
+        <property name="abnVisceraWeighFlag" type="integer">
+            <column name="abnVisceraWeighFlag" />
+        </property>
+        <property name="studyFinishDate" type="timestamp">
+            <column name="studyFinishDate" />
+        </property>
+        <property name="pathSD" type="java.lang.String">
+            <column name="pathSD"  length="20"/>
+        </property>
+        <property name="histopathReviewRequirement" type="integer">
+            <column name="histopathReviewRequirement" />
+        </property>
+        <property name="histopathReviewer" type="java.lang.String">
+            <column name="histopathReviewer"  length="20"/>
+        </property>
+        
+          <property name="volumeUnit" type="java.lang.String">
+            <column name="volumeUnit"  length="20"/>
+        </property>
+          <property name="thicknessUnit" type="java.lang.String">
+            <column name="thicknessUnit"  length="20"/>
+        </property>
+        <property name="isNoGender" type="integer">
+            <column name="isNoGender" />
+        </property>
+        <property name="isIndentical" type="integer">
+            <column name="isIndentical" />
+        </property>
+        <property name="doseSettingFlag" type="integer">
+            <column name="doseSettingFlag" />
+        </property>
+        
+        <!-- dictStudyType,本类与DictStudyType的多对一的关系 
+        <many-to-one name="dictStudyType" column="studyTypeCodeId" class="DictStudyType" lazy="false"></many-to-one>
+        -->
+       
+        <!-- tblDoseSettings ,本类与TblDoseSetting 的一对多的关系 -->
+        <set name="tblDoseSettings">
+           <key column="studyNo"></key>
+           <one-to-many class="TblDoseSetting"/>
+        </set>        
+       
+        <!-- tblDissectPlans ,本类与TblDissectPlan 的一对多的关系 -->
+        <set name="tblDissectPlans" >
+           <key column="studyNo"></key>
+           <one-to-many class="TblDissectPlan"/>
+        </set>        
+       
+        <!-- tblAnimals ,本类与TblAnimal 的一对多的关系 -->
+        <set name="tblAnimals">
+           <key column="studyNo"></key>
+           <one-to-many class="TblAnimal"/>
+        </set>        
+       
+        <!-- tblTestIndexPlans ,本类与TblTestIndexPlan 的一对多的关系 -->
+        <set name="tblTestIndexPlans">
+           <key column="studyNo"></key>
+           <one-to-many class="TblTestIndexPlan"/>
+        </set>        
+        <!-- tblClinicalTestReqs ,本类与TblClinicalTestReq 的一对多的关系 -->
+        <set name="tblClinicalTestReqs"  order-by=" beginDate DESC">
+           <key column="studyNoId"></key>
+           <one-to-many class="TblClinicalTestReq"/>
+        </set>        
+        
+        
+    </class>
+</hibernate-mapping>

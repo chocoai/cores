@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.contract.contract">
+    <class name="com.lanen.model.contract.TblReportRecord" table="tblReportRecord" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20"/>
+        </id>
+        <property name="contractCode" type="java.lang.String">
+            <column name="contractCode"  length="50" />
+        </property>
+        <property name="studyCode" type="java.lang.String">
+            <column name="studyCode"  length="50" />
+        </property>
+        <property name="reportCode" type="java.lang.String">
+            <column name="reportCode"  length="50" />
+        </property>
+        <property name="reportName" type="java.lang.String">
+            <column name="reportName"  length="200" />
+        </property>
+        <property name="finishDate" type="java.sql.Timestamp">
+            <column name="finishDate" />
+        </property>
+        <property name="sd" type="java.lang.String">
+            <column name="sd"  length="50" />
+        </property>
+        <property name="submitter" type="java.lang.String">
+            <column name="submitter" length="50" />
+        </property>
+        <property name="submitDate" type="java.sql.Timestamp">
+            <column name="submitDate" />
+        </property>
+        <property name="deliverer" type="java.lang.String">
+            <column name="deliverer" length="50" />
+        </property>
+        <property name="deliveryDate" type="java.sql.Timestamp">
+            <column name="deliveryDate" />
+        </property>
+        <property name="receiver" type="java.lang.String">
+            <column name="receiver" length="50" />
+        </property>
+        <property name="receiveDate" type="java.sql.Timestamp">
+            <column name="receiveDate" />
+        </property>
+        <property name="deliveryMode" type="java.lang.String">
+            <column name="deliveryMode" length="50" />
+        </property>
+        <property name="deliveryinfo" type="java.lang.String">
+            <column name="deliveryinfo" length="200" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" length="200" />
+        </property>
+        
+        <!-- tblContract,本类与TblContract的多对一的关系 
+        <many-to-one name="tblContract" column="contractCodeId" class="TblContract" lazy="false"></many-to-one>
+        -->
+     
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOrEditQAFileTypeDialog" class="easyui-dialog" title="新增文件类型" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:460px;height:210px;" closable="true">
+			<div id="addOrEditQAFileTypeDialog2" style="display:'';" closable="true">
+			
+			
+		   	<form id="oneQAFileTypeTable" style="position: relative;top:10px;">
+		   		<table width="400px">
+		   			<tr>
+		   				<td>
+		   					<input id="updateFileTypeID" type="text" name="fileTypeId" style="display:none"/>
+		   				</td>
+		   			</tr>
+			   		<tr>
+						<td>文件类型</td>
+						<td>
+							<select id="oneFileType" data-options="editable:false" class="easyui-combobox" name="fileType" style="width:90px;">
+							    <option value="1">法规</option>
+							    <option value="2">指导原则</option>
+							    <option value="3">SOP</option>
+							</select>
+			   			</td>
+			   			<td>父类</td>
+			   			<td>
+			   				<select id="oneParentFileTypeID" data-options="editable:false" class="easyui-combobox" name="parentFileTypeId" style="width:180px;">
+							
+							</select>
+			   			</td>
+					</tr>
+		   			<tr>
+		   				<td style="text-align: right;">类别名称</td>
+		   				<td colspan="3">
+		   					<input id="oneFileTypeName" name="fileTypeName" required="true" style="width:315px;height:20px;"/>
+		   					
+		   				</td>
+		   			</tr>
+		   		
+		   		</table>
+		   	
+		   	
+		   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveOrUpdateOneQAFileType();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  id="cancelButton" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditQAFileTypeDialog').dialog('close');$('#QACheckTableContents').datagrid('reload');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	<input id="continueAddButton" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel">连续添加</span>
+	</div>
+	<!-- 工具栏 结束-->

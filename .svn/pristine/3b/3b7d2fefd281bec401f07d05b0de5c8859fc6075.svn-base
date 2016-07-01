@@ -1,0 +1,46 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- path edit/add  start -->
+<div id="editCompanyInfoDialog" class="easyui-dialog" title="编辑公司信息" modal="true" closed="true"  draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:402px;height:257px;" closable="true">
+	<div id="editCompanyInfoDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<!-- 
+				<input type="hidden" id="addOrEdit"/>
+			 -->
+			<form id="companyInfoEditForm" action="" method="post"
+				enctype="multipart/form-data" theme="simple">
+		   	
+		   	  <table>
+		   	 		 <tr>
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">公司名称：</td>
+        				<td>
+        					 <input id="companyName" type="text" name="companyName" 
+                        	 class="easyui-validatebox" style="width:260px;" data-options="validType:'maxLength[100]'"
+                        	required="true" missingMessage="必填项"  />
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;" >公司logo：</td>
+        				<td >
+						 <input id="uploadImg" type="file" name="uploadImg" accept=".jpg,.jpeg,.png,.gif"
+                        	 class="easyui-validatebox" style="width:260px;"
+                        	required="true" missingMessage="必填项" />
+       				 	</td>
+        			</tr>
+        			
+        			
+        			
+        		</table>
+		    </form>
+		</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a class="easyui-linkbutton" onclick="saveCompanyInfo();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#editCompanyInfoDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	
+	
+</div>
+<!-- 工具栏 结束-->
+	</div>
+</div>
+<!-- path edit/add end -->

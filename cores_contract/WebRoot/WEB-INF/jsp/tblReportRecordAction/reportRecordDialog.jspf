@@ -1,0 +1,117 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+<div id="reportRecordDialog" class="easyui-dialog" title="报告登记" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:455px;height:515px;" closable="true">
+	<div id="reportRecordDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0; ">
+			<input type="hidden" id="reportRecordAddOrEdit"/>
+			<form id="reportRecordAddEditForm" name="reportRecordAddEditForm" action="" method="post">
+		   	  <input type="hidden" id="theid" name="id" >
+		   	  <table class="table0" width="100%">
+        			<tr style="display:none;">
+        				<td width="80px;" align="right">合同编号</td>
+        				<td>
+        				    <!--  type="hidden"  -->
+        				    <input  type="text" id="thecontractCode" name="contractCode" value="${contractCode}" />
+       				 	</td>
+        			</tr>
+        			<tr >
+        				<td width="80px;" align="right" height="20px;" >项目编号</td>
+        				<td>
+        				   <input id="studyCode" name="studyCode" style="height:19px;width:260px;">  
+        				</td>
+        			</tr>
+        			<tr >
+        				<td align="right" height="20px;" >报告编号</td>
+        				<td>
+        				    <input type="hidden" id="reportCodecheckName" >
+                        	<input id="reportCode" type="text" name="reportCode"   
+                        	 class="easyui-validatebox" style="width:256px;" data-options="validType:'maxLength[200]'"
+                        	required="true" missingMessage="必填项" 
+                        	validType="remotett[sybp()+'/tblReportRecordAction_reportCodecheckName.action','reportCode','#reportCodecheckName']" />
+        				  <!-- 
+        				    <input id="reportCode" type="text" name="reportCode" class="easyui-validatebox" data-options="validType:'maxLength[180]'" required="true" style="width:260px;"></input>
+        				   -->
+        				
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right" height="20px;" >报告名称</td>
+        				<td>
+        				   <input id="reportName" type="text" name="reportName" class="easyui-validatebox" data-options="validType:'maxLength[180]'" required="true" style="width:256px;">
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right" height="20px;"  >报告完成日期</td>
+        				<td><input id="finishDate" type="text" name="finishDate"  class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right" height="20px;" style="height:19px;width:80px;" >提交人 </td>
+        				<td>
+        				 <input id="submitter" name="submitter" style="width:80px;height:19px;">
+        				 <!-- 
+        				 <input id="submitter" type="text" name="submitter" class="easyui-validatebox" data-options="validType:'maxLength[180]'" required="true" style="width:260px;">
+        				  -->
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right" height="20px;" >提交时间</td>
+        				<td><input id="submitDate" type="text" name="submitDate"  class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        			
+        			<tr>
+        				<td align="right" height="20px;"  >交付人</td>
+        				<td>
+        				 <input id="deliverer" type="text" name="deliverer" class="easyui-validatebox" data-options="validType:'maxLength[180]'" required="true" style="width:76px;height:16px;">
+        				</td>
+        			</tr>
+        			
+        			<tr>
+        				<td align="right" height="20px;"  > 交付时间</td>
+        				<td><input id="deliveryDate" type="text" name="deliveryDate"  class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        			
+        			<tr>
+        				<td align="right" height="20px;"  >接收人</td>
+        				<td>
+        				 <input id="receiver" type="text" name="receiver" class="easyui-validatebox" data-options="validType:'maxLength[180]'" required="true" style="width:76px;height:16px;">
+        				</td>
+        			</tr>
+        			
+        			<tr>
+        				<td align="right" height="20px;"  > 接收时间</td>
+        				<td><input id="receiveDate" type="text" name="receiveDate"  class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        			
+        			<tr>
+        				<td align="right" height="20px;" >交付方式</td>
+        				<td>
+        				 <input id="deliveryMode" name="deliveryMode" style="width:160px;height:19px;">
+        				</td>
+        			</tr>
+        			
+        			<tr>
+        				<td align="right" height="20px;"  >交付相关信息</td>
+        				<td>
+        				 <input id="deliveryinfo" type="text" name="deliveryinfo" class="easyui-validatebox" data-options="validType:'maxLength[180]'" style="width:256px;">
+        				</td>
+        			</tr>
+        			
+        			<tr>
+        				<td align="right" >备注</td>
+        				<td><textarea id="remark" name="remark" class="easyui-validatebox" data-options="validType:'maxLength[350]'"  rows="3" cols="30"></textarea>
+						</td>
+        			</tr>
+        		</table>
+		    </form>
+			<a id="reportRecordDialogAddEdit_event"></a>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogContractSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton" onclick="onDialogContractclose();" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 试验计划 edit/add结束 -->

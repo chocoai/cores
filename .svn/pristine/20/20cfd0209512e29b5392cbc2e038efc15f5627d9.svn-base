@@ -1,0 +1,28 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addQAFileAttachmentDialog" class="easyui-dialog" title="新增文件附件" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:520px;height:400px;" closable="true">
+			<div id="addQAFileAttachmentDialog2" style="display:'';" closable="true">
+			
+			   	<form id="oneQAFileAttachment" name="oneQAFileAttachment"  enctype="multipart/form-data" theme="simple" action="" method="post">
+			   		
+					<input id="theUploadFile" type="hidden" name="fileRegId"/>
+			   	 	<div style="border: 0px solid #c8c8c8;">
+			   	 		
+			   	 		<div id="fileAttachments" class="easyui-datagrid"></div>
+			   	 		文件附件：
+			   	 		<input id="attachmentFile" type="file"  name="attachment" class="easyui-validatebox" required="true" missingMessage="请选择文件" style="width:270px;">
+			   	 		<a  class="easyui-linkbutton" onclick="onDialogAttachmentSaveButton();" data-options="iconCls:'icon-add',plain:true">上传</a>
+			
+			   	 	</div>
+			   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+	<!-- 
+		<a  class="easyui-linkbutton" onclick="saveOrUpdateOneQAFileReg();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  id="studyGroupCancelButton" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditQAFileRegDialog').dialog('close');window.location.reload();" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	<input id="continueAddButton2" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel2">连续添加</span>
+	 -->
+	</div>
+	<!-- 工具栏 结束-->

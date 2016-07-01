@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblVisceraQueRu" table="tblVisceraQueRu" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="sessionId" type="java.lang.String">
+            <column name="sessionId" length="20" />
+        </property>
+		<property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+		<property name="animalCode" type="java.lang.String">
+            <column name="animalCode" length="20" />
+        </property>
+		<property name="visceraType" type="java.lang.Integer">
+            <column name="visceraType" />
+        </property>
+		<property name="visceraCode" type="java.lang.String">
+            <column name="visceraCode" length="20" />
+        </property>
+		<property name="visceraName" type="java.lang.String">
+            <column name="visceraName" length="60" />
+        </property>
+		<property name="subVisceraCode" type="java.lang.String">
+            <column name="subVisceraCode" length="20" />
+        </property>
+		<property name="subVisceraName" type="java.lang.String">
+            <column name="subVisceraName" length="60" />
+        </property>
+		<property name="missingRsn" type="java.lang.String">
+            <column name="missingRsn" length="200" />
+        </property>
+		<property name="anatomyCheckId" type="java.lang.String">
+            <column name="anatomyCheckId" length="20" />
+        </property>
+		
+    </class>
+</hibernate-mapping>

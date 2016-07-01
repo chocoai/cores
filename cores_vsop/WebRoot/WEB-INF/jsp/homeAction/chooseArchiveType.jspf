@@ -1,0 +1,15 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseArchiveTypeDialog" class="easyui-dialog" title="选择分类代号" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:500px;height:320px;" closable="true">
+		<div id="chooseArchiveTypeDialog2" style="display:'';" closable="true">
+		   	<div id="dictArchiveTypeTable" class="easyui-datagrid"></div>
+		     
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a class="easyui-linkbutton" onclick="chooseOneArchiveType();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#chooseArchiveTypeDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		
+	</div>
+	<!-- 工具栏 结束-->

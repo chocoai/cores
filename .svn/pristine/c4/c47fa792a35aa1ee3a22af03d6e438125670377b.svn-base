@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cores_bsystemset"
+  id="myeclipse.1408953851452"
+  context-root="/cores_bsystemset"
+  j2ee-spec="5.0"
+  archive="cores_bsystemset.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

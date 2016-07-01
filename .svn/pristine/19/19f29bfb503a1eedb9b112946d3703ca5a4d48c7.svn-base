@@ -1,0 +1,58 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="dialect">
+			org.hibernate.dialect.SQLServerDialect
+		</property>
+		<!-- 提高hibernate的CRUD速度 -->
+		<property name="hibernate.jdbc.fetch_size">50</property>
+		<property name="hibernate.jdbc.batch_size">30</property>
+	
+		<!-- 其他配置 -->
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		
+		
+		<!-- 每个数据库有自己的pooldataid表 -->
+		<mapping resource="com/lanen/model/clinicaltest/PoolDataId.hbm.xml" />
+		 
+		
+		<!-- QA -->
+		<mapping resource="com/lanen/model/qa/QafileType.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QalearnTask.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkPlanHis.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QastudyChkIndex.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkReportReader.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QareChkRecord.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QafileReg.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkPlan.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QafileAttachment.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkIndex.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkReport.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QalearnTaskFile.hbm.xml" />
+		<mapping
+			resource="com/lanen/model/qa/QachkPlanChangeIndex.hbm.xml" />
+		<mapping
+			resource="com/lanen/model/qa/QaapprovalOpinion.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/TblStudyFileDis.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/TblStudyFile.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/TblTaskType.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/TblStudyFileIndex.hbm.xml" />
+
+		<mapping resource="com/lanen/model/qa/QachkReportRecord.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QafileRegReader.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkRecord.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkTblReg.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/QachkSop.hbm.xml" />
+		
+		<mapping resource="com/lanen/model/qa/QalearnTaskFileReadRecord.hbm.xml" />
+		<mapping resource="com/lanen/model/qa/TblStudyPlanReadRecord.hbm.xml" />
+		
+		
+		
+	</session-factory>
+</hibernate-configuration>

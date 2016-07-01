@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblBalCalibrationPoint" table="tblBalCalibrationPoint" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+       
+        <property name="calType" type="java.lang.Integer">
+            <column name="calType" />
+        </property>
+        <property name="calCheckPoint" type="java.lang.Integer">
+            <column name="calCheckPoint"  />
+        </property>
+        
+    </class>
+</hibernate-mapping>

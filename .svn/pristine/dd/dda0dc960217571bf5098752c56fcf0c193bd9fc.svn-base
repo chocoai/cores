@@ -1,0 +1,25 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseApprovalChangeDialog" class="easyui-dialog" title="选择批准修改项" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar8'" style="display:'';width:350px;height:230px;" closable="true">
+			<div id="chooseApprovalChangeDialog2" style="display:'';" closable="true">
+		    
+			 
+                 <span id="approvalChangeResonLabel" style="height:30px;width:260px; overflow:hidden;position: relative;top:10px;"> </span>
+                 
+                    <div id="approvalItemTable" style="height:100px;width:260px; overflow:hidden;position: relative;top:30px;">
+                    		 选择审批申请范围<br/>
+                      		<input id="justStudyPlan" type="radio" name="approvalChangeScope"  value="0"/>仅审批专题(不含日程)审批<br/>
+                      		<input id="justSchedule" type="radio" name="approvalChangeScope"  value="1"/>仅审批日程申请<br/>
+                      		<input id="bothOfStudyAndSchedule" type="radio" name="approvalChangeScope"  value="2"/>审批专题和日程审批<br/>
+                      	
+            		</div>
+               
+		    
+		  </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar8">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="javascript: $('#applyFlag').val(1); qm_showQianmingDialog('allowApprovalRevise');" data-options="iconCls:'icon-ok',plain:true">同意</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="rejectApplyChange();" data-options="iconCls:'icon-cancel',plain:true">拒绝</a>
+	</div>
+	<!-- 工具栏 结束-->

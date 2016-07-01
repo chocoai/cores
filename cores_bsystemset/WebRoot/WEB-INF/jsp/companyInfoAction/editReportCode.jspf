@@ -1,0 +1,43 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- path edit/add  start -->
+<div id="editReportCodeDialog" class="easyui-dialog" title="编辑报告编号" modal="true" closed="true"  draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:402px;height:257px;" closable="true">
+	<div id="editReportCodeDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<!-- 
+				<input type="hidden" id="addOrEdit"/>
+			 -->
+			<form id="reportCodeEditForm" action="" method="post">
+		   	  <input id="reason" name="reason" type="hidden"/>
+		   	  <table>
+		   	 		<tr>
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">报告类型：</td>
+        				<td>
+        					<input  id="oneId" type="hidden" name="id"/>
+        					<input id="reportName" type="text" readonly="readonly" name="reportName" />
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;" >报告编号：</td>
+        				<td >
+						 <input id="number" type="text" name="number" 
+                        	 class="easyui-validatebox" style="width:260px;" required="true" missingMessage="必填项" />
+       				 	</td>
+        			</tr>
+        			
+        			
+        			
+        		</table>
+		    </form>
+		</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a class="easyui-linkbutton" onclick="saveOneReportCode();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#editReportCodeDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	
+	
+</div>
+<!-- 工具栏 结束-->
+	</div>
+</div>
+<!-- path edit/add end -->

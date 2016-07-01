@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblTiprpAppData" table="tblTiprpAppData" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="StudyNo" type="java.lang.String">
+            <column name="StudyNo" length="20" />
+        </property>
+         <property name="AppSn" type="integer">
+            <column name="AppSn"  />
+        </property>
+         <property name="AniCode" type="java.lang.String">
+            <column name="AniCode" length="10" />
+        </property>
+        <property name="AniWeight" type="java.lang.String">
+            <column name="AniWeight" length="10" />
+        </property>
+        <property name="SmplWeight" type="java.lang.String">
+            <column name="SmplWeight" length="10" />
+        </property>
+        <property name="WeighUnit" type="java.lang.String">
+            <column name="WeighUnit" length="10" />
+        </property>
+        <property name="CapsNum" type="integer">
+            <column name="CapsNum"  />
+        </property>
+         <many-to-one name="tblTiprpAppInd" column="StudyNoId" class="TblTiprpAppInd" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

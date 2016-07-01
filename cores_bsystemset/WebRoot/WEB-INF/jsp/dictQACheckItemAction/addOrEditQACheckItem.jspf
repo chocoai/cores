@@ -1,0 +1,42 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOrEditQACheckItemDialog" class="easyui-dialog" title="新增检查项" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:260px;height:200px;" closable="true">
+			<div id="addOrEditQACheckItemDialog2" style="display:'';" closable="true">
+			
+		   	<form id="oneQACheckItem" >
+		   		<table >
+		   			<tr>
+		   				<td>		   			
+		   			 	  <input id="updateChkItemId"  type="text" name="chkItemId" class="validatebox" readonly="true"  style="display:none">
+		   				</td>
+		   			</tr>
+		   			<tr>
+		   				<th style="text-align: right;">检查项分类</th>
+		   				<td>
+		   					<select id="oneChkItemType" data-options="editable:false" class="easyui-combobox" name="chkItemType">
+    							<option value="1">方案</option>
+    							<option value="2">报告</option>
+    							<option value="3">变更</option>
+							    <option value="4">基于研究的检查项</option>
+							</select>
+		   				</td>
+		   				
+		   			</tr>
+		   			<tr >
+		   				<th style="text-align: right;">检查项名称</th>
+		   				<td><input id="oneChkItemName" name="chkItemName" required="true"/></td>
+		   			</tr>
+		   		
+		   		</table>
+		   	
+		   	
+		   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveOrUpdateOneQACheckItem();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  id="studyGroupCancelButton" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditQACheckItemDialog').dialog('close');window.location.reload();" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	<input id="continueAddButton" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel">连续添加</span>
+	</div>
+	<!-- 工具栏 结束-->

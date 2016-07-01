@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblTestIndexPlanVersion" table="tblTestIndexPlanVersion" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="testItem" type="java.lang.Integer">
+            <column name="testItem" />
+        </property>
+        <property name="testIndex" type="java.lang.String">
+            <column name="testIndex"  length="50"/>
+        </property>
+        <property name="testIndexAbbr" type="java.lang.String">
+            <column name="testIndexAbbr"  length="20"/>
+        </property>
+        <property name="precision" type="java.lang.Integer">
+            <column name="precision1" />
+        </property>
+        <property name="version" type="integer">
+            <column name="version" />
+        </property>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

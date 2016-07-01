@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblWeighInd" table="tblWeighInd" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>    
+         <property name="StudyNo" type="java.lang.String">
+             <column name="StudyNo"  length="20"/>
+        </property>
+        <property name="WeighSn" type="java.lang.Integer">
+            <column name="WeighSn" />
+        </property>
+        <property name="WeightUnit" type="java.lang.String">
+            <column name="WeightUnit"  length="20"/>
+        </property>
+        <property name="WeighDate" type="timestamp">
+            <column name="WeighDate" />
+        </property>
+        <property name="SignStatus" type="java.lang.Integer">
+            <column name="SignStatus" />
+        </property>
+        <property name="VerStatus" type="java.lang.Integer">
+            <column name="VerStatus" />
+        </property>
+        <property name="InputMode" type="java.lang.Integer">
+            <column name="InputMode" />
+        </property>
+       <property name="BalCode" type="java.lang.String">
+            <column name="BalCode"  length="50"/>
+        </property>
+        <property name="HostName" type="java.lang.String">
+            <column name="HostName"  length="50"/>
+        </property>
+        
+        <!-- tblTiprpAppDatas,本类与tblTiprpAppDatas的一对多的关系 -->
+        <set name="tbLWeighDatas" >
+           <key column="tblWeighIndId"></key>
+           <one-to-many class="TbLWeighData"/>
+        </set>
+    </class>
+</hibernate-mapping>

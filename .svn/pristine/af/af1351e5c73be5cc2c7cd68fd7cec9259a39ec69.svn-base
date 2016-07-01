@@ -1,0 +1,14 @@
+* { margin: 0; padding: 0;}
+html,body{
+	height:100%;
+	color:#000;
+	font-size:12px;
+	font-family:SimSun; /*microsoft yahei;*/
+}
+a{
+	text-decoration:none;
+}
+
+input.checkboxC{
+	vertical-align:middle;
+}  

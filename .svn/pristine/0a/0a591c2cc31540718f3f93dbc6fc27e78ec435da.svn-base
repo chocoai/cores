@@ -1,0 +1,15 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="studyProgramApprovalDialog" class="easyui-dialog" title="方案审批" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar2'" style="display:'';width:600px;height:330px;" closable="true">
+			<div id="studyProgramApprovalDialog2" style="display:'';" closable="true">
+		   	 	
+		   	 	<div id="studyProgramForApprovalList" class="easyui-datagrid"></div>
+		   	 	
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar2">
+		<a class="easyui-linkbutton" onclick="acceptStudyProgramApply(2);" data-options="iconCls:'icon-ok',plain:true">确认接收方案</a>
+		<a class="easyui-linkbutton" onclick="acceptStudyProgramApply(-1);" data-options="iconCls:'icon-cancel',plain:true">退回</a>
+	</div>
+	<!-- 工具栏 结束-->

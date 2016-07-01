@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.company.CompanyInfo" table="companyInfo">
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="companyName" type="java.lang.String">
+            <column name="companyName"  length="200"/>
+        </property>
+         
+        <property name="imgName" type="java.lang.String">
+            <column name="imgName"  length="60"/>
+        </property>
+        <property name="companyLogo" type="binary">
+            <column name="companyLogo" />
+        </property>
+       
+       
+    </class>
+</hibernate-mapping>

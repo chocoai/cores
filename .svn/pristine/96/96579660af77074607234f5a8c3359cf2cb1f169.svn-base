@@ -1,0 +1,70 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="studyPlanAddNoDialog" class="easyui-dialog" title="专题编号选择" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:500px;height:400px;" closable="true">
+			<div id="studyPlanAddNoDialog2" style="display:none;">
+		    <div >
+				<div style="float:left; width:170px;">
+					<table id="studyNoTable" class="easyui-datagrid" style="width:160px;height:330px"   
+					        data-options="url:sybp()+'/tblStudyPlanAction_loadStudyNoList.action',singleSelect:true">   
+					    <thead>   
+					        <tr>   
+					            <th data-options="field:'tiName',width:100,hidden:true">tiName</th>   
+					            <th data-options="field:'sponsorName',width:100,hidden:true">sponsorName</th>   
+					            <th data-options="field:'studyName',width:100,hidden:true">studyName</th>   
+					            <th data-options="field:'isConfirm',width:100,hidden:true">isConfirm</th>   
+					            <th data-options="field:'studyCode',width:140,align:'center'">专题编号</th>   
+					        </tr>   
+					    </thead>   
+					</table>
+				</div>
+				<div style="float:left;width:270px; height:300px;">
+				    <div  style="position:absolute;top:80px;">
+				  	  <form id="studyPlanAddForm" >
+				        <table  >
+				        	<tr>
+				        		<td align="right" width="68px;">
+				        			专题编号
+				        		</td>
+				                <td width="200px;" style="padding-left: 4px;">
+				                	<input type="text" id="newStudyNo" name="newStudyNo" class="easyui-validatebox"  data-options="required:true" missingMessage="请输入或选择编号"  
+				                	validType="remote[sybp()+'/tblStudyPlanAction_studyNOCheck.action?','newStudyNo']" invalidMessage="专题编号已存在">
+				                	<input type="text" style="width:1px;visibility:'hidden';border-style:none;" disabled="disabled">
+				                </td>
+				            </tr>
+				        </table>
+					</form>
+				    </div>
+					<table style="position:absolute;top:110px;">
+						<tr>
+							<td align="right" width="60px;" 
+							style="border-bottom:1px solid #e3e6eb;	padding:4px 10px;">委托方</td>
+							<td width="200px;"style="border-bottom:1px solid #e3e6eb;	padding:4px 10px;">
+							<span id="sponsorName"></span></td>
+						</tr>
+						<tr>
+							<td align="right" style="border-bottom:1px solid #e3e6eb;	padding:4px 10px;">供试品名称</td>
+							<td style="border-bottom:1px solid #e3e6eb;	padding:4px 10px;">
+							<span id="tiName" style="line-height: 19px;"></span></td>
+						</tr>
+						<tr>
+							<td align="right" style="border-bottom:1px solid #e3e6eb;	padding:4px 10px;">项目名称</td>
+							<td style="border-bottom:1px solid #e3e6eb;	padding:4px 10px;">
+							<span id="studyName"></span></td>
+						</tr>
+					</table>
+				
+				</div>
+				<div id="warnMsg" style="float:left;width:310px; height:25px;background-color:#ff9804;font-size: 14px;text-align: center;display:none;">
+					<span style="color: red;line-height: 25px;">该项目对应供试品暂未确认！</span>
+				</div>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton" class="easyui-linkbutton" onclick="studyNoCheck();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#studyPlanAddNoDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

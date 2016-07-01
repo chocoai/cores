@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cores_uaudit"
+  id="myeclipse.1446704033266"
+  context-root="/cores_uaudit"
+  j2ee-spec="5.0"
+  archive="cores_uaudit.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

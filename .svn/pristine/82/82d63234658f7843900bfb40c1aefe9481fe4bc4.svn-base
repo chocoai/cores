@@ -1,0 +1,101 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+<div id="studyItemAddEditDialog" class="easyui-dialog" title="合同登记" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar2'" style="display:'';width:435px;height:385px;" closable="true">
+	<div id="studyItemAddEditDialog2" style="display:none;">
+	<div  id="readonlyStudyItemAddEdit" style="position:absolute;left:0px; top:60px;height:100%;width:100%;overflow:auto;display:'';background: rgba(0, 0, 0, 0);"  ></div>
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="studyitemAddOrEdit"/>
+			<input type="hidden" id="contractState_studyitemDialog" >
+			<input type="hidden" id="state_studyitemDialog" >
+			<form id="studyItemAddEditForm" action="" method="post">
+		   	  <input type="hidden" id="studyItemId" name="id" >
+		   	  <table class="table0">
+        			<tr style="display:none;">
+        				<td width="120px;" align="right">合同编号</td>
+        				<td>
+	        				<input type="text" id="tblstudyItemcontractCode" name="contractCode" value="${model.contractCode}" class="easyui-validatebox" readonly="true" data-options="validType:'maxLength[45]'"
+	        				 	required="true" style="width:260px;"></input>
+       				 	</td>
+        			</tr>
+        			<tr style="display:none;" >
+        				<td align="right">供试品编号</td>
+        				<td><input id="studyItem_tiNo" type="text" name="tiNo" class="easyui-validatebox" data-options="validType:'maxLength[45]'" required="true" readonly="true" style="width:260px;"></input></td>
+        			</tr>
+        			<tr >
+        				<td align="right">项目编号</td>
+        				<td>
+        					<input id = "oldStudyNo" type="hidden">
+        					<input id ="studyItem_studyNo"  type="text" name="studyNo" class="easyui-validatebox" data-options="validType:'maxLength[45]'" required="true" style="width:260px;"
+        					validType="remotett[sybp()+'/tblStudyItemAction_checkStudyNo.action','studyNo','#oldStudyNo']"></input>
+        				</td>
+        			</tr>
+        			<tr >
+        				<td align="right">项目类型</td>
+        				<td>
+        					<input id="studyItem_studyTypeCode" type="hidden" name="studyTypeCode">
+        					<input id="studyItem_studyName" type="text" name="studyName" class="easyui-validatebox" 
+        						data-options="validType:'maxLength[180]'" required="true"  missingMessage="请选择" style="width:230px;"/>
+        					<a  onclick="onStudyTypeButton();" class="easyui-linkbutton" data-options="iconCls:'icon-search'" plain="true"></a>
+        				</td>
+        			</tr>
+        			<tr >
+        				<td align="right">要求完成日期</td>
+        				<td><input id="studyItem_finishDate" type="text" name="finishDate" class="easyui-datebox" editable="true" style="width:100px;"></input>
+        					&nbsp;<input id="noFinishDateCheckbox" style="vertical-align:middle;"
+        					  onclick="onNoFinishDateCheckBox()" type="checkbox"/>
+        					<a style="color:black;">不指定完成日期</a>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">是否GLP</td>
+        				<td><input id="glpFlag0" type="radio" name="glpFlag" value="0" >
+        					<a href="javascript:onGlpFlagRadio();" style="color:black;padding:0px 30px 0px 0px;">否</a>
+        					<input id="glpFlag1" type="radio" name="glpFlag" checked  value="1" >
+        					<a href="javascript:onGlpFlagRadio();" style="color:black;padding:0px 30px 0px 0px;">是</a>
+						</td>
+        			</tr>
+        			<tr>
+        				<td align="right">动物种类、品系</td>
+        				<td>
+        					 种类：<input id="animalType" class="easyui-combobox" name="animalType" editable="false"  style="width:80px;height:19px;" 
+								 data-options="editable:false,panelHeight:200 " /> 
+							 &nbsp;&nbsp;&nbsp;&nbsp;
+							 品系：<input id="animalStrain" class="easyui-combobox" name="animalStrain" editable="false" style="width:90px;height:19px;" 
+							 	data-options="valueField:'id',textField:'text',editable:false,panelHeight:'auto'" />
+						</td>
+        			</tr>
+        			<tr>
+        				<td align="right">动物年龄</td>
+        				<td><input id="animalAge"  type="text" name="animalAge" class="easyui-validatebox" data-options="validType:'maxLength[18]'"  style="width:160px;height:18px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right">动物数量</td>
+        				<td>
+        					雄：<input id="studyItem_numMale"   type="text" name="numMale" class="easyui-validatebox" data-options="validType:'maxLength[6]'" validType="signlessInteger" style="width:44px;height:18px;"></input>
+        					 &nbsp;&nbsp;&nbsp;&nbsp;
+        					雌：<input  id="studyItem_numFemale"  type="text" name="numFemale" class="easyui-validatebox" data-options="validType:'maxLength[6]'" validType="signlessInteger" style="width:43px;height:18px;"></input>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">推荐SD</td>
+        				<td><input id="studyItem_sdManager" type="text" name="sdManager" class="easyui-combobox" editable="false" style="width:80px;height:19px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right">备注</td>
+        				<td><textarea id="studyItem_remark" style="resize: none;" name="remark" class="easyui-validatebox" data-options="validType:'maxLength[180]'"  rows="2" cols="40"></textarea>
+						</td>
+        			</tr>
+        		</table>
+		    </form>
+			<a id="studyItemAddEdit_event"></a>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar2">
+	<a id="studyItemSaveButton" class="easyui-linkbutton" onclick="onStudyItemSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#studyItemAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 试验计划 edit/add结束 -->

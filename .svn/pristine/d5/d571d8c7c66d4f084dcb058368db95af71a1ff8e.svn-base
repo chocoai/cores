@@ -1,0 +1,1021 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<style type="text/css">
+    .tree-icon{
+    	width:0px;
+    }
+</style>
+<script type="text/javascript" src="${pageContext.request.contextPath}/script/javascript/qianming.js"></script>
+
+	<script type="text/javascript">
+	
+		function studyAttachmentOpen()
+		{
+			 
+			$('#studyAttachmentTabs').tabs({
+				width:640,
+				height:320,
+    			onSelect:function(title,index){
+	    			if(title == "专题方案"){
+	    			var tab0=$('#studyAttachmentTabs').tabs('getTab',index);
+	    				
+	    				//$('#studyAttachFileDis').linkbutton({text:'方案分发'});
+	    				$('#studyAttachFileDis').css('display','');
+	    				$('#studyAttachFileDis  span:last').html('方案分发');
+						$('#studyAttachmentTabs').tabs('update', {
+			    			tab: tab0,
+			    			options: {
+			    				title: '专题方案',
+			    				content: '<iframe id="studyFileFrame" src="${pageContext.request.contextPath}/tblStudyFileIndexAction_studyProgram.action?fileType=1&studyNo='+$('#studyNoForAttachment').val()+' "frameborder="0" style="border:0;width:100%;height:100%;"></iframe>',
+			    			}
+			    		});
+			    		
+	    			}else if(title =="专题报告"){
+	    				$('#studyAttachFileDis').css('display','none');
+	    				//$('#studyAttachFileDis  span:last').html('报告分发');
+						var tab1=$('#studyAttachmentTabs').tabs('getTab',index);
+						$('#studyAttachmentTabs').tabs('update', {
+			    			tab: tab1,
+			    			options: {
+			    				title: '专题报告',
+			    				content: '<iframe id="studyReportFrame" src="${pageContext.request.contextPath}/tblStudyFileIndexAction_studyProgram.action?fileType=2&studyNo='+$('#studyNoForAttachment').val()+' "frameborder="0" style="border:0;width:100%;height:100%;"></iframe>',
+	
+			    			}
+			    		});
+	    			}
+	    			//initButton();
+	    			
+			    },
+			    		
+        	});
+        	//initButton();
+        	initStudyAttachmentButton();
+		}
+		function initStudyAttachmentButton()
+		{
+			if($('#isFileDisForAttachment').val()==1)
+			{
+				 $('#tblStudyFileDisReadButton').css('display','');
+				 
+				 //申请变更的去掉
+				// $('#studyAttachApplyChange').css('display','none');  
+				 $('#studyAttachApprovalChange').css('display','none');  
+				 $('#studyAttachCommitToQA').css('display','none');  
+				 $('#studyAttachFileDis').css('display','none');  
+				 $('#studyAttachCommitSchedule').css('display','none');  
+				 
+				
+			}else{
+			
+				$('#tblStudyFileDisReadButton').css('display','none');
+				 
+				 //$('#studyAttachApplyChange').css('display','');  
+				 $('#studyAttachApprovalChange').css('display','');  
+				 $('#studyAttachCommitToQA').css('display','');  
+				 $('#studyAttachFileDis').css('display','');  
+				 $('#studyAttachCommitSchedule').css('display','');  
+				 
+			}
+		}
+		function initButton()
+		{
+			var role = $('#role').val();
+			var department =  $('#department').val();
+			var tab= $('#studyAttachmentTabs').tabs('getSelected');
+			var tabIndex = $('#studyAttachmentTabs').tabs('getTabIndex',tab);
+			var fileType = 1;
+			if(tabIndex==0)
+				fileType = 1;
+			if(tabIndex==1)
+				fileType = 2;
+			
+				 var row = $('#appointSDTable').datagrid('getSelected');
+				 //查看是否审批过
+				 
+				 $.ajax({
+					url:sybp()+'/tblStudyFileIndexAction_viewQAStudyIndex.action?studyNo='+row.studyNo+'&fileType='+fileType,
+					type:'post',
+					data:$('#rsnQianmingForm').serialize(),
+					dataType:'json',
+					success:function(r){
+						if(r)
+						{
+							//alert(r.canCommit+"=="+r.canApproval+"=="+r.canCommitSchedule+"=="+r.canApplyChange+"==="+r.canUploadFile);
+							realInitButton(role,fileType,r.canCommit,r.canApprovalChange,r.canApproval,r.canFileDis,r.canCommitSchedule,r.canApplyChange,r.canUploadFile);
+						}
+						
+					}
+				});
+				  $('#studyAttachmentButton').linkbutton('enable');
+				  
+			 
+		}
+		function setChildButton()
+		{
+		
+			document.getElementById("studyFileFrame").contentWindow.$('#oneAttachmentDesc').attr('readonly',true);
+			document.getElementById("studyFileFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+			document.getElementById("studyFileFrame").contentWindow.$('#oneAttachmentFile').attr('disabled','disabled');
+			
+			document.getElementById("studyFileFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+					    	
+		}
+		function realInitButton(role,fileType,canCommit,canApprovalChange,canApproval,canFileDis,canCommitSchedule,canApplyChange,canUploadFile)
+		{
+			 // id="studyAttachApplyChange" 
+			 //id="studyAttachCommitToQA" 
+			// id="studyAttachFileDis" 
+			//id="studyAttachCommitSchedule" 
+			//id="studyAttachStudyApproval" 
+						
+		 	//FM角色
+		 //	alert(role);
+		// alert("studyFileFrame==="+document.getElementById("studyFileFrame").contentWindow);
+//
+             if(role == "FM"){
+			 		$('#studyAttachApplyChange').linkbutton('disable');
+			 		$('#studyAttachCommitToQA').linkbutton('disable');
+			 		$('#studyAttachFileDis').linkbutton('disable');
+			 		$('#studyAttachCommitSchedule').linkbutton('disable');
+			 		if(fileType==1){
+			 			var studyFileFrameWindow = document.getElementById("studyFileFrame").contentWindow;
+			 			
+			 			studyFileFrameWindow.$('#oneAttachmentDesc').attr('readonly',true);
+			 			studyFileFrameWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+			 			studyFileFrameWindow.$('#oneAttachmentFile').attr('disabled','disabled');
+			 			
+			 			//if(studyFileFrameWindow.$)
+			 			//{
+				    	//	studyFileFrameWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+				    	//}else{
+				    	/*
+				    		setTimeout(function(){
+					    		document.getElementById("studyFileFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+					    	},1000);//毫秒
+				 			*/
+				    	//}
+				    }
+				    if(fileType==2){
+				    	var studyReportFrameWindow = document.getElementById("studyReportFrame").contentWindow;
+				    	//if(studyReportFrameWindow.$)
+				    	//{
+				    	
+				    	//	document.getElementById("studyReportFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+				    	//}else{
+				    		//setTimeout(function(){
+					    		document.getElementById("studyReportFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+				  				document.getElementById("studyReportFrame").contentWindow.$('#oneAttachmentFile').attr('disabled','disabled');
+				  				
+				  			//},1000);//毫秒
+					    	
+				    	//}
+			  		}
+			 		//申请修改审批
+			 		if(canApprovalChange==undefined||canApprovalChange==false)
+			 		{
+			 			$('#studyAttachApprovalChange').linkbutton('disable');
+			 		}
+			 		if(canApprovalChange==true)
+			 		{
+			 			$('#studyAttachApprovalChange').linkbutton('enable');	
+			 		}
+			 		//方案审批
+			 		//if(canApproval==undefined||canApproval==false)
+			 		//{
+			 		////	$('#studyAttachStudyApproval').linkbutton('disable');
+			 		//}
+			 		//if(canApproval==true)
+			 		//{
+			 		////	$('#studyAttachStudyApproval').linkbutton('enable');
+			 		//}
+			 
+			 }else if(role == "SD"  || department == "true"){
+			 	$('#studyAttachApprovalChange').css('display','none');//审批修改
+			 	//$('#studyAttachStudyApproval').linkbutton('disable');//审批方案
+			 		
+			 	//申请修改
+			 	if(canApplyChange==undefined||canApplyChange==false)
+			 	{
+			 		$('#studyAttachApplyChange').linkbutton('disable');
+			 	}
+			 	 if(fileType==2)//方案报告没有变更和分发一说
+			 	 {
+			 	   $('#studyAttachApplyChange').linkbutton('disable');
+			 	   $('#studyAttachFileDis').linkbutton('disable');
+			 	 }
+			 	if(fileType==1&&canApplyChange==true)
+			 	{
+			 		$('#studyAttachApplyChange').linkbutton('enable');
+			 	}
+			 	//提交qau
+			 	if(canCommit==undefined||canCommit==false)
+			 	{
+			 		$('#studyAttachCommitToQA').linkbutton('disable');
+			 	}
+			 	if(canCommit==true)
+			 	{
+			 		$('#studyAttachCommitToQA').linkbutton('enable');
+			 	}
+			 	//方案分发，（方案只要有文件就可以分发）
+			 	if(fileType==1&&(canFileDis==undefined||canFileDis==false))
+			 	{
+			 		$('#studyAttachFileDis').linkbutton('disable');
+			 	}
+			 	if(fileType==1&&canFileDis==true)
+			 	{
+			 		$('#studyAttachFileDis').linkbutton('enable');
+			 	}
+			 	//提交日程
+			 	if(canCommitSchedule==undefined||canCommitSchedule==false)
+			 	{
+			 		$('#studyAttachCommitSchedule').linkbutton('disable');
+			 	}
+			 	if(canCommitSchedule==true)
+			 	{
+			 		$('#studyAttachCommitSchedule').linkbutton('enable');
+			 	}
+			 
+			 	//子frame中上传按钮的状态
+			 //	alert(canUploadFile);
+			 	if(canUploadFile==undefined||canUploadFile==false)
+			 	{
+			 		
+			 		if(fileType==1)
+			 		{
+			 			var studyFileFrameW = document.getElementById("studyFileFrame").contentWindow;
+			 			//if(studyFileFrameW.$)
+			 			//{
+			 				//alert("1111111111111");
+					    //		document.getElementById("studyFileFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+					   // 		document.getElementById("studyFileFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+					    //}else{
+					    	//alert("aaa");
+					    	//setTimeout(function(){
+					    		document.getElementById("studyFileFrame").contentWindow.$('#oneAttachmentDesc').attr('readonly',true);
+								document.getElementById("studyFileFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+								document.getElementById("studyFileFrame").contentWindow.$('#oneAttachmentFile').attr('disabled','disabled');
+								
+								document.getElementById("studyFileFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+			
+					    	//},1000);//毫秒
+					    	/*
+					    	//document.getElementById("studyFileFrame").$= function()
+				 			//{
+				 				alert("onlodgffdsad");
+				 		 		document.getElementById("studyFileFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+					    		document.getElementById("studyFileFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+					    	//};*/
+					    //}
+					    
+				    }
+				    if(fileType==2)
+				    {
+				    	//if(document.getElementById("studyReportFrame").contentWindow.$)
+				    	//{
+			  			//	document.getElementById("studyReportFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+					  	//	document.getElementById("studyReportFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+			  			//}else{
+			  				//setTimeout(function(){
+			  				
+					    		document.getElementById("studyReportFrame").contentWindow.$('#oneAttachmentDesc').attr('readonly',true);
+					  			document.getElementById("studyReportFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('disable');
+					  			document.getElementById("studyReportFrame").contentWindow.$('#oneAttachmentFile').attr('disabled','disabled');
+					  			
+					  			document.getElementById("studyReportFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+				  			
+					    	//},1000);//毫秒
+					    	
+			  			//}
+			  			
+			  		}
+			  	}
+			  	if(canUploadFile==true)
+			  	{
+			  		if(fileType==1)
+			  		{
+			  			
+			  			//if(document.getElementById("studyFileFrame").contentWindow.$)
+			  			//{
+			  			//		document.getElementById("studyFileFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('enable');
+					   	//		document.getElementById("studyFileFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+			  			//}else{
+			  				//setTimeout(function(){
+			  				
+					    		document.getElementById("studyFileFrame").contentWindow.$('#oneAttachmentDesc').attr('readonly',false);
+					   			document.getElementById("studyFileFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('enable');
+					   			document.getElementById("studyFileFrame").contentWindow.$('#oneAttachmentFile').attr('disabled',false);
+					   			
+					   			document.getElementById("studyFileFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+				  			
+					    	//},1000);//毫秒
+				  			
+				  			
+			  			//}
+			  			
+				    }
+				    if(fileType==2)
+				    {
+					    //if(document.getElementById("studyReportFrame").contentWindow.$)
+					    //{
+			  			//		document.getElementById("studyReportFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('enable');
+						//  		document.getElementById("studyReportFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+			  			//}else{
+			  				//setTimeout(function(){
+			  				
+					    		document.getElementById("studyReportFrame").contentWindow.$('#oneAttachmentDesc').attr('readonly',false);
+						  		document.getElementById("studyReportFrame").contentWindow.$('#oneStudyFileUploadButton').linkbutton('enable');
+						  		document.getElementById("studyReportFrame").contentWindow.$('#oneAttachmentFile').attr('disabled',false);
+						  		
+						  		document.getElementById("studyReportFrame").contentWindow.$('#studyAttachmentDatagrid').datagrid('reload');
+				  			
+					    	//},1000);//毫秒
+					    	
+			  			//}
+			  		}
+			  	}
+			  	
+			 }
+			 
+		}
+		function tblStudyFileDisReadButton()
+		{
+			 qm_showQianmingDialog('afterSignTblStudyFileDisReadButton');
+		}
+		function afterSignTblStudyFileDisReadButton()
+		{
+				var tab = $('#studyAttachmentTabs').tabs('getSelected');
+				var title = tab.panel('options').title;
+				var fileType = 1;
+				if(title=='专题方案')
+				{
+					fileType = 1;
+				}else if(title=='专题报告')
+				{
+					fileType = 2;
+				}
+				 var row = $('#appointSDTable').datagrid('getSelected');
+				 var index = $('#appointSDTable').datagrid('getRowIndex',row);
+				 //分发修改为已读
+				 $.ajax({
+						url:sybp()+'/tblStudyFileIndexAction_finishFileDis.action?studyNo='+$('#studyNoForAttachment').val()+'&fileType='+fileType,
+						type:'post',
+						//data:$('#oneReplyMessage').serialize(),
+						dataType:'json',
+						success:function(r){
+							if(r&&r.success){
+								$('#tblStudyFileDisReadButton').linkbutton('disable');
+								/*
+								$('#appointSDTable').datagrid('updateRow',{
+										index:index,
+										row: {
+											isFileDis:0,
+										}
+								});
+								*/
+							
+							}else{
+								$.messager.alert("提示框",r.msg);
+							}
+						}
+					});
+		}
+					
+		function applyChange()
+		{	
+			var tab = $('#studyAttachmentTabs').tabs('getSelected');
+			var title = tab.panel('options').title;
+			
+			$.messager.prompt('提示信息', '是否确认申请'+title+'变更!<br/>请填写申请原因：', function(r){
+			    			if (r){
+			    			     if(r != ""){
+			    			        var reason = r;
+			    			        $('#reason').val(reason);
+			    			        qm_showQianmingDialog('rsnqm_passwordCheck');
+			    			     }
+			    			}else{
+			    			         if(r == ""){
+			    			              $.messager.defaults = { ok: "是", cancel: "否" }; 
+			    			              $.messager.confirm('确认对话框', '请填写申请'+title+'原因，是否继续执行申请修改操作？', function(r){
+			    							  if (r){
+			    								  applyChange();
+			    							  }
+			    						  }); 
+			    			         } 
+			    			     }
+			    		});
+		}
+		function rsnqm_passwordCheck()
+		{
+			var tab = $('#studyAttachmentTabs').tabs('getSelected');
+			var title = tab.panel('options').title;
+			var fileType = 1;
+			if(title=='专题方案')
+			{
+				//fileType=1&studyNo='+$('#studyNoForAttachment').val()
+				fileType = 1;
+			}else if(title=='专题报告')
+			{
+				fileType = 2;
+			}
+				
+				$.ajax({
+					url:sybp()+'/tblStudyFileIndexAction_applyChange.action?fileType='+fileType+'&studyNo='+$('#studyNoForAttachment').val(),
+					type:'post',
+					data:{
+							changeRsn:$('#reason').val(),
+						},
+					dataType:'json',
+					success:function(r){
+						if(r&&r.success)
+						{
+							//$('#studyAttachmentTabs').tabs('select',title);
+							initButton();
+						}else if(r&&!r.success)
+						{
+							$.messager.alert("提示",r.msg);
+						}
+						
+					}
+				});
+				
+			
+		}
+		
+		function commitToQA()
+		{
+			var tab = $('#studyAttachmentTabs').tabs('getSelected');
+			var title = tab.panel('options').title;
+			var fileType = 1;
+			if(title=='专题方案')
+			{
+				fileType = 1;
+			}else if(title=='专题报告')
+			{
+				fileType = 2;
+			}
+			$.messager.progress({title: '请稍后',
+				msg: '处理中...',text:''});
+			
+			var studyItemRow = $('#appointSDTable').datagrid('getSelected');
+			var index = $('#appointSDTable').datagrid('getRowIndex',studyItemRow);
+			$.ajax({
+					url:sybp()+'/tblStudyFileIndexAction_commitToQA.action?fileType='+fileType+'&studyNo='+$('#studyNoForAttachment').val(),
+					type:'post',
+					data:$('#rsnQianmingForm').serialize(),
+					dataType:'json',
+					success:function(r){
+						if(r&&r.success)
+						{
+							//$('#studyAttachmentTabs').tabs('select',title);
+							$.messager.progress('close');
+							$('#rsnqianming').dialog('close');
+							if(fileType==1)
+							{
+								$('#appointSDTable').datagrid('updateRow',{
+									index: index,
+									row: {
+										fileState: 1,
+									}
+								});
+							}
+							initButton();
+							
+							var msg=title+'提交QA后发邮件出现错误！';
+							sendNotification(r.msgTitle,r.msgContent,r.receiverList,msg);
+							
+						}else if(r&&!r.success)
+						{
+							$.messager.alert("提示",r.msg);
+						}
+						
+					}
+			});
+			
+			
+		}
+		function sendNotification(msgTitle,msgContent,receiverList,msg){
+			if(receiverList!=null&&receiverList!=''){
+				
+				  $.ajax({
+			      	url : sybp()+'/tblStudyFileIndexAction_sendNotification.action',
+			      	type: 'post',
+			      	contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+				         dataType:'json',
+				         data:{
+			      			msgTitle:msgTitle,
+			      			msgContent:msgContent,
+			      			receiverList:receiverList,
+					      },
+				         success:function(r){
+							if(r&&!r.success){
+								$.messager.alert('提示框',msg);
+							}
+				         }
+			    });
+			}else{
+				//$.messager.alert('提示框','发邮件没有接收人存在');
+			}
+	    }
+	    
+		function studyFileDivs()
+		{
+			//方案分发
+			//$('#studyAttachmentTabs').tabs('select','专题方案');
+			//直接分发给QAM
+			document.getElementById("addStudyFileDisDialog2").display="block";
+			
+			$('#studyFileDisPeople').treegrid({
+				url:sybp()+'/tblStudyFileIndexAction_getStudyFileDisPeople.action',
+				
+				onDblClickRow:function(row)
+				{
+					if(!row.children)
+					{
+						$('#nameList').datagrid('appendRow',{
+												id:row.id,
+												realName: row.realName,
+												operate: "aa",
+																	
+						});
+					}
+					
+				},
+				
+				
+			});
+		$('#nameList').datagrid('loadData',[]);
+			$('#addStudyFileDisDialog').dialog('open');
+			
+		}
+		function delFileDisPerson()
+		{
+			//$('#nameList').datagrid('selectRecord',id);
+			var row = $('#nameList').datagrid('getSelected');
+			if(row==null||row=='')
+			{
+				$.messager.alert("提示","请选择一个已存在的读者");
+			}else{
+				var index = $('#nameList').datagrid('getRowIndex',row);
+				$('#nameList').datagrid('deleteRow',index);
+			}
+		}
+		
+		function saveStudyFileDis()
+		{
+			//var studyFileReaders = $('#studyFileReader').combobox('getValue');
+			var studyFileReaders = new Array();
+			var rows = $('#nameList').datagrid('getRows');
+			if(rows==null||rows=='')
+			{
+				$.messager.alert("提示","没有选择要分发的人");
+			}else{
+				for(var i=0;i<rows.length;i++)
+				{
+					studyFileReaders.push(rows[i].id);
+				}
+				var tab = $('#studyAttachmentTabs').tabs('getSelected');
+				var title = tab.panel('options').title;
+				var fileType = 1;
+				if(title=='专题方案')
+				{
+					fileType = 1;
+				}else if(title=='专题报告')
+				{
+					fileType = 2;
+				}
+				
+				$.messager.progress({title: '请稍后',
+						msg: '处理中...',text:''});
+				$.ajax({
+						url:sybp()+'/tblStudyFileIndexAction_addReaders.action?readers='+studyFileReaders,
+						type:'post',
+						data:{
+							studyNo:$('#studyNoForAttachment').val(),
+							//readers:studyFileReaders,
+							fileType:fileType,
+						},
+						dataType:'json',
+						success:function(r){
+							if(r&&r.success)
+							{
+								var disMsg = "文件分发成功";
+								if(r.existDis)
+								{
+									disMsg = r.msg+",其余分发成功";
+								}
+								$('#addStudyFileDisDialog').dialog('close');
+								$.messager.progress('close');
+								
+								$.messager.show({
+									title:'',
+									msg:disMsg,
+									timeout:3000,
+									height:40,
+									style:{
+										right:'',
+										top:document.body.scrollTop+document.documentElement.scrollTop,
+										bottom:''
+									}
+								});
+								
+								var msg='文件分发后发邮件出现错误！';
+								sendNotification(r.msgTitle,r.msgContent,r.receiverList,msg);
+							}else if(r&&!r.success)
+							{
+								$.messager.alert("提示",r.msg);
+							}
+							
+						}
+				});
+				
+			}
+			
+		
+		}
+		function studyAttachApprovalChange()
+		{
+			
+		}
+		
+		function studyProgramApproval()
+		{
+			//方案审批
+			var tab = $('#studyAttachmentTabs').tabs('getSelected');
+			var title = tab.panel('options').title;
+			var fileType = 1;
+			if(title=='专题方案')
+			{
+				//fileType=1&studyNo='+$('#studyNoForAttachment').val()
+				fileType = 1;
+			}else if(title=='专题报告')
+			{
+				fileType = 2;
+			}
+			document.getElementById("studyProgramApprovalDialog2").display="block";
+			$('#studyProgramForApprovalList').datagrid({
+				url:sybp()+'/tblStudyFileIndexAction_getStudyFileByStudyNo.action?studyNo='+$('#studyNoForAttachment').val()+'&fileType='+fileType,
+				
+			});
+			$('#studyProgramApprovalDialog').dialog('open');
+			$('#studyAttachmentTabs').tabs('select',title);
+				
+		}
+		function acceptStudyProgramApply(result)
+		{
+			var tab = $('#studyAttachmentTabs').tabs('getSelected');
+			var title = tab.panel('options').title;
+			var fileType = 1;
+			if(title=='专题方案')
+			{
+				//fileType=1&studyNo='+$('#studyNoForAttachment').val()
+				fileType = 1;
+			}else if(title=='专题报告')
+			{
+				fileType = 2;
+			}
+			//-1或者2
+			$.ajax({
+					url:sybp()+'/tblStudyFileIndexAction_studyProgramApproval.action',
+					type:'post',
+					data:{
+						studyNo:$('#studyNoForAttachment').val(),
+						result:result,
+						fileType:fileType,
+					},
+					dataType:'json',
+					success:function(r){
+						if(r&&r.success)
+						{
+							$('#studyProgramApprovalDialog').dialog('close');
+						}else if(r&&!r.success)
+						{
+							$.messager.alert("提示",r.msg);
+						}
+						
+					}
+			});
+		}
+		//提交日程
+		function commitSchedule()
+		{
+			document.getElementById("schedulePlanListDialog2").display="block";
+			
+			/*$('#scheduleTable').datagrid({
+				url:sybp()+'/tblStudyFileIndexAction_getStudyFileByStudyNo.action?studyNo='+$('#studyNoForAttachment').val()+'&fileType='+fileType,
+				
+			});*/
+			var displyStyle = $('input[name=displayStyle]:checked').val();
+			if(displyStyle==1)
+			{
+				tableDisplay();
+			}else{
+				listDisplay();
+			}
+			$('#schedulePlanListDialog').dialog('open');
+		
+		}
+	function onCheckbox1(){
+	   var isValidationPara=$('#isValidationPara').val();
+	   var disPlaytype=$('#disPlaytype').val();
+	   if( isValidationPara == "1"){
+		   $('#isValidationPara').val("0") ;
+           document.getElementById("checkbox1").checked=false;
+		   if( disPlaytype == "1"){
+			   listDisplay();
+		   }else{
+			   tableDisplay();
+		   }
+   	  }else{
+   		  $('#isValidationPara').val("1") ;
+           document.getElementById("checkbox1").checked=true;
+   	       if( disPlaytype == "1"){
+		      listDisplay();
+	        }else{
+		     tableDisplay();
+	        }
+       }
+    }	
+    //表格显示
+    function listDisplay(){
+    	 $('#disPlaytype').val(1);
+    	 //$('#taskNameTable').datagrid('selectAll');
+    	 $.ajax({
+				url : sybp()+'/tblSchedulePlanAction_loadRowsAndColumns.action',
+				type: 'post',
+				data: {
+					studyNoPara:$('#studyNoForAttachment').val(),
+					isValidationPara:$('#isValidationPara').val(),
+				},
+				dataType:'json',
+				success:function(r){
+					if(r && r.success){
+						$('#scheduleTableList').datagrid({
+							frozenColumns: r.frozenColumns,
+							columns:r.columns,
+						});
+						$('#scheduleTableList').datagrid('loadData',r.rows);
+					}
+				}
+         });
+    }
+    function tableDisplay(){
+      $('#disPlaytype').val(2);
+      //$('#taskNameTable').datagrid('selectAll');	
+   	  $.ajax({
+				url : sybp()+'/tblSchedulePlanAction_loadRowsAndColumns2.action',
+				type: 'post',
+				data: {
+					studyNoPara:$('#studyNoForAttachment').val(),
+					isValidationPara:$('#isValidationPara').val(),
+				},
+				dataType:'json',
+				success:function(r){
+					if(r && r.success){
+						$('#scheduleTableList').datagrid({
+							frozenColumns:r.frozenColumns,
+							columns:r.columns,
+						});
+						$('#scheduleTableList').datagrid('loadData',r.rows);
+					}
+				}
+     });
+   }
+   function sign()
+   {
+   		qm_showQianmingDialog('afterSignSchedulePlan');
+   }
+  function afterSignSchedulePlan(){
+      var studyNo = $("#studyNoForAttachment").val();
+	  $.ajax({
+			url : sybp()+'/tblSchedulePlanAction_schedulePlanSign.action',
+			type: 'post',
+			contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+			data: {
+				//getTaskNames:getSelections,
+				studyNoPara:studyNo
+			},
+			dataType:'json',
+			success:function(r){
+				if(r.success){
+					$('#schedulePlanListDialog').dialog('close');
+					$('#studyAttachCommitSchedule').linkbutton('disable');
+				}
+			}
+        });
+     }
+   
+   
+		$(function(){
+			//alert("studyAttachment onloa df unction!");
+			var  tableHeight = document.body.clientHeight - 80;
+		    var  tableWidth  = document.body.clientWidth-100;
+			//alert(tableHeight+"==="+tableWidth);
+			$('#studyAttachmentDialog').dialog({
+			
+				width:660,
+				height:400,
+				onOpen:studyAttachmentOpen,
+			});
+			$('#studyProgramForApprovalList').datagrid({
+					height:200,
+					width:560,
+					singleSelect:true,
+					// linkId,eslink.[recordTime],[chkReportCode],[studyNo],eslink.[esTypeDesc],es.signer
+					columns:[[
+							{
+								title:'studyFileIndexId',//studyFileIndex id
+								field:'studyFileIndexId',
+								hidden:true,
+							},
+							{
+								title:'id',//studyFile id
+								field:'id',
+								hidden:true,
+							},
+							
+							{
+								title:'文件名称',
+								field:'attachmentName',
+								width:150,
+							},
+							
+							{
+								title:'添加日期',
+								field:'submitTime',
+								width:100,
+							},
+							{
+								title:'描述',
+								field:'attachmentDesc',
+								width:150,
+							},
+							{
+								title:'专题文件状态',
+								field:'fileState',
+								width:50,
+								formatter:function(value,row,index)
+								{
+									//0：草稿；1：提交审批中；2：结束
+									if(value==0)
+									{
+										return "草稿";
+									}
+									if(value==1)
+									{
+										return "提交审批中";
+									}
+									if(value==-1)
+									{
+										return "退回";
+									}
+									if(value==2)
+									{
+										return "结束";
+									}
+								}
+							},
+							{
+								title:'是否有效',
+								field:'delFlag',
+								width:50,
+								formatter:function(value,row,index)
+								{
+									if(value==1)
+									{
+										return "无效";
+									}else {
+										return "有效";
+									}
+								}
+							},
+							{
+								title:'操作',
+								field:'operate',
+								width:50,
+								formatter:function(value,row,index)
+								{
+									//row.id是studyFile的id
+									return '<a href="#" onclick="">查看</a>';
+								}
+
+							}
+							
+							
+						]],
+						onSelect:function(rowIndex,rowData)
+						{
+				 			
+						}
+	        		
+			});
+			$('#scheduleTableList').datagrid({
+				height:320,
+				width:500,
+			});
+			
+			$('#studyFileDisPeople').treegrid({
+				singleSelect:true,
+	            idField:'id',
+	            treeField:'department',
+				columns:[[
+							{
+								title:'Id',
+								field:'id',
+								hidden:true,
+								formatter:function(value,row,index)
+								{
+									//alert( "beginEdit:"+value+"===="+row);
+								 	$('#studyFileDisPeople').treegrid('beginEdit', index);  
+								}
+							},
+							{
+								title:'部门',
+								field:'department',
+								width:80,
+							},{
+								title:'名字',
+								field:'realName',
+								width:100,
+							
+							},
+					]],
+			});
+			$('#nameList').datagrid({
+				
+					singleSelect:true,
+					idField:'realName',
+					// linkId,eslink.[recordTime],[chkReportCode],[studyNo],eslink.[esTypeDesc],es.signer
+					columns:[[
+							{	
+								title:'编号',// id
+								field:'id',
+								hidden:true,
+							},
+							{
+								title:'名字',
+								field:'realName',
+								width:150,
+							},
+							/*
+							{
+								title:'操作',
+								field:'operate',
+								width:80,
+								formatter:function(value,row,index)
+								{
+								   // $(this).datagrid('selectRow',index);
+								  
+									return '<a href="#" onmouseup="delFileDisPerson('+row.id+')">删除</a>';
+								},
+							},*/
+					]],
+					
+					onDblClickRow:function(rowIndex, rowData){
+						delFileDisPerson();
+					}
+			
+			});
+			
+				
+		});
+		
+	</script>
+	<div id="studyAttachmentDialog" class="easyui-dialog" title="专题附件" modal="true" closed="true" 
+		 style="display:'';width: 645px;height: 470px;" closable="true" resizable="true" >
+		 	<input type="hidden" id="studyNoForAttachment" >
+		 	<input type="hidden" id="isFileDisForAttachment" >
+		 	
+		 	<input type="hidden" id="reason" >
+			<!-- 工具栏 开始-->
+			<div id="tabsToolbar">
+				<a style="display:none;"  id="tblStudyFileDisReadButton" disabled class="easyui-linkbutton" onclick="tblStudyFileDisReadButton();" data-options="iconCls:'icon-ok',plain:true">已完成阅读</a>
+			
+				<a style="display:none;"  id="studyAttachApplyChange" disabled class="easyui-linkbutton" onclick="applyChange();" data-options="iconCls:'icon-tablerefresh',plain:true">申请变更</a>
+			
+				<a id="studyAttachApprovalChange" disabled class="easyui-linkbutton" onclick="approvalChange();" data-options="iconCls:'icon-tablerefresh',plain:true">审批变更</a>
+				<a id="studyAttachCommitToQA" disabled class="easyui-linkbutton" onclick="qm_showQianmingDialog('commitToQA')" data-options="iconCls:'icon-edit',plain:true">提交QAU</a>
+				<a id="studyAttachFileDis" disabled class="easyui-linkbutton" onclick="studyFileDivs();" data-options="iconCls:'icon-tablesave',plain:true">方案分发</a>
+				<a id="studyAttachCommitSchedule" disabled class="easyui-linkbutton" onclick="commitSchedule();" data-options="iconCls:'icon-confirm',plain:true">提交试验日程</a>
+				
+				
+				<a  class="easyui-linkbutton" onclick="javascript:$('#studyAttachmentDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">关闭</a>
+			</div>
+			<!-- 工具栏 结束-->
+			
+			<div id="studyAttachmentDialog2" style="display:'';" closable="true">
+			    <div id="studyAttachmentTabs" class='easyui-tabs'>
+				   <div title="专题方案" style="display:'';">
+		       		 	专题方案
+		    	   </div>
+		    	   <div title="专题报告" style="display:'';">
+		       		 	专题报告
+		    	   </div>
+		    	   
+			    </div>
+			 </div>
+		    
+	</div>
+	<%@ include file="/WEB-INF/jsp/tblStudyFileIndexAction/schedulePlanList.jspf"%>
+	<%@ include file="/WEB-INF/jsp/tblStudyFileIndexAction/studyProgramApproval.jspf"%>
+	 <%@ include file="/WEB-INF/jsp/tblStudyFileIndexAction/addStudyFileDis.jspf"%>
+	 <%@ include file="/WEB-INF/jsp/public/rsnqianming.jspf"%>
+	 <%@ include file="/WEB-INF/jsp/public/qianming.jspf"%>

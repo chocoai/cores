@@ -1,0 +1,42 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<!-- 数据库信息（连接信息写到spring的配置文件钟） -->
+	<!--  
+		<property name="Connection.url">jdba:mysql:///itcastoa_20120216</property>
+		<property name="Connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="Connection.username">root</property>
+		<property name="Connection.password">root</property>
+	-->
+	<property name="dialect">
+		org.hibernate.dialect.SQLServerDialect
+	</property>
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+	
+	<mapping resource="com/lanen/model/studyitem/TblContract.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblContractAttachment.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblCustomer.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblLog.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblNotification.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblPaymentPlan.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblPaymentRecord.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblReception.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblReportRecord.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblRigon.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblStudyItem.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblStudySchedule.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblStudyScheduleNode.hbm.xml" />
+	<mapping resource="com/lanen/model/studyitem/TblTestItem.hbm.xml" />
+	
+
+</session-factory>
+</hibernate-configuration>

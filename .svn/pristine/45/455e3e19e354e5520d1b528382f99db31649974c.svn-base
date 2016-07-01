@@ -1,0 +1,19 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addBatchSetDialog" class="easyui-dialog" title="常规任务负责人批量设置" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:1010px;height:490px;" closable="true">
+			<div id="addBatchSetDialog2" style="display:'';" closable="true">
+		     <div style="height:30px;margin-top: 5px;"> 
+		     <a > 开始日期 &nbsp;&nbsp; 
+		     <input  style="width:100px;" id="batchStartDate" type="text" name="startDate"  class="easyui-datebox"  data-options="editable:false" /></a>
+			  <a>～&nbsp;&nbsp;结束日期&nbsp;&nbsp;<input  style="width:100px;" id="batchEndDate" type="text"  name="endDate"  class="easyui-datebox"  data-options="editable:true" /></a>
+		        &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:checkboxEndDate();"><input type="checkbox"  id = "checkboxEndDate" name="checkbox" value="checkboxEndDate" checked="true" onclick="afterCheckboxEndDate(this)"> 指定结束日期</a>
+		     </div> 
+		       <table id ="selectTblTaskLeaderTable"></table>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="addBatchSetSaveButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#addBatchSetDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->

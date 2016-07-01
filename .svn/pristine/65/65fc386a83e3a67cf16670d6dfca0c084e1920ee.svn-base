@@ -1,0 +1,17 @@
+jdbcUrl		= jdbc\:jtds\:sqlserver\://localhost\:1433/coresstudy
+driverClass	= net.sourceforge.jtds.jdbc.Driver
+#username = cores
+#password = cores246135
+username = GPG2zBi2kKE=
+password = D4ZuqJVDxUo5nCrbLqnTng==
+#
+#
+jdbcUrl_studyitem		= jdbc\:jtds\:sqlserver\://localhost\:1433/CoresStudyItem
+driverClass_studyitem	= net.sourceforge.jtds.jdbc.Driver
+#username = cores
+#password = cores246135
+username = GPG2zBi2kKE=
+password = D4ZuqJVDxUo5nCrbLqnTng==
+#
+#
+userprivilegeIP		=127.0.0.1

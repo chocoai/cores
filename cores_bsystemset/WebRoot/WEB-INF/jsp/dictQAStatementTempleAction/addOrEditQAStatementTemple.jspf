@@ -1,0 +1,36 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOrEditQAStatementTempleDialog" class="easyui-dialog" title="新增声明模板" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:360px;height:230px;" closable="true">
+			<div id="addOrEditQAStatementTempleDialog2" style="display:'';" closable="true">
+			
+		   	<form id="oneQAStatementTemple" >
+		   		<table >
+		   			<tr>
+		   				<td>		   			
+		   			 	  <input id="oneTempleId"  type="text" name="templeId"  style="display:none">
+		   				</td>
+		   			</tr>
+		   			<tr>
+		   				<th style="text-align: right;">模板名称</th>
+		   				<td><input id="oneTempleName" style="width:280px;" name="templeName"/></td>
+		   			</tr>
+		   			<tr >
+		   				<th style="text-align: right;">模板内容</th>
+		   				<td><textarea id="oneTempleContent" name="templeContent" style="width:280px;font-size: 14px;resize:none;" rows="7" required="true">
+		   					</textarea>
+		   				</td>
+		   			</tr>
+		   		
+		   		</table>
+		   	
+		   	
+		   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveOrUpdateOneQAStatementTemple();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditQAStatementTempleDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">关闭</a>
+	 	<input id="continueAddButton" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel">连续添加</span>
+	</div>
+	<!-- 工具栏 结束-->

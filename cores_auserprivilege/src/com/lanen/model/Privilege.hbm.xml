@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Privilege" table="tblprivilege" >
+        <id name="id" type="java.lang.String">
+            <column name="id" />
+        </id>
+        <property name="privilegeName" type="java.lang.String">
+            <column name="privilegeName" />
+        </property>
+        <property name="privilegePath" type="java.lang.String">
+            <column name="privilegePath" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="createTime" />
+        </property>
+        
+        
+        <!-- user属性，本类与User的多对一关系 -->
+        <many-to-one name="user" class="com.lanen.model.User" column="authorId" lazy="false"></many-to-one>
+        
+        <!-- module属性，本类与Module的多对一关系 -->
+        <many-to-one name="module" class="com.lanen.model.Module" column="moduleId" lazy="false"></many-to-one>
+        
+        
+        <!-- roles属性，本类与Role的多对多的关系 -->
+        <set name="roles" table="tbl_role_privilege" >
+        <key column="privilegeId"></key>
+        <many-to-many class="Role" column="roleId"></many-to-many>
+        </set>
+        
+    </class>
+</hibernate-mapping>

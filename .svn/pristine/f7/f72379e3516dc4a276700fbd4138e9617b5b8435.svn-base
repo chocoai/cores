@@ -1,0 +1,76 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addQALearnTaskDialog" class="easyui-dialog" title="新增学习任务" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar4'" style="display:'';width:980px;height:420px;" closable="true">
+			<div id="addQALearnTaskDialog2" style="display:'';" closable="true">
+				<input id="openType" type="hidden">
+			   	<form id="oneQAFileTaskList" style="float: left;">
+			   		
+			   		 <!-- 
+			   		 <div style="width:360px;height:38px;position:absolute;top:60px;left:210px;">
+							
+							状态：<select id="fileStateConditionForTask"  class="easyui-combobox" style="width:200px;">
+								    <option value="1">全部</option>
+								    <option value="2">尚未安排学习的文件</option>
+								    <option value="3">尚未完成学习的文件</option>
+								    <option value="4">全部学习完成的文件</option>
+								   
+								</select>
+								&nbsp;&nbsp;&nbsp;
+							<span style="position:absolute; top:28px;">
+								<input id="fileSearchConditionForTask"  class='easyui-searchbox'></input>
+							 </span>	
+						</div>
+			   		  -->
+						
+			   		<div style="width:100%;height:400;position:absolute;top:80px;left:5px;">
+				   	 	<table>
+				   	 		<tr>
+				   	 			
+				   	 			<td><input id="taskListDatagrid" class="easyui-datagrid"/></td>
+				   	 		
+				   	 			<td><input id="taskFileList" class="easyui-datagrid"/></td>
+				   	 			<td>
+				   	 				<div id="fileRegReaderListDiv" style="display:'';">
+					   	 				<div id="fileRegReaderList" class="easyui-datagrid"></div>
+				   	 				</div>
+				   	 				<div id="fileAttachmentListDiv">
+					   	 				<div id="fileAttachmentList" class="easyui-datagrid"></div>
+				   	 				</div>
+				   	 			</td>
+				   	 			
+				   	 		</tr>
+				   	 		
+				   	 	</table>
+			   		</div>
+			   	</form>
+			   	 
+		    </div>
+		    
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar4">
+		<div>
+			<a id="newQALearnTaskButton" class="easyui-linkbutton" onclick="addOneQALearnTask();" data-options="iconCls:'icon-add',plain:true">新建学习任务</a>
+			<a id="delQALearnTaskButton" class="easyui-linkbutton" onclick="delOneQALearnTask();" data-options="iconCls:'icon-remove',plain:true">删除学习任务</a>
+			<a id="chooseTaskFileButton" disabled class="easyui-linkbutton" onclick="chooseFileReg();" data-options="iconCls:'icon-add',plain:true">选择学习文件</a>
+			<a id="chooseLearPersonButton" disabled class="easyui-linkbutton" onclick="chooseLearnPeople();" data-options="iconCls:'icon-add',plain:true">选择学习人员</a>
+			<a id="commitTaskButton" disabled class="easyui-linkbutton" onclick="commitTask();" data-options="iconCls:'icon-confirm',plain:true">提交任务</a>
+			<a id="cancelTaskButton" class="easyui-linkbutton" onclick="cancelTask();" data-options="iconCls:'icon-back',plain:true">撤销任务</a>
+		
+			<a id="conformTaskFinish" class="easyui-linkbutton" onclick="conformTaskFinish();" data-options="iconCls:'icon-confirm',plain:true">确认学习完成</a>
+			
+			<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addQALearnTaskDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">关闭</a>
+		</div>
+		<div>
+			任务状态：<select id="taskTypeForTaskPage" class="easyui-combobox"style="width:100px;">
+					<option value="10">全部</option>
+					<option value="0">未提交</option>
+					<option value="1">学习中</option>
+					<option value="2">已完成</option>
+				</select>
+		
+		</div>
+	 	
+	</div>
+
+	<!-- 工具栏 结束-->

@@ -1,0 +1,45 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOrEditArchivePositionDialog" class="easyui-dialog" title="新增档案位置" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:460px;height:210px;" closable="true">
+			<div id="addOrEditArchivePositionDialog2" style="display:'';" closable="true">
+			
+			
+		   	<form id="oneArchivePositionTable" style="position: relative;top:10px;">
+		   		<table width="400px">
+		   			<tr>
+		   				<td>
+		   					<input id="addOrEdit" type="text" style="display:none"/>
+		   					<input id="updateArchivePositionID" type="text" name="id" style="display:none"/>
+		   				</td>
+		   			</tr>
+			   		<tr>
+						<td>父类名称</td>
+						<td>
+							<input class='easyui-combotree' id="onepid" name="pid" required="true" style="width:315px;height:20px;"/>
+		   					
+			   			</td>
+			   			
+			   			
+					</tr>
+		   			<tr>
+		   				<td>位置名称</td>
+						<td>
+							<input id="onePositionName" name="positionName" required="true" style="width:315px;height:20px;"/>
+		   					
+			   			</td>
+			   		</tr>
+			   		
+		   		
+		   		</table>
+		   	
+		   	
+		   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveOrUpdateOneArchivePosition();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  id="cancelButton" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditArchivePositionDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	<input id="continueAddButton" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel">连续添加</span>
+	</div>
+	<!-- 工具栏 结束-->

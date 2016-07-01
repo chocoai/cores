@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblRegion" table="tblRegion" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20" />
+        </id>
+        <property name="regionName" type="java.lang.String">
+            <column name="regionName"  length="100" />
+        </property>
+        <property name="pid" type="java.lang.String">
+            <column name="pid"  length="20" />
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOrEditQACheckTableContentDialog" class="easyui-dialog" title="新增检查表内容" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:360px;height:200px;" closable="true">
+			<div id="addOrEditQACheckTableContentDialog2" style="display:'';margin-top:20px;" closable="true">
+			
+			
+		   	<form id="oneQACheckContentTable">
+		   		<table >
+			   		<tr>
+						<th>检查表名称</th>
+						<td>
+							<input id="OneChkTblNameDisplay"  type="text" class="validatebox" readonly="true"  style="display:'';width:260px;height:20px;">
+			   			</td>
+					</tr>
+		   			<tr>
+		   				<td>		   			
+		   			 	  <input id="updateChkTblContentId"  type="text" name="chkTblContentId" class="validatebox" readonly="true"  style="display:none">
+		   				</td>
+		   			</tr>
+		   			<!-- 
+		   			<tr>
+		   				<th style="text-align: right;">序号</th>
+		   				<td><input id="oneSn" name="sn" required="true"/></td>
+		   			</tr>
+		   			 -->
+		   			<tr >
+		   				<th style="text-align: right;">检查表内容</th>
+		   				<td><input id="oneChkContent" name="chkContent" required="true" style="width:260px;height:20px;"/></td>
+		   			</tr>
+		   		
+		   		</table>
+		   	
+		   	
+		   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveOrUpdateOneQACheckContentTable();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  id="studyGroupCancelButton" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditQACheckTableContentDialog').dialog('close');$('#QACheckTableContents').datagrid('reload');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	<input id="continueAddButton2" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel2">连续添加</span>
+	</div>
+	<!-- 工具栏 结束-->

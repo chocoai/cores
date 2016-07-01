@@ -1,0 +1,31 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOrEditStudyGroupDialog" class="easyui-dialog" title="新增类别" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:260px;height:200px;" closable="true">
+			<div id="addOrEditStudyGroupDialog2" style="display:'';" closable="true">
+			
+		   	<form id="oneStudyGroup">
+		   		<table>
+		   			<tr>
+		   				<td>		   			
+		   			 	  <input id="updateStudyGroupID"  type="text" name="studyGroupId" class="validatebox" readonly="true"  style="display:none">
+		   				</td>
+		   			</tr>
+		   			<tr>
+               
+		   				<td>类别名称</td>
+		   				<td><input id="studyGroupName" name="studyGroupName" required="true"/></td>
+		   			</tr>
+		   		
+		   		</table>
+		   	
+		   	
+		   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveOrUpdateOneStudyGroup();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  id="studyGroupCancelButton" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditStudyGroupDialog').dialog('close');window.location.reload();" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	<input id="continueAddButton" onclick="changeCancelName();" style="vertical-align: middle;" type="checkbox"><span id="continueAddLabel">连续添加</span>
+	</div>
+	<!-- 工具栏 结束-->

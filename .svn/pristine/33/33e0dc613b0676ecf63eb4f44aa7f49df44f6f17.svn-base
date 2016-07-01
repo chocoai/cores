@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+           >
+	
+<!-- 配置远程可以调用的Service -->
+   
+        <!-- getIdService配置（获得主键Service） -->
+    <bean id="serviceExporter9" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="getIdServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>GetIdService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.GetIdService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+        <!-- dictInstrumentService配置 -->
+    <bean id="serviceExporter10" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictInstrumentServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictInstrumentService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.DictInstrumentService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+        <!-- TblInstrumentVerificationService配置 -->
+    <bean id="serviceExporter11" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblInstrumentVerificationServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblInstrumentVerificationService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.TblInstrumentVerificationService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- TblStudyPlanService配置 -->
+    <bean id="serviceExporter12" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblStudyPlanServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblStudyPlanService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.TblStudyPlanService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- TblClinicalTestReqService配置 -->
+    <bean id="serviceExporter13" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblClinicalTestReqServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblClinicalTestReqService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.TblClinicalTestReqService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- BillNoService配置 序列号-->
+    <bean id="serviceExporter18" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="billNoServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>BillNoService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.BillNoService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- TblSpecimenService配置 标本接收-->
+    <bean id="serviceExporter19" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblSpecimenServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblSpecimenService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.TblSpecimenService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- PassagewayService配置 通道号设置-->
+    <bean id="serviceExporter20" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="passagewayServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>PassagewayService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.PassagewayService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- TblClinicalTestDataService配置 数据接收-->
+    <bean id="serviceExporter21" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblClinicalTestDataServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblClinicalTestDataService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.TblClinicalTestDataService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+  
+     <!-- DictAnimalTypeService配置        动物种类-->
+    <bean id="serviceExporter24" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictAnimalTypeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictAnimalTypeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictAnimalTypeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- DictAnimalStrainService配置       动物品系-->
+    <bean id="serviceExporter25" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictAnimalStrainServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictAnimalStrainService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictAnimalStrainService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+
+     <!-- TblAnimalService配置      字典-标本类型  -->
+    <bean id="serviceExporter27" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnimalServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnimalService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.TblAnimalService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- TblTestIndexPlanService配置      字典-标本类型  -->
+    <bean id="serviceExporter28" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblTestIndexPlanServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblTestIndexPlanService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.TblTestIndexPlanService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 字典-报表编号    已经移到系统设置工程里
+    <bean id="serviceExporter29" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictReportNumberServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictReportNumberService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.DictReportNumberService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     -->
+    <bean id="serviceExporter30" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="poolSpecimenCodeServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>PoolSpecimenCodeService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.clinicaltest.PoolSpecimenCodeService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter31" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyReqServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyReqService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyReqService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter32" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyTaskServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyTaskService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyTaskService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter33" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblPathSessionServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblPathSessionService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblPathSessionService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 解剖动物信息 -->
+    <bean id="serviceExporter34" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyAnimalServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyAnimalService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyAnimalService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 剖检信息 -->
+    <bean id="serviceExporter35" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyCheckServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyCheckService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyCheckService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+	<!-- 天平校准索引表  -->
+    <bean id="serviceExporter36" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblBalCalibrationIndexServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblBalCalibrationIndexService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblBalCalibrationIndexService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 天平登记 -->
+	     <bean id="serviceExporter37" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblBalRegServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblBalRegService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblBalRegService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 天平接入信息 -->
+	<bean id="serviceExporter38" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblBalConnectServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblBalConnectService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblBalConnectService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+         </bean>
+        <!-- 校准点数 -->
+	   <bean id="serviceExporter39" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblBalCalibrationPointServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblBalCalibrationPointService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblBalCalibrationPointService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+       </bean>
+          <!-- 砝码 -->
+	   <bean id="serviceExporter40" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblCounterpoiseServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblCounterpoiseService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblCounterpoiseService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+       </bean>
+       <!-- 天平校准记录-->
+	   <bean id="serviceExporter41" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblBalCalibrationServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblBalCalibrationService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblBalCalibrationService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+       </bean>
+     <!-- 脏器固定 -->
+	<bean id="serviceExporter42" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblVisceraFixedServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblVisceraFixedService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblVisceraFixedService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 芯片阅读器 -->
+	<bean id="serviceExporter43" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblChipReaderServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblChipReaderService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblChipReaderService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 申请解剖动物列表-->
+	<bean id="serviceExporter44" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyReqAnimalListServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyReqAnimalListService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyReqAnimalListService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+
+        <!-- 脏器称重 -->
+	<bean id="serviceExporter45" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblVisceraWeightServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblVisceraWeightService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblVisceraWeightService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+        <!-- 脏器缺失 -->
+	<bean id="serviceExporter46" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblVisceraMissingServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblVisceraMissingService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblVisceraMissingService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 砝码 -->
+	<bean id="serviceExporter47" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblCounterWeightServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblCounterWeightService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblCounterWeightService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+	   <!-- 剖检历史信息 -->
+    <bean id="serviceExporter48" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyCheckHisServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyCheckHisService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyCheckHisService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+       <!-- 称重历史信息 -->
+    <bean id="serviceExporter49" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblVisceraWeightHisServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblVisceraWeightHisService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblVisceraWeightHisService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+        <!-- 病理计划-脏器称重  -->
+    <bean id="serviceExporter50" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblPathPlanVisceraWeighServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblPathPlanVisceraWeighService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblPathPlanVisceraWeighService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 好像是多余的
+    <bean id="serviceExporter51" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictReportNumberServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictReportNumberService</value>
+       </property>
+       <property name="serviceInterface">
+          <value> com.lanen.service.studyplan.DictReportNumberService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+       -->
+     <!-- 组织取材编号  -->
+    <bean id="serviceExporter52" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblTissueSliceIndexServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblTissueSliceIndexService</value>
+       </property>
+       <property name="serviceInterface">
+          <value> com.lanen.service.path.TblTissueSliceIndexService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 剂量组  -->
+    <bean id="serviceExporter54" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblDoseSettingServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblDoseSettingService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.TblDoseSettingService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 镜检  -->
+    <bean id="serviceExporter55" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblHistopathCheckServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblHistopathCheckService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblHistopathCheckService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 解剖脏器  -->
+    <bean id="serviceExporter57" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyReqPathPlanCheckServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyReqPathPlanCheckService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyReqPathPlanCheckService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 解剖称重脏器  -->
+    <bean id="serviceExporter58" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyReqVisceraWeighServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyReqVisceraWeighService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyReqVisceraWeighService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 解剖称重脏器 -附加脏器 -->
+    <bean id="serviceExporter59" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyReqAttachedVisceraServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyReqAttachedVisceraService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyReqAttachedVisceraService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     <!-- 解剖所见数据修改 -->
+    <bean id="serviceExporter60" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnatomyCheckEditServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnatomyCheckEditService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnatomyCheckEditService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 死亡动物致死原因记录  -->
+    <bean id="serviceExporter61" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblDeadAnimalDeathReasonServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblDeadAnimalDeathReasonService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblDeadAnimalDeathReasonService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 试验靶器官登记  -->
+    <bean id="serviceExporter62" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnimalTargetOrganServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnimalTargetOrganService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblAnimalTargetOrganService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 取材  -->
+    <bean id="serviceExporter63" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblTissueSliceBatchServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblTissueSliceBatchService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblTissueSliceBatchService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 病理专题索引  -->
+    <bean id="serviceExporter64" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblPathStudyIndexServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblPathStudyIndexService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblPathStudyIndexService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 病理专题索引  -->
+    <bean id="serviceExporter65" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblHistopathCheckContentServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblHistopathCheckContentService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.path.TblHistopathCheckContentService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="serviceExporter66" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblAnimalDetailDissectPlanServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblAnimalDetailDissectPlanService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.studyplan.TblAnimalDetailDissectPlanService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+</beans>

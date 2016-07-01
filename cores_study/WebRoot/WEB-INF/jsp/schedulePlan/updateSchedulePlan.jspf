@@ -1,0 +1,95 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="updateSchedulePlanDialog" class="easyui-dialog" title="编辑日程" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:650px;height:330px;" closable="true">
+			<div id="updateSchedulePlanDialog2" style="display:'';" closable="true">
+		    <div >
+			  <form id="updatetblSchedulePlanform" action="" method="post">
+		   	  <div class="edit_table" style="border-collapse:collapse;position: absolute;top:85px;left:30px;" >
+                <table class="TblSchedulePlan" >
+                 <tr><td><input id="updateSchedulePlanscheduleID"  type="text" name="tblSchedulePlan.scheduleID" class="validatebox" required="true" readonly="true"  style="display:none"></td></tr>
+                    <tr><td width="80px;">专题编号</td>
+                        <td width="100px;">
+                        	<input id="updateSchedulePlanstudyNoPara" style="border:solid 1px #d3d3d3;height:22px;backgroundColor:#EDEDED;" type="text" name="tblSchedulePlan.taskCode" class="validatebox" required="true" readonly="true">
+                        </td>
+                    </tr> 
+                     <tr >
+                        <td width="60px;">任务类别：</td>
+                        <td>
+                            <!-- 	//任务类别 1:委托管理  2：动物试验3：临床检验 4：毒性病理 5：QA管理 6：供试品管理 -->
+                            <select id="updatetaskKind" class="easyui-combobox" style="width:100px;height:22px;" editable="false" disabled="true" panelHeight="105"  name="tblSchedulePlan.taskKind" >
+                        		<option value="1">委托管理</option>
+                        		<option value="2">动物试验</option>
+                        		<option value="3">临床检验 </option>
+                        		<option value="4">毒性病理</option>
+                        		<option value="5">QA管理</option>
+                        		<option value="6">供试品管理</option>
+                        		<option value="7">分析</option>
+                        		<option value="8">生态毒理</option>
+                              </select>
+                        </td>
+                    </tr>
+                    <tr><td width="80px;">任务名称</td>
+                        <td>
+                            <input id="updatetaskName" type="text" name="tblSchedulePlan.taskName" style="border:solid 1px #d3d3d3;height:22px;backgroundColor:#EDEDED;"  required="true" readonly="true">
+                        </td>
+                    </tr>
+                    
+                    
+                    </table>
+                  </div>
+                  <div class="edit_table2" style="border-collapse:collapse;position: absolute;top:85px;left:350px;">
+                     <table>
+                      <tr><td><input id="updateselectOne" name="select" type="radio" value="1" onclick="updatSchedulePlannumber();" checked />&nbsp;&nbsp;单次日程</td>
+                    <td><input id="updateselectMore" name="select" type="radio" value="2" onclick="updatSchedulePlannumber();" />&nbsp;&nbsp;周期日程</td></tr>
+                     <tr><td colspan="2" ><p style="color:#e8e8e8;">------------------------------------------------------------------</p></td></tr>
+                    <tr id="updatetaskEndTypeTr" ><td ><input id="updateselectTime" checked name="taskEndType" type="radio" value="1" onclick="updateSelectTaskEndType();"/>&nbsp;&nbsp;指定日期结束</td>
+                    <td ><input id="updateselectNum" name="taskEndType" type="radio" value="2" onclick="updateSelectTaskEndType();" />&nbsp;&nbsp;指定次数结束</td></tr>
+                    <tr><td width="100px;" ><input id="updatestartTimeTr" style="width:80px;border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" readOnly="true"  value="执行日期"/></td>
+                        <td width="100px;">
+                            	<input id="updatestartTime" type="text" name="tblSchedulePlan.startTime" class="easyui-datebox" required="true" /> 
+                        </td>
+                     </tr>
+                       <tr id="updateendTimeTr"><td width="90px;">结束日期</td>
+                        <td width="100px;">
+                            	<input id="updateendTime" type="text" name="tblSchedulePlan.endTime" class="easyui-datebox" required="true" /> 
+                        </td>
+                     </tr>
+                      <!--
+                     <tr id="updatetaskEndNumTr"><td width="90px;">结束次数</td>
+                        <td width="100px;">
+                            	<input id="updataskEndNum" type="text" name="tblSchedulePlan.taskEndNum" class="easyui-numberbox" required="true" /> 
+                        </td>
+                     </tr>
+                       -->
+                      <tr id="updateperiodTr" >
+                      <td width="100px;">周期</td>
+                        <td>
+                            每&nbsp;&nbsp;<input id="updateperiod" type="text" data-options="validType:'signlessInteger'"  class="easyui-numberbox"  name="tblSchedulePlan.period" style="border:solid 1px #d3d3d3;width:30px;height:22px;" >
+
+                               <select id="updateperiodUnit" class="easyui-combobox" style="width:50px;height:22px;" editable="false" panelHeight="105" name="tblSchedulePlan.periodUnit" >
+                        		<option value="1">天</option>
+                        		<option value="2">周</option>
+                        		<option value="3">月</option>
+                        		<option value="4">年</option>
+                              </select>
+                             <span  id="updatetaskEndNumTr" >
+                                                                                  执行一次，
+                               <br/><br/>
+                                                                                 共执行<input id="updataskEndNum" type="text" name="tblSchedulePlan.taskEndNum" style="border:solid 1px #d3d3d3;height:22px;width:40px;" class="easyui-numberbox" />次
+                              </span>
+                        </td>
+                       
+                    </tr>        
+                     
+                </table>
+            </div>
+               </form>	   
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="schedulePlanDialogUpdate();" data-options="iconCls:'icon-edit',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#updateSchedulePlanDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->

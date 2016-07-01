@@ -1,0 +1,58 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 专题类别   开始 -->
+	<div id="studyTypeDialog" class="easyui-dialog" title="专题类别选择" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:440px;height:430px;" closable="true">
+			<div id="studyTypeDialog2" style="display:none;">
+			    <div >
+			    	<div style="float:left; width:400px;padding-top:3px;   height:22px;">
+			    		&nbsp;&nbsp;供试品类型
+			    		<input id="testItem" class="easyui-combobox" style="height:19px;width:80px;"data-options="editable:false,valueField:'id',textField:'text',
+	            		url:'${pageContext.request.contextPath}/dictStudyTypeAction_select.action',editable:false
+	            		,onSelect: function(record){    
+						    onTISelect(record);
+						},panelHeight:'auto'"/>
+			    		
+			    	</div>
+					<div style="float:left; width:410px;">
+						<table id="studyTypeTable" class="easyui-datagrid" style="width:420px;height:330px"   
+						        data-options="url:sybp()+'/dictStudyTypeAction_loadList.action',singleSelect:true,
+						        onDblClickRow:function(rowIndex, rowData){
+						        	onTIDblClickRow(rowIndex, rowData);
+						        }
+						        ">   
+						    <thead>   
+						        <tr>   
+						            <th data-options="field:'tiCode',width:90,align:'center',formatter : function(value,rowData,rowIndex){
+										var name='';
+										if(value=='01'){
+											name='医药';
+										}else if(value=='02'){
+											name='农药';
+										}else if(value=='03'){
+											name='化学品'
+										}else if(value=='04'){
+										    name='化妆品'
+										}else{
+											name='';
+										}
+											return name;
+											}">供试品类型</th>   
+						            <th data-options="field:'studyName',width:305">专题名称</th>   
+						            <th data-options="field:'studyPeriod',width:60,align:'center',hidden:true">专题周期</th>   
+						            <th data-options="field:'studyPeriodUnit',width:40,align:'center',hidden:true">单位</th>   
+						        </tr>   
+						    </thead>   
+						</table>
+					</div>
+					
+			    </div>
+			     <a id="studyTypeSelect_event"></a>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="selectButton" class="easyui-linkbutton" onclick="onDialogSelectButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#studyTypeDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 专题类别   结束 -->

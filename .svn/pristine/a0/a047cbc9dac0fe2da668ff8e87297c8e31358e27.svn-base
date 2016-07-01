@@ -1,0 +1,26 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AdditionalApplicationsDialog" class="easyui-dialog" title="附加申请" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:360px;height:220px;" closable="true">
+			<div id="AdditionalApplicationsDialog2" style="display:'';" closable="true">
+		    <div >
+			  <form id="AdditionalApplicationsForm" action="" method="post">
+		   	  <div class="edit_table" style="top:30px;border-collapse:collapse;position: absolute;width:300px;">
+                <table class="tiprpAppInd" style="left:20px;">
+                     <tr>
+                        <td width="300px;">
+                                                                            将新建申请
+                                                                            关联到 &nbsp;&nbsp;&nbsp;&nbsp; <input id="connectionNumber" type="text" name=""  style="width:30px;border:0px" class="validatebox" readonly="true">次申请
+                        </td>
+                     </tr>
+                </table>
+            </div>
+               </form>	   
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="clinicalTestApply();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#AdditionalApplicationsDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->

@@ -1,0 +1,47 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="editPathPlanVisceraWeighDialog" class="easyui-dialog" title="编辑病理称重计划" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#pathPlanVisceraWeighdialogToolbar'" style="display:'';width:811px;height:460px;" closable="true">
+			<div id="editPathPlanVisceraWeighDialog2" style="display:'';" closable="true">
+		    <div >
+			  <form id="editPathPlanVisceraWeighForm" action="" method="post">
+			      <table  border="0" cellpadding="1" cellspacing="0">
+			      <tr>
+			        <td>
+				        <div   style="width:150px;height:382px;border:1px solid #ffffff ">
+				           <div style="align:center;margin-left:3px;margin-top:8px;padding:2px"> 
+				        	  <table id="visceraList1" ></table>
+				           </div>
+						</div>
+					</td>
+			        <td>
+			            <div  style="width:100px;height:382px">
+			                 <br/>
+							<input type="checkbox" id="partVisceraSeparateWeigh" name="partVisceraSeparateWeigh" value="1" style="vertical-align:middle;"/>&nbsp;成对脏器分开称重<br/><br/>
+							<input type="checkbox" id="fixedWeighFlag" name="fixedWeighFlag" value="1" style="vertical-align:middle;"/>&nbsp;固定后称重<br/><br/>
+							<a id="addPathPlanVisceraWeighButton" class="easyui-linkbutton" onclick="addPathPlanVisceraWeighButton();" data-options="iconCls:'icon-add',plain:true">添加</a><br/>
+							<a id="deletePathPlanVisceraWeighButton" class="easyui-linkbutton" onclick="deletePathPlanVisceraWeighButton();" data-options="iconCls:'icon-remove',plain:true">删除</a>
+					    </div>
+			        </td>
+			        <td>
+			            <div style="width:513px;height:382px;border:1px solid #E0E0E0">
+			              <div style="align:center;margin-left:10px;margin-top:10px;" >
+			        	     <table id="pathPlanVisceraWeighTable1" ></table><br/>
+			        	      <!--  <input type="checkbox" id="abnViscera1" name="abnViscera1" value="1" style="vertical-align:middle;"/>&nbsp;肉眼所见异常的组织和脏器<br/><br/>-->
+			        	  </div>
+			        	  <div id="attachedVisceraToolbar">
+								<a id="editAttachedVisceraButton" class="easyui-linkbutton" onclick="addAttachedViscera();" data-options="iconCls:'icon-add',plain:true">编辑附加脏器</a>
+						  </div>
+					    </div>
+			        </td>
+			      </tr>
+			      </table>
+               </form>	   
+		    </div>
+		   </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="pathPlanVisceraWeighdialogToolbar">
+		<a id="saveWeighDialogButton" class="easyui-linkbutton" onclick="saveWeigh();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backWeighButton" class="easyui-linkbutton" onclick="javascript:$('#editPathPlanVisceraWeighDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->

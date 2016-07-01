@@ -1,0 +1,45 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseSmplReserveDialog" class="easyui-dialog" title="选择留样记录" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:820px;height:480px;" closable="true">
+		<div id="chooseSmplReserveDialog2" style="display:none;" closable="true">
+		
+		     <table id="chooseSmplReserveDataGrid" class="easyui-datagrid" 
+		      data-options="singleSelect:true,width:805,height:410,onDblClickRow:function(rowIndex,rowData){chooseOneSmplReserve();}">
+			    <thead>
+			        <tr>
+			            <th data-options="field:'tiType',width:90,">供试品类型</th>
+			            <th data-options="field:'batchCode',width:100,">供试品批号</th>
+			            <th data-options="field:'reserveNum',width:100,">供试品留样量</th>
+			            <th data-options="field:'reserveNumUnit',width:90,">供试品留样单位</th>
+			            <th data-options="field:'reserveBalance',width:90,">供试品留样天平</th>
+			            <th data-options="field:'gross',width:90,">毛重量</th>
+			            <th data-options="field:'grossUnit',width:70,">毛重单位</th>
+			            <th data-options="field:'grossBalance',width:100,">毛重天平</th>
+			            
+			            <th data-options="field:'smplName',width:100,">供试品名称</th>
+			            <!-- 
+			            <th data-options="field:'venderName'">供试品</th>
+			             -->
+			            <th data-options="field:'sponsorName',width:100,">委托单位</th>
+			            <th data-options="field:'reportUnitName',width:100,">报告出具单位</th>
+			            <th data-options="field:'reserveDate',width:100,">留样日期</th>
+			            <th data-options="field:'reserveMan',width:100,">留样人</th>
+			            <th data-options="field:'storageCondition',width:100,">储存条件</th>
+			            <th data-options="field:'smplCode',width:100,">供试品编号</th>
+			            <th data-options="field:'smplName',width:100,">供试品名称</th>
+			            <th data-options="field:'smplProvUnitName',width:100,">Price</th>
+			            <th data-options="field:'smplType',width:100,">Price</th>
+			        </tr>
+			    </thead>
+			   
+			</table>
+		
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a class="easyui-linkbutton" onclick="chooseOneSmplReserve();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#chooseSmplReserveDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		
+	</div>
+	<!-- 工具栏 结束-->

@@ -1,0 +1,90 @@
+/**绿色（成功）*/
+.topMessager_success{
+	position:absolute; 
+	z-index:0; 
+	top:-28px;
+	min-width:200px;
+	height:28px;
+	color: yellow;
+	text-align: center;
+	background:#278D3B;
+}
+.topMessager_success .topMessager_icon{
+	position:absolute;
+	top:4px;
+	left:5px;
+	width:20px;
+	height:20px;
+	background:url(../images/topMessager_success.png) no-repeat;
+}
+.topMessager_success .messager{
+	position:absolute;
+	top:5px;
+	left:27px;
+	min-width: 160px;
+}
+/**黄色（警告）*/
+.topMessager_warn{
+	position:absolute; 
+	z-index:0; 
+	top:-28px;
+	width: 200px;
+	height:28px;
+	color: white;
+	text-align: center;
+	background:#E69114;
+}
+.topMessager_warn .topMessager_icon{
+	position:absolute;
+	top:4px;
+	left:5px;
+	width:20px;
+	height:20px;
+	background:url(../images/topMessager_warn.png) no-repeat;
+}
+.topMessager_warn .messager{
+	position:absolute;
+	top:5px;
+	left:27px;
+	min-width: 160px;
+}
+/**红色（失败）*/
+.topMessager_fail{
+	position:absolute; 
+	z-index:0; 
+	top:-28px;
+	min-width:200px;
+	height:28px;
+	color: white;
+	text-align: center;
+	background:#e83228;
+}
+.topMessager_fail .topMessager_icon{
+	position:absolute;
+	top:4px;
+	left:5px;
+	width:20px;
+	height:20px;
+	background:url(../images/topMessager_fail.png) no-repeat;
+}
+.topMessager_fail .messager{
+	position:absolute;
+	top:5px;
+	left:27px;
+	min-width: 160px;
+}
+/**提示消息关闭按钮*/
+.messager_closebutton{
+	position:absolute;
+	top:5px;
+	right:5px;
+	background:url(../images/icon_close_tab.png) no-repeat;
+	width:8px;
+	height:8px;
+	display:inline-block;
+	float:none;
+	padding:0px;
+}
+.messager_closebutton:hover{
+	background-position:left bottom;
+}

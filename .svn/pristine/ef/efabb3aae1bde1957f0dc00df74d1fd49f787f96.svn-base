@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 图片 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限-->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI">/WEB-INF/jsp/userAction/logout.jsp</result>
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="systemError">/systemError.jsp</result>
+			<result name="toIndex" type="redirectAction">homeAction_index?ticket=${ticket}</result>
+			<result name="toLogout" type="redirectAction">userAction_logout</result>
+		</global-results>
+
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp
+			</result>
+			<result name="success">/xls_test.jsp</result>
+		</action>
+
+		<!-- 首页 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+
+		<!-- 字典-生化指标 -->
+		<action name="dictBioChemAction_*" class="dictBioChemAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictBioChemAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictBioChemAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictBioChemAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictBioChemAction_list</result>
+		</action>
+		<!-- 字典-血凝 -->
+		<action name="dictBloodCoagAction_*" class="dictBloodCoagAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictBloodCoagAction/list.jsp
+			</result>
+			<result name="addUI">/WEB-INF/jsp/dictBloodCoagAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictBloodCoagAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictBloodCoagAction_list</result>
+		</action>
+		<!-- 字典-标本类型 -->
+		<action name="dictSpecimenAction_*" class="dictSpecimenAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictSpecimenAction/list.jsp
+			</result>
+			<result name="addUI">/WEB-INF/jsp/dictSpecimenAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictSpecimenAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictSpecimenAction_list</result>
+		</action>
+		<!-- 字典-血常规 -->
+		<action name="dictHematAction_*" class="dictHematAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictHematAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictHematAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictHematAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictHematAction_list</result>
+		</action>
+		<!-- 字典-尿常规 -->
+		<action name="dictUrineAction_*" class="dictUrineAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictUrineAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictUrineAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictUrineAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictUrineAction_list</result>
+		</action>
+		<!-- 字典-设备登记表 -->
+		<action name="dictInstrumentAction_*" class="dictInstrumentAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictInstrumentAction/list.jsp
+			</result>
+			<result name="saveUI">/WEB-INF/jsp/dictInstrumentAction/saveUI.jsp
+			</result>
+			<result name="comParamUI">/WEB-INF/jsp/dictInstrumentAction/comParamUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictInstrumentAction_list</result>
+		</action>
+		<!-- 字典-供试品类型 -->
+		<action name="dictTestItemTypeAction_*" class="dictTestItemTypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictTestItemTypeAction/{1}.jsp</result>
+		</action>
+		<!-- 字典-剂量单位 -->
+		<action name="dictDoseUnitAction_*" class="dictDoseUnitAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/dictDoseUnitAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictDoseUnitAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictDoseUnitAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictDoseUnitAction_list</result>
+		</action>
+		<!-- 字典-课题类别 -->
+		<action name="dictStudyTypeAction_*" class="dictStudyTypeAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictStudyTypeAction/list.jsp
+			</result>
+			<result name="addUI">/WEB-INF/jsp/dictStudyTypeAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictStudyTypeAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictStudyTypeAction_list</result>
+		</action>
+		<!-- 字典-课题缺省检验指标 -->
+
+		<action name="dictStudyTestIndexAction_*" class="dictStudyTestIndexAction"
+			method="{1}">
+			<result name="editUI">/WEB-INF/jsp/dictStudyTestIndexAction/editUI.jsp
+			</result>
+			<result name="save" type="redirectAction">dictStudyTypeAction_list</result>
+		</action>
+		<!-- 试验计划 -->
+		<action name="tblStudyPlanAction_*" class="tblStudyPlanAction"
+			method="{1}">
+			<result name="studyPlanTab">/WEB-INF/jsp/studyPlanAction/studyPlanTab.jsp
+			</result>
+			<result name="studyPlanMain">/WEB-INF/jsp/studyPlanAction/studyPlanMain.jsp
+			</result>
+			<result name="copyStudyPlan" type="redirectAction">
+                <param name="actionName">tblStudyPlanAction_studyPlanMain</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<result name="studyPlanView">/WEB-INF/jsp/studyPlanAction/studyPlanView.jsp
+			</result>
+			<result name="studyNo">/WEB-INF/jsp/studyPlanAction/studyNo.jsp</result>
+			<result name="studyPlanAdd">/WEB-INF/jsp/studyPlanAction/studyPlanAdd.jsp
+			</result>
+			<!-- 
+			<result name="addSave" type="redirectAction">tblStudyPlanAction_studyPlanMain?studyNoPara=${studyNoPara}
+			</result>
+			 -->
+			<result  name="addSave" type="redirectAction">
+                <param name="actionName">tblStudyPlanAction_studyPlanMain</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<result name="studyPlanEdit">/WEB-INF/jsp/studyPlanAction/studyPlanEdit.jsp
+			</result>
+			<!-- 
+			<result name="editSave" type="redirectAction">tblStudyPlanAction_studyPlanMain?studyNoPara=${studyNoPara}
+			</result>
+			 -->
+			<result  name="editSave" type="redirectAction">
+                <param name="actionName">tblStudyPlanAction_studyPlanMain</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<!-- 
+			<result name="sign" type="redirectAction">tblStudyPlanAction_studyPlanMain?studyNoPara=${studyNoPara}&amp;oldUlLi=1
+			</result>
+			 -->
+			<result  name="sign" type="redirectAction">
+                <param name="actionName">tblStudyPlanAction_studyPlanMain</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+                <param name="oldUlLi">1</param> 
+			</result>
+		</action>
+		<!--剂量设置 -->
+		<action name="tblDoseSettingAction_*" class="tblDoseSettingAction"
+			method="{1}">
+			<result name="doseSettingView">/WEB-INF/jsp/doseSettingAction/doseSettingView.jsp
+			</result>
+			<result name="list">/WEB-INF/jsp/doseSettingAction/list.jsp
+			</result>
+		</action>
+		<!--解剖计划 -->
+		<action name="tblDissectPlanAction_*" class="tblDissectPlanAction"
+			method="{1}">
+			<result name="dissectPlanList">/WEB-INF/jsp/dissectPlanAction/dissectPlanList.jsp
+			</result>
+			<result name="animalCode">/WEB-INF/jsp/dissectPlanAction/dissectPlanAnimalCodeList.jsp
+			</result>
+			<result name="animalSet">/WEB-INF/jsp/dissectPlanAction/dissectPlanAnimalSet.jsp
+			</result>
+		</action>
+		<!--课题计划检验指标 -->
+		<action name="tblTestIndexPlanAction_*" class="tblTestIndexPlanAction"
+			method="{1}">
+			<result name="testIndexPlanList">/WEB-INF/jsp/testIndexPlanAction/testIndexPlanList.jsp
+			</result>
+			<!-- 
+			<result name="addSave" type="redirectAction">tblTestIndexPlanAction_testIndexPlanList?studyNoPara=${studyNoPara}&amp;success=${success}
+			</result>
+			 -->
+			<result  name="addSave" type="redirectAction">
+                <param name="actionName">tblTestIndexPlanAction_testIndexPlanList</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+                <param name="success">${success}</param>  
+			</result>
+		</action>
+		<!--动物信息 -->
+		<action name="tblAnimalAction_*" class="tblAnimalAction"
+			method="{1}">
+			
+			<result name="maleAndfemaleNum">/WEB-INF/jsp/animalAction/maleAndfemaleNum.jsp</result>
+			<result name="animalCode">/WEB-INF/jsp/animalAction/animalCode.jsp</result>
+			<result name="animalView">/WEB-INF/jsp/animalAction/animalView.jsp</result>
+			<result name="animalDie">/WEB-INF/jsp/animalAction/animalDie.jsp</result>
+			<!-- 
+			<result name="toList" type="redirectAction">tblAnimalAction_animalList?studyNoPara=${studyNoPara}</result>
+			 -->
+			<result  name="toList" type="redirectAction">
+                <param name="actionName">tblAnimalAction_animalList</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<result name="animalList">/WEB-INF/jsp/animalAction/animalList.jsp</result>
+			<!-- 
+			<result name="editSave" type="redirectAction">tblAnimalAction_animalList?studyNoPara=${studyNoPara}
+			</result>
+			 -->
+			<result  name="editSave" type="redirectAction">
+                <param name="actionName">tblAnimalAction_animalList</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<result name="determofdeath">/WEB-INF/jsp/animalAction/determofdeath.jsp
+			</result>
+		</action>
+		<!--临检申请 -->
+		<action name="tblClinicalTestReqAction_*" class="tblClinicalTestReqAction"
+			method="{1}">
+			<result name="clinicalTestApply">/WEB-INF/jsp/clinicalTestReqAction/clinicalTestApply.jsp
+			</result>
+			<!-- 
+			<result name="save" type="redirectAction">tblClinicalTestReqAction_list?studyNoPara=${studyNoPara}
+			</result>
+			 -->
+			 <result  name="save" type="redirectAction">
+                <param name="actionName">tblClinicalTestReqAction_list</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<!-- 
+			<result name="toList" type="redirectAction">tblClinicalTestReqAction_list?studyNoPara=${studyNoPara}
+			</result>
+			 -->
+			 <result  name="toList" type="redirectAction">
+                <param name="actionName">tblClinicalTestReqAction_list</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<result name="list">/WEB-INF/jsp/clinicalTestReqAction/list.jsp
+			</result>
+			<result name="view">/WEB-INF/jsp/clinicalTestReqAction/view.jsp
+			</result>
+			<result name="toformal">/WEB-INF/jsp/clinicalTestReqAction/toformal.jsp
+			</result>
+			<result name="ireport">/WEB-INF/jsp/clinicalTestReqAction/ireport.jsp
+			</result>
+			<result name="outportClinicalTestReq" type="jasper">
+				<param name="location">/jasperReport/clinicalTestReq.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">tblClinicalTestReqIndex2List</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<!--检测结果数据 -->
+		<action name="tblClinicalTestDataAction_*" class="tblClinicalTestDataAction"
+			method="{1}">
+			<result name="print" type="jasper">
+				<param name="location">/jasperReport/clinicalTestDataReport.jasper</param>
+				<param name="format">PDF</param>
+				<param name="dataSource">tblClinicalTestDataList</param>
+			</result>
+			<result name="list">/WEB-INF/jsp/tblClinicalTestDataAction/list.jsp</result>
+			<result name="saveExcel" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${fileName}</param>
+        		<param name="bufferSize">4096</param>  
+    		</result> 
+		</action>
+		
+		
+		<!-- 供试品申请 -->
+		<action name="tblTiprpAppIndAction_*" class="tblTiprpAppIndAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblTiprpAppIndAction/list.jsp
+			</result>
+		</action>
+		
+		<!-- 登记体重-->
+		<action name="tblWeightIndAction_*" class="tblWeightIndAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/TblWeighInd/WeightIndlist.jsp
+			</result>
+			<result name="toadd">/WEB-INF/jsp/TblWeighInd/addWeighInd.jsp
+			</result>
+			<!-- 
+			<result name="toList" type="redirectAction">tblWeightIndAction_animalList?studyNoPara=${studyNoPara}</result>
+			 -->
+			 <result  name="toList" type="redirectAction">
+                <param name="actionName">tblWeightIndAction_animalList</param>  
+                <param name="studyNoPara">${studyNoPara}</param>  
+			</result>
+			<result name="animalList">/WEB-INF/jsp/TblWeighInd/animalList.jsp</result>
+		</action>
+		
+		<!-- 课题成员-->
+		<action name="tblStudyMemberAction_*" class="tblStudyMemberAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/TblStudyMember/TblStudyMemberlist.jsp
+			</result>
+	    </action>
+		
+		<!--系统日志 -->
+		<action name="tblLogAction_*" class="tblLogAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblLogAction/list.jsp</result>
+		</action>
+		
+		<!-- 日程安排 -->
+		<action name="tblSchedulePlanAction_*" class="tblSchedulePlanAction"
+		     method="{1}">
+		     <result name="list">/WEB-INF/jsp/schedulePlan/schedulePlan.jsp</result>
+		     <result name="preview">/WEB-INF/jsp/schedulePlan/preview.jsp</result>
+		    <result name="jointInquiry">/WEB-INF/jsp/schedulePlan/jointInquiry.jsp</result>
+		</action>
+		<!-- 日程安排 -->
+		<action name="tblStudyInfoAction_*" class="tblStudyInfoAction"
+		     method="{1}">
+		</action>
+		<!-- 申请修改 -->
+		<action name="tblApplyReviseAction_*" class="tblApplyReviseAction"
+		     method="{1}">
+		</action>
+		<!-- 病理计划-->
+		<action name="tblPathPlanAction_*" class="tblPathPlanAction"
+			method="{1}">
+			<result name="pathPlanList">/WEB-INF/jsp/tblPathPlanAction/pathPlanList.jsp</result>
+		</action>
+		<!-- 病理计划-脏器/组织学检查-->
+		<action name="tblPathPlanCheckAction_*" class="tblPathPlanCheckAction"
+			method="{1}">
+		</action>
+		<!-- 病理计划-脏器称重-->
+		<action name="tblPathPlanVisceraWeighAction_*" class="tblPathPlanVisceraWeighAction"
+			method="{1}">
+		</action>
+		<!-- 病理计划-脏器称重-附加脏器-->
+		<action name="tblPathPlanAttachedVisceraAction_*" class="tblPathPlanAttachedVisceraAction"
+			method="{1}">
+		</action>
+		<!-- 解剖申请-->
+		<action name="tblAnatomyReqAction_*" class="tblAnatomyReqAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblAnatomyReqAction/list.jsp</result>
+			<result name="addEditAnatomyReq">/WEB-INF/jsp/tblAnatomyReqAction/addEditAnatomyReq.jsp</result>
+			<result name="report">/WEB-INF/jsp/tblAnatomyReqAction/report.jsp</result>
+			<result name="loadReport" type="jasper">
+				<param name="location">/jasperReport/PathReq.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">sourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+			<result name="anatomyDetail">/WEB-INF/jsp/tblAnatomyReqAction/anatomyDetail.jsp</result>
+			<result name="saveExcel" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${fileName}</param>
+        		<param name="bufferSize">4096</param>  
+    		</result> 
+		</action>
+		<!-- 解剖申请-申请解剖的动物-->
+		<action name="tblAnatomyReqAnimalListAction_*" class="tblAnatomyReqAnimalListAction"
+			method="{1}">
+		</action>
+		<!-- 解剖申请-脏器称重-->
+		<action name="tblAnatomyReqVisceraWeighAction_*" class="tblAnatomyReqVisceraWeighAction"
+			method="{1}">                                       
+		</action>
+		<!-- 解剖申请-病理检查-->
+		<action name="tblAnatomyReqPathPlanCheckAction_*" class="tblAnatomyReqPathPlanCheckAction"
+			method="{1}">
+		</action>
+		<!--testReport -->
+		<action name="testreportAction_*" class="testreportAction"
+			method="{1}">
+			<result name="report" type="jasper">
+				<param name="location">/jasperReport/PathReq.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">sourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+	</package>
+</struts>

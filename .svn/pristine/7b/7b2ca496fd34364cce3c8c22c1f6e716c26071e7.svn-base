@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cores_auserprivilege"
+  id="myeclipse.1395794189162"
+  context-root="/cores_auserprivilege"
+  j2ee-spec="5.0"
+  archive="cores_auserprivilege.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

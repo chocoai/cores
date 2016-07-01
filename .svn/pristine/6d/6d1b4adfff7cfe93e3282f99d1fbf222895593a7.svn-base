@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.schedule">
+    <class name="com.lanen.model.schedule.TblScheduleTempReader" table="tblScheduleTempReader" >
+       
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>  
+        
+        <property name="reader" type="java.lang.String">
+            <column name="reader"  length="60"/>
+        </property>
+         
+        <property name="readerType" type="java.lang.Integer">
+            <column name="readerType" />
+        </property>
+        
+        <property name="WriteFinishFlag" type="java.lang.Integer">
+            <column name="WriteFinishFlag" />
+        </property>
+        
+  
+    </class>
+</hibernate-mapping>

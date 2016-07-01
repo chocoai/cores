@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.UserRoleLog" table="tbluserRoleLog" >
+        <!-- ID主键 -->
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"></generator> 
+        </id>
+        <property name="systemId" type="java.lang.String">
+            <column name="systemId" />
+        </property>
+        <property name="roleId" type="java.lang.String">
+            <column name="roleId" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="createTime" />
+        </property>
+        <property name="privilegeList" type="java.lang.String" >
+            <column name="privilegeList" length="8000" />
+        </property>
+        <property name="userCode" type="java.lang.String">
+            <column name="userCode" />
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="userName" />
+        </property>
+        <!-- 原因 -->
+        <property name="type" type="java.lang.String">
+            <column name="type" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" />
+        </property>
+        <!-- MD5 -->
+        <property name="MD5" type="java.lang.String">
+            <column name="MD5" />
+        </property>
+        
+        <!-- user属性，本类与User的多对一关系-->
+        <many-to-one name="user" class="com.lanen.model.User" column="authorId" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

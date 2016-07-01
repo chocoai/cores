@@ -1,0 +1,157 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileContentAdministrationDialog" class="easyui-dialog" title="新建行政综合资料" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:400px;overflow:hidden;" closable="true">
+		<div id="AddOrEditFileContentAdministrationDialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileContentAdministrationForm">
+		      	<input id="addOrEditAdministration" type="hidden">
+		      	<input id="oneFileRecordId6" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag6" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateAdministrationRsn" name="operateRsn" type="hidden"/>
+			  <div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:192px;left:30px;background-color: #fff;">归档记录</div>		
+			  	
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8;margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		
+			  		<table style="width:100%;" border="0">
+			  			<tr>
+			  				<td width="65">类别：</td>
+			  				<td >
+			  					<select id="docTypeFlag" name="docTypeFlag" class="easyui-combobox" required="true">
+			  						<!-- 
+			  						<option value="1">GLP相关资料</option>
+			  						<option value="2">外来文件</option>
+			  						<option value="3">内部发文</option>
+			  						<option value="4">人字头文件</option>
+			  						 -->
+			  					</select>
+				  				<!-- 
+				  				类别名称：
+				  				 -->
+				  				<input type="hidden" id="docTypeName" data-options="required:true" readonly="readonly" name="docTypeName" />
+			  				
+			  			
+			  				</td>
+			  				
+			  				<td align="right" colspan="4">
+			  					归档介质：
+								<label for="archiveMediaFlag16">
+									<input id="archiveMediaFlag16" type="radio" name="tblFileRecord.archiveMediaFlag" value="1" checked="checked" onclick="$('#oneArchiveMedia6').attr('disabled',true);"/>纸质
+								</label>
+								<label for="archiveMediaFlag26">
+									<input id="archiveMediaFlag26" type="radio" name="tblFileRecord.archiveMediaFlag" value="2" onclick="$('#oneArchiveMedia6').attr('disabled',true);"/>电子
+								</label>
+								<label for="archiveMediaFlag36">
+									<input id="archiveMediaFlag36" type="radio" name="tblFileRecord.archiveMediaFlag" value="3" onclick="$('#oneArchiveMedia6').attr('disabled',false);"/>其他
+								</label>
+								<input id="oneArchiveMedia6" type="text" disabled name="tblFileRecord.archiveMedia" style="width:100px;"/>
+							</td>
+			  			</tr>
+			  			<tr>
+			  				<td>资料编号：</td>
+			  				<td width="120">
+			  					<input id="docCode"  class="easyui-validatebox" name="docCode" data-options="required:true"/>
+			  				</td>
+			  				<td width="70">资料名称：</td>
+			  				<td>
+			  					<input id="docName2"  class="easyui-validatebox" name="docName" data-options="required:true" style="width:200px;"
+			  					onblur="if($('#addOrEditAdministration').val()==1){$('#oneArchiveTitle6').val($(this).val());}"/>
+			  				</td>
+			  			</tr>
+			  			
+			  			<tr>
+			  				<td>发文单位：</td>
+			  				<td >
+			  					<input id="dispatchUnit"  class="easyui-validatebox" name="dispatchUnit" data-options="required:true"/>
+			  				</td>
+			  				<td>发文时间：</td>
+			  				<td >
+			  					<input id="dispatchDate" name="dispatchDate" required="true" class="easyui-datebox"/>
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td>收件人：</td>
+			  				<td >
+			  					<input id="receiptMan" name="receiptMan" required="true"
+				    					class="easyui-combobox" />
+			  				</td>
+			  				<td>收件时间：</td>
+			  				<td>
+			  					<input id="receiptDate" name="receiptDate" class="easyui-datebox" required="true"/>
+			  				</td>
+			  			</tr>
+			  				  			
+			  			
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+		    			<table border="0">
+					    	<tr>
+					    		<td width="100">分类代号：</td>
+					    		<td width="100">
+					    			<input id="oneArchiveTypeCode6" name="archiveTypeCode" type="hidden"/>
+					    			<input id="oneArchiveTypeName6" name="archiveTypeName" readOnly="readonly" onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode6').click();}" required="true" style="width:72%;"/>
+					    			<input type="button" id="chooseOneArchiveTypeCode6" class="easyui-linkbutton" style="width:30px;" onclick="chooseArchiveType();" value="..."/>
+					    		</td>
+					    		<td width="100">档案编号：</td>
+					    		<td colspan="3" width="300"><input id="oneArchiveCode6" name="archiveCode" type="text" required="true" style="100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">储存位置：</td>
+				    			<td width="100"><input id="oneStorePosition6"  required="true" 
+				    			class="easyui-combotree"/>
+				    			<input id="oneStorePosition6L" type="hidden" name="storePosition"/></td>
+				    			<td width="100">题名：</td>
+				    			<td width="300" colspan="3"><input id="oneArchiveTitle6" name="archiveTitle" required="true"  style="width:100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">立卷人：</td>
+				    			<td width="100">
+				    			<input id="oneArchiveMaker6" name="tblFileRecord.archiveMaker" required="true" 
+				    				class="easyui-combobox"  />
+				    						
+				    			</td>
+				    			<td width="100">归档人：</td>
+				    			<td width="100">
+				    				<input id="oneFileOperator6" name="tblFileRecord.fileOperator" required="true"
+				    					  class="easyui-validatebox"/>
+				    				</td>
+				    			<td width="100">归档日期：</td>
+				    			<td width="100"><input class="easyui-datebox" id="oneFileDate6" name="tblFileRecord.fileDate" required="true"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">备注：</td>
+				    			<td width="300" colspan="3"><input id="oneRemark6" name="tblFileRecord.remark" type="text" style="width:100%"/></td>
+				    			<td width="100">保存期限：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneKeepDate6" name="tblFileRecord.keepDate" data-options="width:120,"/>
+				    				<input type="checkbox" class="checkboxC" id="isLong6" name="isLong" checked="checked"
+				    				onclick="if($('#isLong6').attr('checked')=='checked'){$('#oneKeepDate6').datebox('setValue','');$('#oneKeepDate6').datebox('disable');}else{$('#oneKeepDate6').datebox('setValue',$('#todayDate').val());$('#oneKeepDate6').datebox('enable');}">长期
+				    			</td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">关键字：</td>
+				    			<td width="300" colspan="3"><input id="oneKeyWord6" name="tblFileRecord.keyWord" type="text" style="width:100%"/></td>
+				    			
+				    			<td width="100" id="oneDestoryDate6Label" style="display:none;" >销毁日期</td>
+				    			<td width="100" id="oneDestoryDate6Label2" style="display:none;">
+				    				<input class="easyui-datebox" id="oneDestoryDate6" name="tblFileRecord.destoryDate"/>
+				    			</td>
+				    			 
+				    		</tr>
+				    			
+				    </table>
+	    	   </div>
+		    </form>
+			<div id="positionTipCode6"></div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton6" class="easyui-linkbutton" onclick="saveOneFileContentAdministration();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileContentAdministrationDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddAdministrationButton" type="checkbox" class="checkboxC"/><span id="continueAddAdministrationLabel"></span>
+		<input id="isForValidAdministration" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidAdministrationLabel" style="position:absolute;top:35px;right: 10px;">验证记录 </span>
+	</div>
+	<!-- 工具栏 结束-->

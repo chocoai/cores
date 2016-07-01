@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.DictReportNumberHis" table="dictReportNumberHis" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20"/>
+        </id>
+        <property name="reportName" type="java.lang.String">
+            <column name="reportName"  length="100"/>
+        </property>
+        <property name="number" type="java.lang.String">
+            <column name="number"  length="20"/>
+        </property>
+         <property name="reason" type="java.lang.String">
+            <column name="reason"  length="200"/>
+        </property>
+         <property name="esLinkId" type="java.lang.String">
+            <column name="esLinkId"  length="20"/>
+        </property>
+        <property name="changeTime" type="java.util.Date">
+            <column name="changeTime" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>

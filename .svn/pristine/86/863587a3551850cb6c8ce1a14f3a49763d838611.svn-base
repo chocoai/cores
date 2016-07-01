@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.schedule">
+    <class name="com.lanen.model.schedule.DictAttachmentRootDirectory" table="dictAttachmentRootDirectory" >
+        <id name="id" type="integer">
+            <column name="id"  length="20"/>
+        </id>    
+        <property name="rootDirectory" type="java.lang.String">
+            <column name="rootDirectory"  length="200"/>
+        </property>
+    </class>
+</hibernate-mapping>

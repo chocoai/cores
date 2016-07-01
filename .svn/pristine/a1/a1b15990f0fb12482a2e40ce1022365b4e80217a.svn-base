@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblStudyPlanHis" table="tblStudyPlanHis" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </property>
+        <property name="studyTypeCode" type="java.lang.String">
+            <column name="studyTypeCode"  length="20"/>
+        </property>
+        <property name="studyName" type="java.lang.String">
+            <column name="studyName"  length="200"/>
+        </property>
+        <property name="studydirector" type="java.lang.String">
+            <column name="studydirector"  length="20"/>
+        </property>
+        <property name="isGLP" type="java.lang.Integer">
+            <column name="isGLP" />
+        </property>
+        <property name="animalType" type="java.lang.String">
+            <column name="animalType"  length="20"/>
+        </property>
+        <property name="animalStrain" type="java.lang.String">
+            <column name="animalStrain"  length="20"/>
+        </property>
+        <property name="studyStartDate" type="timestamp">
+            <column name="studyStartDate" />
+        </property>
+        <property name="animalImportDate" type="timestamp">
+            <column name="animalImportDate" />
+        </property>
+        <property name="preStudyDate" type="timestamp">
+            <column name="preStudyDate" />
+        </property>
+        <property name="studyBeginDate" type="timestamp">
+            <column name="studyBeginDate" />
+        </property>
+        <property name="dosageUnit" type="java.lang.String">
+            <column name="dosageUnit"  length="20"/>
+        </property>
+        <property name="smplCode" type="java.lang.String">
+            <column name="smplCode"  length="20"/>
+        </property>
+        <property name="qa" type="java.lang.String">
+            <column name="qa"  length="20"/>
+        </property>
+        <property name="pathDirector" type="java.lang.String">
+            <column name="pathDirector"  length="20"/>
+        </property>
+        <property name="clinicalTestDirector" type="java.lang.String">
+            <column name="clinicalTestDirector"  length="20"/>
+        </property>
+        <property name="studyState" type="java.lang.String">
+            <column name="studyState"  length="20"/>
+        </property>
+        <property name="temp" type="integer">
+            <column name="temp" />
+        </property>
+        <property name="client" type="java.lang.String">
+            <column name="client"  length="100"/>
+        </property>
+        <property name="isValidation" type="integer">
+            <column name="isValidation" />
+        </property>
+        <property name="animalCodeMode" type="integer">
+            <column name="animalCodeMode" />
+        </property>
+       <property name="tblApplyReviseID" type="java.lang.String">
+            <column name="tblApplyReviseID"  length="20"/>
+        </property>
+         <property name="operate" type="java.lang.String">
+            <column name="operate"  length="500"/>
+        </property>
+         <property name="operateDate" type="timestamp">
+            <column name="operateDate" />
+        </property>
+    </class>
+</hibernate-mapping>

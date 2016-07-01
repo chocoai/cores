@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Department" table="tbldepartment" >
+        <id name="id" type="java.lang.String">
+            <column name="id" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" />
+        </property>
+        
+        <!-- users ,本类与User 的一对多的关系 -->
+        <set name="users" >
+           <key column="departmentId"></key>
+           <one-to-many class="User"/>
+        </set>        
+        
+        
+    </class>
+</hibernate-mapping>

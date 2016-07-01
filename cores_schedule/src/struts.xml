@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 文件限制  100M -->
+	<constant name="struts.multipart.maxSize" value="1048576000"/>
+	<!-- 图片 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限-->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI" >/WEB-INF/jsp/userAction/logout.jsp</result>
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="systemError">/systemError.jsp</result>
+			<result name="toIndex" type="redirectAction">homeAction_index?ticket=${ticket}</result>
+			<result name="toLogout" type="redirectAction">userAction_logout</result>
+		</global-results>
+
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp
+			</result>
+			<result name="success">/xls_test.jsp</result>
+		</action>
+		
+		<!-- 系统日志 -->
+		<action name="tblLogAction_*" class="tblLogAction" method="{1}">
+			
+			<result name="{1}">/WEB-INF/jsp/tblLogAction/{1}.jsp
+			</result>
+		</action>
+
+        <!-- 字典-动物房资源设置 -->
+		<action name="tblAnimalHouseAction_*" class="tblAnimalHouseAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblAnimalHouse/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblAnimalHouse/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/tblAnimalHouse/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">tblAnimalHouseAction_list?rid=${rid}</result>
+		</action>
+		
+		 <!-- 字典-通用任务设置 -->
+		<action name="tblTaskTypeAction_*" class="tblTaskTypeAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblTaskTypeAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblTaskTypeAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/tblTaskTypeAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">tblTaskTypeAction_list?taskIds=${taskIds}
+			</result>
+		</action>
+		
+		 <!-- 资源负责人设置 -->
+		<action name="tblResManagerAction_*" class="tblResManagerAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblResManagerAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblResManagerAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/tblResManagerAction/editUI.jsp
+			</result>
+			<result name="setUI">/WEB-INF/jsp/tblResManagerAction/setUI.jsp</result>
+			<result name="toList" type="redirectAction">tblResManagerAction_list</result>
+		</action>
+		
+		<!--实验设置 -->
+		<action name="tblStudyResAction_*" class="tblStudyResAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblStudyResAction/list.jsp</result>
+			<result name="setUI">/WEB-INF/jsp/tblStudyResAction/setUI.jsp
+			</result>
+			<result name="addUI">/WEB-INF/jsp/tblStudyResAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/tblStudyResAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">tblStudyResAction_list</result>
+		 </action>
+		 
+		<!-- 常规任务负责人 -->
+		<action name="tblTaskLeaderAction_*" class="tblTaskLeaderAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblTaskLeaderAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblTaskLeaderAction/addUI.jsp
+			</result>
+			<result name="addUI2">/WEB-INF/jsp/tblTaskLeaderAction/addUI2.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/tblTaskLeaderAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">tblTaskLeaderAction_list</result>
+		 </action>
+		 
+		 <!-- 日程任务负责人 -->
+		<action name="tblSOLeaderAction_*" class="tblSOLeaderAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblSOLeaderAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblSOLeaderAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/tblSOLeaderAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">tblTaskLeaderAction_list</result>
+			<result name="toBatchSet">/WEB-INF/jsp/tblSOLeaderAction/toBatchSet.jsp</result>
+		 </action>
+		 <!-- 日程任务负责人 -->
+		 <action name="tblTOLeaderAction_*" class="tblTOLeaderAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblTOLeaderAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblTOLeaderAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/tblTOLeaderAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">tblTOLeaderAction_list</result>
+		 </action>
+		 
+		<!-- 首页 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+
+        <!-- 日程展示 -->
+		<action name="tblSchedulePlanAction_*" class="tblSchedulePlanAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/tblSchedulePlanAction/list.jsp</result>
+			<result name="select">/WEB-INF/jsp/tblSchedulePlanAction/select.jsp</result>
+		</action>
+        <!-- 任务完成登记 -->
+		<action name="tblTaskStateAction_*" class="tblTaskStateAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblSchedulePlanAction/{1}.jsp</result>
+		</action>
+		<!-- 通知登记 -->
+		<action name="tblNotificationAction_*" class="tblNotificationAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblNotificationAction/{1}.jsp</result>
+		</action>
+			<!-- SD 任命 -->
+		<action name="tblAppointSDAction_*" class="tblAppointSDAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblAppointSDAction/{1}.jsp</result>
+		</action>
+		<action name="tblStudyScheduleAction_*" class="tblStudyScheduleAction" method="{1}">
+		</action>
+		
+		<action name="tblIntegratedInformAction_*" class="tblIntegratedInformAction" method="{1}">
+			<result name="ireport">/WEB-INF/jsp/tblIntegratedInformAction/ireport.jsp</result>
+			<result name="outport" type="jasper">
+				<param name="location">/jasperReport/SDcommission.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">mapList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		
+		<action name="tblTestItemAction_*" class="tblTestItemAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/tblTestItemAction/list.jsp</result>
+		</action>
+ 
+        <!-- 日程安排 -->
+		<action name="tblStudyInfoAction_*" class="tblStudyInfoAction"
+		     method="{1}">
+		</action>
+		 <!-- 地区 -->
+		<action name="tblRegionAction_*" class="tblRegionAction"
+		     method="{1}">
+		</action>
+		<!-- 客户 -->
+		<action name="tblCustomerAction_*" class="tblCustomerAction"
+		     method="{1}">
+		</action>
+		<!-- 供试品附件-->
+		<action name="tblTestItemAttachmentAction_*" class="tblTestItemAttachmentAction"
+		     method="{1}">
+		     <result name="download2" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${fileName}</param>
+        		<param name="bufferSize">4096</param>  
+    		</result> 
+		</action>
+		<!-- 附件 -->
+		<action name="tblAttachmentIndexAction_*" class="tblAttachmentIndexAction"
+		     method="{1}">
+		     <result name="list">/WEB-INF/jsp/tblAttachmentIndexAction/list.jsp</result>
+		     <result name="view">/WEB-INF/jsp/tblAttachmentIndexAction/view.jsp</result>
+		     <result name="nofile">/WEB-INF/jsp/tblAttachmentIndexAction/nofile.jsp</result>
+		     <result name="download" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${fileName}</param>
+        		<!-- 
+        		<param name="bufferSize">1048576</param>  
+        		 -->
+    		</result> 
+    		<result name="input">/WEB-INF/jsp/tblAttachmentIndexAction/error.json</result>
+    		
+    		<interceptor-ref name="fileUpload">
+    			<param name="maximumSize">1048576000</param>
+    			<!-- 
+    			<param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+    			<param name="savePath">/upload</param>
+    			 -->
+    			<!--配置允许上传文件的扩展名,如果有多个用","隔开
+	           <param name="fileUpload.allowedExtensions">txt,excel,ppt</param>  
+    			  -->  
+    			
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<!-- QA -->
+		<action name="qAChkAction_*" class="QAChkAction"  method="{1}">
+			<result name="{1}">/WEB-INF/jsp/qAChkAction/{1}.jsp</result>
+		</action>
+		
+		<action name="qAChkReportAction_*" class="QAChkReportAction" method="{1}">
+			<result name="ireport">/WEB-INF/jsp/QAChkReportAction/ireport.jsp</result>
+			<result name="outport" type="jasper">
+				<param name="location">${location}</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">mapList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+			<result name="list">/WEB-INF/jsp/QAChkReportAction/list.jsp</result>
+			<result name="newestList">/WEB-INF/jsp/QAChkReportAction/newestList.jsp</result>
+		</action>
+		<action name="qAChkReportRecordAction_*" class="QAChkReportRecordAction" method="{1}">
+			
+		</action>
+		<action name="tblStudyFileIndexAction_*" class="tblStudyFileIndexAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblStudyFileIndexAction/{1}.jsp</result>
+		</action>
+		<action name="tblStudyFileAction_*" class="tblStudyFileAction" method="{1}">
+			 <result name="download" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${downFileName}</param>
+        		<param name="bufferSize">4096</param>  
+        		
+    		</result> 
+    		
+    		<interceptor-ref name="fileUpload">
+    			<param name="maximumSize">10485760</param>
+    			<!-- 
+    			<param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+    			<param name="savePath">/upload</param>
+    			 -->
+    			<!--配置允许上传文件的扩展名,如果有多个用","隔开
+	           <param name="fileUpload.allowedExtensions">txt,excel,ppt</param>  
+    			  -->  
+    			
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		
+	</package>
+</struts>

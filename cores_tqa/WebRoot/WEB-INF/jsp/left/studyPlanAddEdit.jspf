@@ -1,0 +1,133 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<script type="text/javascript">
+/**
+ * 当专题编号填写完毕以后触发
+ * @return
+ */
+function finishOtherField()
+{
+	//validType
+	
+	var newStudyNo = $('#newStudyNo').val();
+	
+	//准备数据
+	$.ajax({
+		url:sybp()+'/tblStudyPlanAction_studyPlanAdd.action',
+		type:'post',
+		data:{
+			newStudyNo:newStudyNo,
+		},
+		dataType:'json',
+		success:function(r){
+			if(r){
+				//qa加载数据
+				$('#qa').combobox('loadData',r.qaMapList);
+
+			
+				var studyPlanMap = r.studyPlanMap;
+				//$('#studyNo').val(studyPlanMap.studyNo);
+				$('#studydirector').val(studyPlanMap.sd);
+				
+				//课题类别
+				$('#studyType').combobox('loadData',r.studyTypeMapList);
+				if(r.studyTypeMapList.length == 1){
+					$('#studyType').combobox('select',r.studyTypeMapList[0].id);
+				}
+				
+				//供试品类型
+				$('#studyTiCode').val(studyPlanMap.studyTiCode);
+				//课题名称,课题类型
+				$('#addEditStudyName').val(studyPlanMap.studyName);
+				$('#studyTypeCode').val(studyPlanMap.studyTypeCode);
+				
+				//qa
+				$('#qa').combobox('setValue',studyPlanMap.qa);
+
+				
+			}
+		}
+	});
+	return false;
+	
+}
+</script>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="studyPlanAddEditDialog" class="easyui-dialog" title="新增 专题检查索引" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:305px;height:195px;" closable="true">
+			<div id="studyPlanAddEditDialog2" style="display:none;">
+		    <div >
+		    <!-- 
+		    <input type="hidden" id="newStudyNo">
+		     -->
+		    <input type="hidden" id="newsd">
+		    <input type="hidden" id="addOrEdit">
+		    <input type="hidden" id="studyTiCode"/>
+			  <form id="studyPlanAddEditForm" action="tblStudyPlanAction_addSave" method="post" style="position:relative;top:15px;">
+		   	  <div class="edit_table">
+                <table >
+                    <tr><td width="100px;">专题编号</td>
+                        <td width="240px;">
+                        	<!-- 
+                        	<input id="studyNo" type="text" name="studyNo" class="validatebox" required="true">
+                        	 -->
+                        	<input type="text" id="newStudyNo" name="newStudyNo" class="easyui-validatebox"  data-options="required:true" missingMessage="请输入专题编号"  
+				                	validType="remote[sybp()+'/qAStudyChkIndexAction_studyNOCheck.action?','newStudyNo']"
+				                 	onblur="finishOtherField()"
+				                	 invalidMessage="专题编号已存在">
+				            <input type="text" style="width:1px;visibility:'hidden';border-style:none;" disabled="disabled">
+                        </td>
+                    </tr>
+                    <tr><td>专题类别</td>
+                        <td>
+                       
+                        	<input id="addEditStudyName" type="text" class="easyui-validatebox" name="studyName"  required="true" readonly="true" missingMessage="该项是由专题编号自动获取"/> 
+                        	<!-- 
+                        	<a  class="easyui-linkbutton" plain="true" onclick="showStudyTypeSelectDialog('');">...</a>
+                        	 -->
+                        	<input id="studyTypeCode" type="hidden" name="studyTypeCode">
+						</td>
+                    </tr>
+                    <!-- 
+                    <tr><td>专题负责人</td>
+                        <td>
+							<input id="studydirector" readonly="true" type="text" name="sd" class="easyui-validatebox" required="true" readonly="true"/>
+						</td>
+                    </tr>
+                     -->
+                   
+                    <tr><td>专题QA</td>
+                        <td>
+							<input id="qa" class="easyui-combobox" readonly="true" name="qa"   style="width:100px;height:19px;" data-options="editable:false,valueField:'id',textField:'text',editable:false,panelHeight:'auto',required:false" /> 
+						</td>
+                    </tr>
+                    <!-- 
+                      <tr><td>是否GLP</td>
+                        <td>
+                        	<select id="isGLP" readonly="true" class="easyui-combobox" style="width:100px;height:19px;" editable="false" panelHeight="48" name="tblStudyPlan.isGLP" required="true" >
+                        		
+                        	</select>
+						</td>
+                    </tr>
+                    
+                  
+                    <tr><td>试验启动日期</td>
+                        <td>
+							<input id="studyStartDate" type="text" name="tblStudyPlan.studyStartDate" class="easyui-datebox" required="true" validType="date" /> 
+						</td>
+                   </tr>
+                   
+                     -->
+                </table>
+            </div>
+		      </form>
+		        <a id="studyPlanAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-add',plain:true">保存</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#studyPlanAddEditDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

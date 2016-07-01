@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblClinicalTestReqIndex2" table="tblClinicalTestReqIndex2" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="reqNo" type="java.lang.Integer">
+            <column name="reqNo" />
+        </property>
+        <property name="gender" type="java.lang.Integer">
+            <column name="gender" />
+        </property>
+        <property name="animalId" type="java.lang.String">
+            <column name="animalId" length="20" />
+        </property>
+        <property name="animalCode" type="java.lang.String">
+            <column name="animalCode" length="20" />
+        </property>
+        <property name="aniSerialNum" type="java.lang.Integer">
+            <column name="aniSerialNum" />
+        </property>
+        
+        <!-- tblClinicalTestReq, 本类与TblClinicalTestReq的多对一的关系 -->
+        <many-to-one name="tblClinicalTestReq" class="TblClinicalTestReq" column="tblClinicalTestReqId" lazy="false"></many-to-one>
+        <!-- tblStudyPlan, 本类与TblStudyPlan的多对一的关系 -->
+        <many-to-one name="tblStudyPlan" class="TblStudyPlan" column="studyNo" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

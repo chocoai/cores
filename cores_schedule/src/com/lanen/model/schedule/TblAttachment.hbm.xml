@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.schedule">
+    <class name="com.lanen.model.schedule.TblAttachment" table="tblAttachment" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>    
+        <property name="indexId" type="java.lang.String">
+            <column name="indexId"  length="20"/>
+        </property>
+        <property name="fileUrl" type="java.lang.String">
+            <column name="fileUrl"  length="200"/>
+        </property>
+        <property name="fileName" type="java.lang.String">
+            <column name="fileName"  length="200"/>
+        </property>
+        <property name="realFileName" type="java.lang.String">
+            <column name="realFileName"  length="200"/>
+        </property>
+  
+        
+        <property name="printNum" type="integer">
+            <column name="printNum" />
+        </property>
+        <property name="state" type="integer">
+            <column name="state" />
+        </property>
+        <property name="finishTime" type="timestamp">
+            <column name="finishTime" />
+        </property>
+        
+         <property name="printer" type="java.lang.String">
+            <column name="printer"  length="20"/>
+        </property>
+       
+    </class>
+</hibernate-mapping>

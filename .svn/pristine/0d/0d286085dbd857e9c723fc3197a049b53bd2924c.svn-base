@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.clinicaltest.PoolSpecimenId" table="poolspecimenId" >
+        <id name="testItem" type="long">
+            <column name="testItem" />
+        </id>
+        <property name="currentDate" type="java.lang.String">
+            <column name="currentDate"  length="20"/>
+        </property>
+        <property name="prefix" type="java.lang.String">
+            <column name="prefix"  length="20"/>
+        </property>
+        
+        <property name="serialNumLen" type="integer">
+        	<column name="serialNumLen"></column>
+        </property>
+        <property name="currentSerialNum" type="java.lang.String">
+        	<column name="currentSerialNum"  length="10"></column>
+        </property>
+        
+    </class>
+</hibernate-mapping>

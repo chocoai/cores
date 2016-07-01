@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.PoolDataId" table="pooldataId" >
+        <id name="tableName" type="java.lang.String">
+            <column name="tableName"  length="50"/>
+        </id>
+        <property name="currentValue" type="java.lang.String">
+            <column name="currentValue"  length="20"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

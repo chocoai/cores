@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblDoseSettingVersion" table="tblDoseSettingVersion" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="dosageNum" type="java.lang.Integer">
+            <column name="dosageNum" />
+        </property>
+        <property name="dosageDesc" type="java.lang.String">
+            <column name="dosageDesc"  length="20"/>
+        </property>
+        <property name="dosage" type="java.lang.String">
+            <column name="dosage" length="20" />
+        </property>
+        <property name="maleNum" type="java.lang.Integer">
+            <column name="maleNum" />
+        </property>
+        <property name="femaleNum" type="java.lang.Integer">
+            <column name="femaleNum" />
+        </property>
+        
+        <property name="femaleDosage" type="java.lang.String">
+            <column name="femaleDosage" length="20" />
+        </property>
+        <property name="maleVolume" type="java.lang.String">
+            <column name="maleVolume" length="20" />
+        </property>
+        <property name="femaleVolume" type="java.lang.String">
+            <column name="femaleVolume" length="20" />
+        </property>
+        <property name="maleThickness" type="java.lang.String">
+            <column name="maleThickness" length="20" />
+        </property>
+        <property name="femaleThickness" type="java.lang.String">
+            <column name="femaleThickness" length="20" />
+        </property>
+         <property name="version" type="integer">
+            <column name="version" />
+        </property>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QAQualityReport" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe48f3bd-4b04-4696-9d79-8d775bb3389f">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="37"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="studyNo" class="java.lang.String"/>
+	<parameter name="studyName" class="java.lang.String"/>
+	<parameter name="logoImage" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="templeContent" class="java.lang.String"/>
+	<field name="chkItemName" class="java.lang.String"/>
+	<field name="chkContent" class="java.lang.String"/>
+	<field name="chkTime" class="java.lang.String"/>
+	<field name="reportDate" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement uuid="60d399eb-e7d0-4dde-9c79-7e575e24ec24" x="430" y="12" width="109" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{studyNo}]]></textFieldExpression>
+			</textField>
+			<image isLazy="true">
+				<reportElement uuid="304bf0ac-d362-4d8e-b46d-b1372a71e08f" x="24" y="2" width="41" height="31"/>
+				<imageExpression><![CDATA[$P{logoImage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="6764bbe9-f683-4cf4-a24b-bc7f1551517e" x="371" y="13" width="59" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[专题编号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="345c536b-cf99-4457-976c-eeed9803436e" x="65" y="12" width="43" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[西山中科]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="79648f3c-6a7c-40eb-8d66-8806dcb18a94" x="0" y="33" width="539" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="221" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="880af127-6851-4b42-9d52-249f2789609e" style="table_TD" x="307" y="201" width="123" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[检查日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ddad7e27-c7d4-4ed0-ace3-d58c67caea0b" style="table_TD" x="430" y="201" width="109" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[报告日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="65838e1c-c791-484f-8ee0-cafd1f492871" style="table_TD" x="24" y="201" width="283" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[检查项]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cc2eea92-1917-41d7-9549-1c93b905fe73" x="24" y="47" width="58" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[专题名称：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="db1eed87-e943-40dc-9130-5d41f00e8aa8" x="24" y="78" width="58" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[专题编号：]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="fc6bbb2a-6181-4195-a5b0-5aea154d9e8e" x="82" y="47" width="457" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{studyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1c4e5b05-0d3f-4e73-9966-a7e972e27b23" x="82" y="78" width="457" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{studyNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6fe0929f-2995-4614-b66d-858bca1835cf" x="141" y="0" width="230" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="7d6403a5-86c9-455b-821a-a3016311d1c9" x="24" y="110" width="515" height="90"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{templeContent}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="66238412-241e-49db-9b95-b74e0978dd22" style="table_TD" x="307" y="0" width="123" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chkTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb4f06f3-081f-4dda-8f56-69695f3f1686" style="table_TD" x="24" y="0" width="283" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chkItemName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d072e269-a19a-4b74-a1b5-2d8328a9b8e6" style="table_TD" x="430" y="0" width="109" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reportDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1d2a55bc-913c-4a3a-9e91-2dfcca2c71a5" x="24" y="0" width="58" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[QA负责人]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="d032a021-460d-433e-8dd0-42f7ffe2766a" x="81" y="20" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="281691ad-e5c9-4372-9dd2-7fecef52ca73" x="387" y="1" width="30" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[日期]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b6aabcbf-5bfd-4a85-94e7-29f8f7470f4b" x="417" y="19" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="69087694-8efe-4f3d-bf96-423895eb63a4" x="220" y="21" width="16" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[第]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8fb24aa-adbe-4128-a22f-aa1ff7e3fdf2" x="288" y="21" width="19" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[页]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="2fd1e803-6a34-4848-863c-b0511034d620" x="236" y="41" width="51" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

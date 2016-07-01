@@ -1,0 +1,43 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="selectCustomerDialog" class="easyui-dialog" title="选择客户" modal="true" closed="true"  draggable="false" 
+		data-options="toolbar:'#dialogToolbar3'" style="display:'';width:989px;height:520px;" closable="true">
+			<div id="selectCustomerDialog2" style="display:none;align:center;">
+			    <div style="align:center;">
+			        <table >
+	                    <tr height="28px;">
+	                        <td rowspan="2" style="border-top:1px solid #e3e6eb;	border-bottom:1px solid #e3e6eb;
+								border-left:1px solid #e3e6eb;	border-right:1px solid #e3e6eb;	padding:3px 3px;text-align:left;">
+	                           <table id="tblRigonTableTreeGrid" ></table>
+	                        </td>
+	                        <td style="border-top:1px solid #e3e6eb; border-bottom:1px solid #e3e6eb; height:25px;
+								border-left:1px solid #e3e6eb;	border-right:1px solid #e3e6eb;	padding:3px 15px 3px 80px;text-align:left;">
+	                        	<span style="position:absolute;margin-left:-60px;margin-top:3px;width:100px;">
+	                        		<a style="padding-right:5px;">
+	                        		客户名称</a>
+	                        	</span>
+		                        <input id="customerName" class="easyui-searchbox" style="width:450px;" data-options="prompt:'模糊查询'">
+	                        </td>
+	                     </tr>
+	                     <tr>
+	                     	<td style="border-top:1px solid #e3e6eb;border-bottom:1px solid #e3e6eb;border-left:1px solid #e3e6eb;
+	                     		border-right:1px solid #e3e6eb;	padding:3px 3px;text-align:left;">
+	                     		<table id="selectCustomerTable" ></table>
+	                     	</td>
+	                     </tr>
+	                </table>
+			     <a id="selectCustomer_event"></a>
+			     <input id ="clickName" type="hidden" >
+			    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar3">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogConfrimButton();" 
+					data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#selectCustomerDialog').dialog('close');" 
+					data-options="iconCls:'icon-nook',plain:true">取消</a>
+		<span style="width:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

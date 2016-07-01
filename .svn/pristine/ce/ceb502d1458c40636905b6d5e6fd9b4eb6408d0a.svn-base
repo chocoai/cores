@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.DictStudyTestIndex" table="dictStudyTestIndex" >
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"></generator>
+        </id>
+        <property name="testItem" type="java.lang.Integer">
+            <column name="testItem" />
+        </property>
+        <property name="indexName" type="java.lang.String">
+            <column name="indexName"  length="50"/>
+        </property>
+        <property name="indexAbbr" type="java.lang.String">
+            <column name="indexAbbr"  length="20"/>
+        </property>
+        
+        <!-- dictStudyType, 本类与DictStudyType的多对一的关系 -->
+        <many-to-one name="dictStudyType" class="DictStudyType" column="studyTypeCode" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

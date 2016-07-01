@@ -1,0 +1,18 @@
+.studyplan{
+	border-collapse:collapse;
+	position: absolute;
+	top:74px;
+	left:100px;
+	right:0;
+	bottom:0;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.studyplan td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:4px 30px;
+	text-align:left;
+}

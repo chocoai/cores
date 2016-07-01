@@ -1,0 +1,56 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 专题类别   开始 -->
+	<div id="studyTypeDialog" class="easyui-dialog" title="选择项目类型" modal="true" closed="true" 
+		data-options="toolbar:'#studyTypeDialogToolbar'" style="display:'';width:440px;height:430px;" closable="true">
+			<div id="studyTypeDialog2" style="display:none;">
+			    <div >
+			    <!-- 
+			    	<div style="float:left; width:400px;padding-top:3px;   height:22px;">
+			    		&nbsp;&nbsp;供试品类型
+			    		<input id="studyType_testItem" class="easyui-combobox" style="height:19px;width:80px;"
+			    		data-options="panelHeight:'auto'"/>
+			    		
+			    	</div>
+			     -->
+					<div style="float:left; width:410px;">
+						<input id = "studyType_studyTypeCode" type="hidden">
+						<input id = "studyType_studyName" type="hidden">
+						<table id="studyTypeTable" class="easyui-datagrid" style="width:426px;height:360px" border="false">   
+						    <thead>   
+						        <tr>   
+						            <th data-options="field:'tiCode',width:90,align:'center',formatter : function(value,rowData,rowIndex){
+										var name='';
+										if(value=='01'){
+											name='医药';
+										}else if(value=='02'){
+											name='农药';
+										}else if(value=='03'){
+											name='化学品'
+										}else if(value=='04'){
+										    name='化妆品'
+										}else{
+											name='';
+										}
+											return name;
+											}">供试品类型</th>   
+						            <th data-options="field:'studyName',width:315">项目名称</th>   
+						            <th data-options="field:'studyPeriod',width:60,align:'center',hidden:true">项目周期</th>   
+						            <th data-options="field:'studyPeriodUnit',width:40,align:'center',hidden:true">单位</th>   
+						        </tr>   
+						    </thead>   
+						</table>
+					</div>
+					
+			    </div>
+			     <a id="studyTypeSelect_event"></a>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="studyTypeDialogToolbar">
+		<a class="easyui-linkbutton" onclick="onStudyTypeDialogButton();" 
+			data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#studyTypeDialog').dialog('close');" 
+			data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 专题类别   结束 -->

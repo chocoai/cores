@@ -1,0 +1,348 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<script type="text/javascript">
+$(function(){
+	$('#tblTestItemcontentLabel').next().children(':first').click(function () {
+	     $('#tblTestItemcontentLabel').combobox('showPanel');
+	});
+	$('#failureDatePrecision').next().children(':first').click(function () {
+	     $('#failureDatePrecision').combobox('showPanel');
+	});
+	$('#isFailureDateFlag').next().children(':first').click(function () {
+	     $('#isFailureDateFlag').combobox('showPanel');
+	});
+	$('#tblTestItemcontentLabel').combo('panel').css('text-align','right');
+	$('#tblTestItemcontentLabel').next().children(':first').css('text-align','right');
+	$('#isFailureDateFlag').combo('panel').css('text-align','right');
+	$('#isFailureDateFlag').next().children(':first').css('text-align','right');
+});
+$.extend($.fn.validatebox.defaults.rules, {    
+	date: {    
+	validator: function(value, param){   
+		var flag = false;
+		var date = value;
+	    var result = date.match(/^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/);
+	    var result2 = date.match(/^(\d{1,4})(-|\/)(\d{1,2})$/);
+	    var result3 = date.match(/^(\d{1,4})$/);
+	     
+	    var type = $('#failureDatePrecision').combobox('getValue');
+		if(type==1){
+			if(result3 == null)
+				return false;
+			else {
+				 var d = new Date(result3[1], 01, 01);
+		   		 flag = (d.getFullYear() == result3[1]  );
+		   		 if(flag)
+		    		return true;
+		    	 else 
+		    	 	return false;
+			}
+		}else if(type==2){
+			if(result2==null)
+				return false;
+			else {
+				 var d = new Date(result2[1], result2[3] - 1, 01);
+			     flag = (d.getFullYear() == result2[1] && (d.getMonth() + 1) == result2[3] );
+				if(flag)
+			    	return true;
+			    else return false;
+		    }
+		    
+		}else if(type==3){
+			if(result==null)
+				return false;
+			else {
+			 	var d = new Date(result[1], result[3] - 1, result[4]);
+			    flag = (d.getFullYear() == result[1] && (d.getMonth() + 1) == result[3] && d.getDate() == result[4]);
+			    if(flag)
+			    	return true;
+			    else return false;
+			}
+		}
+		
+		/*
+		if (result == null && result2 == null && result3 == null)
+	        return false;
+	    else if(result != null){
+		    var d = new Date(result[1], result[3] - 1, result[4]);
+		    flag = (d.getFullYear() == result[1] && (d.getMonth() + 1) == result[3] && d.getDate() == result[4]);
+		    if(flag)
+		    	return true;
+		}else if(result2 != null){
+		     var d = new Date(result2[1], result2[3] - 1, 01);
+		     flag = (d.getFullYear() == result2[1] && (d.getMonth() + 1) == result2[3] );
+			if(flag)
+		    	return true;
+		}else if(result3 != null){
+		    var d = new Date(result3[1], 01, 01);
+		    flag = (d.getFullYear() == result3[1]  );
+		    if(flag)
+		    	return true;
+		}*/
+		return flag;
+	    
+	},    
+	message: '日期格式和日期类型不匹配.'   
+	}    
+});
+</script>
+	<!-- 试验计划 edit/add开始 -->
+<div id="testItemAddEditDialog" class="easyui-dialog" title="供试品登记" modal="true" closed="true" draggable="false" 
+		data-options="toolbar:'#dialogToolbar5'" style="display:'';width:750px;height:560px;top:10px;" closable="true">
+	<div id="testItemAddEditDialog2" style="display:none;">
+	<!-- 
+	<div  id="readonlytestItemAddEdit" style="position:absolute;left:0px; top:60px;height:100%;width:100%;overflow:auto;display:'';background: rgba(0, 0, 0, 0);"  ></div>
+	 -->
+		<div  style=" margin:5px; margin-top:-10px;border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="testItemAddOrEdit"/>
+			<input type="hidden" id="testItemid" name="id" >
+			<form id="testItemAddEditForm" action="" method="post">
+		   	  <table class="testItemTable" >
+        			<tr style="display:none">
+        				<td>合同编号:</td>
+        				<td >
+		        			<input type="text" id="tblTestItemcontractCode" name="tblTestItem.ContractCode" value="${model.contractCode}" 
+		        			  style="width:600px;border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" readonly="readonly">
+		        		</td>
+        			</tr>
+        			<tr>
+        			<td align="right">供试品编号</td><td >
+        			<!--  
+        			 <input type="text" id="" name="tblTestItem.tiNo" style="width:200px;"  >-->
+        			   <input type="hidden" id="oldtblTestItemtiNo"  >
+                        <input id="tblTestItemtiNo" type="text" name="tblTestItem.tiNo" 
+                        	 class="easyui-validatebox" style="width:200px;height:16px;" data-options="validType:'maxLength[200]'"
+                        	required="true" missingMessage="必填项" 
+                        	validType="remotett[sybp()+'/tblTestItemAction_checkTestItemtiNo.action','tiNo','#oldtblTestItemtiNo']" />
+        			 </td>
+        			  <td align="right">供试品名称</td>
+                        <td><input id="tblTestItemtiName"  name="tblTestItem.tiName" style="width:200px;height:16px;" 
+                           class="easyui-validatebox" data-options="required:true,validType:'maxLength[100]'"/>
+                        
+                        </td>
+        			 </tr>
+        			<tr>
+        			 <td align="right">供试品类型</td>
+                        <td><input id="testItemtICode"  name="tblTestItem.tiCode" style="width:204px;height:19px;"/></td>
+        			    <td align="right"> 留样量及单位</td>
+                        <td >
+                        	<input id="tblTestItemreserveNum"  name="tblTestItem.reserveNum" style="width:100px;height:16px;"
+                        		 class="easyui-validatebox" data-options="validType:'maxLength[20]'"/>
+                        	<span id="tblTestItemreserveUnit2">
+	                        	<input id="tblTestItemreserveUnit"  name="tblTestItem.reserveUnit" style="width:70px;height:19px;"
+	                        		 class="easyui-combobox" data-options="validType:'maxLength[40]',panelHeight:100"/>
+                        	</span>
+                        	<input id="reserveNum2"  name="reserveNum2" style="width:200px;height:16px;"
+                        		 class="easyui-validatebox" readonly="readonly"/>
+                         </td>
+                    </tr>
+                     <tr id= "baogaochujvfangTr">
+                     　　　　　　　　<td align="right">报告出具方名称</td>
+        				<td>
+        					<input id="contractVenderId" type="hidden" name="cvenderId" >
+        					<input   id="contractVenderName" type="text" name="cvenderName" class="easyui-validatebox" onfocus="onCVerderButton();" data-options="validType:'maxLength[180]'" disabled required="true" missingMessage="请选择" readonly="true" style="width:200px;"></input>
+        					<a id="contractVerderButton" onclick="onCVerderButton();" class="easyui-linkbutton" data-options="iconCls:'icon-search'" disabled plain="true">选择</a>
+        				</td>
+        				<td align="center" colspan="2">
+        				    <input type="hidden" id="sponsorId" name="sponsorId" >     
+        				    <input type="hidden" id="sponsorName" name="sponsorName" >     
+        				          同委　　托方
+        				    <input id="testItemsponsorIsVenderC1" type="radio" name="csponsorIsVender" checked  value="1" onchange="contractsponsorIsVenderChange();" disabled="disabled">
+        					<a href="javascript:onSponsorIsVenderRadiCo();" style="color:black;padding:0px 30px 0px 0px;" disabled="disabled">是</a>
+        				    <input id="testItemsponsorIsVenderC0" type="radio" name="csponsorIsVender" value="0"  onchange="contractsponsorIsVenderChange();" disabled="disabled">
+        					<a href="javascript:onSponsorIsVenderRadiCo();" style="color:black;padding:0px 30px 0px 0px;" disabled="disabled">否</a>
+        					
+						</td>
+        				
+        			</tr>
+                    <tr>
+                      <td align="right">提供方名称</td>
+        				<td>
+        					<input id="testItemvenderId" type="hidden" name="tblTestItem.venderId" >
+        					<input   id="testItemvenderName" type="text" name="tblTestItem.venderName" class="easyui-validatebox" onfocus="onVerderButton();" data-options="validType:'maxLength[180]'" disabled required="true" missingMessage="请选择" readonly="true" style="width:200px;"></input>
+        					<a id="testItemverderButton" onclick="onVerderButton();" class="easyui-linkbutton" data-options="iconCls:'icon-search'" disabled plain="true">选择</a>
+        				</td>
+        				<td align="center" colspan="2">同报告出具方
+        			    	<input id="testItemsponsorIsVender1" type="radio" name="tblTestItem.sponsorIsVender" checked  value="1" onchange="testItemsponsorIsVenderChange();">
+        					<a href="javascript:onSponsorIsVenderRadio();" style="color:black;padding:0px 30px 0px 0px;">是</a>
+        				    <input id="testItemsponsorIsVender0" type="radio" name="tblTestItem.sponsorIsVender" value="0"  onchange="testItemsponsorIsVenderChange();">
+        					<a href="javascript:onSponsorIsVenderRadio();" style="color:black;padding:0px 30px 0px 0px;">否</a>
+						</td>
+        				
+        			</tr>
+        			
+                    <tr>
+        			
+	        			<td align="right">
+	        				<select id="tblTestItemcontentLabel" class="easyui-combobox" name="tblTestItem.contentLabel" 
+	        					data-options=" required:true,
+	        									panelHeight:105,
+	                        					editable:false,
+	                        					plain:true,
+	                        					hasDownArrow:false,
+	                        					
+	                        					" style="width:110px;">
+							   
+							    <option value="含量/浓度/纯度" selected="selected">含量/浓度/纯度</option>
+							    <!-- 
+							    <option value="含量/浓度">含量/浓度</option>
+							     -->
+							    <option value="含量/纯度">含量/纯度</option>
+							    <option value="含量">含量</option>
+							    <option value="浓度">浓度</option>
+							    <option value="纯度">纯度</option>
+							    
+							</select>
+						</td>
+	                        <td><input id="tblTestItemcontent"  name="tblTestItem.content" style="width:204px;height:19px;"
+	                              class="easyui-combobox" data-options="required:true,validType:'maxLength[100]'"/></td>
+	        			
+	        			<td align="right">外观/状态</td>
+	                        <td><input id="tblTestItemphysical"  name="tblTestItem.physical" style="width:204px;height:19px;"
+	                             class="easyui-combobox" data-options="required:true,validType:'maxLength[100]'"/></td>
+                    
+                    </tr>
+                    <tr>
+        			<td align="right"> 存储条件</td>
+                        <td ><input id="tblTestItemstorageCondition"  name="tblTestItem.storageCondition" style="width:204px;height:19px;"
+                         class="easyui-combobox" data-options="required:true,validType:'maxLength[100]'"/></td>
+                        <td align="right">批号</td>
+	                        <td><input id="tblTestItembatchNo"  name="tblTestItem.batchNo" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                         
+                    </tr>
+                    
+                    <tr>
+        			<td align="right">封样号</td>
+                        <td><input id="tblTestItemsealNo"  name="tblTestItem.sealNo" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">备案号</td>
+                        <td><input id="tblTestItemfileNo"  name="tblTestItem.fileNo" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right">熔点</td>
+                        <td><input id="tblTestItemmeltPoint"  name="tblTestItem.meltPoint" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">沸点</td>
+                        <td><input id="tblTestItemboilPoint"  name="tblTestItem.boilPoint" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right">光解性</td>
+                        <td><input id="tblTestItemphotolysis"  name="tblTestItem.photolysis" style="width:200px;height:16px;"
+                               class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">挥发性</td>
+                        <td><input id="tblTestItemvolatility"  name="tblTestItem.volatility" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right">成分</td>
+                        <td><input id="tblTestItemcomposition"  name="tblTestItem.composition" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">相对密度</td>
+                        <td><input id="tblTestItemdensity"  name="tblTestItem.density" style="width:200px;height:16px;"
+                              class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right">水中溶解度</td>
+                        <td><input id="tblTestItemwaterSolubility"  name="tblTestItem.waterSolubility" style="width:200px;height:16px;"
+                         class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">水中稳定性</td>
+                        <td><input id="tblTestItemwaterStability"  name="tblTestItem.waterStability" style="width:200px;height:16px;"
+                         class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right">有机溶剂溶解度</td>
+                        <td><input id="tblTestItemsolventSolubility"  name="tblTestItem.solventSolubility" style="width:200px;height:16px;"
+                         class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">有机溶剂稳定性</td>
+                        <td><input id="tblTestItemsolventStability"  name="tblTestItem.solventStability" style="width:200px;height:16px;"
+                         class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right">PH值</td>
+                        <td><input id="tblTestItemph"  name="tblTestItem.ph" style="width:200px;height:16px;"
+                         class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">特殊安全防护措施</td>
+                        <td><input id="tblTestItemsecurityMeasures"  name="tblTestItem.securityMeasures" style="width:200px;height:16px;"
+                         class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right">稳定性和均一性分析</td>
+                        <td><input id="tblTestItemanalysis"  name="tblTestItem.analysis" style="width:200px;height:19px;"
+                         class="easyui-combobox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right">样品检测后处理</td>
+                        <td><input id="tblTestItempostTreatment"  name="tblTestItem.postTreatment" style="width:200px;height:19px;"
+                         class="easyui-combobox" data-options="validType:'maxLength[100]'"/></td>
+                    </tr>
+                    <tr>
+        			<td align="right"> CAS</td>
+                        <td><input id="tblTestItemcas"  name="tblTestItem.cas" style="width:200px;height:16px;"
+                         class="easyui-validatebox" data-options="validType:'maxLength[100]'"/></td>
+        			<td align="right"> 
+        				<select id="isFailureDateFlag" class="easyui-combobox" name="tblTestItem.isFailureDateFlag" style="width:70px;"
+        					data-options="  panelHeight:60,
+        									editable:false,
+        									hasDownArrow:false,">
+						    <option value="0">有效期至</option>
+						    <option value="1">失效期</option>
+						</select>
+					</td>
+                        <td>
+                         <input id="tblTestItemvalidityPeriod2"  name="tblTestItem.validityPeriod" type="hidden"/>
+                         <input id="tblTestItemvalidityPeriod" style="width:120px;height:19px;"
+                         class="easyui-datebox" validType="date"
+                         data-options="
+		                          	onSelect: function(date){
+										var y = date.getFullYear();
+							            var m = date.getMonth()+1;
+							            var d = date.getDate();
+							            var type = $('#failureDatePrecision').combobox('getValue');
+										
+										if(type==1){
+							            	$(this).datebox('setText', y);
+							            }
+							            if(type==2){
+							            	$(this).datebox('setText',y+'-'+(m<10?('0'+m):m));
+							            }
+							            if(type==3){
+							            	$(this).datebox('setText',y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d));
+							            }
+							            $('#tblTestItemvalidityPeriod2').val(y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d));
+							            
+									},
+									"/>
+	                        <select id="failureDatePrecision" class="easyui-combobox" name="tblTestItem.failureDatePrecision" style="width:70px;"
+	                        	data-options=" panelHeight:65,
+	                        					editable:false,
+	                        					hasDownArrow:false,
+	                        					onSelect: function(rec){
+	                        					var date = $('#tblTestItemvalidityPeriod2').val();
+	                        					if(rec.value==1)
+									            	$('#tblTestItemvalidityPeriod').datebox('setText',date.substr(0,4));
+									            if(rec.value==2)
+									            	$('#tblTestItemvalidityPeriod').datebox('setText',date.substr(0,7));
+									            if(rec.value==3)
+									            	$('#tblTestItemvalidityPeriod').datebox('setText',date);
+									        }">
+							    <option value="1">年</option>
+							    <option value="2">年,月</option>
+							    <option value="3" selected="selected">年,月,日</option>
+							</select>
+                         </td>
+                    </tr>
+                    
+        		</table>
+		    </form>
+			<a id="testItemAddEdit_event"></a>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar5">
+	<a id="testItemsaveDialogButton" class="easyui-linkbutton" onclick="ontestItemsaveDialogButton();" data-options="iconCls:'icon-ok',plain:true">确定签字</a>
+	<a id="editsaveDialogButton" class="easyui-linkbutton" onclick="onEditsaveDialogButton();" data-options="iconCls:'icon-ok',plain:true">保存</a>
+	<a id="testItembackButton" class="easyui-linkbutton" onclick="javascript:$('#testItemAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 试验计划 edit/add结束 -->

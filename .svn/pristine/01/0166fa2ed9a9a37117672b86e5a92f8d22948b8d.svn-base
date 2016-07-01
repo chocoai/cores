@@ -1,0 +1,144 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileContentSOPDialog" class="easyui-dialog" title="新建SOP档案" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:430px;" closable="true">
+		<div id="AddOrEditFileContentSOPDialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileContentSOPForm" enctype="multipart/form-data" theme="simple" action="" method="post">
+		      	<input id="addOrEditSOP" type="hidden">
+		      	<input id="oneFileRecordId2" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag2" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateSOPRsn" name="operateRsn" type="hidden"/>
+ 			  	<input id="sopflag" name="sopflag" type="hidden"/>
+ 			  	
+			  	<div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:220px;left:30px;background-color: #fff;">归档记录</div>
+			  	
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		<table style="width:100%;" border="0">
+			  			<tr>
+			  				<td width="65">
+			  					类别：
+			  				</td>
+			  				<td colspan="2">
+			  					<select id="soptypeCode" name="soptypeCode" class="easyui-combotree" style="width:200px;"
+        							data-options="valueField:'id',textField:'text',url:sybp()+'/tblFileContentSOPAction_loadTree.action',required:true">
+								</select>
+			  				</td>
+			  				<td align="right" colspan="3">
+			  					归档介质：
+								<label for="archiveMediaFlag12">
+									<input id="archiveMediaFlag12" type="radio" name="tblFileRecord.archiveMediaFlag" value="1" checked="checked" onclick="$('#oneArchiveMedia2').attr('disabled',true);"/>纸质
+								</label>
+								<label for="archiveMediaFlag22">
+									<input id="archiveMediaFlag22" type="radio" name="tblFileRecord.archiveMediaFlag" value="2" onclick="$('#oneArchiveMedia2').attr('disabled',true);"/>电子
+								</label>
+								<label for="archiveMediaFlag32">
+									<input id="archiveMediaFlag32" type="radio" name="tblFileRecord.archiveMediaFlag" value="3" onclick="$('#oneArchiveMedia2').attr('disabled',false);"/>其他
+								</label>
+								<input id="oneArchiveMedia2" type="text" disabled name="tblFileRecord.archiveMedia" style="width:100px;"/>
+							</td>
+			  			</tr>
+			  			<tr>
+			  				<td>编号：</td>
+			  				<td width="80"><input id="sopcode" name="sopcode" class="easyui-validatebox" required="true" 
+			  				onkeypress="if(event.keyCode==13) {	if($('#addOrEditSOP').val()==1||$('#addOrEditSOP').val()==2||$('#addOrEditSOP').val()==3){getVerByCode();}}" style="width:175px;"/></td>
+			  				<td>版本：</td>
+			  				<td><input id="sopver" name="sopver" onblur="if(isNaN(value)){value=''}" class="easyui-validatebox" required="true" style="width:80px;"/></td>
+			  				
+			  				<td colspan="2">
+			  					<input type="button" id="searchNotArchiveSOP" class="easyui-linkbutton" onclick="if($('#addOrEditSOP').val()==1||$('#addOrEditSOP').val()==3){searchNotArchiveSOPByCode();}" value="查找还未归档的SOP">
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td>名称：</td>
+			  				<td colspan="5"><input id="sopname" name="sopname" class="easyui-validatebox" required="true" onblur="if($('#addOrEditSOP').val()==1){$('#oneArchiveTitle2').val($(this).val())}" style="width:550px;"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td >生效日期：</td>
+			  				<td colspan="5"><input id="sopeffectiveDate" name="sopeffectiveDate"  required="true" class="easyui-datebox"   /></td>
+			  			
+			  				<td id="sopinvalidDateLabel" style="display:none;">作废日期：</td>
+			  				<td id="sopinvalidDateLabel2" style="display:none;" colspan="3"><input id="sopinvalidDate" name="sopinvalidDate" class="easyui-datebox"/></td>
+			  			</tr>
+			  			 <tr>
+			  				<td>SOP文件：</td>
+			  				<td colspan="5">
+			  				<input id="fileLabel" type="text" value="C:\abc.txt" style="height:20px;"/><input id="file" name="sopfile2" type="file"  style="width:65px;" 
+							onchange="this.previousSibling.value=this.value;"/></td>
+			  			</tr>
+			  			
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+	    			<table border="0">
+				    	<tr>
+				    		<td width="100">分类代号：</td>
+				    		<td width="100">
+				    			<input id="oneArchiveTypeCode2" name="archiveTypeCode" type="hidden"/>
+				    			<input id="oneArchiveTypeName2" name="archiveTypeName" readOnly="readonly" required="true" onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode2').click();}" style="width:72%;"/>
+				    			<input type="button" id="chooseOneArchiveTypeCode2" class="easyui-linkbutton" style="width:30px;" onclick="chooseArchiveType();" value="...">
+				    		</td>
+				    		<td width="100">档案编号：</td>
+				    			<td colspan="3" width="300"><input id="oneArchiveCode2" name="archiveCode" type="text" required="true" style="100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">储存位置：</td>
+				    			<td width="100"><input id="oneStorePosition2"  onblur="" required="true" 
+				    			class="easyui-combotree"/>
+				    			<input id="oneStorePosition2L" type="hidden" name="storePosition"/></td>
+				    			
+				    			<td width="100">题名：</td>
+				    			<td width="300" colspan="3"><input id="oneArchiveTitle2" name="archiveTitle" required="true"  style="width:100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">立卷人：</td>
+				    			<td width="100">
+				    			<input id="oneArchiveMaker2" name="tblFileRecord.archiveMaker" required="true" 
+				    				class="easyui-combobox"  />
+				    						
+				    			</td>
+				    			<td width="100">归档人：</td>
+				    			<td width="100">
+				    				<input id="oneFileOperator2" name="tblFileRecord.fileOperator" required="true"
+				    					 class="easyui-validatebox" />
+				    				</td>
+				    			<td width="100">归档日期：</td>
+				    			<td width="100"><input class="easyui-datebox" id="oneFileDate2" name="tblFileRecord.fileDate" required="true"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">备注：</td>
+				    			<td width="300" colspan="3"><input id="oneRemark2" name="tblFileRecord.remark" type="text" style="width:100%"/></td>
+				    			<td width="100">保存期限：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneKeepDate2" name="tblFileRecord.keepDate" data-options="width:120,"/>
+				    				<input type="checkbox" class="checkboxC" id="isLong2" name="isLong" checked="checked"
+				    				onclick="if($('#isLong2').attr('checked')=='checked'){$('#oneKeepDate2').datebox('setValue','');$('#oneKeepDate2').datebox('disable');}else{$('#oneKeepDate2').datebox('setValue',$('#todayDate').val());$('#oneKeepDate2').datebox('enable');}">长期
+					
+				    			</td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">关键字：</td>
+				    			<td width="300" colspan="3"><input id="oneKeyWord2" name="tblFileRecord.keyWord" type="text" style="width:100%"/></td>
+				    			 
+				    			<td width="100" id="oneDestoryDate2Label" style="display:none;">销毁日期</td>
+				    			<td width="100" id="oneDestoryDate2Label2" style="display:none;"><input class="easyui-datebox" id="oneDestoryDate2" name="tblFileRecord.destoryDate"/></td>
+				    			
+				    		</tr>
+				    			
+				    </table>
+	    	   </div>
+		    </form>
+		<div id="positionTipCode2"></div>
+		 </div>
+		 
+		
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton2" class="easyui-linkbutton" onclick="saveOneFileContentSOP();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileContentSOPDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddSOPButton" type="checkbox" class="checkboxC"/><span id="continueAddSOPLabel"></span>
+		<input id="isForValidSOP" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidSOPLabel" style="position:absolute;top:35px;right: 10px;">验证记录 </span>
+	</div>
+	<!-- 工具栏 结束-->

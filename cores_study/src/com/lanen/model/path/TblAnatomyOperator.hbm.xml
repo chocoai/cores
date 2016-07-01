@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblAnatomyOperator" table="tblAnatomyOperator" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="sessionId" type="java.lang.String">
+            <column name="sessionId" length="20" />
+        </property>
+        <property name="anatomyOperator" type="java.lang.String">
+            <column name="anatomyOperator" length="20"/>
+        </property>       
+    </class>
+</hibernate-mapping>

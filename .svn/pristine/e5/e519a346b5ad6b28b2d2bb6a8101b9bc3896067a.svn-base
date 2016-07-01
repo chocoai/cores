@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblPathSession" table="tblPathSession" >
+       <id name="sessionId" type="java.lang.String">
+            <column name="sessionId"  length="20"/>
+        </id>
+		<property name="taskId" type="java.lang.String">
+            <column name="taskId" length="20" />
+        </property>
+        <property name="sessionType" type="java.lang.Integer">
+            <column name="sessionType" />
+        </property>
+        
+        <property name="sessionCreator" type="java.lang.String">
+            <column name="sessionCreator" length="20"/>
+        </property>       
+        <property name="createdTime" type="java.sql.Timestamp">
+            <column name="createdTime" />
+        </property>
+        <property name="sessionFinishSign" type="java.lang.String">
+            <column name="sessionFinishSign" length="20" />
+        </property>
+		<property name="sessionReviewSign" type="java.lang.String">
+            <column name="sessionReviewSign" length="20" />
+        </property>
+       
+        <property name="closeRsn" type="java.lang.String">
+            <column name="closeRsn" length="60"/>
+        </property>
+        <property name="balValidationId" type="java.lang.String">
+            <column name="balValidationId" length="20" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

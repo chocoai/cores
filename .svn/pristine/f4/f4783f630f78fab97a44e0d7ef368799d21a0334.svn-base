@@ -1,0 +1,74 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseSignChkIndexListDialog" class="easyui-dialog" title="选择要签字的检查索引" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:460px;height:370px;" closable="true">
+			<div id="chooseSignChkIndexListDialog2" style="display:'';" closable="true">
+				
+				<table id="chooseChkIndexList" style="width:440px;height:300px;" class="easyui-datagrid"
+				data-options="
+					onCheck:function(rowIndex,rowData){
+						if(!rowData.success){
+							$.messager.alert('提示框',rowData.msg);
+							$('#chooseChkIndexList').datagrid('uncheckRow',rowIndex);
+						}
+					},
+					onCheckAll:function(rows){
+						var msg = '';
+						for(var i=0;i<rows.length;i++){
+							if(!rows[i].success){
+								msg+=rows[i].chkItemName+',';
+								$('#chooseChkIndexList').datagrid('uncheckRow',i);
+							}
+						}
+						if(msg!=''){
+							$.messager.alert('提示框',msg+'不具备签字条件！');
+						}
+					}
+					
+				">
+					 <thead>
+					 <tr>
+					 	   <th data-options="field:'chkIndexId',hidden:false,checkbox:true,">chkIndexId</th>
+					 	   <th data-options="field:'chkItemName',width:100, ">检查项</th>
+					 	   <th data-options="field:'chkType',formatter: function(value,row,index){
+									if(value==1)
+									{
+										return '研究';
+									}
+									if(value==2)
+									{
+										return '过程';
+									}
+									if(value==3)
+									{
+										return '设施';
+									}
+									if(value==4)
+									{
+										return '方案';
+									}
+									if(value==5)
+									{
+										return '报告';
+									}
+		         		
+								},width:45,">类型</th>
+					 	   <th data-options="field:'success',hidden:true,">是否可以签字</th>
+						   <th data-options="field:'msg',width:250,">提示信息</th>
+						   <th data-options="field:'finish',hidden:true,">是否完成</th>
+						    
+					 </tr>
+				</thead>
+			</table>
+				   	
+			  	 		
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+	
+		<a  class="easyui-linkbutton" onclick="chooseSignChkIndexList();" data-options="iconCls:'icon-add',plain:true">确定</a>
+	 
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#chooseSignChkIndexListDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+		 
+	</div>
+	<!-- 工具栏 结束-->

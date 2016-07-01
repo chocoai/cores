@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.TblLog" table="tblLog" >
+        <id name="id" type="java.lang.Integer">
+        	<column name="id" ></column>
+        	<generator class="native"></generator> 
+        </id>
+        <property name="operatType" type="java.lang.String">
+            <column name="operatType"  length="100"/>
+        </property>
+        <property name="systemName" type="java.lang.String">
+            <column name="systemName"  length="100"/>
+        </property>
+        <property name="systemVersion" type="java.lang.String">
+            <column name="systemVersion"  length="100"/>
+        </property>
+        <property name="operatOject" type="java.lang.String">
+            <column name="operatOject"  length="100"/>
+        </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator"  length="20"/>
+        </property>
+        <property name="operatTime" type="timestamp">
+            <column name="operatTime" />
+        </property>
+        <property name="operatContent" type="java.lang.String">
+            <column name="operatContent"  length="1000"/>
+        </property>
+        <property name="operatHost" type="java.lang.String">
+            <column name="operatHost" length="100" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="200"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

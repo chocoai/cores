@@ -1,0 +1,44 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addQAChkReportDialog" class="easyui-dialog" title="选择列入报告中的检查项" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:720px;height:440px;" closable="true">
+			<div id="addQAChkReportDialog2" style="display:'';" closable="true">
+				<input id="addOrEditForReport" type="hidden">
+				<div id="programsForAddReportDiv">
+					检查日期 <input id="startChkDate" type="text" class="easyui-datebox" style="width: 100px;">
+						  ~<div id="endChkDate" class="easyui-datebox" style="width: 100px;"></div>
+					检查项目<input id="programs" data-options="editable:false" class="easyui-combobox"  style="width:250px;"></input>
+			
+				</div>
+				
+				<div id="reportItems" style="position:relative;left:10px;top:10px;width:700px;height:280px;"></div>
+				
+				<form id="changeReportRecordForm" style="width:600px;height:70px;">
+					<table >
+						<tr>
+							<td >检查发现</td>
+							<td colspan="2"><input id="updateChkContentLabel" readonly="readonly" type="text" style="width:350px;"></td>
+							
+						</tr>
+						<tr>
+							<td>建议</td>
+							<td><input id="updateReportRcordAdvice" name="advice" type="text" style="width:300px;"></td>
+							<td><a id="updateOneReportRecordButton" class="easyui-linkbutton" onclick="updateOneReportRecord();" data-options="iconCls:'icon-add',plain:true">确定</a></td>
+						</tr>
+					
+					</table>
+				</form>
+				 
+		 	</div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+	
+		<a id="saveButtonForReport" class="easyui-linkbutton" onclick="saveReport();" data-options="iconCls:'icon-add',plain:true">保存</a>
+		<!-- 
+		<a  class="easyui-linkbutton" onclick="commit();" data-options="iconCls:'icon-add',plain:true">提交QAM审批</a>
+		 -->
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addQAChkReportDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">关闭</a>
+		 &nbsp;
+		 <span id="qamApprovalOpinionForReport"  style="width:500px;"></span>
+	</div>
+	<!-- 工具栏 结束-->

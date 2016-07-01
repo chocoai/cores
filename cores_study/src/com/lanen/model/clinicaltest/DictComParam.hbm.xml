@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.DictComParam" table="dictComParam" >
+        <id name="instrumentId" type="java.lang.String">
+            <column name="instrumentId"  length="20"/>
+            <!-- class="foreign": 一对一主键映射中，使用另外一个相关联的对象的标识符 -->   
+            <generator class="foreign">   
+                    <param name="property">dictInstrument</param>   
+            </generator>  
+        </id>
+        <property name="instrumentName" type="java.lang.String">
+            <column name="instrumentName"  length="200"/>
+        </property>
+        <property name="comPort" type="java.lang.String">
+            <column name="comPort"  length="10"/>
+        </property>
+        <property name="baudRate" type="java.lang.String">
+            <column name="baudRate"  length="10"/>
+        </property>
+        <property name="dataBit" type="java.lang.String">
+            <column name="dataBit"  length="10"/>
+        </property>
+        <property name="stopBit" type="java.lang.String">
+            <column name="stopBit" length="10" />
+        </property>
+        <property name="checkMode" type="java.lang.String">
+            <column name="checkMode"  length="10"/>
+        </property>
+        <!-- 表示在dict_ComParam表存在一个外键约束，外键参考相关联的表dictInstrument -->   
+        <one-to-one name="dictInstrument" constrained="true" /> 
+        
+    </class>
+</hibernate-mapping>

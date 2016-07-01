@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cores_tqa"
+  id="myeclipse.1435547479759"
+  context-root="/cores_tqa"
+  j2ee-spec="5.0"
+  archive="cores_tqa.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

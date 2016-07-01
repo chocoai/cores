@@ -1,0 +1,110 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="tblTiprpAddEditDialog" class="easyui-dialog" title="新增供试品胶囊配制申请" modal="true" closed="true"  draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:720px;height:390px;" closable="true">
+			<div id="tblTiprpAddEditDialog2" style="display:'';" closable="true">
+		    <div >
+		    <input type="hidden" id="newStudyNo">
+		     <input type="hidden" id="tblTiprpAppInd.id">
+			  <form id="tblTiprpAddForm" action="tblTiprpAppIndAction_addSave" method="post">
+		   	  <div class="edit_table">
+                <table class="tiprpAppInd" >
+                    <tr><td width="60px;">专题编号</td>
+                        <td width="210px;">
+                        	<input id="StudyNo" type="text" name="tblTiprpAppInd.StudyNo" class="validatebox" required="true" readonly="true">
+                        </td>
+                    </tr>
+                     <tr><td width="60px;">申请序号</td>
+                        <td width="210px;">
+                        	<input id="AppSn" type="text" name="tblTiprpAppInd.AppSn" class="validatebox" required="true" readonly="true">
+                        </td>
+                    </tr>
+                     <tr><td width="60px;">供试品编号</td>
+                        <td width="210px;">
+                        	<input id="SmplCode" type="text" name="tblTiprpAppInd.SmplCode" class="validatebox" required="true" >
+                        </td>
+                    </tr>
+                     <tr><td width="60px;">配制单位</td>
+                        <td >
+                        <select id="SmplUnit" class="easyui-combobox" style="width:100px;height:19px;" editable="false" panelHeight="48" name="tblTiprpAppInd.SmplUnit" required="true" >
+                        		<option value="mg">mg</option>
+                        		<option value="g">g</option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr><td width="60px;">允差类型</td>
+                        <td width="210px;">
+                        	<select id="DevType" class="easyui-combobox" style="width:100px;height:19px;" editable="false" panelHeight="48" name="tblTiprpAppInd.DevType" required="true"  >
+                        		<option value="1">数值</option>
+                        		<option value="2">百分比</option>
+                           </select>
+                        </td>
+                    </tr>
+                     <tr><td width="60px;">允差值</td>
+                        <td width="210px;">
+                        	<input id="DevVal" type="text" name="tblTiprpAppInd.DevVal" class="validatebox" required="true" >
+                        	<input id="Company" type="text" name="" value="mg" style="width:30px;border:0px solid #c00;" readonly="true" >
+                        </td>
+                    </tr>
+                     <tr><td width="60px;">胶囊数量</td>
+                        <td width="210px;">
+                        	<select id="Automatic" class="easyui-combobox" style="width:100px;height:19px;" editable="false" panelHeight="70" name="tblTiprpAppInd.Automatic" required="true" >
+                        		<option value="0">自动计算</option>
+                        		<option value="1">不自动计算</option>
+                        		<option value="2">固定胶囊个数</option>
+                            </select>
+                            <br/><br/>
+                            <span style="display:none;" id="Fixednumber1" >    
+                            <input id="Fixednumber" type="text" name="tblTiprpAppInd.Fixednumber" class="validatebox"  style="width:50px;" required="true" >
+                            <input id="Fixednumber2" type="text" name="" value="粒" style="width:20px;border:0px solid #c00;" readonly="true" >
+                            </span>
+                        </td>
+                    </tr>
+                     <tr><td width="60px;">胶囊规格</td>
+                        <td width="210px;">
+                        	<input id="CapsSpec" type="text" name="tblTiprpAppInd.CapsSpec" class="validatebox" required="true" >mg/粒
+                        </td>
+                    </tr>
+                   
+                    <tr><td width="60px;">给药量精度</td>
+                        <td width="210px;">
+                        	<select id="Precision" class="easyui-combobox" style="width:100px;height:19px;" editable="false" panelHeight="96" name="tblTiprpAppInd.Precision"  >
+                        		<option value="1">1</option>
+                        		<option value="0.1">0.1</option>
+                        		<option value="0.01">0.01</option>
+                        		<option value="0.001">0.001</option>
+                        </select>
+                        <input id="Company1" type="text" name="" value="mg" style="width:30px;border:0px solid #c00;" readonly="true" >
+                        </td>
+                    </tr>
+                </table>
+            </div>
+               </form>
+            <div  class="edit_table" style="border-collapse:collapse;position: absolute;top:60px;left:450px;" >
+              <table id="tiprpApprecdtdate"  >       
+              </table> 
+              <table  >
+                    <tr>
+                    <td><input id="electiondate" type="text"/> </td>
+                    <td >
+                       <a id="addClinicalTestReqButton"  class="easyui-linkbutton" onclick="addRecDttime();" data-options="iconCls:'icon-add',plain:true">新增</a>
+                    </td>
+                    </tr>
+               </table>
+            </div>
+		   
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+	    <!-- 没有选择剂量分组之前的 -->
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogAppIndSaveButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		
+		<!--  选择剂量分组
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onGroupAppIndSaveButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		 -->
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#tblTiprpAddEditDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+           
+ 
+   <bean id="dictArchiveTypeService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/DictArchiveTypeService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictArchiveTypeService</value>
+       </property>
+   </bean>
+   <bean id="dictDataTableService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/DictDataTableService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictDataTableService</value>
+       </property>
+   </bean>
+   <bean id="dictSOPTypeService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/DictSOPTypeService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictSOPTypeService</value>
+       </property>
+   </bean>
+   <bean id="tblFileContentSopService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblFileContentSopService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblFileContentSopService</value>
+       </property>
+   </bean>
+   <bean id="tblFileIndexService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblFileIndexService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblFileIndexService</value>
+       </property>
+   </bean>
+   <bean id="tblFileRecordService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblFileRecordService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblFileRecordService</value>
+       </property>
+   </bean>
+    <bean id="tblLog2Service" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblLog2Service"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblLog2Service</value>
+       </property>
+   </bean>
+   <bean id="tblSopTableLinkInfoService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblSopTableLinkInfoService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblSopTableLinkInfoService</value>
+       </property>
+   </bean>
+   
+   
+</beans>

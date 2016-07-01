@@ -1,0 +1,33 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- path edit/add  start -->
+<div id="reportNumberDialog" class="easyui-dialog" title="编辑" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:320px;height:200px;" closable="true">
+	<div id="reportNumberDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<form id="reportNumberForm" action="" method="post">
+		   	  <input type="hidden" id="id" name="id" >
+		   	  <table>
+		   	  		<tr >
+        				<td width="60px;" align="right" height="50px;" style="padding-right: 0px;">报表名称：</td>
+        				<td ><span id="reportName"></span></td>
+        			</tr>
+        			<tr >
+        				<td width="60px;" align="right" height="50px;" style="padding-right: 0px;">报表编号：</td>
+        				<td>
+                            <input id="number" type="text" name="number"  class="easyui-validatebox" 
+                        		style="width:160px;" data-options="validType:'maxLength[100]'"
+                        		required="true" missingMessage="必填项"  />
+       				 	</td>
+        			</tr>
+        		</table>
+		    </form>
+		</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="confirmButton" class="easyui-linkbutton" onclick="onConfirmButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#reportNumberDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+	</div>
+</div>
+<!-- path edit/add end -->

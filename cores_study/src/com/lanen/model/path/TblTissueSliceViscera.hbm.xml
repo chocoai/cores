@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblTissueSliceViscera" table="tblTissueSliceViscera" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="tissueSliceSnId" type="java.lang.String">
+            <column name="tissueSliceSnId" length="20" />
+        </property>
+        <property name="visceraType" type="java.lang.Integer">
+            <column name="visceraType" />
+        </property>
+        <property name="visceraCode" type="java.lang.String">
+            <column name="visceraCode" length="20" />
+        </property>
+		<property name="visceraName" type="java.lang.String">
+            <column name="visceraName" length="60" />
+        </property>
+		<property name="subVisceraCode" type="java.lang.String">
+            <column name="subVisceraCode" length="20" />
+        </property>
+		<property name="subVisceraName" type="java.lang.String">
+            <column name="subVisceraName" length="60" />
+        </property>
+		<property name="visceraFixedRecordId" type="java.lang.String">
+            <column name="visceraFixedRecordId" length="20" />
+        </property>
+        
+        <property name="isHandwork" type="java.lang.Integer">
+            <column name="isHandwork" />
+        </property>
+        <property name="specialFlag" type="java.lang.Integer">
+            <column name="specialFlag" />
+        </property>
+		<property name="anatomyPosCode" type="java.lang.String">
+            <column name="anatomyPosCode" length="20" />
+        </property>
+		<property name="anatomyPos" type="java.lang.String">
+            <column name="anatomyPos" length="60" />
+        </property>
+        <property name="anatomyFindingFlag" type="java.lang.Integer">
+            <column name="anatomyFindingFlag" />
+        </property>
+		<property name="anatomyFindingCode" type="java.lang.String">
+            <column name="anatomyFindingCode" length="20" />
+        </property>
+		<property name="anatomyFingding" type="java.lang.String">
+            <column name="anatomyFingding" length="100" />
+        </property>
+		<property name="bodySurfacePos" type="java.lang.String">
+            <column name="bodySurfacePos" length="60" />
+        </property>
+        <!-- 补录记录标识 -->
+        <property name="appendFlag" type="java.lang.Integer">
+            <column name="appendFlag" />
+        </property>
+		<property name="appendAnimalCode" type="java.lang.String">
+            <column name="appendAnimalCode" length="20" />
+        </property>
+		<property name="appendStudyNo" type="java.lang.String">
+            <column name="appendStudyNo" length="20" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

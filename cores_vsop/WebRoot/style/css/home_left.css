@@ -1,0 +1,183 @@
+body {
+	font:12px Arial, Helvetica, sans-serif;
+	color: #000;
+	margin: 0px;
+	background:url(../images/left_menu_bg.gif) repeat-y #f8f9fa;
+}
+#container {
+	padding-top:0px;
+	width: 172px;
+}
+H1 {
+	border:1px solid #c9c9c9;
+	margin-bottom:5px;
+	
+	font-size: 12px;
+	margin: 0px;
+	width: 172px;
+	cursor: pointer;
+	height: 30px;
+	line-height: 20px;	
+}
+H1 a {
+	display: block;
+	width: 172px;
+	color: #064178;
+	height: 30px;
+	text-decoration: none;
+	moz-outline-style: none;
+	background-image:url(../images/bg_left_menu.png);
+	background-repeat: repeat-x;
+	line-height: 30px;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+
+.content{
+	width: 172px;
+	height: 26px;
+}
+
+
+
+
+
+.MM ul {
+	border:1px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+
+}
+.MM li {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 26px;
+	color: #333333;
+	list-style-type: none;
+	display: block;
+	text-decoration: none;
+	height: 26px;
+	width: 165px;
+	padding-left: 1px;
+	padding-right:1px;
+}
+.MM {
+	width: 167px;
+	margin: 0px;
+	padding: 0px;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	clip: rect(0px,0px,0px,0px);
+}
+.MM a:link {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 26px;
+	color: #333333;
+	background-image: url(../images/menu_bg1.gif);
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 163px;
+	display: block;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	text-decoration: none;
+}
+.MM a:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 26px;
+	color: #333333;
+	background-image: url(../images/menu_bg1.gif);
+	background-repeat: no-repeat;
+	display: block;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	height: 26px;
+	width: 163px;
+	text-decoration: none;
+}
+.MM a:active {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 26px;
+	color: #333333;
+	background-image: url(../images/menu_bg1.gif);
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 163px;
+	display: block;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	text-decoration: none;
+}
+.MM a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 26px;
+	font-weight: bold;
+	color: #006600;
+	background-image: url(../images/menu_bg2.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: 26px;
+	width: 163px;
+	text-decoration: none;
+}
+
+
+
+.left_select{
+	margin:3px 0px 0px 0px;
+	padding:5px 1px 3px 35px;
+	border:1px solid #c8c8c8;
+}
+.left_select select{
+	width:60%;
+	color:#00b27e;
+	font-weight:bold;
+	height:20px;
+	line-height:28px;
+}
+.current{
+	background: repeat 20px 28px #00b27e;
+	display:block;
+	color:#FFFFFF;
+}
+
+
+
+/*新增按钮区域*/
+.button_box{
+	position: absolute;
+	bottom:0;
+	padding:5px 10px;
+	text-align:center;
+}
+.button{
+	height:24px;
+	line-height:24px;
+	background:#ff9c00;
+	display:inline-block;
+	margin:0px 5px;
+	padding:0px 20px;
+	color:#782500;
+	font-weight:bold;
+	text-decoration:none;
+}
+.button:hover{
+	color:#fff;
+}

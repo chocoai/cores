@@ -1,0 +1,216 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<!-- 数据库信息（连接信息写到spring的配置文件钟） -->
+	<!--  
+		<property name="Connection.url">jdba:mysql:///itcastoa_20120216</property>
+		<property name="Connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="Connection.username">root</property>
+		<property name="Connection.password">root</property>
+	-->
+	<property name="dialect">
+		org.hibernate.dialect.SQLServerDialect
+	</property>
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+	<!--  试验计划   四个字典（检查项目）   -->
+	<!-- 课题类别和课题缺省检查指标 -->
+	<!-- 设备登记，接口参数，检定信息 -->
+	<mapping
+		resource="com/lanen/model/clinicaltest/DictComParam.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/clinicaltest/DictInstrument.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/clinicaltest/TblInstrumentVerification.hbm.xml" />
+	<!-- 试验计划，剂量设置，解剖计划，课题计划检验指标，动物信息表 -->
+	<mapping resource="com/lanen/model/studyplan/TblAnimal.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblDissectPlan.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblDoseSetting.hbm.xml" />
+	<mapping resource="com/lanen/model/studyplan/TblStudyPlan.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblTestIndexPlan.hbm.xml" />
+	<!-- 临检申请  ，  临检申请-检验指标，临检申请-动物编号 -->
+	<mapping
+		resource="com/lanen/model/studyplan/TblClinicalTestReq.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblClinicalTestReqIndex.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblClinicalTestReqIndex2.hbm.xml" />
+	<!-- 临检       标本接收登记、临检数据表、数据修改痕迹、电子签名表、签名链接表、数据源信息、获得主键表 -->
+	<mapping
+		resource="com/lanen/model/clinicaltest/TblClinicalTestData.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/clinicaltest/TblDataSource.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/clinicaltest/TblSpecimen.hbm.xml" />
+	<!-- 通道号 -->
+	<mapping
+		resource="com/lanen/model/clinicaltest/TblPassageway.hbm.xml" />
+
+	<!-- 动物详细解剖计划表 -->
+	<mapping
+		resource="com/lanen/model/studyplan/TblAnimalDetailDissectPlan.hbm.xml" />
+	<mapping resource="com/lanen/model/clinicaltest/PoolDataId.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/clinicaltest/PoolSpecimenId.hbm.xml" />
+	<!-- 动物种类、品系 -->
+	<mapping
+		resource="com/lanen/model/studyplan/DictAnimalStrain.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/DictAnimalType.hbm.xml" />
+	<!-- 供试品类型 -->
+	<!-- 剂量单位 -->
+	<!-- 系统日志 -->
+	<!-- 体重 -->
+	<mapping resource="com/lanen/model/studyplan/TblWeighInd.hbm.xml" />
+	<mapping resource="com/lanen/model/studyplan/TbLWeighData.hbm.xml" />
+	<!-- 供试品胶囊-->
+	<mapping
+		resource="com/lanen/model/studyplan/TblTiprpAppInd.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblTiprpAppRecDt.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblTiprpAppData.hbm.xml" />
+
+	<!-- 课题成员 -->
+	<mapping
+		resource="com/lanen/model/studyplan/TblStudyMember.hbm.xml" />
+	<!-- 字典-报表编号
+		<mapping
+		resource="com/lanen/model/studyplan/DictReportNumber.hbm.xml" />
+	-->
+
+	<mapping
+		resource="com/lanen/model/clinicaltest/PoolSpecimenCode.hbm.xml" />
+	<!-- 申请修改 -->
+	<mapping resource="com/lanen/model/studyplan/TblApplyRevise.xml" />
+	<!-- 专题历史表 -->
+	<mapping
+		resource="com/lanen/model/studyplan/TblStudyPlanHis.hbm.xml" />
+	<!-- 剂量历史表  -->
+	<mapping
+		resource="com/lanen/model/studyplan/TblDoseSettingHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblTestIndexPlanHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblDissectPlanHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblAnimalDetailDissectPlanHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblAnimalDetailDissectPlanVersion.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblDissectPlanVersion.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblDoseSettingVersion.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblStudyPlanVersion.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/TblTestIndexPlanVersion.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblAnatomyReq.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqAnimalList.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqAttachedViscera.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqPathPlanCheck.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqVisceraWeigh.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblPathPlanAttachedViscera.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblPathPlanCheck.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblPathPlanVisceraWeigh.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblAnatomyAnimal.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblAnatomyCheck.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblAnatomyTask.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblBalCalibration.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblBalCalibrationIndex.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblBalConnect.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblBalReg.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblCounterpoise.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblHistopathCheck.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblPathSession.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblTissueSliceViscera.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblVisceraFixed.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblVisceraWeight.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblChipReader.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblVisceraMissing.hbm.xml" />
+	<!-- 砝码 -->
+	<mapping resource="com/lanen/model/path/TblCounterWeight.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblAnatomyCheckHis.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblAnatomyOperator.hbm.xml" />
+	<!-- 脏器称重历史表 -->
+	<mapping
+		resource="com/lanen/model/path/TblVisceraWeightHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblPathPlanAttachedVisceraVersion.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblPathPlanCheckVersion.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblPathPlanVisceraWeighVersion.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblPathPlanAttachedVisceraHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblPathPlanCheckHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/tblPathPlanVisceraWeighHis.hbm.xml" />
+
+	<!-- 组织切片 -->
+	<mapping
+		resource="com/lanen/model/path/TblTissueSliceIndex.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblTissueSliceSn.hbm.xml" />
+	<!-- 缺如 -->
+	<mapping resource="com/lanen/model/path/TblVisceraQueRu.hbm.xml" />
+	<!-- 剖检记录修改表（解剖任务签字后的修改） -->
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyCheckEdit.hbm.xml" />
+	<!-- 死亡动物死亡原因记录表 -->
+	<mapping
+		resource="com/lanen/model/path/TblDeadAnimalDeathReason.hbm.xml" />
+	<!-- 试验靶器官登记表 -->
+	<mapping
+		resource="com/lanen/model/path/TblAnimalTargetOrgan.hbm.xml" />
+	<!-- 解剖申请历史（动物、脏器、称重脏器等） -->
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqAnimalListHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqAttachedVisceraHis.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblAnatomyReqHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqPathPlanCheckHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblAnatomyReqVisceraWeighHis.hbm.xml" />
+
+	<mapping
+		resource="com/lanen/model/path/TblHistopathCheckContentAnimal.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblHistopathCheckContentIndex.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblHistopathCheckContentSlice.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblPathStudyIndex.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblTissueSliceBatchAnimal.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblTissueSliceBatchIndex.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblTissueSliceBatchExcluded.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblTissueSliceBatchViscera.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/path/TblVisceraFixedEdit.hbm.xml" />
+	<mapping resource="com/lanen/model/path/TblVisceraFixedHis.hbm.xml" />
+
+</session-factory>
+</hibernate-configuration>

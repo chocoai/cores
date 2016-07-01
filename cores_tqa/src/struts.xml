@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 图片 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限-->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI">/WEB-INF/jsp/userAction/logout.jsp</result>
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="systemError">/systemError.jsp</result>
+			<result name="toIndex" type="redirectAction">homeAction_index?ticket=${ticket}</result>
+			<result name="toLogout" type="redirectAction">userAction_logout</result>
+		</global-results>
+
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp
+			</result>
+			<result name="success">/xls_test.jsp</result>
+		</action>
+
+		<!-- 首页 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+		
+		<action name="qAFileRegAction_*" class="QAFileRegAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAFileRegAction/{1}.jsp</result>
+		</action>
+		<action name="qAFileTypeAction_*" class="QAFileTypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAFileRegAction/{1}.jsp</result>
+		</action>
+		
+		<!-- 上传文件附件 -->
+		<action name="qAFileAttachmentAction_*" class="QAFileAttachmentAction" method="{1}">
+			<result name="download2" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${downFileName}</param>
+        		<param name="bufferSize">4096</param>  
+    		</result> 
+    		<interceptor-ref name="fileUpload">
+    			<!-- 
+    			<param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+    			 -->
+    			<param name="maximumSize">10485760</param>
+    			<param name="savePath">/upload</param>
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="qALearnTaskAction_*" class="QALearnTaskAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QALearnTaskAction/{1}.jsp</result>
+		</action>
+		<action name="qALearnTaskFileAction_*" class="QALearnTaskFileAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QALearnTaskAction/{1}.jsp</result>
+		</action>
+		<action name="qAFileRegReaderAction_*" class="QAFileRegReaderAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QALearnTaskAction/{1}.jsp</result>
+		</action>
+		<action name="qAChkPlanAction_*" class="QAChkPlanAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAChkPlanAction/{1}.jsp</result>
+		</action>
+		<action name="qAChkPlanHisAction_*" class="QAChkPlanHisAction" method="{1}">
+		</action>
+		
+		<action name="qAChkRecordAction_*" class="QAChkRecordAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAChkRecordAction/{1}.jsp</result>
+		</action>
+		<action name="qAChkIndexAction_*" class="QAChkIndexAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAChkIndexAction/{1}.jsp</result>
+		</action>
+		<action name="qAChkReportAction_*" class="QAChkReportAction" method="{1}">
+			<result name="ireport">/WEB-INF/jsp/QAChkReportAction/ireport.jsp</result>
+			<result name="outport" type="jasper">
+				<param name="location">${location}</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">mapList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+			<result name="list">/WEB-INF/jsp/QAChkReportAction/list.jsp</result>
+		</action>
+		<action name="tblAppointSDAction_*" class="tblAppointSDAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAChkReportAction/{1}.jsp</result>
+		</action>
+		<action name="qAChkPlanChangeIndexAction_*" class="QAChkPlanChangeIndexAction" method="{1}">
+			
+		</action>
+	
+		<!--testReport -->
+		<!-- 
+		<action name="testreportAction_*" class="testreportAction"
+			method="{1}">
+			<result name="report" type="jasper">
+				<param name="location">/jasperReport/PathReq.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">sourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		 -->
+		 <action name="qAChkReportRecordAction_*" class="QAChkReportRecordAction"  method="{1}">
+			
+		</action>
+		<action name="tblStudyFileIndexAction_*" class="tblStudyFileIndexAction"  method="{1}">
+			 <result name="download" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${downFileName}</param>
+        		<param name="bufferSize">4096</param>  
+        		
+    		</result> 
+    		
+    		<interceptor-ref name="fileUpload">
+    			<param name="maximumSize">10485760</param>
+    			<!-- 
+    			<param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+    			<param name="savePath">/upload</param>
+    			 -->
+    			<!--配置允许上传文件的扩展名,如果有多个用","隔开
+	           <param name="fileUpload.allowedExtensions">txt,excel,ppt</param>  
+    			  -->  
+    			
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="list">/WEB-INF/jsp/tblStudyFileIndexAction/list.jsp</result>
+		</action>
+		
+		<action name="tblStudyPlanAction_*" class="tblStudyPlanAction"
+			method="{1}">
+			
+		</action>
+		<action name="dictStudyTypeAction_*" class="dictStudyTypeAction"
+			method="{1}">
+			
+		</action>
+		<action name="qAStudyChkIndexAction_*" class="QAStudyChkIndexAction" method="{1}">
+		
+		</action>
+		
+	</package>
+</struts>

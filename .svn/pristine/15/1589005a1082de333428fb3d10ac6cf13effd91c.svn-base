@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblTiprpAppInd" table="tblTiprpAppInd" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="StudyNo" type="java.lang.String">
+            <column name="StudyNo"  length="20"/>
+        </property>
+        <property name="AppSn" type="integer">
+            <column name="AppSn" />
+        </property>
+        <property name="SmplCode" type="java.lang.String">
+            <column name="SmplCode"  length="40"/>
+        </property>
+        <property name="WeighUnit" type="java.lang.String">
+            <column name="WeighUnit"  length="40"/>
+        </property>
+        <property name="SmplUnit" type="java.lang.String">
+            <column name="SmplUnit"  length="40"/>
+        </property>
+        <property name="CapsSpec" type="integer">
+            <column name="CapsSpec" />
+        </property>
+        <property name="AppStatus" type="integer">
+            <column name="AppStatus" />
+        </property> 
+        <property name="InputDate" type="timestamp">
+            <column name="InputDate" />
+        </property>
+        <property name="AppMan" type="java.lang.String">
+            <column name="AppMan"  length="20"/>
+        </property>     
+        <property name="AppTime" type="timestamp">
+            <column name="AppTime" />
+        </property>
+        
+        <property name="PrpMan" type="java.lang.String">
+            <column name="PrpMan" />
+        </property>
+        <property name="PrpFinishTime" type="timestamp">
+            <column name="PrpFinishTime" />
+        </property>
+        <property name="Remark" type="java.lang.String">
+            <column name="Remark" />
+        </property>
+        <property name="DevVal" type="java.lang.Double">
+            <column name="DevVal" />
+        </property>
+        <property name="DevType" type="integer">
+            <column name="DevType" />
+        </property>
+        <property name="SmplNum" type="java.lang.Double">
+            <column name="SmplNum" />
+        </property>
+        
+        <property name="Precision" type="java.lang.String">
+            <column name="Precision" />
+        </property>
+        
+        
+        <!-- tblTiprpAppDatas,本类与tblTiprpAppDatas的一对多的关系 -->
+        <set name="tblTiprpAppRecDts">
+          <key column="StudyNoId"></key>
+           <one-to-many class="TblTiprpAppRecDt"/>
+        </set>
+        <!-- tblTiprpAppDatas,本类与tblTiprpAppDatas的一对多的关系 -->
+        <set name="tblTiprpAppDatas">
+          <key column="StudyNoId"></key>
+           <one-to-many class="TblTiprpAppData"/>
+        </set>
+    </class>
+</hibernate-mapping>

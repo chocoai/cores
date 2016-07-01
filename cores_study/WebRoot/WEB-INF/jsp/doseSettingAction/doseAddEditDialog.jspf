@@ -1,0 +1,76 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 剂量组添加 start -->
+<div id="doseAddEditDialog" class="easyui-dialog" title="剂量组" modal="true" closed="true" 
+		data-options="toolbar:'#doseAddEditToolbar'" style="display:'';width:440px;height:357px;" closable="true">
+	<div id="doseAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:hidden; overflow-y:auto;">
+			<input type="hidden" id = "addOrEdit">
+			<form id="doseAddEditForm" name="doseAddEditForm" action="" method="post" >
+				<input id="doseId" type="hidden" name ="doseId" >
+		   	  <table class="table0" width="415px;" >
+		   	  		<tr height="31px;">
+        				<td width="120px" align="center"><span id="dosageDescSpan">剂量组说明</span></td>
+        				<td >
+	        				<input id="dosageDesc" type="text" name="dosageDesc" class="easyui-combobox" required="true" data-options="validType:'maxLength[20]'" style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr height="31px;">
+        				<td width="120px" align="center"><span id="dosageSpan">雄性剂量</span>(<span id="dosageSpanUnit"></span>)</td>
+        				<td >
+	        				<input id="dosage" type="text" name="dosage" class="easyui-validatebox"  required="true" data-options="validType:'maxLength[20]'" validType='positiveNumber_' style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr id="femaleDosageTR" height="31px;">
+        				<td width="120px" align="center"><span id="">雌性剂量</span>(<span id="femaleDosageUnit"></span>)</td>
+        				<td >
+	        				<input id="femaleDosage" type="text" name="femaleDosage" class="easyui-validatebox"  required="true" data-options="validType:'maxLength[20]'" validType='positiveNumber_' style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr id="maleNumTR" height="31px;">
+        				<td width="120px" align="center"><span id="maleNumSpan">雄性动物数量</span></td>
+        				<td >
+	        				<input id="maleNum" type="text" name="maleNum" class="easyui-validatebox"  required="true" data-options="validType:'maxLength[20]'" validType='positiveNumber' style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr id="femaleNumTR" height="31px;">
+        				<td width="120px" align="center"><span id="">雌性动物数量</span></td>
+        				<td >
+	        				<input id="femaleNum" type="text" name="femaleNum" class="easyui-validatebox" required="true" data-options="validType:'maxLength[20]'" validType='positiveNumber'  style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+        			<tr id="maleVolumeTR" height="31px;">
+        				<td width="120px" align="center"><span id="maleVolumeSpan">雄性给药容积</span>(<span id="maleVolumeUnit"></span>)</td>
+        				<td >
+	        				<input id="maleVolume" type="text" name="maleVolume" class="easyui-validatebox" required="true" data-options="validType:'maxLength[20]'" validType='positiveNumber_'  style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr id="femaleVolumeTR" height="31px;">
+        				<td width="120px" align="center"><span id="">雌性给药容积</span>(<span id="femaleVolumeUnit"></span>)</td>
+        				<td >
+	        				<input id="femaleVolume" type="text" name="femaleVolume" class="easyui-validatebox" required="true" data-options="validType:'maxLength[20]'" validType='positiveNumber_'  style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+        			<tr id="maleThicknessTR" height="31px;">
+        				<td width="120px" align="center"><span id="maleThicknessSpan">雄性给药浓度</span>(<span id="maleThicknessUnit"></span>)</td>
+        				<td >
+	        				<input id="maleThickness" type="text" name="maleThickness" class="easyui-validatebox" required="true" data-options="validType:'maxLength[20]'" validType='positiveNumber'  style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr id="femaleThicknessTR" height="31px;">
+        				<td width="120px" align="center"><span id="">雌性给药浓度</span>(<span id="femaleThicknessUnit"></span>)</td>
+        				<td >
+	        				<input id="femaleThickness" type="text" name="femaleThickness" class="easyui-validatebox" required="true"  data-options="validType:'maxLength[20]'" validType='positiveNumber' style="width:180px;"></input>
+       				 	</td>
+        			</tr>
+        		</table>
+		    </form>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 start-->
+<div id="doseAddEditToolbar">
+	<a class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#doseAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 end-->
+<!-- 剂量组添加 end -->

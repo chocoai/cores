@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblCounterWeight" table="tblCounterWeight" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="cpCode" type="java.lang.String">
+            <column name="cpCode" length="20" />
+        </property>
+		<property name="cpWeight" type="java.lang.String">
+            <column name="cpWeight" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

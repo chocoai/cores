@@ -1,0 +1,59 @@
+body {
+	font:12px Arial, Helvetica, sans-serif;
+	color: #000;
+	margin: 0px;
+	background:url(../images/left_menu_bg.gif) repeat-y #f8f9fa;
+}
+a {
+	text-decoration : none ;
+	
+}
+/** 动物信息列表 */
+.dict_table1{
+	position: absolute;
+	top:83px;
+	left:0;
+	right:0;
+	bottom:132px;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.dict_table1 table th{
+	border-top:1px solid #c8ceda;
+	border-bottom:1px solid #c8ceda;
+	border-right:1px solid #c7c8ca;
+	padding:4px 10px;
+	text-align:left;
+	background:#f3f4f6;
+}
+.dict_table1 table td{
+	border-bottom:1px solid #e3e6eb;
+	
+	border-left:1px solid #e3e6eb;
+	
+	padding:4px 10px;
+	text-align:left;
+}
+.dict_table1 table .first{
+	border-bottom:0px;
+	padding:0px;
+}
+.dict_table1 table td a{
+	color:#404040;
+	text-decoration:none;
+}
+.dict_table1 table td a:hover{
+	color:#ff7200;
+}
+.dict_table1 table .date{
+	color:#adadad;
+}
+/* 表格头*/
+.tableHerder table th{
+	border-top:1px solid #c8ceda;
+	border-bottom:1px solid #c8ceda;
+	
+	padding:4px 10px;
+	text-align:left;
+	background:#f3f4f6;
+}

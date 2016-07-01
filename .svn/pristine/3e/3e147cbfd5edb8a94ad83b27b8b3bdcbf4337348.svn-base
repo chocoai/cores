@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.DictViscera" table="dictViscera" >
+        <id name="visceraCode" type="java.lang.String">
+            <column name="visceraCode"  length="20"/>
+        </id>    
+        <property name="visceraType" type="java.lang.Integer">
+            <column name="visceraType"  />
+        </property>
+        <property name="visceraName" type="java.lang.String">
+            <column name="visceraName"  length="60"/>
+        </property>
+        <property name="visceraNameJp" type="java.lang.String">
+            <column name="visceraNameJp"  length="60"/>
+        </property>
+        <property name="visceraNameEn" type="java.lang.String">
+            <column name="visceraNameEn"  length="60"/>
+        </property>
+         <property name="py" type="java.lang.String">
+            <column name="py"  length="20"/>
+        </property>
+        <property name="gender" type="java.lang.Integer">
+            <column name="gender"  />
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level"  />
+        </property>
+        <property name="pVisceraCode" type="java.lang.String">
+            <column name="pVisceraCode"  length="20"/>
+        </property>
+        <property name="animalFlag" type="java.lang.Integer">
+            <column name="animalFlag"  />
+        </property>
+        <property name="isPart" type="java.lang.Integer">
+            <column name="isPart"  />
+        </property>
+        <property name="sn" type="java.lang.Integer">
+            <column name="sn"  />
+        </property>
+       <property name="snWeight" type="java.lang.Integer">
+            <column name="snWeight"  />
+        </property>
+       <property name="snFixed" type="java.lang.Integer">
+            <column name="snFixed"  />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblAnatomyAnimal" table="tblAnatomyAnimal" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+        <property name="groupId" type="java.lang.Integer">
+            <column name="groupId" />
+        </property>
+        <property name="gender" type="java.lang.Integer">
+            <column name="gender"  />
+        </property>
+        <property name="animalCode" type="java.lang.String">
+            <column name="animalCode" length="20"/>
+        </property>       
+        <property name="anatomyPlanNum" type="java.lang.Integer">
+            <column name="anatomyPlanNum" />
+        </property>
+        <property name="taskId" type="java.lang.String">
+            <column name="taskId" length="20" />
+        </property>
+        <property name="deadFlag" type="java.lang.Integer">
+            <column name="deadFlag" />
+        </property> 
+        <property name="deadDate" type="java.sql.Timestamp">
+            <column name="deadDate" />
+        </property>
+        <property name="deadRsn" type="java.lang.String">
+            <column name="deadRsn" length="60"/>
+        </property>
+        <property name="fastingWeight" type="java.lang.String">
+            <column name="fastingWeight" length="20" />
+        </property>
+        <property name="fastingWeightUnit" type="java.lang.String">
+            <column name="fastingWeightUnit" length="20"/>
+        </property>
+        <property name="autolyzeFlag" type="java.lang.Integer">
+            <column name="autolyzeFlag" />
+        </property>
+        <property name="anatomySessionId" type="java.lang.String">
+            <column name="anatomySessionId" length="20"/>
+        </property>
+        <property name="visceraWeightSessionId" type="java.lang.String">
+            <column name="visceraWeightSessionId" length="20"/>
+        </property>
+        <property name="visceraWeightFinishSign" type="java.lang.String">
+            <column name="visceraWeightFinishSign" length="20"/>
+        </property>
+        <property name="visceraFixedWeightSessionId" type="java.lang.String">
+            <column name="visceraFixedWeightSessionId" length="20"/>
+        </property>
+        <property name="visceraFixedSessionId" type="java.lang.String">
+            <column name="visceraFixedSessionId" length="20"/>
+        </property>
+        <property name="visceraFixedFinishSign" type="java.lang.String">
+            <column name="visceraFixedFinishSign" length="20"/>
+        </property>
+        <property name="anatomyBeginTime" type="java.sql.Timestamp">
+            <column name="anatomyBeginTime" />
+        </property>
+        <property name="anatomyEndTime" type="java.sql.Timestamp">
+            <column name="anatomyEndTime" />
+        </property>
+        <property name="anatomyCheckFinishFlag" type="java.lang.Integer">
+            <column name="anatomyCheckFinishFlag"  />
+        </property>
+        <property name="visceraWeighFinishTime" type="java.sql.Timestamp">
+            <column name="visceraWeighFinishTime" />
+        </property>
+        <property name="visceraWeighFinishFlag" type="java.lang.Integer">
+            <column name="visceraWeighFinishFlag"  />
+        </property>
+        <property name="visceraFixedWeighFinishFlag" type="java.lang.Integer">
+            <column name="visceraFixedWeighFinishFlag"  />
+        </property>
+        <property name="visceraFixedFinishTime" type="java.sql.Timestamp">
+            <column name="visceraFixedFinishTime" />
+        </property>
+        <property name="visceraFixedFinishFlag" type="java.lang.Integer">
+            <column name="visceraFixedFinishFlag"  />
+        </property>
+        <property name="histopathCheckFinishFlag" type="java.lang.Integer">
+            <column name="histopathCheckFinishFlag"  />
+        </property>
+        <property name="anatomyOperator" type="java.lang.String">
+            <column name="anatomyOperator" length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReplyReport" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" isFloatColumnFooter="true" uuid="94ff400a-c494-4766-87b8-86ea0a6c23b5">
+	<property name="ireport.zoom" value="1.3310000000000008"/>
+	<property name="ireport.x" value="111"/>
+	<property name="ireport.y" value="49"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="217ee5c3-a1bb-4269-af8e-380dc428e161"/>
+	<parameter name="studyNo" class="java.lang.String"/>
+	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="reportCode" class="java.lang.String"/>
+	<parameter name="logoImage" class="java.lang.String"/>
+	<parameter name="hasComment" class="java.lang.String"/>
+	<parameter name="comment" class="java.lang.String"/>
+	<parameter name="checkImage" class="java.lang.String"/>
+	<parameter name="needRecheck" class="java.lang.String"/>
+	<parameter name="solved" class="java.lang.String"/>
+	<field name="chkItemName" class="java.lang.String"/>
+	<field name="chkContent" class="java.lang.String"/>
+	<field name="chkResult" class="java.lang.String"/>
+	<field name="advice" class="java.lang.String"/>
+	<field name="replyContent" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<image isLazy="true">
+				<reportElement uuid="bd1fe12f-f2df-4490-9f3c-248ce65db50b" x="2" y="0" width="41" height="31"/>
+				<imageExpression><![CDATA[$P{logoImage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="81d7e7b5-f93f-47fb-a639-5022b91326cb" x="43" y="10" width="43" height="21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[西山中科]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8873e3c-9a65-4ecc-8db2-9ca9402daaa4" x="479" y="0" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[编号：QA-04-4]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="1736e46e-51be-434b-b7de-a46c64e79b9e" x="2" y="31" width="552" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="dacdc8a6-7bca-452e-aa03-d5f2f573285f" style="table_TH" x="10" y="90" width="92" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[检查项]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ff831a0e-7c00-43fa-ad90-ccd98194e2a1" style="table_TH" x="102" y="90" width="157" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[检查内容]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="909bccd4-0f73-4443-b0b5-a279c446e743" style="table_TH" x="259" y="90" width="72" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[检查结果]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3f54e58d-96f6-48b1-a7c3-873a564323dc" style="table_TH" x="331" y="90" width="93" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[建议]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decd3c2d-f4d3-4703-b9ba-adde8e7ab392" style="table_TH" x="424" y="90" width="124" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[回复]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a604f36f-1e2d-478f-9da5-1ca83426f401" x="10" y="43" width="76" height="17"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[检查报告编号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b4500bb9-0f0b-4555-989d-8da5e98de912" x="272" y="38" width="51" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[专题负责人]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c9d71cef-e343-4517-baae-3cd16dd84022" x="342" y="40" width="63" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[设施负责人]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="28aa3248-27b3-4c83-9f83-b180ea1a091d" x="430" y="40" width="27" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[其他]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7c389528-3e3e-4517-a3bb-ba39f5fa70cb" x="218" y="40" width="33" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[回复者]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d5ed19b4-af66-4bb6-a9c3-773bd16368e6" x="10" y="70" width="539" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[对QAU检查报告的回复（包括对问题的澄清，纠正措施及预防措施等）]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d568f079-a2b6-4573-b15c-1fbb098a7b48" x="86" y="43" width="122" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{reportCode}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="9bf7e917-649c-47b8-af9b-5de81e8a5dbe" x="259" y="43" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="801d3f4d-94a9-4ee7-9038-d08887a43ae5" x="332" y="43" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2bb4b89e-7fc6-43c0-bd1e-7c2539cd4107" x="415" y="43" width="10" height="10"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="8e4e7a01-7439-4a40-9c30-62312c14b8ef" x="457" y="58" width="92" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="c82bc5a2-6e11-4198-b656-488963cce05c" x="157" y="0" width="230" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportName}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="17008e92-2088-4920-bde3-e2c63648011c" x="416" y="44" width="8" height="9"/>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="b7fdd8a6-c17c-4cda-b26c-d95c76cf425c" x="416" y="44" width="8" height="9"/>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4556df67-4f79-4b56-9b72-bcafd32a6770" style="table_TD" x="10" y="0" width="92" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chkItemName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aaa09ef6-d6a4-4787-a8cc-43392760c043" style="table_TD" x="102" y="0" width="157" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chkContent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="036cb3d6-bdd9-4775-9221-a5ff5316c23e" style="table_TD" x="259" y="0" width="72" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chkResult}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8a5e3d20-36bf-46ae-99e5-1b87e163d71e" style="table_TD" x="331" y="0" width="93" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{advice}==null?"":$F{advice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e460449f-853b-4dea-8dcd-c02029cb7dea" style="table_TD" x="424" y="0" width="124" height="20"/>
+				<textElement>
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{replyContent}==null?"":$F{replyContent}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="291" splitType="Stretch">
+			<line>
+				<reportElement uuid="1be591da-accf-4396-bf67-5b7669f43cdb" x="428" y="163" width="100" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="7fb91c1a-f08d-4226-8fff-4bacd8182da5" x="438" y="130" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="393f6ef2-d23c-41fa-9440-b1106298b2eb" x="348" y="144" width="75" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[机构负责人/日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c72e95b5-e242-44af-ad52-816a7171c9b6" x="247" y="198" width="18" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[是]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d7b207c7-9bf9-4466-ab0f-39c217d8e6f6" x="247" y="230" width="72" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[问题未解决]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="1dceced3-ec94-4e1f-a418-60f320aee739" x="423" y="269" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="9a1d1cf3-9aa0-40f4-bb35-e4c6c1ed4d99" x="359" y="250" width="69" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[QA检查员/日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e2098298-f4dd-4462-9620-fb8eb28a17bc" x="20" y="87" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[机构负责人审阅：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2cb24455-2a98-481b-88e9-e9aad9a36b41" x="146" y="87" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[无意见]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1bec2515-21e8-456c-8b2f-4d22abcb4981" x="146" y="111" width="311" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[有意见，<<机构负责人审批QAU检查报告及回复内容批注表>>编号：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8624b1f0-1a3e-47ce-a859-4f7373d2f716" x="20" y="198" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[是否需要再检查：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6b962324-7f4b-4d49-828b-a9fb80e21271" x="20" y="230" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[再检查结果：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="252666b1-73ef-4b40-92c7-7f74f3ecf8d9" x="159" y="198" width="18" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[否]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="69959d1b-66ef-4d21-a6db-ec3f8190c0e1" x="159" y="230" width="62" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[问题已解决]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="2e1b519e-7b50-44d8-b723-ed5c1ba8ab5e" x="136" y="92" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="65cd89bd-475e-41ee-af1d-bb81b1de2faa" x="136" y="114" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="951282ad-6e77-43d6-a094-a0d94c35ce4c" x="136" y="198" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="43a01e89-7abf-4b70-b876-ddb9f4b99349" x="231" y="198" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="2b65713e-c272-4230-957d-ebd272f34406" x="136" y="230" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="79ca99b5-8232-4cd8-b634-d66536dad3cf" x="231" y="230" width="10" height="10"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="803d25c5-b81a-40c9-b59d-b3e1ee6cf790" x="10" y="71" width="537" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="14313d27-9b94-46fd-ad95-3234ae6575fe" x="10" y="177" width="537" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="a0111e3b-9413-40cb-aadf-7c6c050edbc8" x="10" y="189" width="538" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="f7b9966e-ded9-49b1-aed3-e2a618e7e770" x="10" y="284" width="538" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="7e033e13-4c0c-4d26-adb6-648be74c92f1" x="547" y="72" width="1" height="105"/>
+			</line>
+			<line>
+				<reportElement uuid="f97ff160-e00e-47a8-8e45-c0afe11ff8b2" x="10" y="72" width="1" height="105"/>
+			</line>
+			<line>
+				<reportElement uuid="bf100cd2-9ce7-4147-98c7-024d01406a45" x="548" y="190" width="1" height="95"/>
+			</line>
+			<line>
+				<reportElement uuid="3dd007c4-dfd7-42f6-8926-e2dc666894d9" x="10" y="189" width="1" height="95"/>
+			</line>
+			<staticText>
+				<reportElement uuid="798447a1-0ce7-47f2-a849-24e4516c9f70" x="383" y="19" width="54" height="20"/>
+				<textElement>
+					<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[回复者/日期]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="2dd9aa71-3ac3-4113-9950-3de98a291c93" x="435" y="40" width="100" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="5f2e82f2-28e7-42fe-9f31-e9f24204a015" x="10" y="0" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement uuid="d98319d2-6c8d-44f1-8722-63dcb3d7ecd6" x="548" y="0" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement uuid="90a322df-d328-4a43-93e7-8742370a0a92" x="10" y="50" width="538" height="1"/>
+			</line>
+			<image>
+				<reportElement uuid="15d7df49-790e-4c32-9a79-4b9c4ea24fa9" x="137" y="93" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{hasComment}.equals("0"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="5fd0a0f6-fbc4-4d5b-b41d-65fab478f41b" x="137" y="115" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{hasComment}.equals("1"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="7da17cf2-3636-4a6d-aede-9e871b99c269" x="137" y="199" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{needRecheck}.equals("0"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="dbd9aa3f-3cd1-4b4a-b5ad-72fbc9ccf80c" x="232" y="199" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{needRecheck}.equals("1"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="c3685163-79a9-4d7a-8f35-20bb65de25fa" x="137" y="231" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{solved}.equals("1"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="d034fdaf-9401-43f3-9a81-3427e5bc3cc9" x="232" y="231" width="8" height="9">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{solved}.equals("0"))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{checkImage}]]></imageExpression>
+			</image>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="da6e7384-2fb6-475e-b9a8-06b3b25fe452" x="208" y="23" width="37" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[第]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ce85fb37-3171-4d5b-87d5-f9bdb550b265" x="269" y="23" width="37" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[页]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="59e737ed-b5e4-4234-8730-215c04d99802" x="245" y="42" width="24" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,43 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOneQALearnTaskDialog" class="easyui-dialog" title="管理学习任务" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar3'" style="display:'';width:300px;height:200px;" closable="true">
+			<div id="addOneQALearnTaskDialog2" style="display:'';" closable="true">
+			   	<form id="oneQAFileTaskList" style="float: left;">
+			   		<div style="position:absolute;top:60px;left:10px;">
+				   	 	<table>
+				   	 		<tr>
+				   	 			<td>培训目的</td>
+				   	 			<td><input id="onePurpose" type="text" name="purpose" style="height: 25px;width:200px;"></td>
+				   	 		</tr>
+				   	 		<tr>
+				   	 		 	<td>培训对象</td>
+				   	 		 	<td>
+					   	 			<select id="oneStudent" data-options="editable:false" class="easyui-combobox" name="student" style="width:200px;">
+									    <!-- 
+									    <option value="FM">FM</option>
+									    <option value="病理">病理</option>
+									    <option value="病理负责人">病理负责人</option>
+									    <option value="SD">SD</option>
+									     -->
+									    <option value="QA" selected="selected">QA</option>
+									    <option value="QA负责人">QA负责人</option>
+									</select>
+	
+				   	 			</td>
+				   	 		 </tr>
+				   	 		 
+				   	 	</table>
+			   		</div>
+			   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar3">
+	
+		<a  class="easyui-linkbutton" onclick="saveOneQALearnTask();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOneQALearnTaskDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	
+	</div>
+	
+	<!-- 工具栏 结束-->

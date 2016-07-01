@@ -1,0 +1,28 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="animalCodeConfirmDialog" class="easyui-dialog" title="动物编号确认" modal="true" closed="true" 
+		data-options="" style="display:'';width:500px;height:437px;" closable="false">
+	<div id="animalCodeConfirmDialog2" style="display:none;">
+			<table id="animalCodeConfirmTable"></table>     
+			<div style="border-top:1px solid #e3e6eb;">
+				<table width="470">
+					<tr height="50">
+						<td width="40">
+						</td>
+						<td align="left" valign="middle" height="25px;" >
+							<h6>请检查动物编号录入是否正确，剂量组设计确认后动物编号将不可以修改，</h6>
+							<h6>是否继续？</h6>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" valign="middle" height="35px;" colspan="2">
+							<a class="easyui-linkbutton" onclick="onCodeConfirm();">是</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							<a class="easyui-linkbutton" onclick="javascript:$('#animalCodeConfirmDialog').dialog('close');">否</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						</td>
+					</tr>
+				</table>
+			
+			</div>   				
+	</div>
+</div>
+

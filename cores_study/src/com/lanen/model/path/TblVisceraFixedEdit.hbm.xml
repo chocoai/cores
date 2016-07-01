@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblVisceraFixedEdit" table="tblVisceraFixedEdit" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+		<property name="taskId" type="java.lang.String">
+            <column name="taskId" length="20" />
+        </property>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+		<property name="animalCode" type="java.lang.String">
+            <column name="animalCode" length="20" />
+        </property>
+        <property name="fixedType" type="java.lang.Integer">
+            <column name="fixedType" />
+        </property>
+        <property name="visceraType" type="java.lang.Integer">
+            <column name="visceraType" />
+        </property>
+        <property name="visceraCode" type="java.lang.String">
+            <column name="visceraCode" length="20"/>
+        </property>       
+        <property name="visceraName" type="java.lang.String">
+            <column name="visceraName" length="60" />
+        </property>
+		<property name="subVisceraCode" type="java.lang.String">
+            <column name="subVisceraCode" length="20" />
+        </property>
+		<property name="subVisceraName" type="java.lang.String">
+            <column name="subVisceraName" length="60" />
+        </property>
+        <property name="anatomyCheckEditId" type="java.lang.String">
+            <column name="anatomyCheckEditId" length="20" />
+        </property>
+		<property name="operator" type="java.lang.String">
+            <column name="operator" length="20" />
+        </property>
+       
+        <property name="operateTime" type="java.sql.Timestamp">
+            <column name="operateTime" />
+        </property>
+        
+        <property name="editType" type="java.lang.Integer">
+            <column name="editType" />
+        </property>
+         <property name="editTime" type="java.sql.Timestamp">
+            <column name="editTime" />
+        </property>
+		<property name="oldId" type="java.lang.String">
+            <column name="oldId" length="20" />
+        </property>
+		<property name="editRsn" type="java.lang.String">
+            <column name="editRsn" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

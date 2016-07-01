@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblStudySchedule" table="tblStudySchedule" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20" />
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="50" />
+        </property>
+        <property name="nodeSn" type="java.lang.Integer">
+            <column name="nodeSn"  length="2"/>
+        </property>
+        <property name="nodeName" type="java.lang.String">
+            <column name="nodeName"  length="100"/>
+        </property>
+        <property name="planDate" type="java.sql.Timestamp">
+            <column name="planDate" />
+        </property>
+        <property name="actualDate" type="java.sql.Timestamp">
+            <column name="actualDate" />
+        </property>
+        <property name="confirmFlag" type="java.lang.Integer">
+            <column name="confirmFlag" />
+        </property>
+        <property name="confirmTime" type="java.sql.Timestamp">
+            <column name="confirmTime" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

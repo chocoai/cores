@@ -1,0 +1,53 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 合同付款记录 edit/add开始 -->
+<div id="paymentRecordAddEditDialog" class="easyui-dialog" title="付款记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:330px;height:235px;" closable="true">
+	<div id="paymentRecordAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="addOrEdit"/>
+			<form id="paymentRecordAddEditForm" action="" method="post">
+		   	  <input type="hidden" id="id" name="id" >
+		   	  <table class="table0" width="100%">
+        			<tr >
+        				<td width="80px;" height="20px" align="right">合同编号</td>
+        				<td>
+                            <input id="contractCode" type="text" name="contractCode" 
+                        	 class="easyui-validatebox" style="width:156px;height:16px;" data-options="validType:'maxLength[40]'"
+                        	 readOnly="true" />
+                        	 
+       				 	</td>
+        			</tr>
+        			<tr >
+        				<td align="right" height="30px">付款金额</td>
+        				<td>
+        					<input id="amount" type="text" name="amount" style="width:130px;height:16px;" class="easyui-validatebox" data-options="validType:'maxLength[12]'" validType="signlessInteger" required="true"  />
+        				    <input id="priceUnit1"  style="width:30px;border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;"/>
+        				    <input type="hidden" id="priceUnit" name="priceUnit"/>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right" height="30px">是否开具发票</td>
+        				<td>
+        					<select id="receiptFlag" name="receiptFlag" class="easyui-combobox" panelHeight="46" style="width:60px;height:19px;">
+        						<option value="0">是</option>
+        						<option value="1">否</option>
+        					</select>
+        				</td>
+        			</tr>
+        			<tr >
+        				<td align="right" height="30px">付款日期</td>
+        				<td><input id="paymentDate" type="text" name="paymentDate" class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        		</table>
+		    </form>
+			<a id="paymentRecordAddEdit_event"></a>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#paymentRecordAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 试验计划 edit/add结束 -->

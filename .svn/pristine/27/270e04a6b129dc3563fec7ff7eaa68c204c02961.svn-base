@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblNotification" table="tblNotification" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20" />
+        </id>
+        <property name="msgTitle" type="java.lang.String">
+            <column name="msgTitle"  length="200"/>
+        </property>
+        <property name="msgContent" type="java.lang.String">
+            <column name="msgContent"  length="4000"/>
+        </property>
+        <property name="msgSource" type="java.lang.String">
+            <column name="msgSource"  length="100" />
+        </property>
+        <property name="msgLink" type="java.lang.String">
+            <column name="msgLink"  length="200" />
+        </property>
+        <property name="sender" type="java.lang.String">
+            <column name="sender"  length="50" />
+        </property>
+        <property name="receiver" type="java.lang.String">
+            <column name="receiver"  length="50" />
+        </property>
+        <property name="sendTime" type="timestamp">
+            <column name="sendTime" />
+        </property>
+        <property name="recTime" type="timestamp">
+            <column name="recTime" />
+        </property>
+        <property name="needReceipt" type="java.lang.Integer">
+            <column name="needReceipt"   />
+        </property>
+        <property name="msgType" type="java.lang.Integer">
+            <column name="msgType"   />
+        </property>
+        <property name="readFlag" type="java.lang.Integer">
+            <column name="readFlag"   />
+        </property>
+        <property name="attachmentFlag" type="java.lang.Integer">
+            <column name="attachmentFlag"  />
+        </property>
+        
+    </class>
+</hibernate-mapping>

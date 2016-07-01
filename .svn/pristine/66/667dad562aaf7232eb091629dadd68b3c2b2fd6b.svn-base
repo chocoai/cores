@@ -1,0 +1,133 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileContentEmployeeDialog" class="easyui-dialog" title="新建人员档案" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:380px;" closable="true">
+		<div id="AddOrEditFileContentEmployeeDialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileContentEmployeeForm">
+		      	<input id="addOrEditEmployee" type="hidden">
+		      	<input id="oneFileRecordId5" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag5" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateEmployeeRsn" name="operateRsn" type="hidden"/>
+			  	
+			  	<div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:163px;left:30px;background-color: #fff;">归档记录</div>		
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8;margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		<table style="width:100%;">
+			  			<tr>
+			  				<td width="65">姓名</td>
+			  				<td><input id="staffName" class="easyui-validatebox" name="staffName" required="true" onblur="getEmployeeByName();"/></td>
+			  				<td colspan="2"></td>
+			  				<td align="right" colspan="2">
+			  					归档介质：
+								<label for="archiveMediaFlag15">
+									<input id="archiveMediaFlag15" type="radio" name="tblFileRecord.archiveMediaFlag" value="1" checked="checked" onclick="$('#oneArchiveMedia5').attr('disabled',true);"/>纸质
+								</label>
+								<label for="archiveMediaFlag25">
+									<input id="archiveMediaFlag25" type="radio" name="tblFileRecord.archiveMediaFlag" value="2" onclick="$('#oneArchiveMedia5').attr('disabled',true);"/>电子
+								</label>
+								<label for="archiveMediaFlag35">
+									<input id="archiveMediaFlag35" type="radio" name="tblFileRecord.archiveMediaFlag" value="3" onclick="$('#oneArchiveMedia5').attr('disabled',false);"/>其他
+								</label>
+								<input id="oneArchiveMedia5" type="text" disabled name="tblFileRecord.archiveMedia" style="width:100px;"/>
+							</td>
+							
+			  			</tr>
+			  			<tr>
+			  				<td>工号：</td>
+			  				<td colspan="3"><input id="staffCode" class="easyui-validatebox" required="true" name="staffCode" /></td>
+			  				<td colspan="2"></td>
+			  			</tr>
+			  			<tr>
+			  				<td>部门：</td>
+			  				<td colspan="3">
+			  					<input id="staffDept" name="staffDept" required="true" 
+				    				class="easyui-combobox"  />
+			  				</td>
+			  				<td colspan="2"></td>
+			  			</tr>
+			  			<tr id="employeeStatusTR" style="display:none;">
+			  				<td>员工状态：</td>
+			  				<td colspan="3">
+			  					<select id="staffState" name="staffState" class="easyui-combobox"
+			  						style="width:100">
+			  						<option value="1" selected="selected">在职    </option>
+			  						<option value="2">离职     </option>
+			  					</select>
+			  				
+			  				</td>
+			  				<td colspan="2"></td>
+			  			</tr>
+			  				  			
+			  			
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+	    			<table border="0">
+				    	<tr>
+				    		<td width="100">分类代号：</td>
+				    		<td width="100">
+				    			<input id="oneArchiveTypeCode5" name="archiveTypeCode" type="hidden"/>
+				    			<input id="oneArchiveTypeName5" name="archiveTypeName" readOnly="readonly" class="easyui-validatebox" required="true" onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode5').click();}" style="width:72%;"/>
+				    			<input type="button" id="chooseOneArchiveTypeCode5" class="easyui-linkbutton" style="width:30px;" onclick="chooseArchiveType();" value="..."/>
+				    		</td>
+				    		<td width="100">档案编号：</td>
+				    			<td colspan="3" width="300"><input id="oneArchiveCode5" name="archiveCode" type="text" required="true" style="100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">储存位置：</td>
+				    			<td width="100"><input id="oneStorePosition5"   required="true" 
+				    			class="easyui-combotree"/>
+				    			<input id="oneStorePosition5L" type="hidden" name="storePosition"/></td>
+				    			<td width="100">题名：</td>
+				    			<td width="300" colspan="3"><input id="oneArchiveTitle5" name="archiveTitle" required="true"  style="width:100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">立卷人：</td>
+				    			<td width="100">
+				    			<input id="oneArchiveMaker5" name="tblFileRecord.archiveMaker" required="true" 
+				    				class="easyui-combobox"  />
+				    						
+				    			</td>
+				    			<td width="100">归档人：</td>
+				    			<td width="100">
+				    				<input id="oneFileOperator5" name="tblFileRecord.fileOperator" required="true"
+				    					 class="easyui-validatebox" />
+				    				</td>
+				    			<td width="100">归档日期：</td>
+				    			<td width="100"><input class="easyui-datebox" id="oneFileDate5" name="tblFileRecord.fileDate" required="true"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">备注：</td>
+				    			<td width="300" colspan="3"><input id="oneRemark5" name="tblFileRecord.remark" type="text" style="width:100%"/></td>
+				    			<td width="100">保存期限：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneKeepDate5" name="tblFileRecord.keepDate" data-options="width:120,"/>
+				    				<input type="checkbox" class="checkboxC" id="isLong5" name="isLong" checked="checked"
+				    				onclick="if($('#isLong5').attr('checked')=='checked'){$('#oneKeepDate5').datebox('setValue','');$('#oneKeepDate5').datebox('disable');}else{$('#oneKeepDate5').datebox('setValue',$('#todayDate').val());$('#oneKeepDate5').datebox('enable');}">长期
+			
+				    			</td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">关键字：</td>
+				    			<td width="300" colspan="3"><input id="oneKeyWord5" name="tblFileRecord.keyWord" type="text" style="width:100%"/></td>
+				    			 
+				    			<td width="100"  id="oneDestoryDate5Label" style="display:none;">销毁日期</td>
+				    			<td width="100" id="oneDestoryDate5Label2" style="display:none;"><input class="easyui-datebox" id="oneDestoryDate5" name="tblFileRecord.destoryDate"/></td>
+				    			
+				    		</tr>
+				    			
+				    </table>
+	    	   </div>
+		    </form>
+			<div id="positionTipCode5"></div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton5" class="easyui-linkbutton" onclick="saveOneFileContentEmployee();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileContentEmployeeDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddEmployeeButton" type="checkbox" class="checkboxC"/><span id="continueAddEmployeeLabel" ></span>
+		<input id="isForValidEmployee" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidEmployeeLabel" style="position:absolute;top:35px;right: 10px;">验证记录 </span>
+	</div>
+	<!-- 工具栏 结束-->

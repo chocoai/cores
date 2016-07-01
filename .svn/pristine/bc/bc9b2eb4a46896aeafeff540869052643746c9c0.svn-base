@@ -1,0 +1,45 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseChkSOPDialog" class="easyui-dialog" title="选择检查项使用的法规文件" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:460px;height:370px;" closable="true">
+			<div id="chooseChkSOPDialog2" style="display:'';" closable="true">
+
+				<table id="dictItemSOPList" style="width:440px;height:300px;" class="easyui-datagrid">
+					 <thead>
+					 <tr>
+					 	   <th data-options="field:'fileRegId',hidden:true,">编号</th>
+					 	   <th data-options="field:'fileType',formatter: function(value,row,index){
+									if(value==1)
+									{
+										return '法规';
+									}
+									if(value==2)
+									{
+										return '指导原则';
+									}
+									if(value==3)
+									{
+										return 'SOP';
+									}
+		         		
+								},width:60,">文件类型</th>
+					 	    <th data-options="field:'fileTypeName',width:100,">文件类型名</th>
+						   <th data-options="field:'fileCode',width:80,">文件编号</th>
+						   <th data-options="field:'fileName',width:120,">法规名</th>
+						   <th data-options="field:'fileVersion',width:50,">文件版本</th>
+						     
+					 </tr>
+				</thead>
+			</table>
+				   	
+			  	 		
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+	
+		<a  class="easyui-linkbutton" onclick="saveQAChkSOP();" data-options="iconCls:'icon-add',plain:true">确定</a>
+	 
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#chooseChkSOPDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+		 
+	</div>
+	<!-- 工具栏 结束-->

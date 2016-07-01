@@ -1,0 +1,68 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 剂量组基本信息 start -->
+<div id="doseSettingDialog" class="easyui-dialog" title="剂量组基本信息" modal="true" closed="true" 
+		data-options="toolbar:'#doseSettingToolbar'" style="display:'';width:520px;height:327px;" closable="true">
+	<div id="doseSettingDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:hidden; overflow-y:auto;">
+			<input type="hidden" id="doseSettingEdit">
+			<form id="doseSettingForm" name="doseSettingForm" action="" method="post" >
+		   	  <table class="table0" width="490px;" >
+		   	  		<tr >
+        				<td width="80px;" align="center">动物编码规则</td>
+        				<td style="line-height: 25px;">
+	        				<input id="radioA"  type="radio" on name="animalCodeMode" value="1" checked="checked" /> <a href="javascript:onRadioCk('radioA');" style="color:blue;">A:组（1,2...）+性别（雄：1，雌：2）+动物排序号（1,2,3...）</a>
+	        				<br/>
+	        				<input id="radioB" type="radio" name="animalCodeMode" value="2" /> <a  href="javascript:onRadioCk('radioB');" style="color:blue;">B:性别（雄：1，雌：2）+组（0,1...）+动物组内序号（0,1,2...）</a>
+	        				<br/>
+	        				<input id="radioC" type="radio" name="animalCodeMode" value="3" /> <a  href="javascript:onRadioCk('radioC');" style="color:blue;">C:性别（雄：1，雌：2）+组（0,1...）+动物排序号（1,2,3...）</a>
+	        				<br/>
+	        				<input id="radio9" type="radio" name="animalCodeMode" value="9" /> <a  href="javascript:onRadioCk('radio9');" style="color:blue;">D:手工编号</a>
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="center">动物性别</td>
+        				<td>
+	        				<select id="isNoGender" class="easyui-combobox" data-options="editable:false,panelHeight:'auto',onSelect:function(record){ onIsNoGender(record);}" required="true" name="isNoGender" style="width:100px;">   
+							    <option value="1">区分性别</option>   
+							</select> 
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="center">雌雄动物剂量是否相同</td>
+        				<td>
+	        				<select id="isIndentical" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" required="true" name="isIndentical" style="width:100px;">   
+							    <option value="2">不相同</option>
+							    <option value="1">相同</option> 
+							</select>
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="center">给药容积单位</td>
+        				<td>
+	        				<input id="volumeUnit" type="text" name="volumeUnit" class="easyui-combobox" data-options="valueField:'id',textField:'text',
+	        					editable:false,panelHeight:'auto',url:'${pageContext.request.contextPath}/tblDoseSettingAction_doseUnit.action',
+	        					onSelect:function(record){ onUnitSelect(record,this);}" style="width:100px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="center">给药浓度单位</td>
+        				<td>
+	        				<input id="thicknessUnit" type="text" name="thicknessUnit" class="easyui-combobox" data-options="valueField:'id',textField:'text',
+	        					editable:false,panelHeight:'auto',url:'${pageContext.request.contextPath}/tblDoseSettingAction_doseUnit.action',
+	        					onSelect:function(record){ onUnitSelect(record,this);}" style="width:100px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		
+		   	  		
+        		</table>
+		    </form>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 start-->
+<div id="doseSettingToolbar">
+	<a class="easyui-linkbutton" onclick="onDialogDoseSettingSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#doseSettingDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 end-->
+<!-- 剂量组基本信息 end -->

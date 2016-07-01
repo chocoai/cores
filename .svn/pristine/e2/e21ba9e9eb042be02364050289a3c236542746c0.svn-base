@@ -1,0 +1,6 @@
+jdbcUrl		= jdbc\:jtds\:sqlserver\://172.16.10.245\:1433/coresuserprivilege
+driverClass	= net.sourceforge.jtds.jdbc.Driver
+#username = cores
+#password = dev246135
+username = GPG2zBi2kKE=
+password = Vy6j6EAq61Fnza0S4qEcFw==

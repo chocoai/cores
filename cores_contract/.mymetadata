@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cores_contract"
+  id="myeclipse.1409880420804"
+  context-root="/cores_contract"
+  j2ee-spec="5.0"
+  archive="cores_contract.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

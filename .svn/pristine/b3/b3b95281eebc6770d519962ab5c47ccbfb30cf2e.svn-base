@@ -1,0 +1,79 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<script>
+		function showSpecimenFileDialog(){
+			$.messager.confirm('确认对话框', '如果存在相同专题编号和切片编号的记录，将覆盖原有的脏器数据，确定继续吗？', function(r){
+				if (r){
+					document.getElementById("specimenFileDialog2").style.display="block";
+					$('#specimenFileDialog').dialog('open');
+				}
+			});
+		}
+	</script>
+	
+	<div id="searchSpecimenDialog" class="easyui-dialog" title="标本编号速查" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:420px;height:480px;" closable="true">
+		<div id="searchSpecimenDialog2" style="display:none;" closable="true">
+			<div style="position: absolute;left:10px;top:65px;width: 650px;height:30px;">
+				<label for="specimenFrom1">
+					<input id="specimenFrom1" type="radio" name="specimenFrom" value='1' checked="checked" onclick="getAnimalSpecimenByStudyNo();">来自病理系统
+				</label>
+				<label for="specimenFrom2">
+					<input id="specimenFrom2" type="radio" name="specimenFrom" value='2' onclick="getAnimalSpecimenByStudyNo();">来自档案系统
+				</label>
+			</div>
+			<div style="position: absolute;left:10px;top:85px;width: 650px;height:20px;">
+				专题编号：<input id="searchSpecimenCodeStudyNo" onkeypress="if(event.keyCode == 13){getAnimalSpecimenByStudyNo();}" style="width:120px;height:18px;" />
+				<span style="position:absolute;margin-top:0px; left:190px;">
+					<input id="specimenSearchCon" class="easyui-searchbox" style="width:200px;"
+	       			 data-options="searcher:getAnimalSpecimenByStudyNo,
+       			 			   prompt:'请输入切片编号、脏器名称',"></input>
+       			 </span>
+
+			</div>
+			<!-- 
+			<div style="position: absolute;left:10px;top:90px;width: 300px;height:360px;">
+				动物列表：
+			     <table id="sliceAnimalDatagrid"  class="easyui-datagrid" 
+			      data-options="singleSelect:true,width:300,height:345">
+				    <thead>
+				        <tr>
+				        {"id","gender","animalCode","dosageNum","dosageDesc"}; 
+				            <th data-options="field:'dosageDesc',width:60">组别</th>
+				            <th data-options="field:'dosageNum',width:50">序号</th>
+				            <th data-options="field:'animalCode',width:105">动物号</th>
+				            <th data-options="field:'gender',width:60">性别</th>
+				           
+				        </tr>
+				    </thead>
+				   
+				</table>
+		
+			</div>
+			 -->
+	
+			 <div style="position: absolute;left:10px;top:120px;width: 400px;height:360px;">
+			 	
+			 	<table id="sliceCodeDatagrid" class="easyui-datagrid" 
+			      data-options="singleSelect:true,width:400,height:345">
+				    <thead>
+				        <tr>
+				        	<!-- 	indexId""sliceCode""visceraOrTissueName 
+				           <th data-options="field:'studyNo',width:100">专题编号</th>
+				        	-->
+				            <th data-options="field:'sliceCode',width:100">切片编号</th>
+				            <th data-options="field:'visceraOrTissueName',width:280">组织或脏器</th>
+				           
+				        </tr>
+				    </thead>
+				   
+				</table>
+			 </div>
+		</div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-attach',plain:true" onclick="showSpecimenFileDialog();">导入标本编号</a>
+        <a class="easyui-linkbutton" onclick="javascript:$('#searchSpecimenDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->
+	 <%@include file="/WEB-INF/jsp/importedSpecimenAction/importSpecimen.jspf" %>

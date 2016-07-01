@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblAnimal" table="tblAnimal" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="animalId" type="java.lang.String">
+            <column name="animalId" length="20" />
+        </property>
+        <property name="animalCode" type="java.lang.String">
+            <column name="animalCode"  length="20"/>
+        </property>
+        <property name="gender" type="java.lang.Integer">
+            <column name="gender" />
+        </property>
+        <property name="weight" type="java.lang.String">
+            <column name="weight"  length="20"/>
+        </property>
+        <property name="dissectBatch" type="java.lang.Integer">
+            <column name="dissectBatch" />
+        </property>
+        <property name="deadFlag" type="java.lang.Integer">
+            <column name="deadFlag" />
+        </property>
+        <property name="deadReason" type="java.lang.String">
+            <column name="deadReason"  length="40"/>
+        </property>
+        <property name="deadFlagUser" type="java.lang.String">
+            <column name="deadFlagUser"  length="20"/>
+        </property>
+        <property name="deadDate" type="timestamp">
+            <column name="deadDate" />
+        </property>
+        <property name="aniSerialNum" type="java.lang.Integer">
+            <column name="aniSerialNum" />
+        </property>
+        
+        <!-- tblStudyPlan, 本类与TblStudyPlan的多对一的关系 -->
+        <many-to-one name="tblStudyPlan" class="TblStudyPlan" column="studyNo" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

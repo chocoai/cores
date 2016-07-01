@@ -1,0 +1,47 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 专题类别选择 dialog  start -->
+	<div id="studyTypeMultiDialog" class="easyui-dialog" title="选择项目类型" modal="true" closed="true" 
+		data-options="toolbar:'#studyTypeMultiDialogToolbar'" style="display:'';width:470px;height:430px;" closable="true">
+			<div id="studyTypeMultiDialog2" style="display:none;">
+			    <div >
+					<div style="float:left; width:410px;">
+						<table id="studyTypeMultiTable" class="easyui-datagrid" style="width:456px;height:360px" border ="false">   
+						    <thead>   
+						        <tr>   
+						            <th data-options="field:'studyTypeCode',width:30,checkbox:true"></th>   
+						            <th data-options="field:'tiCode',width:90,align:'center',formatter : function(value,rowData,rowIndex){
+										var name='';
+										if(value=='01'){
+											name='医药';
+										}else if(value=='02'){
+											name='农药';
+										}else if(value=='03'){
+											name='化学品'
+										}else if(value=='04'){
+										    name='化妆品'
+										}else{
+											name='';
+										}
+											return name;
+											}">供试品类型</th>   
+						            <th data-options="field:'studyName',width:315">项目名称</th>   
+						            <th data-options="field:'studyPeriod',width:60,align:'center',hidden:true">项目周期</th>   
+						            <th data-options="field:'studyPeriodUnit',width:40,align:'center',hidden:true">单位</th>   
+						            <th data-options="field:'studyCode',width:40,align:'center',hidden:true" >代号</th>
+						        </tr>   
+						    </thead>   
+						</table>
+					</div>
+					
+			    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="studyTypeMultiDialogToolbar">
+		<a class="easyui-linkbutton" onclick="onConfirmButton_multiSelect();" 
+			data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#studyTypeMultiDialog').dialog('close');" 
+			data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 专题类别选择 dialog   end -->

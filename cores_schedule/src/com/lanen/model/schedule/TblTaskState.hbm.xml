@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.schedule">
+    <class name="com.lanen.model.schedule.TblTaskState" table="tblTaskState" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>    
+        <property name="scheduleId" type="java.lang.String">
+            <column name="scheduleId" length="20" />
+        </property>
+        <property name="taskCode" type="java.lang.String">
+            <column name="taskCode"  length="50"/>
+        </property>
+        <property name="codeType" type="integer">
+            <column name="codeType" />
+        </property>
+         <property name="taskName" type="java.lang.String">
+            <column name="taskName"  length="20"/>
+        </property>
+        <property name="taskDate" type="timestamp">
+            <column name="taskDate" />
+        </property>
+        <property name="finishDate" type="timestamp">
+            <column name="finishDate"  />
+        </property>
+        <property name="leader" type="java.lang.String">
+            <column name="leader"  />
+        </property>
+       
+       
+    </class>
+</hibernate-mapping>

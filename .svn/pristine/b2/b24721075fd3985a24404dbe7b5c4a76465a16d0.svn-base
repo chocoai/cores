@@ -1,0 +1,28 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	
+	<div id="addSopTableLinkDialog" class="easyui-dialog" title="建立SOP关联" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:820px;height:430px;" closable="true">
+		<div id="addSopTableLinkDialog2" style="display:none;" closable="true">
+			
+			<div style="position: absolute;left:10px;top:80px;width: 800px;height:30px;">
+				
+			</div>
+			
+	
+			 <div style="position: absolute;left:10px;top:60px;width: 800px;height:350px;">
+			 	
+			 	<table id="addTblSopTblDatagrid" class="easyui-treegrid" 
+			      data-options="singleSelect:true,width:400,height:345">
+				   
+				</table>
+			 </div>
+		</div>
+		
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="saveTblSOPTableLink();">确定</a>
+        <a class="easyui-linkbutton" onclick="javascript:$('#addSopTableLinkDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->
+	

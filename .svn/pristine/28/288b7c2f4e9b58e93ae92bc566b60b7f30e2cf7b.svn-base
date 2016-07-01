@@ -1,0 +1,41 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddStudyMemberDialog" class="easyui-dialog" title="添加专题成员" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:320px;height:360px;" closable="true">
+			<div id="AddStudyMemberDialog2" style="display:'';" closable="true">
+		    <div >
+		     <input type="hidden" id="tblWeighInd.id">
+			  <form id="AddStudyMemberForm" action="" method="post">
+		   	  <div class="edit_table" style="border-collapse:collapse;position: absolute;top:60px;left:30px;">
+                <table class="tblWeighInd" >
+                    <tr><td width="85px;">专题编号</td>
+                        <td width="180px;">
+                        	<input id="StudyMemberstudyNo" type="text" name="" class="validatebox" required="true" readonly="true">
+                        </td>
+                    </tr>
+                    <tr>
+                    <td width="85px">成员部门：</td>
+			        		<td width="180px">
+			        			<input id="OneCauseofdepartmentSerialNum" name="CauseofdeathSerialNums" style="text-align:left"
+			        			class="easyui-combobox" data-options="valueField:'id',textField:'text',editable:true,
+			        			onSelect: function(record){    
+						    if(record.id == -1){
+						    	$(this).combobox('unselect',record.id);
+						    }
+						} "  />
+			        		</td>
+			        </tr>
+                    <tr><td width="85px;">选择专题成员</td>
+                    </tr>
+                </table>
+                <table id="UserMemberTable" ></table>
+            </div>
+               </form>	   
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="AddStudyMemberSaveButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#AddStudyMemberDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->

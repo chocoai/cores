@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.TblTrace" table="tblTrace" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="tableName" type="java.lang.String">
+            <column name="tableName"  length="100"/>
+        </property>
+        <property name="dataId" type="java.lang.String">
+            <column name="dataId"  length="100"/>
+        </property>
+        <property name="operateMode" type="integer">
+            <column name="operateMode" />
+        </property>
+        <property name="oldValue" type="java.lang.String">
+            <column name="oldValue"  length="200"/>
+        </property>
+        <property name="newValue" type="java.lang.String">
+            <column name="newValue"  length="200"/>
+        </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator"  length="20"/>
+        </property>
+        <property name="modifyReason" type="java.lang.String">
+            <column name="modifyReason"  length="200"/>
+        </property>
+        <property name="modifyTime" type="timestamp">
+            <column name="modifyTime" />
+        </property>
+        <property name="host" type="java.lang.String">
+            <column name="host"  length="100"/>
+        </property>
+    </class>
+</hibernate-mapping>

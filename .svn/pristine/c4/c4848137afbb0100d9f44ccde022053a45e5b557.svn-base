@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.schedule">
+    <class name="com.lanen.model.schedule.TblSchedulePlanHis" table="tblSchedulePlanHis" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>    
+         <property name="scheduleID" type="java.lang.String">
+            <column name="scheduleID" length="20" />
+        </property>
+        <property name="taskType" type="java.lang.Integer">
+            <column name="taskType"  />
+        </property>
+        <property name="taskCode" type="java.lang.String">
+            <column name="taskCode"  length="20"/>
+        </property>
+        <property name="codeType" type="java.lang.Integer">
+            <column name="codeType" />
+        </property>
+        <property name="enableDate" type="timestamp">
+            <column name="enableDate" />
+        </property>
+        <property name="startDay" type="java.lang.Integer">
+            <column name="startDay" />
+        </property>
+        <property name="startTime" type="timestamp">
+            <column name="startTime" />
+        </property>
+       <property name="endTime" type="timestamp">
+            <column name="endTime"  />
+        </property>
+        <property name="period" type="java.lang.Integer">
+            <column name="period"  />
+        </property>
+        <property name="periodUnit" type="java.lang.Integer">
+            <column name="periodUnit"  />
+        </property>
+         <property name="taskEndNum" type="java.lang.Integer">
+            <column name="taskEndNum"/>
+        </property>
+        <property name="taskEndDate" type="timestamp">
+            <column name="taskEndDate"  />
+        </property>
+         <property name="taskEndState" type="java.lang.Integer">
+            <column name="taskEndState"  />
+        </property>
+        <property name="taskEndType" type="java.lang.Integer">
+            <column name="taskEndType" />
+        </property>
+        <property name="taskItemType" type="java.lang.Integer">
+            <column name="taskItemType" />
+        </property>
+         <property name="taskName" type="java.lang.String">
+            <column name="taskName"  length="200"/>
+        </property>
+        <property name="validFlag" type="java.lang.Integer">
+            <column name="validFlag" />
+        </property>
+        <property name="creater" type="java.lang.String">
+            <column name="creater"  length="20"/>
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="createDate"  />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="60"/>
+        </property>
+        <property name="finishFlag" type="java.lang.Integer">
+            <column name="finishFlag"  length="20"/>
+        </property>
+         <property name="signId" type="java.lang.String">
+            <column name="signId" />
+        </property>
+             <property name="taskKind" type="java.lang.Integer">
+            <column name="taskKind"  />
+        </property>
+        <property name="oldid" type="java.lang.String">
+            <column name="oldid"  length="20"/>
+        </property>
+         <property name="tblApplyReviseID" type="java.lang.String">
+            <column name="tblApplyReviseID"  length="20"/>
+        </property>
+         <property name="operate" type="java.lang.String">
+            <column name="operate"  length="500"/>
+        </property>
+         <property name="operateDate" type="timestamp">
+            <column name="operateDate" />
+        </property>
+    </class>
+</hibernate-mapping>

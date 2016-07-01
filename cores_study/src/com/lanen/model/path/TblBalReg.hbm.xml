@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblBalReg" table="tblBalReg" >
+       <id name="balCode" type="java.lang.String">
+            <column name="balCode"  length="20"/>
+        </id>
+      
+		<property name="balModel" type="java.lang.String">
+            <column name="balModel" length="20" />
+        </property>
+		<property name="balName" type="java.lang.String">
+            <column name="balName" length="20" />
+        </property>
+		<property name="precision" type="java.lang.String">
+            <column name="precision" length="20" />
+        </property>
+        <property name="range" type="java.lang.Integer">
+            <column name="range" />
+        </property>
+        <property name="baud" type="java.lang.Integer">
+            <column name="baud"  />
+        </property>
+		<property name="dataBit" type="java.lang.Integer">
+            <column name="dataBit"  />
+        </property>
+		<property name="stopBit" type="java.lang.Integer">
+            <column name="stopBit"  />
+        </property>
+		<property name="parit" type="java.lang.Integer">
+            <column name="parit"  />
+        </property>
+        
+        <property name="validDate" type="java.sql.Timestamp">
+            <column name="validDate" />
+        </property>
+       <property name="calCheckPoint" type="java.lang.Integer">
+            <column name="calCheckPoint"  />
+        </property>
+    </class>
+</hibernate-mapping>

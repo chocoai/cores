@@ -1,0 +1,94 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<!-- 数据库信息（连接信息写到spring的配置文件中） -->
+
+	<property name="dialect">
+		org.hibernate.dialect.SQLServerDialect
+	</property>
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+
+	<!-- 字典-标本类型 -->
+	<mapping
+		resource="com/lanen/model/clinicaltest/DictSpecimen.hbm.xml" />
+	<mapping resource="com/lanen/model/clinicaltest/PoolDataId.hbm.xml" />
+	<mapping resource="com/lanen/model/studyplan/DictBioChem.hbm.xml" />
+	<mapping resource="com/lanen/model/studyplan/DictBloodCoag.hbm.xml" />
+	<!-- 剂量单位 -->
+	<mapping resource="com/lanen/model/studyplan/DictDoseUnit.hbm.xml" />
+	<mapping resource="com/lanen/model/studyplan/DictHemat.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/DictStudyTestIndex.hbm.xml" />
+	<mapping resource="com/lanen/model/studyplan/DictStudyType.hbm.xml" />
+	<!-- 供试品类型 -->
+	<mapping
+		resource="com/lanen/model/studyplan/DictTestItemType.hbm.xml" />
+	<mapping resource="com/lanen/model/studyplan/DictUrine.hbm.xml" />
+	<mapping resource="com/lanen/model/schedule/TblAnimalHouse.hbm.xml" />
+	<mapping resource="com/lanen/model/schedule/TblTaskType.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TblTaskTypeField.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/contract/TblStudyScheduleNode.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TblTaskTypeLeader.hbm.xml" />
+
+	<!-- 毒性病理 -->
+	<mapping resource="com/lanen/model/path/DictPathCommon.hbm.xml" />
+	<mapping resource="com/lanen/model/path/DictViscera.hbm.xml" />
+	<mapping resource="com/lanen/model/path/DictVisceraType.hbm.xml" />
+
+	<!-- 附件根目录 -->
+	<mapping
+		resource="com/lanen/model/schedule/DictAttachmentRootDirectory.hbm.xml" />
+	<mapping resource="com/lanen/model/schedule/TblMailServer.hbm.xml" />
+	<mapping resource="com/lanen/model/path/DictVisceraAnimal.hbm.xml" />
+
+	<!-- 报表编号 -->
+	<mapping
+		resource="com/lanen/model/studyplan/DictReportNumber.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/studyplan/DictReportNumberHis.hbm.xml" />
+	<!-- qa检查设置 -->
+	<mapping resource="com\lanen\model\qa\DictChkItemChkTblReg.hbm.xml" />
+	<mapping
+		resource="com\lanen\model\qa\DictQacheckContentTable.hbm.xml" />
+	<mapping resource="com\lanen\model\qa\DictQacheckItem.hbm.xml" />
+	<mapping resource="com\lanen\model\qa\DictQacheckTable.hbm.xml" />
+	<mapping resource="com\lanen\model\qa\DictScheduleChkItem.hbm.xml" />
+	<mapping resource="com\lanen\model\qa\DictStudyGroup.hbm.xml" />
+	<mapping
+		resource="com\lanen\model\qa\DictChkItemStudyGroupReg.hbm.xml" />
+	<mapping resource="com\lanen\model\qa\DictChkItemQAFileReg.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QafileType.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QafileReg.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QafileAttachment.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/DictChkArea.hbm.xml" />
+	
+	
+	<!-- 浅表肿瘤脏器登记表 -->
+	<mapping
+		resource="com/lanen/model/path/TblSuperficialTumorViscera.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/qa/DictQaStatementTemple.hbm.xml" />
+	<mapping resource="com/lanen/model/path/DictLevel.hbm.xml" />
+	<!-- 档案管理设置 -->
+	<mapping resource="com/lanen/model/archive/DictArchiveType.hbm.xml"/>
+	<mapping resource="com/lanen/model/archive/DictSoptype.hbm.xml"/>
+	<mapping resource="com/lanen/model/archive/DictAdministrationType.hbm.xml"/>
+	<mapping resource="com/lanen/model/archive/DictArchivePosition.hbm.xml"/>
+	
+	<!-- 公司信息 -->
+	<mapping resource="com/lanen/model/company/CompanyInfo.hbm.xml" />
+	
+</session-factory>
+</hibernate-configuration>

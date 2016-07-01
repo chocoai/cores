@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.schedule">
+    <class name="com.lanen.model.schedule.TblAttachmentIndex" table="tblAttachmentIndex" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>    
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </property>
+        <property name="describe" type="java.lang.String">
+            <column name="describe"  length="200"/>
+        </property>
+        
+        <property name="createTime" type="timestamp">
+            <column name="createTime" />
+        </property>
+        
+         <property name="creater" type="java.lang.String">
+            <column name="creater"  length="20"/>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="200"/>
+        </property>
+         <property name="state" type="integer">
+            <column name="state" />
+        </property>
+    </class>
+</hibernate-mapping>

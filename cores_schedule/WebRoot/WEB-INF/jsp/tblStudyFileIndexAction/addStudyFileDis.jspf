@@ -1,0 +1,54 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addStudyFileDisDialog" class="easyui-dialog" title="选择试验方案分发人员" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar4'" style="display:'';width:410px;height:420px;" closable="true">
+			<div id="addStudyFileDisDialog2" style="display:'';" closable="true">
+				<!-- 
+			   	<form id="oneStudyFileDisForm">
+				 -->
+			   			<div style="width:205px;height:350px;position:absolute;top:60px;left:10px;">
+				   			<div id="studyFileDisPeople" class="easyui-treegrid" style="width:205px;height:350px;position:absolute;top:60px;left:10px;" >
+							   
+							</div>
+			   			</div>
+			   			<div style="width:175px;height:350px;position:absolute;top:60px;left:220px;">
+				   			<div id="nameList" class="easyui-datagrid" style="width:175px;height:350px;position:absolute;top:60px;left:220px;">
+							  
+							</div>
+			   			</div>
+				   	 	<!--<table>
+				   	 		
+				   	 		<tr>
+				   	 			<td>分发对象</td>
+				   	 			<td>
+					   	 			<select id="studyFileReader" class="easyui-combobox" name="student" style="width:200px;">
+									    <option value="FM">FM</option>
+									    <option value="病理">病理</option>
+									    <option value="病理负责人">病理负责人</option>
+									    <option value="SD">SD</option>
+									    <option value="QA">QA</option>
+									    <option value="QA负责人" selected="selected">QA负责人</option>
+									</select>
+	
+				   	 			</td>
+				   	 		</tr>
+				   	 		
+				   	 	</table>
+			   			-->
+			   	<!-- 
+			   	</form>
+			   	 -->
+			   	 
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar4">
+		<a  class="easyui-linkbutton" onclick="saveStudyFileDis();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addStudyFileDisDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 	<!-- 
+	 	<a  class="easyui-linkbutton" onclick="delFileDisPerson();" style="position: absolute;right:10px;" data-options="iconCls:'icon-remove',plain:true">删除</a>
+	 	 -->
+		
+	</div>
+
+	<!-- 工具栏 结束-->

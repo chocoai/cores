@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+           >
+	<!-- TblNotificationService 通知配置 -->
+	 <bean id="Service61" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblNotificationServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblNotificationService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblNotificationService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 委托项目 -->
+    <bean id="Service62" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblStudyItemServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblStudyItemService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblStudyItemService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 供试品 -->
+    <bean id="Service63" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblTestItemServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblTestItemService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblTestItemService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 项目进度节点 -->
+    <bean id="Service64" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblStudyScheduleServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblStudyScheduleService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblStudyScheduleService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 客户 -->
+    <bean id="Service65" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblCustomerServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblCustomerService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblCustomerService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 地区 -->
+    <bean id="Service66" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblRegionServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblRegionService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblRegionService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <!-- 合同 -->
+    <bean id="Service67" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblContractServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblContractService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblContractService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+
+</beans>

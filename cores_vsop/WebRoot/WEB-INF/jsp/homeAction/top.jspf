@@ -1,0 +1,76 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div class="header" >
+        	<div class="logo_box"  onmouseover="showSystembox();" onmouseout="hiddenSystembox();"><a href="#" class="logo" ></a>
+            	<div id="system_box" class="system_box"  >
+                        <div id="system" class="system">
+                        	<span class="arr"></span>
+                            <iframe	src="/cores_auserprivilege/userAction_menu.action?from=cores_vsop&userName=${userName}"  marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" id="mainMenu" name="mainMenu"  >
+                            </iframe>
+                            <script type="text/javascript">
+			                    $("#mainMenu").load(function () {
+			                        var menu_a = $(this).contents().find("a[name='menu_a']");
+									var menuHeight = 0;
+									$(this).contents().find("a[name='menu_a']").each(  
+											function(){  					   
+												menuHeight = menuHeight+$(this).height()+2;  
+											}  
+									)  
+			                        $(this).height(menuHeight);
+			                    });
+			                </script>
+                        </div>
+                    </div>
+            </div>
+            <div class="system_name">
+            	<div class="name">SOP管理系统</div>
+                <div class="path">
+                </div>
+            </div>
+            <div class="studyPlan">
+            	<div style="position:relative;
+						height:26px;
+						line-height:26px;
+						padding:0px 20px;
+						margin-top:17px;
+						">
+					<div id="topInfoLabel" style="position:relative;height:26px;width:600px;
+						line-height:26px;padding:0px 20px;margin-top:17px;"></div>
+						
+					<span style="position:absolute;	top:0px;right:0px;width:12px;height:26px;" ></span>
+				</div>
+            </div>
+            <div class="quicklink">
+            	<ul>
+                <li><a href="#" class="user"></a>
+                	<div  class="dorpdown_box">
+                        <div class="dorpdown">
+                        	<span class="arr"></span>
+                            <div class="title"><a >${user.realName}&nbsp;&nbsp;欢迎您！</a></div>
+                            <ul>
+                            <li><a href="javascript:void(0);" onclick="beforeAlterPassword();">修改密码</a></li>
+                            <li><a href="javascript:void(0);" onclick="logout();">注销</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                </ul>
+            </div>
+            
+            <div class="principal_box">
+            	<div class="principal"><b>当前用户：</b>${user.realName }<span></span></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+       <div style="position:absolute;top:36px; left:40%; z-index:1;width:405px;height:28px;background:white;">
+       </div>
+       
+       <div id="topMessagerShowDiv" style="position:absolute;top:64px; left:40%;width:300px;height:28px;">
+       	  <!-- 公共提示信息 开始 -->
+	       	<span id="syMessagerShow" class="topMessager_success" >
+	       		<span class="topMessager_icon"></span>
+	       		<span id="messager" class="messager" >你得信息有误，请检查</span>
+	       		<a id="messager_closebutton" href="javascript:close();" class="messager_closebutton"  ></a>
+	       	</span> 
+	      <!-- 公共提示信息 结束 -->
+       </div>

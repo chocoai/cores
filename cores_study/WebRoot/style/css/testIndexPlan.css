@@ -1,0 +1,11 @@
+.testIndexPlan_table table td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:1px 20px;
+	text-align:left;
+}
+.testIndexPlan_table table td a:link,a:visited{
+	color:#2f2ff2;
+}

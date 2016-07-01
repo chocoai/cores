@@ -1,0 +1,45 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 动物编号添加 start -->
+<div id="animalCodeAddEditDialog" class="easyui-dialog" title="动物编号" modal="true" closed="true" 
+		data-options="toolbar:'#animalCodeAddEditDialogToolbar'" style="display:'';width:290px;height:217px;" closable="true">
+	<div id="animalCodeAddEditDialog2" style="display:none;">
+		<div  style=" margin:10px; border:0;overflow-x:hidden; overflow-y:auto;">
+			<input type="hidden" id = "addOrEdit_animalCodeAddEdit">
+			<form id="animalCodeAddEditForm" name="animalCodeAddEditForm" action="" method="post" >
+				<input id="studyNo" type="hidden" name="studyNo">
+				<input id="codeId" type="hidden" name="codeId">
+		   	  <table class="table0" width="255px;" >
+		   	  		<tr height="40px;">
+        				<td width="60px" align="center">剂量组</td>
+        				<td >
+	        				<input id="dosageNum" type="text" name="groupId" height="19" class="easyui-combobox" required="true" data-options="validType:'maxLength[20]'" style="width:130px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		<tr height="40px;">
+        				<td width="60px" align="center"><span >性别</span></td>
+        				<td >
+	        				<input id="radio1" type="radio" name="gender" value="1"  checked="checked" /> <a  href="javascript:onRadioCk('radio1');" style="color:blue;">雄&nbsp;</a>
+	        				<input id="radio2" type="radio" name="gender" value="2" /> <a  href="javascript:onRadioCk('radio2');" style="color:blue;">雌&nbsp;</a>
+       				 	</td>
+        			</tr>
+		   	  		<tr height="45px;">
+        				<td width="60px" align="center">动物编号</td>
+        				<td >
+	        				<input id="animalCode" type="text" name="animalCode" class="easyui-validatebox"  required="true" data-options="validType:'maxLength[20]'" style="width:126px;"></input>
+       				 	</td>
+        			</tr>
+		   	  		
+        		</table>
+		    </form>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 start-->
+<div id="animalCodeAddEditDialogToolbar">
+	<a class="easyui-linkbutton" onclick="onAnimalCodeAddEditDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#animalCodeAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	<input id= "continueAddCheckBox" type="checkbox" style="position: absolute;top:37px;">
+	<a id="continueAddA" href="javascript:void(0);" onclick="$('#continueAddCheckBox').click();" style="margin-left: 15px;">连续添加</a>
+</div>
+<!-- 工具栏 end-->
+<!-- 动物编号添加 end -->

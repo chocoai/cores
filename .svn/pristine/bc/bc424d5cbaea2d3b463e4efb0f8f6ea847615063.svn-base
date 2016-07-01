@@ -1,0 +1,18 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="reChkDialog" class="easyui-dialog" title="再检查记录" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar2'" style="display:'';width:970px;height:370px;" closable="true">
+			<div id="reChkDialog2" style="display:'';" closable="true">
+				<input id="reChkOrDelay" type="hidden">
+				<div id="reChkItems" style="position:relative;left:10px;top:10px;"></div>			
+		 	</div>
+		 	
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar2">
+		
+		<a  class="easyui-linkbutton" onclick="signQAReChkRecords();" data-options="iconCls:'icon-edit',plain:true">签字确认</a>
+	
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#reChkDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">关闭</a>
+		 
+	</div>
+	<!-- 工具栏 结束-->

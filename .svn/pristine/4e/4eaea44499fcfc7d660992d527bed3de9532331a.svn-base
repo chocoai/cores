@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.TblES" table="tblES" >
+        <id name="esId" type="java.lang.String">
+            <column name="esId" length="20" />
+        </id>
+        <property name="signer" type="java.lang.String">
+            <column name="signer"  length="20"/>
+        </property>
+        <property name="esType" type="java.lang.Integer">
+            <column name="esType" />
+        </property>
+        <property name="esTypeDesc" type="java.lang.String">
+            <column name="esTypeDesc"  length="40"/>
+        </property>
+        <property name="dateTime" type="timestamp">
+            <column name="dateTime" />
+        </property>
+        <property name="dataSource" type="java.lang.String">
+            <column name="dataSource"  length="100"/>
+        </property>
+        
+        <!-- tblESLinks 属性，本类与TblESLink 的一对多的关系 -->
+        <set name="tblESLinks">
+        	<key column="esId"></key>
+            <one-to-many class="TblESLink" />
+        </set>
+    </class>
+</hibernate-mapping>

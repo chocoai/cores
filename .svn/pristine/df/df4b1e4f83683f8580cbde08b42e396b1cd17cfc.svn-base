@@ -1,0 +1,80 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 委托项目添加(一次多个)start -->
+<div id="studyItemMultiDialog" class="easyui-dialog" title="合同登记" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar_multi'" style="display:'';width:590px;height:385px;" closable="true">
+	<div id="studyItemMultiDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<form id="studyItemMultiAddForm" action="" method="post">
+				
+				<table width="565px;" style="border-collapse:collapse;border-left:1px solid #c9c9c9;border-top:1px solid #c9c9c9;">
+					<tr >
+        				<td width="560px;"  style="padding:0px;border-right:1px solid #c9c9c9;">
+	        				<table id="studyItemTable_multi" border = "false" ></table>
+        				</td>
+        			</tr>
+				</table>
+		   	  	<table class="table1"width="565px;">
+        			<tr style="display:none;">
+        				<td width="120px;" align="right">合同编号</td>
+        				<td>
+	        				<input type="text" id="contractCode_multi" name="contractCode" value="${model.contractCode}" class="easyui-validatebox" readonly="true" data-options="validType:'maxLength[45]'"
+	        				 	required="true" style="width:260px;"></input>
+       				 	</td>
+        			</tr>
+        			<tr style="display:none;" >
+        				<td align="right">供试品编号</td>
+        				<td><input id="studyItem_tiNo_multi" type="text" name="tiNo" class="easyui-validatebox" data-options="validType:'maxLength[45]'" required="true" readonly="true" style="width:260px;"></input></td>
+        			</tr>
+        			<tr height="28px;">
+        				<td align="right">是否GLP</td>
+        				<td><input id="glpFlag0_multi" type="radio" name="glpFlag" value="0" >
+        					<a href="javascript:onGlpFlagRadio_multi();" style="color:black;padding:0px 30px 0px 0px;">否</a>
+        					<input id="glpFlag1_multi" type="radio" name="glpFlag" checked  value="1" >
+        					<a href="javascript:onGlpFlagRadio_multi();" style="color:black;padding:0px 30px 0px 0px;">是</a>
+						</td>
+        			</tr>
+        			<!--  
+        			<tr>
+        				<td align="right">动物种类、品系</td>
+        				<td>
+        					 种类：<input id="animalType_multi" class="easyui-combobox" name="animalType" editable="false"  style="width:80px;height:19px;" 
+								 data-options="editable:false,panelHeight:200 " /> 
+							 &nbsp;&nbsp;&nbsp;&nbsp;
+							 品系：<input id="animalStrain_multi" class="easyui-combobox" name="animalStrain" editable="false" style="width:90px;height:19px;" 
+							 	data-options="valueField:'id',textField:'text',editable:false,panelHeight:'auto'" />
+						</td>
+        			</tr>-->
+        			<tr>
+        				<td align="right">动物年龄</td>
+        				<td><input id="animalAge_multi"  type="text" name="animalAge" class="easyui-validatebox" data-options="validType:'maxLength[18]'"  style="width:160px;height:18px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right">动物数量</td>
+        				<td>
+        					雄：<input id="studyItem_numMale_multi"   type="text" name="numMale" class="easyui-validatebox" data-options="validType:'maxLength[6]'" validType="signlessInteger" style="width:44px;height:18px;"></input>
+        					 &nbsp;&nbsp;&nbsp;&nbsp;
+        					雌：<input  id="studyItem_numFemale_multi"  type="text" name="numFemale" class="easyui-validatebox" data-options="validType:'maxLength[6]'" validType="signlessInteger" style="width:43px;height:18px;"></input>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">推荐SD</td>
+        				<td><input id="studyItem_sdManager_multi" type="text" name="sdManager" class="easyui-combobox" editable="false" style="width:80px;height:19px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right">备注</td>
+        				<td><textarea id="studyItem_remark_multi" name="remark" class="easyui-validatebox" data-options="validType:'maxLength[180]'" style ="resize: none;" rows="2" cols="40"></textarea>
+						</td>
+        			</tr>
+        		</table>
+		    </form>
+		</div>
+	</div>
+</div>
+<!-- toolbar start-->
+<div id="dialogToolbar_multi">
+	<a id="studyItemSaveButton_multi" class="easyui-linkbutton" onclick="studyItemSaveButton_multi();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#studyItemMultiDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	<a class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="multiSelectStudyType();" style="">添加项目</a>
+</div>
+<!-- toolbar end-->
+<!-- 委托项目添加(一次多个)end -->

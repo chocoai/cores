@@ -1,0 +1,42 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="editAnatomyReqAnimalListDialog" class="easyui-dialog" title="编辑申请解剖动物列表" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#anatomyReqAnimalListdialogToolbar'" style="display:'';width:432px;height:464px;" closable="true">
+			<div id="editAnatomyReqAnimalListDialog2" style="display:'';" closable="true">
+		    <div >
+			  <form id="editAnatomyReqAnimalListForm" action="" method="post">
+			      <table  border="0" cellpadding="1" cellspacing="0">
+			      <tr>
+			        <td>
+				        <div   style="width:170px;height:370px;border:1px solid #ffffff ">
+				           <div style="align:center;margin-left:3px;margin-top:6px;padding:2px"> 
+				        	  <table id="studyAnimalList" ></table>
+				           </div>
+						</div>
+					</td>
+			        <td>
+			            <div  style="width:40px;height:370px">
+			                 <br/><br/><br/><br/><br/><br/>
+							<a id="addAnatomyReqAnimalListButton" class="easyui-linkbutton" onclick="addAnatomyReqAnimalListButton();" data-options="iconCls:'',plain:true">&gt;&gt;</a><br/>
+							<br/><br/>
+							<a id="deleteAnatomyReqAnimalListButton" class="easyui-linkbutton" onclick="deleteAnatomyReqAnimalListButton();" data-options="iconCls:'',plain:true">&lt;&lt;</a>
+					    </div>
+			        </td>
+			        <td>
+			            <div style="width:170px;height:370px;border:1px solid #ffffff">
+			              <div style="align:center;margin-left:3px;margin-top:6px;padding:2px">
+			        	     <table id="anatomyReqAnimalList1"  ></table><br/>
+			        	  </div>
+					    </div>
+			        </td>
+			      </tr>
+			      </table>
+               </form>	   
+		    </div>
+		   </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="anatomyReqAnimalListdialogToolbar">
+		<a id="saveAnatomyReqAnimalListDialogButton" class="easyui-linkbutton" onclick="saveAnatomyReqAnimalList();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="BackAnatomyReqAnimalListButton" class="easyui-linkbutton" onclick="javascript:$('#editAnatomyReqAnimalListDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->

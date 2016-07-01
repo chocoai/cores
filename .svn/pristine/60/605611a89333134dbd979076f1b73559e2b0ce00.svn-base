@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.DictInstrument" table="dictInstrument" >
+        <id name="instrumentId" type="java.lang.String">
+            <column name="instrumentId"  length="20"/>
+        </id>
+        <property name="instrumentName" type="java.lang.String">
+            <column name="instrumentName"  length="200"/>
+        </property>
+        <property name="instrumentType" type="java.lang.Integer">
+            <column name="instrumentType" />
+        </property>
+        <property name="manufacturer" type="java.lang.String">
+            <column name="manufacturer"  length="200"/>
+        </property>
+        <property name="modelNumber" type="java.lang.String">
+            <column name="modelNumber"  length="40"/>
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="createDate" />
+        </property>
+        <property name="director" type="java.lang.String">
+            <column name="director"  length="20"/>
+        </property>
+        <!-- cascade="all"：在保存DictInstrument对象的时候，级联保存DictInstrument对象关联的dictComParam对象    --> 
+        <one-to-one name="dictComParam" cascade="all-delete-orphan" />   
+        <!-- tblInstrumentVerifications ,本类与TblInstrumentVerification 的一对多的关系 -->
+        <set name="tblInstrumentVerifications" lazy="false">
+           <key column="instrumentId"></key>
+           <one-to-many class="TblInstrumentVerification"/>
+        </set>        
+        <!-- passageways ,本类与Passageway 的一对多的关系 -->
+        <set name="passageways" lazy="false">
+           <key column="InstrumentId"></key>
+           <one-to-many class="TblPassageway"/>
+        </set>        
+        
+        
+    </class>
+</hibernate-mapping>

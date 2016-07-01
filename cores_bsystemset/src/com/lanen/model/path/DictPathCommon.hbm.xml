@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.DictPathCommon" table="dictPathCommon" >
+        <id name="itemCode" type="java.lang.String">
+            <column name="itemCode"  length="20"/>
+        </id>    
+        <property name="dictType" type="java.lang.Integer">
+            <column name="dictType"  />
+        </property>
+        <property name="visceraCode" type="java.lang.String">
+            <column name="visceraCode"  length="20"/>
+        </property>
+         <property name="visceraType" type="java.lang.Integer">
+            <column name="visceraType"  />
+        </property>
+        <property name="visceraName" type="java.lang.String">
+            <column name="visceraName"  length="60"/>
+        </property>
+        <property name="specicalFlag" type="java.lang.Integer">
+            <column name="specicalFlag"  />
+        </property>
+        <property name="descCn" type="java.lang.String">
+            <column name="descCn"  length="100"/>
+        </property>
+        <property name="descEn" type="java.lang.String">
+            <column name="descEn"  length="100"/>
+        </property>
+        <property name="descJp" type="java.lang.String">
+            <column name="descJp"  length="100"/>
+        </property>
+        <property name="py" type="java.lang.String">
+            <column name="py"  length="100"/>
+        </property>
+        <property name="sortNum" type="java.lang.Integer">
+            <column name="sortNum"  />
+        </property>
+        <property name="freqCount" type="java.lang.Integer">
+            <column name="freqCount"  />
+        </property>
+       
+       
+    </class>
+</hibernate-mapping>

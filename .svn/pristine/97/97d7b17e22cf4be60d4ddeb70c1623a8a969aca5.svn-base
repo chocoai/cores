@@ -1,0 +1,23 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="changeArchivePostionDialog" class="easyui-dialog" title="档案位置变更" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:330px;height:180px;" closable="true">
+		<div id="changeArchivePostionDialog2" style="display:none;" closable="true">
+		   
+		   
+				<div id="changePostionLabel" style="margin-top:20px;margin-left:20px;"></div>
+				<div style="margin-top:10px;margin-left:20px;">
+					请输入新位置：<input id="changePosition"   class="easyui-combotree"/>
+				</div>
+		     
+				    			
+	
+		
+	</div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveChangePosition();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#changeArchivePostionDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	
+	</div>
+	<!-- 工具栏 结束-->

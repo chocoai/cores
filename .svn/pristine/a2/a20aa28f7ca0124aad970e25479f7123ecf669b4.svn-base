@@ -1,0 +1,47 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="editPathPlanCheckDialog" class="easyui-dialog" title="编辑病理检查计划" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#pathPlanCheckdialogToolbar'" style="display:'';width:803px;height:460px;" closable="true">
+			<div id="editPathPlanCheckDialog2" style="display:'';" closable="true">
+		    <div >
+			  <form id="editPathPlanCheckForm" action="" method="post">
+			      <table  border="0" cellpadding="1" cellspacing="0">
+			      <tr>
+			        <td>
+				        <div   style="width:150px;height:382px;border:1px solid #ffffff ">
+				           <div style="align:center;margin-left:3px;margin-top:8px;padding:2px"> 
+				        	  <table id="visceraList" ></table>
+				           </div>
+						</div>
+					</td>
+			        <td>
+			            <div  style="width:90px;height:382px">
+			                 <br/>
+			                <input type="checkbox" id="atanomyCheckFlag" name="atanomyCheckFlag" value="1" style="vertical-align:middle;"/>&nbsp;剖检<br/><br/>
+							<input type="checkbox" id="fixedFlag" name="fixedFlag" value="1" style="vertical-align:middle;"/>&nbsp;固定<br/><br/>
+							<input type="checkbox" id="histopathCheckFlag" name="histopathCheckFlag" value="1" onclick="attachedCheck()" style="vertical-align:middle;"/>&nbsp;镜检<br/><br/>
+							<a id="addPathPlanCheckButton" class="easyui-linkbutton" onclick="addPathPlanCheckButton();" data-options="iconCls:'icon-add',plain:true">添加</a><br/>
+							<a id="deletePathPlanCheckButton" class="easyui-linkbutton" onclick="deletePathPlanCheckButton();" data-options="iconCls:'icon-remove',plain:true">删除</a>
+					    </div>
+			        </td>
+			        <td>
+			            <div style="width:513px;height:382px;border:1px solid #E0E0E0">
+			              <div style="align:center;margin-left:10px;margin-top:10px">
+			        	     <table id="pathPlanCheckTable1"  ></table><br/>
+			        	      <input type="checkbox" id="abnVisceraAnatomy" name="abnVisceraAnatomy" value="1" style="vertical-align:middle;"/>&nbsp;异常组织和脏器剖检&nbsp;&nbsp;
+			        	      <input type="checkbox" id="abnViscera" name="abnViscera" value="1" onclick="attachedAbnCheck2()" style="vertical-align:middle;"/>&nbsp;异常组织和脏器固定&nbsp;&nbsp;
+			        	      <input type="checkbox" id="abnVisceraHistopathCheckFlag" name="abnVisceraHistopathCheckFlag" value="1" onclick="attachedAbnCheck()" style="vertical-align:middle;"/>&nbsp;异常组织和脏器镜检<br/><br/>
+			        	  </div>
+					    </div>
+			        </td>
+			      </tr>
+			      </table>
+               </form>	   
+		    </div>
+		   </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="pathPlanCheckdialogToolbar">
+		<a id="saveCheckDialogButton" class="easyui-linkbutton" onclick="saveCheck();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backCheckButton" class="easyui-linkbutton" onclick="javascript:$('#editPathPlanCheckDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->

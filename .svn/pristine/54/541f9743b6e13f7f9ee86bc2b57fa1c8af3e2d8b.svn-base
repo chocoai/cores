@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblHistopathCheck" table="tblHistopathCheck" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+		<property name="taskId" type="java.lang.String">
+            <column name="taskId" length="20"/>
+        </property>
+		 <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20"/>
+        </property>
+		<property name="animalCode" type="java.lang.String">
+            <column name="animalCode" length="20"/>
+        </property>
+		<property name="tissueSliceVisceraRecordId" type="java.lang.String">
+            <column name="tissueSliceVisceraRecordId" length="20"/>
+        </property>
+
+        <property name="visceraType" type="java.lang.Integer">
+            <column name="visceraType"/>
+        </property>
+       
+        <property name="visceraCode" type="java.lang.String">
+            <column name="visceraCode" length="20"/>
+        </property>  
+		<property name="visceraName" type="java.lang.String">
+            <column name="visceraName" length="60"/>
+        </property>  
+		<property name="subVisceraCode" type="java.lang.String">
+            <column name="subVisceraCode" length="20"/>
+        </property>  
+		<property name="subVisceraName" type="java.lang.String">
+            <column name="subVisceraName" length="60"/>
+        </property>  	
+		<property name="visceraFixedRecordId" type="java.lang.String">
+            <column name="visceraFixedRecordId" length="20"/>
+        </property>  	
+		<property name="isNoAbnormal" type="java.lang.Integer">
+            <column name="isNoAbnormal" />
+        </property>
+		<property name="tumorFlag" type="java.lang.Integer">
+            <column name="tumorFlag" />
+        </property>
+		<property name="metastasisFlag" type="java.lang.Integer">
+            <column name="metastasisFlag" />
+        </property>
+		<property name="histoPosCode" type="java.lang.String">
+            <column name="histoPosCode" length="20"/>
+        </property>  
+		<property name="histoPos" type="java.lang.String">
+            <column name="histoPos" length="100"/>
+        </property>  
+		<property name="lesionFindingCode" type="java.lang.String">
+            <column name="lesionFindingCode" length="20"/>
+        </property>  
+		<property name="lesionFinding" type="java.lang.String">
+            <column name="lesionFinding" length="100"/>
+        </property>  
+		<property name="tumorNum" type="java.lang.Integer">
+            <column name="tumorNum" />
+        </property>
+		
+		<property name="primaryVisceraCode" type="java.lang.String">
+            <column name="primaryVisceraCode" length="20"/>
+        </property>  
+		<property name="primaryViscera" type="java.lang.String">
+            <column name="primaryViscera" length="100"/>
+        </property>  
+		<property name="primaryTumor" type="java.lang.String">
+            <column name="primaryTumor" length="100"/>
+        </property>  
+		<property name="refId" type="java.lang.String">
+            <column name="refId" length="20"/>
+        </property>  
+		<property name="operator" type="java.lang.String">
+            <column name="operator" length="20"/>
+        </property>  
+       
+        <property name="operateTime" type="java.sql.Timestamp">
+            <column name="operateTime" />
+        </property>
+		<property name="historyFlag" type="java.lang.Integer">
+            <column name="historyFlag" />
+        </property>
+		<property name="histopathReviewFlag" type="java.lang.Integer">
+            <column name="histopathReviewFlag" />
+        </property>
+		<property name="histopathReviewOpinion" type="java.lang.String">
+            <column name="histopathReviewOpinion" length="200"/>
+        </property>  
+		 <property name="histopathReviewTime" type="java.sql.Timestamp">
+            <column name="histopathReviewTime" />
+        </property>
+		<property name="deleteSignId" type="java.lang.String">
+            <column name="deleteSignId" length="20"/>
+        </property>  
+		<property name="reason" type="java.lang.String">
+            <column name="reason" length="200"/>
+        </property>  
+		<property name="level" type="java.lang.String">
+            <column name="level" length="20"/>
+        </property>  
+		<property name="remark" type="java.lang.String">
+            <column name="remark" length="200"/>
+        </property>  
+        
+        <property name="tumorPos" type="java.lang.Integer" >
+            <column name="tumorPos" default="0"/>
+        </property>
+		<property name="tumorCharacter" type="java.lang.Integer">
+            <column name="tumorCharacter" default="0"/>
+        </property>
+        
+         <property name="tumorOccurDate" type="java.sql.Timestamp">
+            <column name="tumorOccurDate" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

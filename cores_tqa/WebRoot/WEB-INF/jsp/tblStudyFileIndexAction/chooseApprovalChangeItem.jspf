@@ -1,0 +1,25 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseApprovalChangeDialog" class="easyui-dialog" title="选择审批内容" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar8'" style="display:'';width:350px;height:230px;" closable="true">
+			<div id="chooseApprovalChangeDialog2" style="display:'';" closable="true">
+		    
+			 
+                 <span id="approvalChangeResonLabel" style="height:30px;width:260px; overflow:hidden;position: relative;top:10px;"> </span>
+                 
+                    <div id="approvalItemTable" style="height:100px;width:260px; overflow:hidden;position: relative;top:30px;">
+                    		 选择审批申请范围<br/>
+                      		<input  type="radio" name="approvalChangeScope"  value="0"/>仅审批方案变更<br/>
+                      		<input  type="radio" name="approvalChangeScope"  value="1"/>仅审批报告变更<br/>
+                      		<input  type="radio" name="approvalChangeScope" checked="checked"  value="2"/>审批方案和报告变更<br/>
+                      	
+            		</div>
+               
+		    
+		  </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar8">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="selectApprovalChangeType(2);" data-options="iconCls:'icon-ok',plain:true">同意</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="selectApprovalChangeType(-2);" data-options="iconCls:'icon-cancel',plain:true">拒绝</a>
+	</div>
+	<!-- 工具栏 结束-->

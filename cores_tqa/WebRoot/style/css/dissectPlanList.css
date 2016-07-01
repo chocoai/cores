@@ -1,0 +1,27 @@
+.dissectPlanAddTable{
+	position:absolute;
+	border-collapse:collapse;
+	top:70px;
+	left:20px;
+	right:0;
+	bottom:0;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.dissectPlanAddTable td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:4px 10px;
+	text-align:left;
+}
+.dissectPlanAnimalTable{
+	position:relative;
+	float:left; 
+	height:100px;
+}
+.dissectPlanAnimalTable td{
+	height:16px;
+	align:center;
+}

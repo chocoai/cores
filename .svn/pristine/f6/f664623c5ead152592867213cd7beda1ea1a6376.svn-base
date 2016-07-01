@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblDissectPlanHis" table="tblDissectPlanHis" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="dissectNum" type="java.lang.Integer">
+            <column name="dissectNum" />
+        </property>
+           <property name="describe" type="java.lang.String">
+            <column name="describe" />
+        </property>
+        <property name="beginDate" type="timestamp">
+            <column name="beginDate" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="endDate" />
+        </property>
+          <property name="oldID" type="java.lang.String">
+            <column name="oldID"  length="20"/>
+        </property>
+         <property name="tblApplyReviseID" type="java.lang.String">
+            <column name="tblApplyReviseID"  length="20"/>
+        </property>
+         <property name="operate" type="java.lang.String">
+            <column name="operate"  length="500"/>
+        </property>
+         <property name="operateDate" type="timestamp">
+            <column name="operateDate" />
+        </property>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

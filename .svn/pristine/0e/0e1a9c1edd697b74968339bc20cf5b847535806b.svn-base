@@ -1,0 +1,29 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 相同专题类别的所有专题   开始 -->
+	<div id="studyPlanDialog" class="easyui-dialog" title="专题选择" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar2'" style="display:'';width:400px;height:430px;" closable="true">
+			<div id="studyPlanDialog2" style="display:none;">
+			   
+			    	
+					<div style="float:left; width:380px;">
+						<table id="studyPlanTable" class="easyui-datagrid" style="width:380px;height:350px;"   
+						        data-options="singleSelect:true,">   
+						    <thead>   
+						        <tr>
+						            <th data-options="field:'studyNo',title:'studyName',width:360">专题名称</th>  
+						        </tr>   
+						    </thead>   
+						</table>
+					</div>
+					
+			   
+			    
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar2">
+		<a id="selectButton2" class="easyui-linkbutton" onclick="onstudyPlanDialogButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton2" class="easyui-linkbutton" onclick="javascript:$('#studyPlanDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 专题类别   结束 -->

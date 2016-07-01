@@ -1,0 +1,40 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 电子签名开始 -->
+	<div id="qianmingWithReason" class="easyui-dialog" title="电子签名" modal="true" closed="true" style="display:'';width:300px;height:226px;" closable="true">
+			<div id="qianmingWithReason2" style="display:none;">
+		    <div class="content" style="height:170px;	background:#ededed;	font-size:12px;	border-radius:0px 0px 6px 6px;	padding:10px 30px;
+				border:0px;	color:#999999;">
+			  <form id="qianmingWithReasonForm" action="" method="post">
+		   	  <table width="100%">
+		   	      <tr>
+		   	        <td>操作原因</td>
+		   	      </tr>
+		   	      <tr><td><input type="text" id="reason" name="reason" class="easyui-validatebox" onkeydown="reason_EnterPress();" data-options="required:true,validType:'length[1,200]'" style="height:20px!important;line-height:20px!important;	width:100%;
+		   	               background: no-repeat 5px 1px #FFFFFF;"/></td>
+		   	      </tr>
+		          <tr>
+		            <td>已登录用户</td>
+		          </tr>
+		          <tr>
+		            <td><input type="text" id="" value="${user.userName}" readonly="readonly" class="input_user" style="height:20px!important;
+						line-height:20px!important;	width:100%;	text-indent:25px!important;
+						background: url(${pageContext.request.contextPath}/style/images/icon_user2.png) no-repeat 5px 1px #FFFFFF;"/></td>
+		          </tr>
+		          <tr>
+		            <td>请输入密码<span id="qmWithReason_message" style="margin-left:15px; color:#FF0000; "></span></td>
+		          </tr>
+		          <tr>
+		            <td><input type="password" onkeydown="qmWithReason_EnterPress();" onclick="qmWithReason_clearMessage();" class="easyui-validatebox" data-options="required:true,validType:'length[1,11]'" name="password" id="passwordWithReason"  style="height:20px!important;
+						line-height:20px!important;	width:100%;	text-indent:25px!important;
+						background: url(${pageContext.request.contextPath}/style/images/icon_password.png) no-repeat 5px 1px #FFFFFF;"/></td>
+		          </tr>
+		          <tr>
+		            <td align="center" valign="bottom" height="35px;"><a class="easyui-linkbutton" onclick="qmWithReason_passwordCheck();">确定</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" onclick="qmWithReason_cancelQianming();">取消</a></td>
+		          </tr>
+		        </table>
+		        </form>
+		        <a id="qmWithReason_sign"></a>
+		    </div>
+		    </div>
+		</div>
+	<!-- 电子签名结束 -->

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblContractAttachment" table="tblContractAttachment">
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="contractCode" type="java.lang.String">
+            <column name="contractCode"  length="50"/>
+        </property>
+        <property name="attachmentName" type="java.lang.String">
+            <column name="attachmentName"  length="200"/>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="200" />
+        </property>
+        <property name="attachmentFile" type="binary">
+            <column name="attachmentFile" />
+        </property>
+        <property name="appendDate" type="java.sql.Timestamp">
+            <column name="appendDate" />
+        </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator"  length="20" />
+        </property>
+
+        <property name="state" type="integer">
+            <column name="state"  length="2" />
+        </property>
+		<!-- tblContract,本类与TblContract的多对一的关系
+        <many-to-one name="tblContract" column="contractCodeId" class="TblContract" lazy="false"></many-to-one>
+		 -->
+     
+    </class>
+</hibernate-mapping>

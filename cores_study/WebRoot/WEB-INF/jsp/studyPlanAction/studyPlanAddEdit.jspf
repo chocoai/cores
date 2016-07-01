@@ -1,0 +1,147 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="studyPlanAddEditDialog" class="easyui-dialog" title="新增 试验计划" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:455px;height:465px;" closable="true">
+			<div id="studyPlanAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="newStudyNo">
+		    <input type="hidden" id="newsd">
+		    <input type="hidden" id="addOrEdit">
+		    <input type="hidden" id="studyTiCode"/>
+			  <form id="studyPlanAddEditForm" action="tblStudyPlanAction_addSave" method="post">
+		   	  <div class="edit_table">
+                <table >
+                    <tr><td width="100px;">专题编号</td>
+                        <td width="240px;">
+                        	<input id="studyNo" type="text" name="tblStudyPlan.studyNo" class="validatebox" required="true" readonly="true">
+                        </td>
+                    </tr>
+                    <tr><td>专题类别</td>
+                        <td>
+                        <!-- 
+                        	<select id="studyType" class="easyui-combobox" style="width:100px;height:19px;" 
+                        	required="true" editable="false" panelHeight="100" name="studyTypeSel">
+                        	</select>
+                         -->
+                        	<input id="addEditStudyName" type="text" class="easyui-validatebox" name="tblStudyPlan.studyName"  required="true" readonly="true"/> 
+                        	<a  class="easyui-linkbutton" plain="true" onclick="showStudyTypeSelectDialog('');">...</a>
+                        	<input id="studyTypeCode" type="hidden" name="tblStudyPlan.studyTypeCode">
+						</td>
+                    </tr>
+                    <tr><td>专题负责人</td>
+                        <td>
+							<input id="studydirector" type="text" name="tblStudyPlan.studydirector" class="easyui-validatebox" required="true" readonly="true"/>
+						</td>
+                    </tr>
+                    <tr><td>是否GLP</td>
+                        <td>
+                        	<select id="isGLP" class="easyui-combobox" style="width:100px;height:19px;" editable="false" panelHeight="48" name="tblStudyPlan.isGLP" required="true" >
+                        		<option value="1">是</option>
+                        		<option value="0">否</option>
+                        	</select>
+						</td>
+                    </tr>
+                    <tr><td>动物种类</td>
+                        <td>
+                        <!-- 
+							 <input type="text" id="animalType" name="tblStudyPlan.animalType"class="validatebox" required="true" readonly="true"/>
+                         -->
+							 <input id="animalType" class="easyui-combobox" name="tblStudyPlan.animalType" editable="false" style="width:100px;height:19px;" 
+							 data-options="valueField:'id',textField:'text',editable:false,panelHeight:'auto',
+							 onSelect:function(record){
+							 	onAnimalTypeSelect(record);
+							 }" /> 
+						</td>
+                    </tr>
+                    <tr><td>动物品系</td>
+                        <td>
+                        <!-- 
+                        	 <input type="text" id="animalStrain" name="tblStudyPlan.animalStrain" class="validatebox" required="true" readonly="true"/>
+                         -->
+                          <input id="animalStrain" class="easyui-combobox" name="tblStudyPlan.animalStrain" editable="false" style="width:100px;height:19px;" data-options="valueField:'id',textField:'text',editable:false,panelHeight:'auto'" /> 
+						</td>
+                    </tr>
+                    
+                    <tr><td>试验启动日期</td>
+                        <td>
+							<input id="studyStartDate" type="text" name="tblStudyPlan.studyStartDate" class="easyui-datebox" required="true" validType="date" /> 
+						</td>
+                    </tr>
+                       <tr><td>试验分组日期</td>
+                        <td>
+                    		 <input id="studyStartDate" type="text" name="tblStudyPlan.studyGroupingDate" class="easyui-datebox" validType="date" /> 
+						</td>
+                    </tr>
+                    <tr><td>动物引入日期</td>
+                        <td>
+							<input id="animalImportDate" type="text" name="tblStudyPlan.animalImportDate"  class="easyui-datebox" validType="date"  /> 
+						</td>
+                    </tr>
+                    <tr><td>预试验日期</td>
+                        <td>
+							<input id="preStudyDate" type="text" name="tblStudyPlan.preStudyDate"  class="easyui-datebox" validType="date"/> 
+						</td>
+                    </tr>
+                    <tr><td>正式试验时期</td>
+                        <td>
+							<input id="studyBeginDate" type="text" name="tblStudyPlan.studyBeginDate" class="easyui-datebox" validType="date"/> 
+						</td>
+                    </tr>
+                    <tr><td>剂量单位</td>
+                        <td>
+                        	<!-- 
+                        	<select id="dosageUnit" class="easyui-combobox" name="tblStudyPlan.dosageUnit" style="width:100px;height:19px;" editable="false" panelHeight="100" required="true"></select>
+                        	 -->
+                        	<input id="dosageUnit" class="easyui-combobox" name="tblStudyPlan.dosageUnit"   style="width:100px;height:19px;" data-options="valueField:'id',textField:'text',editable:false,panelHeight:200,required:true" /> 
+						</td>
+                    </tr>
+                    <tr style="display:none;"><td>QA负责人</td>
+                        <td>
+                        <!-- 
+						<select id="qa" class="easyui-combobox" name="tblStudyPlan.qa" style="width:100px;height:19px;" editable="false" panelHeight="100" required="true" ></select>
+                         -->
+						<input id="qa" class="easyui-combobox" name="tblStudyPlan.qa"   style="width:100px;height:19px;" data-options="valueField:'id',textField:'text',editable:false,panelHeight:'auto',required:false" /> 
+						</td>
+                    </tr>
+                    <tr style="display:none;"><td>病理负责人</td>
+                        <td>
+                        <!-- 
+						<select id="pathDirector" class="easyui-combobox" name="tblStudyPlan.pathDirector" style="width:100px;height:19px;" editable="false" panelHeight="100" ></select>
+                         -->
+						<input id="pathDirector" class="easyui-combobox" name="tblStudyPlan.pathDirector"   style="width:100px;height:19px;" data-options="valueField:'id',textField:'text',editable:false,panelHeight:'auto'" /> 
+						</td>
+                    </tr>
+                    <tr style="display:none;"><td>临检负责人</td>
+                        <td>
+                        <!-- 
+                        <select id="clinicalTestDirector" class="easyui-combobox" name="tblStudyPlan.clinicalTestDirector" style="width:100px;height:19px;" editable="false" panelHeight="100" >
+                        </select>
+                         -->
+                        <input id="clinicalTestDirector" class="easyui-combobox" name="tblStudyPlan.clinicalTestDirector"   style="width:100px;height:19px;" data-options="valueField:'id',textField:'text',editable:false,panelHeight:'auto'" /> 
+						</td>
+                    </tr>
+                    <tr>
+                    	<td height="-10px;" colspan="2"></td>
+                    </tr>
+                    <tr bgcolor="#dddddd" style="border-top:1px solid #818181;"><td>是否验证试验</td>
+                        <td>
+                        	<select id="isValidation" class="easyui-combobox" style="width:100px;height:19px;" editable="false" panelHeight="48" name="tblStudyPlan.isValidation" required="true" >
+                        		<option value="0">否</option>
+                        		<option value="1">是</option>
+                        	</select>
+						</td>
+                    </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="studyPlanAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-add',plain:true">保存</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#studyPlanAddEditDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

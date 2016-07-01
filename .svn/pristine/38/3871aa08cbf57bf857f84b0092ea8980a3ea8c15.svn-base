@@ -1,0 +1,89 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<!-- 数据库信息（连接信息写到spring的配置文件钟） -->
+	<!--  
+		<property name="Connection.url">jdba:mysql:///itcastoa_20120216</property>
+		<property name="Connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="Connection.username">root</property>
+		<property name="Connection.password">root</property>
+	-->
+	<property name="dialect">
+		org.hibernate.dialect.SQLServerDialect
+	</property>
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+	<!-- 日程安排 -->
+	<mapping
+		resource="com/lanen/model/schedule/TblSchedulePlan.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TblSchedulePlanHis.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TblScheduleTemp.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TbScheduleReader.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TbScheduleTempReader.hbm.xml" />
+	<mapping resource="com/lanen/model/clinicaltest/PoolDataId.hbm.xml" />
+	<!-- 系统房间设置 -->
+	<!-- 系统任务设置 -->
+	<!-- 资源负责人设置 -->
+	<mapping resource="com/lanen/model/schedule/TblResManager.hbm.xml" />
+	<!-- 实验安置 -->
+	<mapping resource="com/lanen/model/schedule/TblStudyRes.hbm.xml" />
+	<!-- 任务分配 -->
+	<mapping resource="com/lanen/model/schedule/TblTOLeader.hbm.xml" />
+	<!-- 课题操作负责人 -->
+	<mapping resource="com/lanen/model/schedule/TblSOLeader.hbm.xml" />
+	<!-- 常规任务负责人 -->
+	<mapping resource="com/lanen/model/schedule/TblTaskLeader.hbm.xml" />
+	<mapping resource="com/lanen/model/schedule/TblTaskState.hbm.xml" />
+	<!-- FM任命SD-->
+	<mapping resource="com/lanen/model/contract/TblAppointSD.hbm.xml" />
+	<!-- 流水号 -->
+	<mapping resource="com/lanen/model/contract/PoolNumber.hbm.xml" />
+	<mapping resource="com/lanen/model/contract/TblAppointQA.hbm.xml" />
+
+	<mapping
+		resource="com/lanen/model/contract/TblAppointPathSD.hbm.xml" />
+	<mapping resource="com/lanen/model/schedule/TblStudyInfo.hbm.xml" />
+
+	<!-- 附件 -->
+	<mapping resource="com/lanen/model/schedule/TblAttachment.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TblAttachmentIndex.hbm.xml" />
+	<mapping
+		resource="com/lanen/model/schedule/TblSchedulePlanVersion.hbm.xml" />
+	<!-- 供试品的附件 -->
+	<mapping
+		resource="com/lanen/model/contract/TblTestItemAttachment.hbm.xml" />
+	<!-- qa数据库中的对象 -->
+	<mapping resource="com/lanen/model/qa/QaapprovalOpinion.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkPlan.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkPlanChangeIndex.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkReportRecord.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkRecord.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QareChkRecord.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkIndex.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkReport.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkSop.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkTblReg.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QachkReportReader.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/QastudyChkIndex.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/TblStudyFile.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/TblStudyFileDis.hbm.xml" />
+	<mapping resource="com/lanen/model/qa/TblStudyFileIndex.hbm.xml" />
+	
+	<!-- 专题管理中的 -->
+	<mapping resource="com/lanen/model/studyplan/TblStudyPlan.hbm.xml" />
+	
+</session-factory>
+</hibernate-configuration>

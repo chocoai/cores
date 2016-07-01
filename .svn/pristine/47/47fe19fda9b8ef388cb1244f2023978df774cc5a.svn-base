@@ -1,0 +1,31 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addOrEditQAFileCommentDialog" class="easyui-dialog" title="新增文件类型" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar5'" style="display:'';width:460px;height:250px;" closable="true">
+			<div id="addOrEditQAFileCommentDialog2" style="display:'';" closable="true">
+			
+			
+		   	<form id="oneLearnRecordComment" >
+		   		<table width="400px">
+		   			<tr>
+		   				<td>
+		   					<input id="commentLearnRecordId" type="text" name="learnRecordId" style="display:none"/>
+		   				</td>
+		   			</tr>
+			   		<tr>
+			   			<td>评论</td>
+		   				<td>
+		   					<input id="commentText" type="text" name="remark" />
+		   				</td>
+		   			</tr>
+		   		</table>
+		   	
+		   	
+		   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar5">
+		<a  class="easyui-linkbutton" onclick="saveOneLearnRecordComment();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a   style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addOrEditQAFileCommentDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	 </div>
+	<!-- 工具栏 结束-->

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblDeadAnimalDeathReason" table="tblDeadAnimalDeathReason" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="anatomyAnimalId" type="java.lang.String">
+            <column name="anatomyAnimalId" length="20" />
+        </property>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+        <property name="animalCode" type="java.lang.String">
+            <column name="animalCode" length="20" />
+        </property>
+        <property name="deathReasonType" type="java.lang.Integer">
+            <column name="deathReasonType"/>
+        </property>       
+        <property name="deathReason" type="java.lang.String">
+            <column name="deathReason" length="200" />
+        </property>
+        <property name="histopathCheckId" type="java.lang.String">
+            <column name="histopathCheckId" length="20" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" length="200" />
+        </property> 
+        <property name="signId" type="java.lang.String">
+            <column name="signId" length="20" />
+        </property>
+        <property name="delFlag" type="java.lang.Integer">
+            <column name="delFlag"/>
+        </property>
+        <property name="delRsn" type="java.lang.String">
+            <column name="delRsn" length="200" />
+        </property>
+        <property name="delTime" type="java.sql.Timestamp">
+            <column name="delTime"/>
+        </property>
+        <property name="delSignId" type="java.lang.String">
+            <column name="delSignId" length="20"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

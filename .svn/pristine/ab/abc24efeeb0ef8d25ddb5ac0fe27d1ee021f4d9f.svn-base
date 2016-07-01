@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblAppointPathSD" table="tblAppointPathSD" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20" />
+        </id>
+        <property name="contractCode" type="java.lang.String">
+            <column name="contractCode"  length="50"/>
+        </property>
+        
+         <property name="studyName" type="java.lang.String">
+            <column name="studyName"  length="200" />
+        </property>
+        
+         <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="50" />
+        </property>
+        
+        <property name="tINo" type="java.lang.String">
+            <column name="tiNo"  length="50"/>
+        </property>
+        
+        <property name="tIName" type="java.lang.String">
+            <column name="tiName"  length="50"/>
+        </property>
+        
+        <property name="pathSDCode" type="java.lang.String">
+            <column name="pathSDCode"  length="50"/>
+        </property>
+        
+        <property name="pathSD" type="java.lang.String">
+            <column name="pathSD"  length="50"/>
+        </property>
+        
+        <property name="appointDate" type="timestamp">
+            <column name="appointDate" />
+        </property>
+        
+         <property name="FMCode" type="java.lang.String">
+            <column name="FMCode"  length="50"/>
+        </property>
+        
+        <property name="cancelDate" type="timestamp">
+            <column name="cancelDate" />
+        </property>
+        
+         <property name="appointSignID" type="java.lang.String">
+            <column name="appointSignID" length="20" />
+         </property>
+        
+        <property name="state" type="integer">
+            <column name="state"  length="2" />
+        </property>
+        <property name="poolNum" type="java.lang.String">
+            <column name="poolNum"  length="20" />
+        </property>
+         <property name="printNumber" type="integer">
+            <column name="printNumber"   />
+        </property>
+    </class>
+</hibernate-mapping>

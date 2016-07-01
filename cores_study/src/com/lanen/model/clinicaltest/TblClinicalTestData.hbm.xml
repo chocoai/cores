@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.TblClinicalTestData" table="tblClinicalTestData" >
+        <id name="dataId" type="java.lang.String">
+            <column name="dataId"  length="20"/>
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="20"/>
+        </property>
+        <property name="reqNo" type="java.lang.String">
+            <column name="reqNo"  length="20"/>
+        </property>
+        <property name="animalId" type="java.lang.String">
+            <column name="animalId"  length="20"/>
+        </property>
+        <property name="animalCode" type="java.lang.String">
+            <column name="animalCode"  length="20"/>
+        </property>
+        <property name="specimenCode" type="java.lang.String">
+            <column name="specimenCode"  length="20"/>
+        </property>
+        <property name="testItem" type="java.lang.Integer">
+            <column name="testItem" />
+        </property>
+        <property name="testIndex" type="java.lang.String">
+            <column name="testIndex"  length="50"/>
+        </property>
+        <property name="testIndexAbbr" type="java.lang.String">
+            <column name="testIndexAbbr"  length="20"/>
+        </property>
+        <property name="testData" type="java.lang.String">
+            <column name="testData"  length="20"/>
+        </property>
+        <property name="testIndexUnit" type="java.lang.String">
+            <column name="testIndexUnit"  length="20"/>
+        </property>
+        <property name="collectionMode" type="java.lang.Integer">
+            <column name="collectionMode" />
+        </property>
+        <property name="es" type="java.lang.Integer">
+            <column name="es" />
+        </property>
+        <property name="confirmFlag" type="java.lang.Integer">
+            <column name="confirmFlag" />
+        </property>
+        <property name="aniSerialNum" type="java.lang.Integer">
+            <column name="aniSerialNum" />
+        </property>
+        <property name="collectionTime" type="timestamp">
+            <column name="collectionTime" />
+        </property>
+        <property name="acceptTime" type="timestamp">
+            <column name="acceptTime" />
+        </property>
+        <!-- tblSpencimen, 本类与TblSpencimen的多对一的关系 -->
+        <many-to-one name="tblSpecimen" class="TblSpecimen" column="specimenId" ></many-to-one>
+       
+        <!-- tblDataSource, 本类与TblDataSource的多对一的关系 -->
+        <many-to-one name="tblDataSource" class="TblDataSource" column="dsId" ></many-to-one>
+        <property name="validFlag" type="java.lang.Integer">
+            <column name="validFlag"/>
+        </property>
+        <property name="selected" type="java.lang.Integer">
+            <column name="selected"/>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="100"/>
+        </property>
+        
+    
+    </class>
+</hibernate-mapping>

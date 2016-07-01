@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Regulation" table="tblregulation" >
+        <!-- ID主键 -->
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"></generator> 
+        </id>
+        <property name="setTime" type="timestamp">
+            <column name="setTime" />
+        </property>
+        <property name="regulationName" type="java.lang.String">
+            <column name="regulationName" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="type" />
+        </property>
+        <property name="defaultValue" type="java.lang.String">
+            <column name="defaultValue" />
+        </property>
+        <property name="setValue" type="java.lang.String">
+            <column name="setValue" />
+        </property>
+        <property name="setter" type="java.lang.String">
+            <column name="setter" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+           
+  
+   
+    <bean id="TblNotificationService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblNotificationService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblNotificationService</value>
+       </property>
+   </bean>
+   
+   <bean id="TblStudyItemService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblStudyItemService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblStudyItemService</value>
+       </property>
+   </bean>
+   
+   <bean id="TblTestItemService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblTestItemService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblTestItemService</value>
+       </property>
+   </bean>
+   
+   <bean id="TblStudyScheduleService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblStudyScheduleService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblStudyScheduleService</value>
+       </property>
+   </bean>
+   
+   <bean id="TblCustomerService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblCustomerService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblCustomerService</value>
+       </property>
+   </bean>
+    <bean id="TblRegionService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblRegionService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblRegionService</value>
+       </property>
+   </bean>
+    <bean id="TblContractService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean"> 
+       <property name="serviceUrl" value="rmi://${userprivilegeIP}:6688/TblContractService"/> 
+       <property name="serviceInterface">
+          <value>com.lanen.service.contract.TblContractService</value>
+       </property>
+   </bean>
+   
+</beans>

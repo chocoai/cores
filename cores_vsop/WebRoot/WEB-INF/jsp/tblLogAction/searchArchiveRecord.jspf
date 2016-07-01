@@ -1,0 +1,25 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="showLogOperateRecordDialog" class="easyui-dialog" title="数据详情" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:320px;height:480px;" closable="true">
+		<div id="showLogOperateRecordDialog2" style="display:none;" closable="true">
+			<div style="position: absolute;left:10px;top:70px;width: 300px;height:20px;">
+				<div id="logRecordChange" style="width: 880px;">abc</div>
+			</div>
+			<div style="position: absolute;left:10px;top:90px;width: 300px;height:400px;">
+			
+			     <table id="archiveRecordDetailDatagrid"  class="easyui-propertygrid" 
+			     	style="position: absolute;left:0px;top:0px;width: 300px;height:370px;">
+				    
+				</table>
+		
+			</div>
+	
+			
+		</div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a class="easyui-linkbutton" onclick="javascript:$('#showLogOperateRecordDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		
+	</div>
+	<!-- 工具栏 结束-->

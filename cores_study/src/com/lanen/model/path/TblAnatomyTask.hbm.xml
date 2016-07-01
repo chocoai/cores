@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblAnatomyTask" table="tblAnatomyTask" >
+       <id name="taskId" type="java.lang.String">
+            <column name="taskId"  length="20"/>
+        </id>
+    
+		 <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+	
+        <property name="anatomyReqNo" type="java.lang.Integer">
+            <column name="anatomyReqNo" />
+        </property>
+		<property name="anatomyNum" type="java.lang.Integer">
+            <column name="anatomyNum" />
+        </property>
+		<property name="isplan" type="java.lang.Integer">
+            <column name="isplan" />
+        </property>
+		<property name="anatomyPlanNum" type="java.lang.Integer">
+            <column name="anatomyPlanNum" />
+        </property>
+		
+		 <property name="anatomyRsn" type="java.lang.String">
+            <column name="anatomyRsn" length="60" />
+        </property>
+		 <property name="anatomyBeginTime" type="java.sql.Timestamp">
+            <column name="anatomyBeginTime" />
+        </property>
+		
+		 <property name="visceraWeightFinishSign" type="java.lang.String">
+            <column name="visceraWeightFinishSign" length="20" />
+        </property>
+		 <property name="visceraFixedWeightFinishSign" type="java.lang.String">
+            <column name="visceraFixedWeightFinishSign" length="20" />
+        </property>
+	
+		<property name="anatomyCheckFinishSign" type="java.lang.String">
+            <column name="anatomyCheckFinishSign" length="20" />
+        </property>
+        <property name="peerAnatomyCheckFinishSign" type="java.lang.String">
+            <column name="peerAnatomyCheckFinishSign" length="20" />
+        </property>
+        
+		<property name="histopathCheckFinishSign" type="java.lang.String">
+            <column name="histopathCheckFinishSign" length="20" />
+        </property>
+		 <property name="histopathReviewRequirement" type="java.lang.Integer">
+            <column name="histopathReviewRequirement" />
+        </property>
+		<property name="histopathReviewFlag" type="java.lang.Integer">
+            <column name="histopathReviewFlag" />
+        </property>
+		<property name="histopathReviewer" type="java.lang.String">
+            <column name="histopathReviewer" length="20" />
+        </property>
+		
+        
+        <property name="histopathReviewSubmitTime" type="java.sql.Timestamp">
+            <column name="histopathReviewSubmitTime" />
+        </property>
+		<property name="histopathReviewSign" type="java.lang.String">
+            <column name="histopathReviewSign" length="20" />
+        </property>
+		<property name="histopathReviewFinalSign" type="java.lang.String">
+            <column name="histopathReviewFinalSign" length="20" />
+        </property>
+		 <property name="taskCreateTime" type="java.sql.Timestamp">
+            <column name="taskCreateTime" />
+        </property>
+		<property name="taskCreater" type="java.lang.String">
+            <column name="taskCreater" length="20" />
+        </property>
+          <property name="weightLower" type="java.lang.String">
+            <column name="weightLower" length="20" />
+        </property>
+        <property name="weightUpper" type="java.lang.String">
+            <column name="weightUpper" length="20" />
+        </property>
+      
+		 <property name="tempFlag" type="java.lang.Integer">
+            <column name="tempFlag" />
+        </property>
+       
+    </class>
+</hibernate-mapping>

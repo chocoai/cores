@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblContractHis" table="tblContractHis" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20"/>
+        </id>
+        <property name="contractCode" type="java.lang.String">
+            <column name="contractCode"  length="50"/>
+        </property>
+        <property name="contractName" type="java.lang.String">
+            <column name="contractName"  length="200"/>
+        </property>
+        <property name="sponsorId" type="java.lang.String">
+            <column name="sponsorId"  length="20" />
+        </property>
+        <property name="sponsorName" type="java.lang.String">
+            <column name="sponsorName"  length="200" />
+        </property>
+        <property name="sponsorAddress" type="java.lang.String">
+            <column name="sponsorAddress"  length="200" />
+        </property>
+        <property name="sponsorLinkman" type="java.lang.String">
+            <column name="sponsorLinkman"  length="50" />
+        </property>
+        <property name="sponsorTel" type="java.lang.String">
+            <column name="sponsorTel"  length="50" />
+        </property>
+        <property name="sponsorMobile" type="java.lang.String">
+            <column name="sponsorMobile"  length="50" />
+        </property>
+        <property name="sponsorEmail" type="java.lang.String">
+            <column name="sponsorEmail"  length="50" />
+        </property>
+        <property name="sponsorFax" type="java.lang.String">
+            <column name="sponsorFax"  length="50" />
+        </property>
+        <property name="sponsorIsVender" type="java.lang.Integer">
+            <column name="sponsorIsVender"  length="1" />
+        </property>
+        <property name="venderId" type="java.lang.String">
+            <column name="venderId"  length="50" />
+        </property>
+        <property name="venderName" type="java.lang.String">
+            <column name="venderName"  length="200" />
+        </property>
+         <property name="venderAddress" type="java.lang.String">
+            <column name="venderAddress"  length="200" />
+        </property>
+         <property name="venderLinkman" type="java.lang.String">
+            <column name="venderLinkman"  length="50" />
+        </property>
+         <property name="venderTel" type="java.lang.String">
+            <column name="venderTel"  length="50" />
+        </property>
+         <property name="venderMobile" type="java.lang.String">
+            <column name="venderMobile"  length="50" />
+        </property>
+         <property name="venderEmail" type="java.lang.String">
+            <column name="venderEmail"  length="50" />
+        </property>
+        <property name="venderFax" type="java.lang.String">
+            <column name="venderFax"  length="50" />
+        </property>
+        <property name="contractPrice" type="java.lang.String">
+            <column name="contractPrice" length="50"/>
+        </property>
+        <property name="priceUnit" type="integer">
+            <column name="priceUnit" />
+        </property>
+        <property name="signingDate" type="java.sql.Timestamp">
+            <column name="signingDate"/>
+        </property>
+        <property name="effectiveDate" type="java.sql.Timestamp">
+            <column name="effectiveDate"/>
+        </property>
+        <property name="finishDate" type="java.sql.Timestamp">
+            <column name="finishDate"/>
+        </property>
+        <property name="contractState" type="integer">
+            <column name="contractState"  length="2" />
+        </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator"  length="50" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="400" />
+        </property>
+        <property name="submitDate" type="java.sql.Timestamp">
+            <column name="submitDate"/>
+        </property>
+        <property name="oldId" type="java.lang.String">
+            <column name="oldId"  length="20" />
+        </property>
+        <property name="operateType" type="java.lang.String">
+            <column name="operateType"  length="20" />
+        </property>
+        <property name="operateTime" type="java.sql.Timestamp">
+            <column name="operateTime"/>
+        </property>
+        <property name="operateRsn" type="java.lang.String">
+            <column name="operateRsn"  length="400" />
+        </property>
+        <property name="operateSign" type="java.lang.String">
+            <column name="operateSign"  length="20" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

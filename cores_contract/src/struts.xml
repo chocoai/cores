@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 文件限制  100M -->
+	<constant name="struts.multipart.maxSize" value="104857600"/>
+	<!-- 图片 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限-->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI" >/WEB-INF/jsp/userAction/logout.jsp</result>
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="systemError">/systemError.jsp</result>
+			<result name="toIndex" type="redirectAction">homeAction_index?ticket=${ticket}</result>
+			<result name="toLogout" type="redirectAction">userAction_logout</result>
+		</global-results>
+
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp</result>
+		</action>
+		
+		<!-- 主页管理 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+		
+		<!-- 地区管理 -->
+		<action name="tblRegionAction_*" class="tblRegionAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblRegionAction/{1}.jsp</result>
+		</action>
+		<!-- 客户信息管理 -->
+		<action name="tblCustomerAction_*" class="tblCustomerAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblCustomerAction/{1}.jsp</result>
+		</action>
+		<!-- 合同信息管理 -->
+		<action name="tblContractAction_*" class="tblContractAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblContractAction/{1}.jsp</result>
+		</action>
+
+		<!-- 委托项目管理 -->
+		<action name="tblStudyItemAction_*" class="tblStudyItemAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblStudyItemAction/{1}.jsp</result>
+		</action>
+
+		<!-- 供试品 -->
+		<action name="tblTestItemAction_*" class="tblTestItemAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblContractAction/{1}.jsp</result>
+		</action>
+		<!-- 合同附件 -->
+		<action name="tblContractAttachmentAction_*" class="tblContractAttachmentAction" method="{1}">
+			<result name="download2" type="stream">  
+				<param name="contentType">application/octet-stream</param>
+        		<param name="inputName">fileInput</param>  
+        		<param name="contentDisposition">attachment;filename=${fileName}</param>
+        		<param name="bufferSize">4096</param>  
+    		</result> 
+    		<interceptor-ref name="fileUpload">
+    			<!-- 
+    			<param name="allowedTypes">image/bmp,image/gif,image/jpg</param>
+    			 -->
+    			<param name="maximumSize">10485760</param>
+    			<param name="savePath">/upload</param>
+    		</interceptor-ref>
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+       <!-- 综合查询-->
+		<action name="tblIntegratedInformAction_*" class="tblIntegratedInformAction" method="{1}">
+			<result name="left">/WEB-INF/jsp/tblIntegratedInformAction/left.jsp</result>
+			<result name="collectList">/WEB-INF/jsp/tblIntegratedInformAction/collectList.jsp</result>
+			<result name="contractList">/WEB-INF/jsp/tblIntegratedInformAction/contractList.jsp</result>
+			<result name="customerList">/WEB-INF/jsp/tblIntegratedInformAction/customerList.jsp</result>
+			<result name="studyItemList">/WEB-INF/jsp/tblIntegratedInformAction/studyItemList.jsp</result>
+			<result name="testItemList">/WEB-INF/jsp/tblIntegratedInformAction/testItemList.jsp</result>
+			<result name="ireport">/WEB-INF/jsp/tblIntegratedInformAction/ireport.jsp</result>
+			<result name="highGradeQuery">/WEB-INF/jsp/tblIntegratedInformAction/highGradeQuery.jsp</result>
+			<result name="outport" type="jasper">
+				<param name="location">/jasperReport/SDcommission.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">mapList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<!--系统日志 -->
+		<action name="tblLogAction_*" class="tblLogAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblLogAction/list.jsp</result>
+		</action>
+		<!--报告登记 -->
+		<action name="tblReportRecordAction_*" class="tblReportRecordAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblReportRecordAction/{1}.jsp</result>
+		</action>
+        <!--合同的付款记录 -->
+		<action name="tblPaymentRecordAction_*" class="tblPaymentRecordAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblPaymentRecordAction/{1}.jsp</result>
+		</action>
+		  <!--项目进度 -->
+		<action name="tblStudyScheduleAction_*" class="tblStudyScheduleAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblStudyScheduleAction/{1}.jsp</result>
+		</action>
+	</package>
+</struts>

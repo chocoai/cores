@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblTestItem" table="tblTestItem" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20" />
+        </id>
+        <property name="contractCode" type="java.lang.String">
+            <column name="contractCode"  length="50"/>
+        </property>
+        <property name="tiNo" type="java.lang.String">
+            <column name="tiNo"  length="50"/>
+        </property>
+        <property name="tiCode" type="java.lang.String">
+            <column name="tiCode"  length="50"/>
+        </property>
+        <property name="tiName" type="java.lang.String">
+            <column name="tiName"  length="200" />
+        </property>
+        <property name="tiType" type="java.lang.String">
+            <column name="tiType"  length="50" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content"  length="50" />
+        </property>
+        <property name="sealNo" type="java.lang.String">
+            <column name="sealNo"  length="50" />
+        </property>
+        <property name="fileNo" type="java.lang.String">
+            <column name="fileNo"  length="50" />
+        </property>
+        <property name="physical" type="java.lang.String">
+            <column name="physical"  length="50" />
+        </property>
+        <property name="meltPoint" type="java.lang.String">
+            <column name="meltPoint"  length="50" />
+        </property>
+        <property name="boilPoint" type="java.lang.String">
+            <column name="boilPoint"  length="50" />
+        </property>
+        <property name="photolysis" type="java.lang.String">
+            <column name="photolysis"  length="50" />
+        </property>
+        <property name="volatility" type="java.lang.String">
+            <column name="volatility"  length="50" />
+        </property>
+        <property name="density" type="java.lang.String">
+            <column name="density"  length="50" />
+        </property>
+        <property name="waterSolubility" type="java.lang.String">
+            <column name="waterSolubility"  length="50" />
+        </property>
+        <property name="waterStability" type="java.lang.String">
+            <column name="waterStability"  length="50" />
+        </property>
+        <property name="solventSolubility" type="java.lang.String">
+            <column name="solventSolubility"  length="100" />
+        </property>
+        <property name="solventStability" type="java.lang.String">
+            <column name="solventStability"  length="50" />
+        </property>
+        <property name="ph" type="java.lang.String">
+            <column name="ph"  length="50" />
+        </property>
+        <property name="securityMeasures" type="java.lang.String">
+            <column name="securityMeasures"  length="100" />
+        </property>
+        <property name="analysis" type="java.lang.String">
+            <column name="analysis"  length="50" />
+        </property>
+        <property name="postTreatment" type="java.lang.String">
+            <column name="postTreatment"  length="50" />
+        </property>
+        <property name="composition" type="java.lang.String">
+            <column name="composition"  length="100" />
+        </property>
+        <property name="cas" type="java.lang.String">
+            <column name="cas"  length="50" />
+        </property>
+        <property name="storageCondition" type="java.lang.String">
+            <column name="storageCondition"  length="200" />
+        </property>     
+        <property name="validityPeriod" type="timestamp">
+            <column name="validityPeriod"  />
+        </property>
+        
+        <property name="sponsorIsVender" type="java.lang.Integer">
+            <column name="sponsorIsVender"  length="1" />
+        </property>
+        <property name="venderId" type="java.lang.String">
+            <column name="venderId"  length="50" />
+        </property>
+        <property name="venderName" type="java.lang.String">
+            <column name="venderName"  length="200" />
+        </property>
+         <property name="venderAddress" type="java.lang.String">
+            <column name="venderAddress"  length="200" />
+        </property>
+         <property name="venderLinkman" type="java.lang.String">
+            <column name="venderLinkman"  length="50" />
+        </property>
+         <property name="venderTel" type="java.lang.String">
+            <column name="venderTel"  length="50" />
+        </property>
+         <property name="venderMobile" type="java.lang.String">
+            <column name="venderMobile"  length="50" />
+        </property>
+         <property name="venderEmail" type="java.lang.String">
+            <column name="venderEmail"  length="50" />
+        </property>
+        <property name="venderFax" type="java.lang.String">
+            <column name="venderFax"  length="50" />
+        </property>
+        <property name="state" type="integer">
+            <column name="state"  length="2" />
+        </property>
+        <property name="confirmSign" type="java.lang.String">
+            <column name="confirmSign"  length="20"/>
+        </property>
+        <property name="batchNo" type="java.lang.String">
+            <column name="batchNo"  length="100"/>
+        </property>
+        <property name="reserveNum" type="java.lang.String">
+            <column name="reserveNum"  length="20"/>
+        </property>
+        <property name="reserveUnit" type="java.lang.String">
+            <column name="reserveUnit"  length="40"/>
+        </property>
+        
+        <property name="isFailureDateFlag" type="java.lang.Integer">
+            <column name="isFailureDateFlag" />
+        </property>
+        <property name="failureDatePrecision" type="java.lang.Integer">
+            <column name="failureDatePrecision" />
+        </property>
+        
+        <property name="contentLabel" type="java.lang.String">
+            <column name="contentLabel"  length="50"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

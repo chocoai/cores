@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+           >
+	
+   
+    <bean id="service1" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblSopTableLinkInfoServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblSopTableLinkInfoService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblSopTableLinkInfoService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="service2" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="dictDataTableServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DictDataTableService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.DictDataTableService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="service5" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblFileContentSopServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblFileContentSopService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblFileContentSopService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="service6" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblFileIndexServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblFileIndexService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblFileIndexService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="service7" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblFileRecordServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblFileRecordService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblFileRecordService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    <bean id="service8" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="tblLog2ServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>TblLog2Service</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.archive.TblLog2Service</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     
+	
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.DictTestItemType" table="dictTestItemType" >
+        <id name="tiCode" type="java.lang.String">
+            <column name="tiCode" length="20"/>
+        </id>
+        <property name="tiType" type="java.lang.String">
+            <column name="tiType"  length="200"/>
+        </property>
+    </class>
+</hibernate-mapping>

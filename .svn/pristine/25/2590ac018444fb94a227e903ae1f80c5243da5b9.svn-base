@@ -1,0 +1,64 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- path edit/add  start -->
+<div id="addArchiveDialog" class="easyui-dialog" title="新建一个档案分类" modal="true" closed="true"  draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:392px;height:307px;" closable="true">
+	<div id="addArchiveDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="addOrEdit"/>
+			<form id="archiveAddEditForm" action="" method="post">
+		   	
+		   	  <table>
+		   	  		<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">档案类别：</td>
+        				<td id='dictTypeName'>
+        					<select id="oneArchiveTypeFlag" class="easyui-combobox" name="archiveTypeFlag" style="width:100px;" panelHeight="auto">   
+							    <!-- 1：专题；2：QA检查资料；3：SOP资料；4：综合资料；5：仪器资料；6:行政综合；7：人员档案，8：合同；9：供试品留样；10：标本；11：基建 -->
+							    <option value="1">专题</option>   
+							    <option value="2">QA检查资料</option>  
+							    <option value="3">SOP资料</option>   
+							    <option value="4">综合资料</option>   
+							    <option value="5">仪器资料</option>   
+							    <option value="6">人员档案</option>   
+							    <option value="7">行政综合</option>   
+							    <option value="8">合同</option>   
+							    <option value="9">供试品留样</option>   
+							    <option value="10">标本</option>    
+							    <option value="11">基建</option>    
+							</select> 
+						</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;" >类别名称：</td>
+        				<td >
+						 <input id="oneArchiveTypeName" type="text" name="archiveTypeName" 
+                        	 class="easyui-validatebox" style="width:260px;" data-options="validType:'maxLength[100]'"
+                        	required="true" missingMessage="必填项" invalidMessage="类别名称已存在"
+                        	validType="remotett[sybp()+'/dictArchiveTypeAction_checkTypeName.action','archiveTypeName','#oneArchiveTypeName']" />
+       				 	</td>
+        			</tr>
+        			<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">分类代码：</td>
+        				<td>
+        					<input id="oldArchiveTypeCode" name="oldArchiveTypeCode" type="hidden"/>
+        				    <input id="oneArchiveTypeCode" type="text" name="archiveTypeCode" 
+                        	 class="easyui-validatebox" style="width:260px;" data-options="validType:'maxLength[100]'"
+                        	required="true" missingMessage="必填项" invalidMessage="分类代码已存在"
+                        	validType="remotett[sybp()+'/dictArchiveTypeAction_checkTypeCode.action','archiveTypeCode','#oneArchiveTypeCode']" />
+       				 	</td>
+        			</tr>
+        			
+        			
+        		</table>
+		    </form>
+		</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a class="easyui-linkbutton" onclick="saveOneArchive();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#addArchiveDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	<input id="continueAddCheckBox" type="checkbox" style="position: absolute;top:37px;">
+	<span id="continueAddLabel" style="margin-left: 15px;">连续添加</span>
+</div>
+<!-- 工具栏 结束-->
+	</div>
+</div>
+<!-- path edit/add end -->

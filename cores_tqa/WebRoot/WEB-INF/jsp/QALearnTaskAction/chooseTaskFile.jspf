@@ -1,0 +1,56 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="chooseTaskFileDialog" class="easyui-dialog" title="选择任务文件" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar3'" style="display:'';width:705px;height:450px;" closable="true">
+			<div id="chooseTaskFileDialog2" style="display:'';" closable="true">
+			   	<form id="oneQAFileTaskList" style="float: left;">
+			   		<div style="width:100%;height:100%;position:absolute;top:60px;left:10px;">
+				   	 	<table>
+				   	 		<tr>
+				   	 			
+				   	 			<td style="">
+				   	 				&nbsp;
+				   	 				<div id="addFileTaskFileTypes" style="width:240px;height:350px;border:1px solid #c8c8c8;overflow:auto;"></div>
+				   	 			</td>
+				   	 		
+				   	 		 	<td>
+				   	 		 		&nbsp;
+					   	 			<div id="oneaddTaskFileReg"></div>
+				   	 			</td>
+				   	 			<td>
+				   	 				要增加的文件
+				   	 				<div id="addTaskFileRegs"></div>
+				   	 			</td>
+				   	 		 </tr>
+				   	 		 
+				   	 	</table>
+			   		</div>
+			   	</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar3">
+		<div>
+			<a  class="easyui-linkbutton" onclick="saveTaskFileList();" data-options="iconCls:'icon-add',plain:true">确定</a>		
+		
+			类型：<select id="fileTypeConditionForAdd" data-options="editable:false" class="easyui-combobox"style="width:100px;">
+			 	<option value="0">全部</option>
+			 	<option value="1">法规</option>
+			 	<option value="2">指导原则</option>
+			 	<option value="3">SOP</option>
+			</select>
+			状态：<select id="fileStateConditionForAdd" data-options="editable:false" class="easyui-combobox" style="width:150px;">
+			 	<option value="1">全部</option>
+				<option value="2">尚未安排学习的文件</option>
+			  	<option value="3">尚未完成学习的文件</option>
+				<option value="4">全部学习完成的文件</option>
+								   
+			</select>
+			&nbsp;&nbsp;&nbsp;
+			<span style="position:absolute;left:420px; top:32px;">
+				<input id="fileSearchConditionForAdd" style="width:200px;" class='easyui-searchbox'></input>
+			</span>	
+			<a style="position:absolute;left:640px; top:32px;" style="display:''" class="easyui-linkbutton" onclick="javascript:$('#chooseTaskFileDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">关闭</a>
+		</div>
+	</div>
+	
+	<!-- 工具栏 结束-->

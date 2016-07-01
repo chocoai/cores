@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblChipReader" table="tblChipReader" >
+       <id name="chipCode" type="java.lang.String">
+            <column name="chipCode"  length="20"/>
+        </id>
+      
+		<property name="chipModel" type="java.lang.String">
+            <column name="chipModel" length="20" />
+        </property>
+		<property name="chipName" type="java.lang.String">
+            <column name="chipName" length="20" />
+        </property>
+        <property name="baud" type="java.lang.Integer">
+            <column name="baud"  />
+        </property>
+		<property name="dataBit" type="java.lang.Integer">
+            <column name="dataBit"  />
+        </property>
+		<property name="stopBit" type="java.lang.Integer">
+            <column name="stopBit"  />
+        </property>
+		<property name="parit" type="java.lang.Integer">
+            <column name="parit"  />
+        </property>       
+    </class>
+</hibernate-mapping>

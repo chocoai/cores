@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<!-- 数据库信息（连接信息写到spring的配置文件钟） -->
+	<!--  
+		<property name="Connection.url">jdba:mysql:///itcastoa_20120216</property>
+		<property name="Connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="Connection.username">root</property>
+		<property name="Connection.password">root</property>
+	-->
+	<property name="dialect">
+		org.hibernate.dialect.SQLServerDialect
+	</property>
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+	
+	
+</session-factory>
+</hibernate-configuration>

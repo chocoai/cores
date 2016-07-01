@@ -1,0 +1,73 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+<div id="attachmentAddEditDialog" class="easyui-dialog" title="合同附件" modal="true" closed="true" 
+		data-options="toolbar:'#attachmentToolbar'" style="display:'';width:1000px;height:430px;" closable="true">
+	<div id="attachmentAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="attachmentAddOrEdit"/>
+			<form id="attachmentAddEditForm" name="attachmentAddEditForm" action="" method="post" enctype="multipart/form-data" theme="simple">
+		   	  <table class="table0">
+		   	  		<tr >
+        				<td width="120px;" align="right">供试品编号</td>
+        				<td>
+	        				<input id="attachmenttestItemCode" type="text" name="testItemCode"  class="easyui-validatebox" readonly="true" data-options="validType:'maxLength[45]'"
+	        				 	required="true" style="width:260px;"></input>
+       				 	</td>
+        			</tr>
+        			<tr >
+        				<td width="120px;" align="right">供试品名称</td>
+        				<td>
+	        				<input id="attachmenttestItemName" type="text" name="testItemName"  class="easyui-validatebox" readonly="true" data-options="validType:'maxLength[450]'"
+	        				 	required="true" style="width:260px;"></input>
+       				 	</td>
+        			</tr>
+        			<!-- 
+		   	  		<tr >
+        				<td width="120px;" align="right">选择附件</td>
+        				<td>
+	        				<input id="attachmentFile" type="file" onchange="attachmentFileChange(this);" name="attachment" class="easyui-validatebox" required="true" missingMessage="请选择文件" style="width:270px;">
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="120px;" align="right">附件名称</td>
+        				<td>
+	        				<input id="attachmentName" type="text" name="attachmentName" class="easyui-validatebox" data-options="validType:'maxLength[180]'"
+	        				 	required="true" style="width:260px;"></input>
+       				 	</td>
+        			</tr>
+        			<tr>
+        				<td align="right">备注</td>
+        				<td><textarea id="attachmentRemark" style="resize: none;" name="remark" class="easyui-validatebox" data-options="validType:'maxLength[350]'"  rows="3" cols="40"></textarea>
+						</td>
+        			</tr> -->
+        			<tr>
+        				    <td colspan="2" style="line-height: 30px;">
+        					<div id="fileList">
+	        					<div id="fileList_1">
+			        				<input type="file" onchange="attachmentFileChange(this);" name="uploadFile" class="easyui-validatebox" required="true" missingMessage="请选择文件" style="width:255px;">
+			        				附件名称:<input id="attachmentName" type="text" name="attachmentNames" class="easyui-validatebox" data-options="validType:'maxLength[180]'"
+	        				 	    required="true" style="width:260px;"></input>
+	        				 	        备注:<input id="attachmentRemark" style="width:300px;" name="remarks" class="easyui-validatebox" data-options="validType:'maxLength[350]'"  ></input>
+	        					</div>
+        					</div>
+        					<div style="margin-top:5px;">
+        						<a class="easyui-linkbutton" plain="true" onclick="addFileList();" data-options="iconCls:'icon-list'">继续添加</a>
+        					</div>
+        			    </td>
+        			</tr>
+        		</table>
+		    </form>
+			<a id="attachmentAddEdit_event"></a>
+		</div>
+	</div>
+</div>
+<a id="deleteA" href="javascript:void(0);"  onclick="deleteCurrentDiv(this);" style="align:center;display:none;" title="删除">
+	<img  src="${pageContext.request.contextPath}/style/images/delete.gif"/>
+</a>
+<!-- 工具栏 开始-->
+<div id="attachmentToolbar">
+	<a id="saveAttachmentDialogButton" class="easyui-linkbutton" onclick="onDialogAttachmentSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#attachmentAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 试验计划 edit/add结束 -->

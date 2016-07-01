@@ -1,0 +1,44 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="replyApprovalDialog" class="easyui-dialog" title="回复审批" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:750px;height:430px;" closable="true">
+			<div id="replyApprovalDialog2" style="display:'';" closable="true">
+		   	 	<input type="hidden" id="reportId"/>
+		   	 	<div id="replyApplyForApprovalList" class="easyui-datagrid"></div>
+		   	 	<form id="oneReplyMessageForm" >
+			   			<div style="border: 1px solid #c8c8c8; width:733px;">
+				   			<table style=" width=100% height=100%">
+					   			<tr>
+					   				<td style="text-align: right;width: 100;">审批结果</td>
+					   				<td >
+					   					<label for="replayApprovalHasNoComment">
+						   					<input id="replayApprovalHasNoComment" name="replyFmreviewResult" type="radio" value="0" checked="checked"/>无意见
+					   					</label>
+										<label for="replayApprovalHasComment">
+						   					<input id="replayApprovalHasComment" name="replyFmreviewResult" type="radio" value="1" />有意见
+										</label>
+					   				
+					   				</td>
+					   			</tr>
+					   			<tr>
+					   				<td style="text-align: right;" >审批意见</td>
+					   				<td >
+					   					<input  id="oneReplyFmreveiwRemark" name="replyFmreveiwRemark" style="width: 450px;"  />
+					   							
+					   				</td>
+					   			</tr>
+					   			
+					   			
+				   		
+				   			</table>
+				   	
+			  	 		</div>
+			   	 	
+			   		</form>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a class="easyui-linkbutton" onclick="acceptReplyApply();" data-options="iconCls:'icon-ok',plain:true">确认</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#replyApprovalDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->

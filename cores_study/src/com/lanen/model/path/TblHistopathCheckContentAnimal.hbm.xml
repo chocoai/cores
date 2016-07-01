@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblHistopathCheckContentAnimal" table="tblHistopathCheckContentAnimal" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+		 <property name="contentIndexId" type="java.lang.String">
+            <column name="contentIndexId" length="20" />
+        </property>
+        
+		<property name="animalCode" type="java.lang.String">
+            <column name="animalCode" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

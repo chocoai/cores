@@ -1,0 +1,58 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="addTOLLeaderDialog" class="easyui-dialog" 
+	modal="true"  draggable="true" closable="false" closed="true"
+	data-options="toolbar:'#dialogToolbar'"
+	style="display: ''; width: 290px; height: 400px;" >
+	<div id="addTOLLeaderDialog2" style="display: '';" >
+		<div>
+			<form id="TOLLeaderAddForm"  method="post">
+			<input  type="hidden" name="resId" value="${id}"/>
+			<table width="250px;" style="margin-top: 5px;">
+			  
+				<tr>
+					<td width="70px;" height="30px;" align="right">任务名称</td>
+					<td colspan="2">
+					 <input  type="text"  value="${taskName}" readonly="true"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width="70px;" height="30px;" align="right" >开始日期</td>
+				    <td colspan="2"><input id="startDate" type="text" name="startDate" class="easyui-datebox" data-options="editable:false" /> </td>
+				</tr>
+				<tr>
+					<td width="70px;" height="30px;" align="right" >结束日期</td>
+				    <td colspan="2" ><input id="endDate" type="text" name="endDate" class="easyui-datebox"  data-options="editable:false"/> 
+				    </td>
+				</tr>
+				<tr>
+					<td width="70px;" height="20px;" align="right" ></td>
+				    <td colspan="2" align="left" ><a href="javascript:checkboxEndDate();"><input type="checkbox"  id = "checkboxEndDate" name="checkbox" value="checkboxEndDate" checked="true" onclick="afterCheckboxEndDate(this)"> 指定结束日期</a> </td>
+				</tr>
+				 <tr>
+				    <td align="center" ><input id="selectAllUser" type="radio" value="3"  checked="checked" name="room"  onclick="selectAllUser1()" /><a href="javascript:selectAllUser(3);">全部</a></td>
+                    <td align="center" ><input id="selectFloor" type="radio" value="2"  name="room"  onclick="selectAllUser1()" /><a id="selectFloora" href="javascript:selectAllUser(2);">区域</a></td>
+                    <td align="center" ><input id="selectRoom" type="radio" value="1" name="room" onclick="selectAllUser1()" /><a id="selectRooma" href="javascript:selectAllUser(1);">房间</a></td>
+                    </tr>
+				<tr>
+				 		<td colspan="3" align="center">
+						<table id="UserMemberTable" >  
+						</table> 
+						</td>
+				 </tr>
+				
+			</table>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="saveDialogButton" class="easyui-linkbutton"
+		onclick="onSaveButton();" onblur="onEndDate();"
+		data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton"
+		onclick="onBackButton();"
+		data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->

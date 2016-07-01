@@ -1,0 +1,51 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="addTaskLeaderDialog" class="easyui-dialog" 
+	modal="true"  draggable="true" closable="false" closed="true"
+	data-options="toolbar:'#dialogToolbar'"
+	style="display: ''; width: 280px; height: 290px;" >
+	<div id="addTaskLeaderDialog2" style="display: '';" >
+		<div>
+			<form id="taskLeaderAddForm"  method="post">
+			<input  type="hidden" name="taskid" value="${taskid}"/>
+			<table width="250px;" style="margin-top: 5px;">
+			  
+				<tr>
+					<td width="70px;" height="30px;" align="right">任务名称</td>
+					<td>
+					 <input  type="text"  value="${taskFullName}" readonly="true"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="70px;" height="30px;" align="right" >开始日期</td>
+				    <td><input id="startDate" type="text" name="startDate" class="easyui-datebox" data-options="editable:false" /> </td>
+				</tr>
+				 <tr>
+				 		<td colspan="2" align="center">
+						<table id="taskLeaderTable" class="easyui-datagrid" style="width:200px;height:140px"   
+						        data-options="url:'${pageContext.request.contextPath}/tblTaskLeaderAction_loadComboboxData.action?taskTypeID=${taskid}',
+						        singleSelect:false">   
+						    <thead>   
+						        <tr>   
+						            <th data-options="field:'id',width:30,checkbox:true"></th>   
+						            <th data-options="field:'text',width:150">常规任务操作者</th>   
+						        </tr>   
+						    </thead>   
+						</table> 
+						</td>
+				 </tr>
+				
+			</table>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="saveDialogButton" class="easyui-linkbutton"
+		onclick="onSaveButton();" onblur="onEndDate();"
+		data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton"
+		onclick="onBackButton();"
+		data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->

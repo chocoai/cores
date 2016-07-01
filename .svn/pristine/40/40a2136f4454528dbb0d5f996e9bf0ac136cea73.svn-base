@@ -1,0 +1,8 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="calendarDialog" class="easyui-dialog" title="日期" modal="true" closed="true" 
+		style="display:'';width:194px;height:216px;" closable="true" border="false">
+	<div id="calendarDialog2" style="display:'';" >
+		<div id="cc" class="easyui-calendar" style="width:180px;height:180px;"></div>  
+	</div>
+	<a id="calendar_click"></a>
+</div>

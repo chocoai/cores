@@ -1,0 +1,136 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileRecordSpecimenDialog" class="easyui-dialog" title="新建标本资料" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:415px;" closable="true">
+		<div id="AddOrEditFileRecordSpecimenDialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileRecordSpecimenForm">
+		      	<input id="addOrEditSpecimen" type="hidden">
+		      	<input id="oneFileRecordId9" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag9" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateSpecimenRsn" name="operateRsn" type="hidden"/>
+			  
+			  <div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:213px;left:30px;background-color: #fff;">归档记录</div>			
+			 		
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8;margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		<table style="width:100%;" border="0">
+			  			<tr>
+			  				<td colspan="4">
+			  					<label for="studyNoType41">
+				  					<input id="studyNoType41" type="radio" name="studyNoType3" value="1" checked="checked"/>按专题编号
+			  					</label>
+			  					<label for="studyNoType42">
+				  					<input id="studyNoType42" type="radio" name="studyNoType3" value="2"/>按合同编号
+			  					</label>
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td width="65">标本类型：</td>
+			  				<td colspan="5">
+			  					<select id="specimenTypeFlag" name="specimenTypeFlag" required="true" class="easyui-combobox" style="width:100px;">
+								    <option value="1" selected="selected">湿标本</option>
+								    <option value="2">蜡块</option>
+								    <option value="3">切片</option>
+								</select>
+			  				</td>
+			  				
+			  			</tr>
+			  			<tr>
+			  				<td>编号：</td>
+			  				<td colspan="5"><input id="studyNoSpecimen" class="easyui-validatebox" required="true" name="studyNo" onblur="if($('#addOrEditSpecimen').val()==1||$('#addOrEditSpecimen').val()==3){getSpecimenByCode();}"/></td>
+			  				
+			  			</tr>
+			  			<tr>
+			  				<td>名称：</td>
+			  				<td colspan="5">
+			  					<input id="studyNameSpecimen" name="studyName" class="easyui-validatebox" required="true"  style="width:550px;"/>
+			  				</td>
+			  			</tr>
+			  			<tr>
+			  				<td>SD：</td>
+			  				<td width="120">
+			  					<input id="sdSpecimen" name="sd" 
+				    					class="easyui-combobox"  />
+				    				
+			  				</td>
+			  				<td width="65">归档数量：</td>
+			  				<td >
+			  					<input id="fileNum" name="fileNum" class="easyui-validatebox" required="true" onblur="if(isNaN(value)){value=''}"  style="width:100px;"	/>
+			  					<select id="fileNumUnit" name="fileNumUnit" required="true" class="easyui-combobox" style="width:40px;">
+								    <option value="盒" selected="selected">盒</option>
+								    <option value="片">片</option>
+								    <option value="块">块</option>
+								</select>
+			  				</td>
+			  				<td colspan="2"></td>
+			  			</tr>
+			  			
+			  			
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+	    			<table border="0">
+				    	<tr>
+				    		<td width="100">分类代号：</td>
+				    		<td width="100">
+				    			<input id="oneArchiveTypeCode9" name="tblFileIndex.archiveTypeCode" type="hidden"/>
+				    			<input id="oneArchiveTypeName9" name="tblFileIndex.archiveTypeName" readOnly="readonly" required="true" onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode9').click();}" style="width:72%;"/>
+				    			<input type="button" id="chooseOneArchiveTypeCode9" class="easyui-linkbutton" style="width:30px;" onclick="chooseArchiveType();" value="..."/>
+				    		</td>
+				    		<td width="100">档案编号：</td>
+				    		<td colspan="3" width="300"><input id="oneArchiveCode9" name="tblFileIndex.archiveCode" type="text" required="true" style="100%;"/></td>
+				    	</tr>
+				    	<tr>
+				    			<td width="100">储存位置：</td>
+				    			<td width="100"><input id="oneStorePosition9" onblur="" required="true" 
+								class="easyui-combotree"/>
+				    			<input id="oneStorePosition9L" type="hidden" name="tblFileIndex.storePosition"/></td>
+				    			
+				    			<td width="100">题名：</td>
+				    			<td width="300" colspan="3"><input id="oneArchiveTitle9" name="tblFileIndex.archiveTitle" required="true"  style="width:100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">保存期限：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneKeepDate9" name="keepDate" data-options="width:120,"/>
+							    	<input type="checkbox" class="checkboxC" id="isLong9" name="isLong" checked="checked"
+							    		onclick="if($('#isLong9').attr('checked')=='checked'){$('#oneKeepDate9').datebox('setValue','');$('#oneKeepDate9').datebox('disable');}else{$('#oneKeepDate9').datebox('setValue',$('#todayDate').val());$('#oneKeepDate9').datebox('enable');}">长期
+								
+				    			</td>
+				    			<td width="100">归档人：</td>
+				    			<td width="100">
+				    				<input id="oneFileOperator9" name="fileOperator" required="true"
+				    					 class="easyui-validatebox"/>
+				    				</td>
+				    			<td width="100">归档日期：</td>
+				    			<td width="100"><input class="easyui-datebox" id="oneFileDate9" name="fileDate" required="true"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">备注：</td>
+				    			<td width="300" colspan="5"><input id="oneRemark9" name="remark" type="text" style="width:100%"/></td>
+				    			
+				    		</tr>
+				    		<tr>
+				    			<td width="100">关键字：</td>
+				    			<td width="300" colspan="3"><input id="oneKeyWord9" name="keyWord" type="text" style="width:100%"/></td>
+				    			  
+				    			<td width="100" id="oneDestoryDate9Label" style="display:none;">销毁日期</td>
+				    			<td width="100" id="oneDestoryDate9Label2" style="display:none;"><input class="easyui-datebox" id="oneDestoryDate9" name="destoryDate"/></td>
+				    			
+				    		</tr>
+				    			
+				    </table>
+	    	   </div>
+		    </form>
+			<div id="positionTipCode9"></div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton9" class="easyui-linkbutton" onclick="saveOneFileRecordSpecimen();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileRecordSpecimenDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddSpecimenButton" type="checkbox" class="checkboxC"/><span id="continueAddSpecimenLabel"></span>
+		<input id="isForValidSpecimen" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidSpecimenLabel" style="position:absolute;top:35px;right: 10px;">验证记录 </span>
+	</div>
+	<!-- 工具栏 结束-->

@@ -1,0 +1,78 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 脏器 edit/add  start -->
+<div id="visceraAddEditDialog" class="easyui-dialog" title="新建" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:542px;height:367px;" closable="true">
+	<div id="visceraAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="visceraAddOrEdit"/>
+			<form id="visceraAddEditForm" action="" method="post">
+		   	  <input type="hidden" id="visceraCode" name="visceraCode" >
+		   	  <input type="hidden" id="pvisceraCode" name="pvisceraCode">
+		   	  <table>
+		   	  		<tr >
+        				<td width="80px;" align="center" height="30px;">所属脏器</td>
+        				<td width="250px;"  id='pVisceraName'>无</td>
+        				<td id="visceraAnimalTD" rowspan="8" valign="top" style="padding-top: 8px; ">
+        					<span >所属动物</span><br/>
+        					<!-- 
+        					：<input id= "allAnimalCheckBox" type="checkbox" style="position: absolute;top:75px;">
+							<a id="allAnimalA" href="javascript:void(0);" onclick="$('#allAnimalCheckBox').click();" style="margin-left: 10px;">所有</a><br/>
+        					<input id="animalType" name="animalType"/><br/>
+        					 -->
+        					<table id="dictVisceraAnimal" ></table> <br/> 
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="center" height="30px;">脏器类别</td>
+        				<td><input id="visceraType" name="visceraType"/></td>
+        			</tr>
+        			<tr >
+        				<td width="80px;" align="center" height="30px;">脏器名称</td>
+        				<td>
+        				    <input type="hidden" id="oldVisceraName"  />
+                            <input id="visceraName" type="text" name="visceraName" 
+                        	 class="easyui-validatebox" style="width:220px;" data-options="validType:'maxLength[40]'"
+                        	required="true" missingMessage="必填项" invalidMessage="脏器名称已存在"
+                        	validType="remotett[sybp()+'/dictVisceraAction_checkVisceraName.action','visceraName','#oldVisceraName']" />
+       				 	</td>
+        			</tr>
+        			<tr >
+        				<td align="center" height="30px;">拼音首字母</td>
+        				<td><input id="py" type="text" name="py" class="easyui-validatebox" data-options="validType:'maxLength[60]'" style="width:147px;" required="true" missingMessage="必填项" ></input></td>
+        			</tr>
+        			<tr >
+        				<td align="center" height="30px;">英文名称</td>
+        				<td><input id="visceraNameEn" type="text" name="visceraNameEn" class="easyui-validatebox" data-options="validType:'maxLength[60]'" style="width:220px;"></input></td>
+        			</tr>
+        			<tr >
+        				<td align="center" height="30px;">日文名称</td>
+        				<td><input id="visceraNameJp" type="text" name="visceraNameJp" class="easyui-validatebox" data-options="validType:'maxLength[60]'" style="width:220px;"></input></td>
+        			</tr>
+        			<tr >
+        				<td align="center" height="30px;">所属性别</td>
+        				<td id="genderTd"><input type="radio" name="gender" value="0" checked="checked"><a name="0" href="javascript:void(0);" style="padding: 0 15px 0 3px; color: black;">所有</a>
+        					<input type="radio" name="gender" value="1"><a name="1" href="javascript:void(0);" style="padding: 0 15px 0 3px; color: black;">雄(♂)</a>
+        					<input type="radio" name="gender" value="2"><a name="2" href="javascript:void(0);" style="padding: 0 15px 0 3px; color: black;">雌(♀)</a></td>
+        			</tr>
+        			
+        			<tr >
+        				<td align="center" height="30px;">成对脏器</td>
+        				<td id="isPartTd">
+	        				<input type="radio" name="isPart" value="0" checked="checked"/><a name="0" href="javascript:void(0);" style="padding: 0 15px 0 3px; color: black;">否</a>
+	        				<input type="radio" name="isPart" value="1"/><a name="1" href="javascript:void(0);" style="padding: 0 15px 0 3px; color: black;">是</a>
+        				</td>
+        			</tr>
+        			
+        		</table>
+		    </form>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="confirmButton" class="easyui-linkbutton" onclick="onConfirmButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#visceraAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	<input id= "continueAddCheckBox" type="checkbox" style="position: absolute;top:37px;">
+	<a id="continueAddA" href="javascript:void(0);" onclick="$('#continueAddCheckBox').click();" style="margin-left: 15px;">连续添加</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 脏器 edit/add end -->

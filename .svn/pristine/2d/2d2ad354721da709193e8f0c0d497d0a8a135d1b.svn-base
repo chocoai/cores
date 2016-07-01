@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.DictStudyType" table="dictStudyType" >
+        <id name="studyTypeCode" type="java.lang.String">
+            <column name="studyTypeCode"  length="20"/>
+        </id>
+        <property name="studyName" type="java.lang.String">
+            <column name="studyName"  length="200"/>
+        </property>
+        <property name="studyPeriod" type="java.lang.Integer">
+            <column name="studyPeriod" />
+        </property>
+        <property name="studyPeriodUnit" type="java.lang.String">
+            <column name="studyPeriodUnit" length="20" />
+        </property>
+        <property name="tiCode" type="java.lang.String">
+            <column name="tiCode" length="20" />
+        </property>
+         <property name="studyCode" type="java.lang.String">
+            <column name="studyCode" length="20" />
+        </property>
+         <property name="animalHave" type="java.lang.Integer">
+            <column name="animalHave" />
+        </property>
+        <property name="studyGroupID" type="java.lang.String">
+            <column name="studyGroupID" />
+        </property>
+        
+        <!-- dictStudyTestIndexs ,本类与DictStudyTestIndex 的一对多的关系 -->
+        <set name="dictStudyTestIndexs" lazy="false">
+           <key column="studyTypeCode"></key>
+           <one-to-many class="DictStudyTestIndex"/>
+        </set>        
+        
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,124 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<script language="javascript" src="${pageContext.request.contextPath}/script/ajaxfileupload.js" charset="utf-8"></script>
+
+	<div id="existArchiveFileDialog" class="easyui-dialog" title="已存在档案的导入" modal="true" closed="true" 
+	 style="display:'none';width:370px;height:320px;" closable="true">
+		<div id="existArchiveFileDialog2" style="display:none;">
+			<form  id="existArchiveFileForm" action="" method="post"
+				enctype="multipart/form-data" theme="simple" >
+				<table width="100%">
+					<tr><td height="10px;" colspan="2"></td></tr>
+					<tr>
+						<td><s:file id="excelExistArchive" name="excelExistArchive" cssStyle="width:220px;height:30px;" 
+						onclick="javascript:$('#errorSpan0').html('');"
+						 accept="*.xlsx"></s:file></td>
+						<td>
+							<input type="button" value="上传文件" onclick="ajaxFileUpload0();"/>
+						</td>
+					</tr>
+					<tr><td height="10px;" colspan="2">&nbsp;<font color="red"><span id="errorSpan0"></span></font></td></tr>
+					<tr><td height="10px;" colspan="2">&nbsp;<div id="resultSpan"></div></td></tr>
+					<!-- 
+					<tr><td height="10px;" colspan="2">样例：</td></tr>
+					<tr>
+					<td colspan="2">
+						<img id="exampleImage1" src="${pageContext.request.contextPath}/style/images/specimen.png" style="display:'';" alt="标本编号例子.xls" />
+						
+					</td>
+					</tr>
+					 -->
+				</table>
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+	/**执行文件上传操作*/
+	function ajaxFileUpload0(){
+		$('#errorSpan0').html('');
+		$('#resultSpan').html('');
+		if($('#excelExistArchive').val()!=''){
+		//文件上传的form
+		    $('#existArchiveFileForm').form({ 
+		    	//url:sybp()+'/importedSpecimenAction_importExistDataExcel.action',   
+		        url:sybp()+'/importedExistArchiveDataAction_importExistDataExcel.action',
+		        type:'post',
+		        dataType:'json',
+		        onSubmit: function(){    
+		        	//判断文件类型和大小之类
+		        	
+		        },    
+		        success:function(data){ 
+			    	var r=$.parseJSON(data);
+		    		alert("=1212121212=================="+r.success+"====msg="+r.msg+"==="+r.exceptList);
+			    	//if(r &&r.success){
+			    		 
+		            	  //$('#existArchiveFileDialog').dialog('close'); 
+		            	  
+		            	  $('#excelExistArchive').val('');
+		            	 var contentWind = document.getElementById('archiveLeftFrame').contentWindow;
+			        	 contentWind.$('#searchRecordButton').click();
+
+					 	// showMessager(1,r.msg,true,5000);
+					 	 alert("==="+r.msg);
+					 	 $('#errorSpan0').html(r.msg);
+					 	  alert("22=="+r.exceptList);
+					 	 $('#resultSpan').html(r.exceptList);
+		            	  
+		             // }else{
+		            	//$('#errorSpan0').html(r.msg);
+		             // }
+			    	
+			    }
+			  });
+			  
+			  /*
+			   var f = document.getElementById("excelExistArchive").files;  
+		        //上次修改时间  
+		        alert("时间："+f[0].lastModifiedDate);  
+		        //名称  
+		        alert("名称="+f[0].name);  
+		        //大小 字节  
+		        alert("大小："+f[0].size);  
+		        //类型  
+		        alert("类："+f[0].type);
+		        */
+			   $('#existArchiveFileForm').submit();
+			   /*
+	         $.ajaxFileUpload({
+		      //    url:sybp()+'/importedSpecimenAction_importExistDataExcel.action',      //需要链接到服务器地址
+		         url:sybp()+'/importedExistArchiveDataAction_importExistDataExcel.action',
+		          secureuri:false,
+		          fileElementId:'excelExistArchive',                        //文件选择框的id属性
+		          dataType: 'json',                                     		//服务器返回的格式，可以是xml
+		          success: function (data, status){     
+		              if(data &&data.success){
+		            	  $('#existArchiveFileDialog').dialog('close'); 
+		            	  
+		            	  $('#excelExistArchive').val('');
+		            	 var contentWind = document.getElementById('archiveLeftFrame').contentWindow;
+			        	 contentWind.$('#searchRecordButton').click();
+
+					 	 showMessager(1,data.msg,true,5000);
+		            	  
+		              }else{
+		            	$('#errorSpan0').html(data.msg);
+		              }
+		          },
+		          error: function (data, status, e){
+		        	  $('#errorSpan0').html('文件上传失败，请刷新页面后重试');
+		          }
+	      	});*/
+	      	
+		}else{
+			$('#errorSpan0').html('请选择待上传的文件');
+		}
+    }
+
+	  
+</script>
+
+
+	
+	

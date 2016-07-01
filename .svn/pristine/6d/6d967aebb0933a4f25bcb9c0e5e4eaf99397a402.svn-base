@@ -1,0 +1,27 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="studyScheduleNodeDialog" class="easyui-dialog" title="设置项目进度计划" modal="true" closed="true" 
+		data-options="toolbar:'#studyScheduleNodeDialogToolbar'" style="display:'';width:400px;height:400px;" closable="true">
+	<div id="studyScheduleNodeDialog2" style="display:'';" closable="true">
+		<table style="margin-top:5px;margin-left:5px;" >
+		<tr>
+			<td width="60px;" height="20px;" align="right" >专题编号：</td>
+			<td>
+				<span id="studyNo"></span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" >
+				<table id="studyScheduleNodeTable"></table>
+			</td>
+		</tr>
+		</table>
+		 <a id="studyScheduleNode_click"></a>
+		 <input type="hidden" id ="isSubmit">
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="studyScheduleNodeDialogToolbar">
+	<a id="studyScheduleNodeSubmitButton" class="easyui-linkbutton" onclick="onSubmit();" data-options="iconCls:'icon-ok',plain:true">提交</a>
+	<a class="easyui-linkbutton" onclick="closestudyScheduleNodeDialog();" data-options="iconCls:'icon-nook',plain:true">返回</a>
+</div>
+<!-- 工具栏 结束-->

@@ -1,0 +1,96 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+<div id="contractAddEditDialog" class="easyui-dialog" title="合同登记" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:615px;height:400px;" closable="true">
+	<div id="contractAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="contractAddOrEdit"/>
+			<input type="hidden" id="contractState_contractDialog"/>
+			<form id="contractAddEditForm" action="" method="post">
+		   	  <input type="hidden" id="id" name="id" >
+		   	  <table class="table0">
+        			<tr >
+        				<td width="80px;" align="right">合同编号</td>
+        				<td>
+        				    <input type="hidden" id="oldcontractCode"  />
+                            <input id="contractCode" type="text" name="contractCode" 
+                        	 class="easyui-validatebox" style="width:260px;" data-options="validType:'maxLength[40]'"
+                        	required="true" missingMessage="必填项" invalidMessage="合同编号已存在"
+                        	validType="remotett[sybp()+'/tblContractAction_checkContractCode.action','contractCode','#oldcontractCode']" />
+        				    <!-- 
+	        				<input id="contractCode0" type="text" name="contractCode" class="easyui-validatebox" data-options="validType:'maxLength[40]'"
+	        					validType="remote[sybp()+'/tblContractAction_checkContractCode.action','contractCode']" invalidMessage="合同编号已存在" 
+	        				 	required="true" style="width:260px;"></input>
+		        			<input id="contractCode1" type="text" name="contractCode" class="easyui-validatebox" data-options="validType:'maxLength[40]'"
+		        					validType="remote[sybp()+'/tblContractAction_checkContractCodeWithcurrentId.action?currentId=${currentId}','contractCode']"
+		        					invalidMessage="合同编号已存在" required="true" style="width:260px;"></input> -->
+       				 	</td>
+        			</tr>
+        			<tr >
+        				<td align="right">合同名称</td>
+        				<td><input id="contractName" type="text" name="contractName" class="easyui-validatebox" data-options="validType:'maxLength[180]'" required="true" style="width:260px;"></input></td>
+        			</tr>
+        			<tr >
+        				<td align="right">委托方名称</td>
+        				<td>
+        					<input id="sponsorId" type="hidden" name="sponsorId">
+        					<input id="sponsorName" type="text" name="sponsorName" class="easyui-validatebox" onfocus="onSponsorButton();" data-options="validType:'maxLength[180]'" required="true"  missingMessage="请选择" readonly="true" style="width:230px;"/>
+        					<a id="sponsorButton" onclick="onSponsorButton();" class="easyui-linkbutton" data-options="iconCls:'icon-search'" plain="true">选择</a>
+        				</td>
+        			</tr>
+        			<tr >
+        				<td align="right">报告出具方</td>
+        				<td>
+        					<input id="venderId" type="hidden" name="venderId">
+        					<input id="venderNameC" type="text" name="venderName" class="easyui-validatebox" onclick="onVerderButtonCon();" data-options="validType:'maxLength[180]'" disabled required="true" missingMessage="请选择" readonly="true" style="width:230px;"></input>
+        					<a id="verderButton" onclick="onVerderButtonCon();" class="easyui-linkbutton" data-options="iconCls:'icon-search'" disabled plain="true">选择</a>
+        				           同委托方
+        				    <input id="sponsorIsVender01" type="radio" name="sponsorIsVender"   value="1" onchange="sponsorIsVenderChange();">
+        					<a href="javascript:onSponsorIsVenderRadio();" style="color:black;padding:0px 30px 0px 0px;">是</a>
+        				    <input id="sponsorIsVender11" type="radio" name="sponsorIsVender" value="0"  onchange="sponsorIsVenderChange();">
+        					<a href="javascript:onSponsorIsVenderRadio();" style="color:black;padding:0px 30px 0px 0px;">否</a>
+        					
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">合同金额</td>
+        				<td><input id="contractPrice" type="text" name="contractPrice" class="easyui-validatebox" data-options="validType:'maxLength[15]'" validType="positiveNumber"  style="width:160px;"></input>
+        					<select id="priceUnit" name="priceUnit">
+        						<option value="0"></option>
+        						<option value="1">元</option>
+        						<option value="4">万元</option>
+        						<option value="2">美元</option>
+        						<option value="3">欧元</option>
+        					</select>
+        				</td>
+        			</tr>
+        			<tr>
+        				<td align="right">签订日期</td>
+        				<td><input id="signingDate" type="text" name="signingDate"  class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right">生效日期</td>
+        				<td><input id="effectiveDate" type="text" name="effectiveDate" class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right">结束日期</td>
+        				<td><input id="finishDate" type="text" name="finishDate" class="easyui-datebox" required="true" editable="false" style="width:160px;"></input></td>
+        			</tr>
+        			<tr>
+        				<td align="right">备注</td>
+        				<td><textarea id="remark" name="remark" style ="resize: none;" class="easyui-validatebox" data-options="validType:'maxLength[350]'"  rows="3" cols="40"></textarea>
+						</td>
+        			</tr>
+        		</table>
+		    </form>
+			<a id="contractAddEdit_event"></a>
+		</div>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogContractSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#contractAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+<!-- 工具栏 结束-->
+<!-- 试验计划 edit/add结束 -->

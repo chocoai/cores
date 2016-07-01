@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="cores_vsop"
+  id="myeclipse.1455856317985"
+  context-root="/cores_vsop"
+  j2ee-spec="5.0"
+  archive="cores_vsop.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

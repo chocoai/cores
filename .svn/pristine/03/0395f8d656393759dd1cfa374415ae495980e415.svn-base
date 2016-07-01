@@ -1,0 +1,142 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addQAChkPlanDialog" class="easyui-dialog" title="编辑检查计划" modal="true" closed="true" draggable="true"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:960px;height:450px;" closable="true">
+			<div id="addQAChkPlanDialog2" style="display:'';" closable="true">
+			
+			
+			<div style="position:absolute;left: 10px;">
+				<div>
+				<!-- 
+					<a id="generatePlanByScheduleButton" class="easyui-linkbutton" onclick="generatePlanBySchedule();" style="height:30px;" data-options="iconCls:'',plain:true">
+						根据日程设置自动填写检查计划
+					</a>
+					<label for="isEditBySchedule">
+						<input id="isEditBySchedule" disabled onclick="clickManul();" style="vertical-align: middle;height: 30px;" type="checkbox">
+							不参照日程，手动填写检查计划
+					</label>
+				 -->
+					生成检查计划方式：
+					<label for="generatePlanStyle1">
+						<input id="generatePlanStyle1" type="radio" checked="checked" name="generatePlanStyle" 
+							onclick="changeGeneratePlanStyle();" value="1"/>参照试验日程
+					</label>
+					<label for="generatePlanStyle2">
+						<input id="generatePlanStyle2" type="radio" name="generatePlanStyle" 
+							onclick="changeGeneratePlanStyle();" value="2"/>根据任务
+					</label>
+					<label for="generatePlanStyle3">
+						<input id="generatePlanStyle3" type="radio" name="generatePlanStyle" 
+							onclick="changeGeneratePlanStyle();" value="3"/>参照试验周期日程
+					</label>
+					&nbsp;&nbsp;
+					制定依据：
+					<select id="oneSOPFlag" class="easyui-combobox" name="SOPFlag" style="width:200px;"
+					data-options="editable:false">
+						 <!-- 1：SOP；2：SOP+方案；3：方案 -->
+    					 <option value="1" selected="selected">SOP</option>
+   						 <option value="2">SOP+方案</option>
+   						 <option value="3">方案</option>
+					</select>
+					
+				</div>
+				
+				<div style="position:absolute;height:290px;width:280px;top:30px;" >
+					<div id="scheduleDatagridDiv" style="display:'';">
+						<div id="scheduleDatagrid" class="easyui-treegrid" style="position:absolute;height:290px;width:280px;top:0px;"></div>
+					</div>
+					<div id="taskDatagridDiv" style="display:none;">
+						<div id="taskDatagrid" class="easyui-treegrid" style="position:absolute;height:290px;width:280px;top:0px; "></div>
+					</div>
+					<div id="studyPeriodDatagridDiv" style="display:none;">
+						计划开始日期<input id="oneStartDate" name="startDate" class="easyui-datebox"><br/>
+						<div id="studyPeriodDatagrid" class="easyui-datagrid" style="position:absolute;height:290px;width:280px;top:0px;"></div>
+					</div>
+						
+				</div>
+				<div id="checkItemDatagridDiv" style="position:absolute;height:290px;left:270px;top:30px;width:120px;">
+								
+					<div id="checkItemDatagrid"></div>
+				</div>
+				
+				<div id="formDiv" style="position:absolute;height:150px;width:400px;top:285px;">
+			   		<form id="oneQAChkPlan" >
+						<input type="hidden" id="oneScheduleId" name="scheduleId"/>
+						<input type="hidden" id="oneNumber" name="number"/>
+			   			<div style="border: 1px solid #fff; ">
+				   			<table id="oneQAChkPlanTable" style="border: 1px solid #c8c8c8;">
+					   			<tr>
+					   				<td style="text-align: right;width: 250px;" >试验日程日期：</td>
+					   				<td >
+					   					<input  id="oneScheduleTime" name="scheduleTime" style="width: 85px;" readonly="readonly" class="easyui-datebox" data-options="editable:false" required="true"/>
+					   				</td>
+					   				<td style="text-align: right;width: 180px;" >日程名称：</td>
+					   				<td >
+					   					<input  id="oneScheduleName" name="scheduleName" style="width: 80px;" readonly="readonly" data-options="editable:false" required="true" />
+					   				</td>
+					   			</tr>
+					   			<tr>
+					   				<td style="text-align: right;" >计划检查日期：</td>
+					   				<td >
+					   					<input  id="onePlanChkTime" name="planChkTime" style="width: 85px;"  class="easyui-datebox" data-options="editable:false" required="true" />
+					   				</td>
+					   				<td style="text-align: right;" >检查项目：
+					   					<input id="oneChkItemId" name="chkItemId" readonly="readonly" style="display:none"/>
+					   					<input id="oneScheduleChkItemId" name="scheduleChkItemId" style="display:none"/>
+					   				</td>
+					   				<td>
+					   					<input  id="oneChkItemName" name="chkItemName" style="width: 80px;" readonly="readonly" data-options="editable:false" required="true" />
+					   				</td>
+					   			</tr>
+					   			<tr >
+					   				<td style="text-align: right;" >检查区域</td>
+					   				<td colspan="3">
+					   					<select id="onePlanChkArea" class="easyui-combotree" 
+					   						style="width:200px;"
+        									data-options="url: sybp()+'/qAChkPlanAction_loadComboTreeList.action',editable:true,">
+										</select>
+										<input id="onePlanChkArea2" type="hidden" name="planChkArea" />
+										<!-- 
+					   					<a id="saveQAChkPlanButton" class="easyui-linkbutton" onclick="saveQAChkPlan();">确定</a>
+										 -->
+					   				</td>
+					   			
+					   			</tr>
+				   		
+				   			</table>
+				   	
+			  	 		</div>
+			   	 	
+			   		</form>
+				</div> 
+			 
+		   	</div><!-- 左边结束 -->
+		   	
+		   	<div style="position:absolute;width:70px;left:400px;height: 100%;">
+		   		
+			   		<a style="position:absolute; top:50px;"
+			   			id="saveManyQAChkPlanButton"  onclick="saveManyQAChkPlan();" class="easyui-linkbutton" > >> </a>
+			   		<a style="position:absolute; top:250px;"
+			   			id="saveQAChkPlanButton"  onclick="saveQAChkPlan();" class="easyui-linkbutton"> > </a>
+		   	
+		   	</div>
+		   	<!-- 中间 -->
+		   	<div style="position:absolute;left: 450px;top:85px;">
+		   		<div id="qaChkPlanList" class="easyui-datagrid"></div>
+		   	</div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+	<!-- 
+		<a  class="easyui-linkbutton" onclick="commitQAChkPlan();" data-options="iconCls:'icon-add',plain:true">保存</a>
+	 -->
+	 
+		<a id="chkPlanCommitToQAMButton" class="easyui-linkbutton" onclick="commitToQAM();" data-options="iconCls:'icon-add',plain:true">提交</a>
+		版本<select id="oneChkPlanVersion" class="easyui-combobox"  data-options="editable:false" name="chkPlanVersion" style="width:100px;"></select>
+		<a id="applyChkPlanChangeButton" class="easyui-linkbutton" onclick="changeChkPlan();" data-options="iconCls:'icon-add',plain:true">变更检查计划</a>
+		<a id="cancelChkPlanChangeButton" class="easyui-linkbutton" onclick="cancelChangeChkPlan();" data-options="iconCls:'icon-back',plain:true">撤销变更申请</a>
+		
+		<a  style="display:''" class="easyui-linkbutton" onclick="javascript:$('#addQAChkPlanDialog').dialog('close');$('#qaChkPlanDatagrid').datagrid('reload');" data-options="iconCls:'icon-back',plain:true">取消</a>
+		 
+	</div>
+	<!-- 工具栏 结束-->

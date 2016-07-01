@@ -1,0 +1,67 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- path edit/add  start -->
+<div id="pathAddEditDialog" class="easyui-dialog" title="新建" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:392px;height:307px;" closable="true">
+	<div id="pathAddEditDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="addOrEdit"/>
+			<form id="pathAddEditForm" action="" method="post">
+		   	  <input type="hidden" id="itemCode" name="itemCode" >
+		   	  <input type="hidden" id="dictType2" name="dictType" >
+		   	  <input type="hidden" id="visceraCode" name="visceraCode" >
+		   	  <table>
+		   	  		<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">字典项</td>
+        				<td id='dictTypeName'>解剖学所见</td>
+        			</tr>
+		   	  		<tr id="visceraNameTR">
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">脏器名称</td>
+        				<td id='visceraName'>脑</td>
+        			</tr>
+        			<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">病理名称</td>
+        				<td>
+        				    <input type="hidden" id="oldDescCn"  />
+                            <input id="descCn" type="text" name="descCn" 
+                        	 class="easyui-validatebox" style="width:260px;" data-options="validType:'maxLength[100]'"
+                        	required="true" missingMessage="必填项" invalidMessage="病理名称已存在"
+                        	validType="remotettt[sybp()+'/dictPathCommonAction_checkDescCn.action','descCn','#oldDescCn','dictType','#dictType2','visceraCode','#visceraCode']" />
+       				 	</td>
+        			</tr>
+        			<tr >
+        				<td align="right" height="30px;" style="padding-right: 10px;">拼音首字母</td>
+        				<td><input id="py" type="text" name="py" class="easyui-validatebox" data-options="validType:'maxLength[100]'" style="width:147px;" required="true" missingMessage="必填项" ></input></td>
+        			</tr>
+        			<tr >
+        				<td align="right" height="30px;" style="padding-right: 10px;">英文名称</td>
+        				<td><input id="descEn" type="text" name="descEn" class="easyui-validatebox" data-options="validType:'maxLength[100]'" style="width:260px;"></input></td>
+        			</tr>
+        			<tr >
+        				<td align="right" height="30px;" style="padding-right: 10px;">日文名称</td>
+        				<td><input id="descJp" type="text" name="descJp" class="easyui-validatebox" data-options="validType:'maxLength[100]'" style="width:260px;"></input></td>
+        			</tr>
+        			<tr id="specicalFlagTR">
+        				<td align="right" height="30px;" style="padding-right: 10px;">特殊所见标志</td>
+        				<td id="specicalFlagTD">
+	        				<select id="specicalFlag" class="easyui-combobox" name="specicalFlag" style="width:100px;" panelHeight="auto">   
+							    <option value="0">无</option>   
+							    <option value="1">非常规病变</option>   
+							    <option value="2">脏器缺失</option>   
+							</select> 
+        				</td>
+        			</tr>
+        			
+        		</table>
+		    </form>
+		</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a id="confirmButton" class="easyui-linkbutton" onclick="onConfirmButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#pathAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	<input id= "continueAddCheckBox" type="checkbox" style="position: absolute;top:37px;">
+	<a id="continueAddA" href="javascript:void(0);" onclick="$('#continueAddCheckBox').click();" style="margin-left: 15px;">连续添加</a>
+</div>
+<!-- 工具栏 结束-->
+	</div>
+</div>
+<!-- path edit/add end -->

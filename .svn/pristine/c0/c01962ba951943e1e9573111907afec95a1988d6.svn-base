@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblReception" table="tblReception" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20" />
+        </id>
+        <property name="customerId" type="java.lang.String">
+            <column name="customerId"  length="20" />
+        </property>
+        <property name="linkman" type="java.lang.String">
+            <column name="linkman"  length="50" />
+        </property>
+        <property name="linkInformation" type="java.lang.String">
+            <column name="linkInformation"  length="200" />
+        </property>
+        <property name="receptionTime" type="java.sql.Timestamp">
+            <column name="receptionTime" />
+        </property>
+        <property name="contractCode" type="java.lang.String">
+            <column name="contractCode"  length="50" />
+        </property>
+        <property name="question" type="java.lang.String">
+            <column name="question"  length="1000" />
+        </property>
+        <property name="result" type="java.lang.String">
+            <column name="result" length="1000" />
+        </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator" length="50" />
+        </property>
+        <property name="recordTime" type="java.sql.Timestamp">
+            <column name="recordTime" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="state" length="50" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<div align="right"><%@page language="java" pageEncoding="UTF-8"%> 
+	</div><div id="otherOperateDialog" class="easyui-dialog" title="其他操作" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'"  style="display:'';width:330px;height:210px;" closable="true">
+		<div id="otherOperateDialog2" style="display:none;" closable="true">
+		   
+		   		<input id="otherOperateType" type="hidden"></input>
+				<div id="otherOperateLabel" style="margin-top:20px;margin-left:20px;"></div>
+				<div style="margin-top:10px;margin-left:20px;">
+					请输入<span id="dateLabel"></span>时间：<input id="otherOperateDate"  class="easyui-datebox"/>
+				</div>
+				<div style="margin-top:10px;margin-left:20px;">
+					请输入<span id="reasonLabel"></span>原因：<input id="otherOperateReason"  />
+				</div>
+		     
+				    			
+	
+		
+	</div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="saveOtherOperate();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#otherOperateDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+	
+	</div>
+	<!-- 工具栏 结束-->

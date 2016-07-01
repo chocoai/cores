@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 图片 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限-->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI" >/WEB-INF/jsp/userAction/logout.jsp</result>
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="systemError">/systemError.jsp</result>
+			<result name="toLogout" type="redirectAction">userAction_logout</result>
+			<result name="toIndexSystem" type="redirectAction">homeAction_indexSystemSet?ticket=${ticket}</result>
+		</global-results>
+
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp
+			</result>
+			<result name="success">/xls_test.jsp</result>
+		</action>
+
+		<!-- 首页 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+
+		<!-- 字典-生化指标 -->
+		<action name="dictBioChemAction_*" class="dictBioChemAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictBioChemAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictBioChemAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictBioChemAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictBioChemAction_list</result>
+		</action>
+		<!-- 字典-血凝 -->
+		<action name="dictBloodCoagAction_*" class="dictBloodCoagAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictBloodCoagAction/list.jsp
+			</result>
+			<result name="addUI">/WEB-INF/jsp/dictBloodCoagAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictBloodCoagAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictBloodCoagAction_list</result>
+		</action>
+		<!-- 字典-标本类型 -->
+		<action name="dictSpecimenAction_*" class="dictSpecimenAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictSpecimenAction/list.jsp
+			</result>
+			<result name="addUI">/WEB-INF/jsp/dictSpecimenAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictSpecimenAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictSpecimenAction_list</result>
+		</action>
+		<!-- 字典-血常规 -->
+		<action name="dictHematAction_*" class="dictHematAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictHematAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictHematAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictHematAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictHematAction_list</result>
+		</action>
+		<!-- 字典-尿常规 -->
+		<action name="dictUrineAction_*" class="dictUrineAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictUrineAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictUrineAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictUrineAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictUrineAction_list</result>
+		</action>
+		<!-- 字典-供试品类型 -->
+		<action name="dictTestItemTypeAction_*" class="dictTestItemTypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictTestItemTypeAction/{1}.jsp</result>
+		</action>
+		<!-- 字典-剂量单位 -->
+		<action name="dictDoseUnitAction_*" class="dictDoseUnitAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/dictDoseUnitAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/dictDoseUnitAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictDoseUnitAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictDoseUnitAction_list</result>
+		</action>
+		<!-- 字典-课题类别 -->
+		<action name="dictStudyTypeAction_*" class="dictStudyTypeAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/dictStudyTypeAction/list.jsp
+			</result>
+			<result name="addUI">/WEB-INF/jsp/dictStudyTypeAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/dictStudyTypeAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">dictStudyTypeAction_list</result>
+		</action>
+		<!-- 字典-课题缺省检验指标 -->
+
+		<action name="dictStudyTestIndexAction_*" class="dictStudyTestIndexAction"
+			method="{1}">
+			<result name="editUI">/WEB-INF/jsp/dictStudyTestIndexAction/editUI.jsp
+			</result>
+			<result name="save" type="redirectAction">dictStudyTypeAction_list</result>
+		</action>
+		
+		<!-- 字典-项目进度设置 -->
+		<action name="tblStudyScheduleNodeAction_*" class="tblStudyScheduleNodeAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblStudyScheduleNodeAction/{1}.jsp</result>
+		</action>
+		<!-- 字典-动物房资源设置 -->
+		<action name="tblAnimalHouseAction_*" class="tblAnimalHouseAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblAnimalHouse/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblAnimalHouse/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/tblAnimalHouse/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">tblAnimalHouseAction_list?rid=${rid}</result>
+		</action>
+		
+		 <!-- 字典-通用任务设置 -->
+		<action name="tblTaskTypeAction_*" class="tblTaskTypeAction"
+			method="{1}">
+			<result name="list">/WEB-INF/jsp/tblTaskTypeAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/tblTaskTypeAction/addUI.jsp
+			</result>
+			<result name="editUI">/WEB-INF/jsp/tblTaskTypeAction/editUI.jsp
+			</result>
+			<result name="toList" type="redirectAction">tblTaskTypeAction_list?taskIds=${taskIds}
+			</result>
+			<result name="addUILeader">/WEB-INF/jsp/tblTaskTypeAction/addUILeader.jsp
+			</result>
+		</action>
+		 <!-- 毒性病理-脏器字典 -->
+		<action name="dictVisceraAction_*" class="dictVisceraAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/dictVisceraAction/list.jsp</result>
+		</action>
+		 <!-- 毒性病理-脏器字典 -->
+		<action name="dictPathCommonAction_*" class="dictPathCommonAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/dictPathCommonAction/list.jsp</result>
+		</action>
+		  <!-- 任务总负责人 -->
+		<action name="tblTaskTypeLeaderAction_*" class="tblTaskTypeLeaderAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblTaskTypeLeaderAction/{1}.jsp</result>
+		</action>
+		  <!-- 表格编号 -->
+		<action name="dictReportNumberAction_*" class="dictReportNumberAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictReportNumberAction/{1}.jsp</result>
+		</action>
+		
+		<!-- qa实验分类设置 -->
+		<action name="dictStudyGroupAction_*" class="dictStudyGroupAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictStudyGroupAction/{1}.jsp</result>
+		</action>
+		
+		<action name="dictQACheckTableAction_*" class="dictQACheckTableAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictQACheckTableAction/{1}.jsp</result>
+		</action>
+		<action name="dictQACheckItemAction_*" class="dictQACheckItemAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictQACheckItemAction/{1}.jsp</result>
+		</action>
+		<action name="dictQACheckContentTableAction_*" class="dictQACheckContentTableAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictQACheckTableAction/{1}.jsp</result>
+		</action>
+		<action name="dictChkItemChkTblRegAction_*" class="dictChkItemChkTblRegAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictChkItemChkTblRegAction/{1}.jsp</result>
+		</action>
+		<action name="dictChkItemStudyGroupRegAction_*" class="dictChkItemStudyGroupRegAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictChkItemStudyGroupRegAction/{1}.jsp</result>
+		</action>
+		<action name="dictScheduleChkItemAction_*" class="dictScheduleChkItemAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictScheduleChkItemAction/{1}.jsp</result>
+		</action>
+		<action name="dictChkItemQAFileRegAction_*" class="dictChkItemQAFileRegAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictChkItemQAFileRegAction/{1}.jsp</result>
+		</action>
+		<!-- class名字是全大写？ -->
+		<action name="qAFileRegAction_*" class="QAFileRegAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAFileRegAction/{1}.jsp</result>
+		</action>
+		<action name="qAFileTypeAction_*" class="QAFileTypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/QAFileRegAction/{1}.jsp</result>
+		</action>
+		<action name="dictQAStatementTempleAction_*" class="dictQAStatementTempleAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictQAStatementTempleAction/{1}.jsp</result>
+		</action>
+		<action name="dictChkAreaAction_*" class="dictChkAreaAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictChkAreaAction/{1}.jsp</result>
+		</action>
+		
+		<action name="tblSuperficialTumorVisceraAction_*" class="tblSuperficialTumorVisceraAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/tblSuperficialTumorVisceraAction/{1}.jsp</result>
+		</action>
+		<!-- 档案管理设置 -->
+		<action name="dictSOPTypeAction_*" class="dictSOPTypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictSOPTypeAction/{1}.jsp</result>
+		</action>
+		<action name="dictArchiveTypeAction_*" class="dictArchiveTypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictArchiveTypeAction/{1}.jsp</result>
+		</action>
+		<action name="dictArchivePositionAction_*" class="dictArchivePositionAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictArchivePositionAction/{1}.jsp</result>
+		</action>
+		<action name="dictAdministrationTypeAction_*" class="dictAdministrationTypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictAdministrationTypeAction/{1}.jsp</result>
+		</action>
+		
+		<action name="dictLevelAction_*" class="dictLevelAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/dictLevelAction/{1}.jsp</result>
+		</action>
+		
+		<action name="companyInfoAction_*" class="companyInfoAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/companyInfoAction/{1}.jsp</result>
+		</action>
+	</package>
+</struts>

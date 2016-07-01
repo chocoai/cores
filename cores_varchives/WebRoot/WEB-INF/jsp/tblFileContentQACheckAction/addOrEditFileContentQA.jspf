@@ -1,0 +1,147 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="AddOrEditFileContentQADialog" class="easyui-dialog" title="新建QA检查档案" modal="true" closed="true" draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:800px;height:410px;" closable="true">
+		<div id="AddOrEditFileContentQADialog2" style="display:none;" closable="true">
+		   
+		      <form id="oneTblFileContentQAForm">
+		      	<input id="addOrEditQA" type="hidden">
+		      	<input id="oneFileRecordId1" name="fileRecordId" type="hidden"/>
+ 			  	<input id="oneArchiveTypeFlag1" name="archiveTypeFlag" type="hidden"/>
+ 			  	<input id="operateQARsn" name="operateRsn" type="hidden"/>
+ 			  	
+			  	<div style="position: absolute; top:62px;left:30px;background-color: #fff;">归档内容</div>				
+			  <div style="position: absolute; top:212px;left:30px;background-color: #fff;">归档记录</div>		
+			   				
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:5px;padding-bottom:5px;">
+			  		<table border="0" width="100%">
+			  			<tr>
+			  				<td></td>
+			  				<td colspan="3" width="300">
+			  				<!-- 编号和SD只对专题和合同有效 -->
+			  					<label for="checkItemType1">
+				  					<input id="checkItemType1" type="radio" name="checkItemType" value="1" checked="checked" 
+				  					onclick="$('#studyNoQA').attr('disabled',false);$('#sdnameQA').attr('disabled',false);
+				  						$('#studyNoQALabel').html('专题编号');$('#checkItemNameLabel').html('专题名称');"/>按专题编号
+			  					</label>
+			  					<label for="checkItemType2">
+				  					<input id="checkItemType2" type="radio" name="checkItemType" value="2" 
+				  					onclick="$('#studyNoQA').attr('disabled',false);$('#sdnameQA').attr('disabled',false);
+				  					$('#studyNoQALabel').html('合同编号');$('#checkItemNameLabel').html('合同名称');"/>按合同编号
+			  					</label>
+			  					<label for="checkItemType3">
+				  					<input id="checkItemType3" type="radio" name="checkItemType" value="3" 
+				  					onclick="$('#studyNoQA').attr('disabled',true);$('#sdnameQA').attr('disabled',true);
+				  					$('#studyNoQALabel').html('编号');$('#checkItemNameLabel').html('名称');"/>设施检查
+			  					</label>
+			  					<label for="checkItemType4">
+				  					<input id="checkItemType4" type="radio" name="checkItemType" value="4" 
+				  					onclick="$('#studyNoQA').attr('disabled',true);$('#sdnameQA').attr('disabled',true);
+				  					$('#studyNoQALabel').html('编号');$('#checkItemNameLabel').html('名称');"/>过程检查
+			  					</label>
+			  				</td>
+			  				
+			  				<td colspan="2"  align="right">
+			  					归档介质：
+								<label for="archiveMediaFlag11">
+									<input id="archiveMediaFlag11" type="radio" name="tblFileRecord.archiveMediaFlag" value="1" checked="checked" onclick="$('#oneArchiveMedia1').attr('disabled',true);"/>纸质
+								</label>
+								<label for="archiveMediaFlag21">
+									<input id="archiveMediaFlag21" type="radio" name="tblFileRecord.archiveMediaFlag" value="2" onclick="$('#oneArchiveMedia1').attr('disabled',true);"/>电子
+								</label>
+								<label for="archiveMediaFlag31">
+									<input id="archiveMediaFlag31" type="radio" name="tblFileRecord.archiveMediaFlag" value="3" onclick="$('#oneArchiveMedia1').attr('disabled',false);"/>其他
+								</label>
+								<input id="oneArchiveMedia1" type="text" disabled name="tblFileRecord.archiveMedia" style="width:100px;"/>
+							</td>
+			  			</tr>
+			  			<tr>
+			  				<td width="67"><span id="studyNoQALabel">编号</span>：</td>
+			  				<td colspan="5" width="510"><input id="studyNoQA" class="easyui-validatebox" required="true" name="studyNo" onblur="if($('#addOrEditQA').val()==1||$('#addOrEditQA').val()==3){getStudyNameQA();}" style="width:350px;"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td><span id="checkItemNameLabel">名称</span>：</td>
+			  				<td colspan="5"><input id="checkItemName" class="easyui-validatebox" name="checkItemName" required="true" style="width:550px;"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td>SD：</td>
+			  				<td colspan="5"><input id="sdnameQA" name="sdname"  readonly="readonly"  style="width:100px;"/></td>
+			  			</tr>
+			  			<tr>
+			  				<td>QA检查员：</td>
+			  				<td colspan="5"><input id="inspector" name="inspector" readonly="readonly" style="width:100px;"
+			  					class="easyui-combobox"  /></td>
+			  			</tr>
+			  			
+			  		</table>
+			   </div>
+			   <div style="width:99.5%;height:50%; border:1px solid #c8c8c8; margin-top:10px;padding-top:10px;">
+	    			<table border="0" >
+				    	<tr>
+				    		<td width="100">分类代号：</td>
+				    		<td width="100">
+				    			<input id="oneArchiveTypeCode1" name="archiveTypeCode" type="hidden"/>
+				    			<input id="oneArchiveTypeName1" name="archiveTypeName" readonly='readonly' onfocus="if(value==''||value==null){$('#chooseOneArchiveTypeCode1').click();}" required="true" style="width:72%;"/>
+				    			<input type="button" id="chooseOneArchiveTypeCode1" class="easyui-linkbutton" style="width:30px;" style="width:30px;" onclick="chooseArchiveType();" value="..."/>
+				    		</td>
+				    		<td width="100">档案编号：</td>
+				    			<td colspan="3" width="300"><input id="oneArchiveCode1" name="archiveCode" type="text" required="true" style="100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">储存位置：</td>
+				    			<td width="100"><input id="oneStorePosition1"  required="true" 
+				    			class="easyui-combotree"/>
+				    			<input id="oneStorePosition1L" type="hidden" name="storePosition"/></td>
+				    			
+				    			<td width="100">题名：</td>
+				    			<td width="300" colspan="3"><input id="oneArchiveTitle1" name="archiveTitle" required="true"  style="width:100%;"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">立卷人：</td>
+				    			<td width="100">
+				    			<input id="oneArchiveMaker1" name="tblFileRecord.archiveMaker" required="true" 
+				    				class="easyui-combobox"  />
+				    						
+				    			</td>
+				    			<td width="100">归档人：</td>
+				    			<td width="100">
+				    				<input id="oneFileOperator1" name="tblFileRecord.fileOperator" required="true"
+				    					   class="easyui-validatebox"/>
+				    				</td>
+				    			<td width="100">归档日期：</td>
+				    			<td width="100"><input class="easyui-datebox" id="oneFileDate1" name="tblFileRecord.fileDate" required="true"/></td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">备注：</td>
+				    			<td width="300" colspan="3"><input id="oneRemark1" name="tblFileRecord.remark" type="text" style="width:100%"/></td>
+				    			<td width="100">保存期限：</td>
+				    			<td width="100">
+				    				<input class="easyui-datebox" id="oneKeepDate1" name="tblFileRecord.keepDate" data-options="width:120,"/>
+				    				<input type="checkbox" class="checkboxC" id="isLong1" name="isLong" checked="checked"
+				    				onclick="if($('#isLong1').attr('checked')=='checked'){$('#oneKeepDate1').datebox('setValue','');$('#oneKeepDate1').datebox('disable');}else{$('#oneKeepDate1').datebox('setValue',$('#todayDate').val());$('#oneKeepDate1').datebox('enable');}">长期
+				
+				    			</td>
+				    		</tr>
+				    		<tr>
+				    			<td width="100">关键字：</td>
+				    			<td width="300" colspan="3"><input id="oneKeyWord1" name="tblFileRecord.keyWord" type="text" style="width:100%"/></td>
+				    			
+				    			<td width="100" id="oneDestoryDate1Label" style="display:none;">销毁日期</td>
+				    			<td width="100" id="oneDestoryDate1Label2" style="display:none;"><input class="easyui-datebox" id="oneDestoryDate1" name="tblFileRecord.destoryDate"/></td>
+				    		
+				    		</tr>
+				    			
+				    </table>
+	    	   </div>
+		    </form>
+			<div id="positionTipCode1"></div>
+		 </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveButton1" class="easyui-linkbutton" onclick="saveOneFileContentQA();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a class="easyui-linkbutton" onclick="javascript:$('#AddOrEditFileContentQADialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">返回</a>
+		<input id="continueAddQAButton" type="checkbox" class="checkboxC"/><span id="continueAddQALabel"></span>
+		<input id="isForValidQA" type="checkbox" class="checkboxC" style="position:absolute;top:35px;right: 60px;"/>
+		<span id="isForValidQALabel" style="position:absolute;top:35px;right: 10px;">验证记录</span> 
+	</div>
+	<!-- 工具栏 结束-->

@@ -1,0 +1,23 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 剂量设置生效日期   开始 -->
+	<div id="doseSettingEffectiveDateDialog" class="easyui-dialog" title="选择剂量设置生效日期" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:280px;height:200px;" closable="true">
+			<div id="doseSettingEffectiveDateDialog2" style="display:none;">
+			    <div >
+			    	<div style="float:left; width:230px;padding-top:13px;padding-left:20px;   height:100px;">
+			    		由于修改了剂量设置，请选择该设置的生效日期：<input id="doseSettingEffectiveDate" class="easyui-datebox" ></input>
+			    		
+			    	</div>
+					
+					
+			    </div>
+			     <a id="studyTypeSelect_event"></a>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a  class="easyui-linkbutton" onclick="onSelectDoseEffectiveButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a  class="easyui-linkbutton" onclick="javascript:$('#doseSettingEffectiveDateDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 专题类别   结束 -->

@@ -1,0 +1,42 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<div id="selectScheduleStartDateDialog" class="easyui-dialog" title="复制日程" modal="true" closed="true" 
+		data-options="toolbar:'#selectScheduleStartDateDialogToolbar'" style="display:'';width:460px;height:250px;" closable="true">
+	
+	<div id="selectScheduleStartDateDialog2" style="display:'';" closable="true" style="display:'';width:460px;">
+		<div style="margin-top:15px; text-align: center;">
+			<span >系统将在源专题日程设置的基础上，参照两个专题的分组日期来计算目标专题的日程，请提供两个专题各自的分组日期 </span>
+		</div>
+		<table style="margin-top:30px;" >
+		<tr style="border-top: 1px solid #c8c8c8;">
+			<td width="90px" height="20px"  >源专题编号</td>
+			<td width="120px">
+				<span id="studyNodeOld" style="width: 120px;"></span>
+			</td>
+			<td width="70px;" height="20px;"  >分组日期：</td>
+			<td width="80px;">
+				<input style="width: 100px;" id="dateOld" type="text" class="easyui-datebox" required="required">
+				
+			</td>
+		</tr>
+		<tr >
+			<td width="90px" height="20px;"  >目标专题编号</td>
+			<td width="120px">
+				<span id="studyNodeNew" style="width: 120px;"></span>
+			</td>
+			<td width="70px;" height="20px;"  >分组日期：</td>
+			<td  width="80px;">
+				<input style="width: 100px;" id="dateNew" type="text" class="easyui-datebox" required="required">
+				
+			</td>
+			
+		</tr>
+		</table>
+	</div>
+</div>
+<!-- 工具栏 开始-->
+<div id="selectScheduleStartDateDialogToolbar">
+	<a id="selectScheduleStartDatesaveButton" class="easyui-linkbutton" onclick="onselectScheduleStartDateSaveButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="onselectScheduleStartDateCancelButton();"  data-options="iconCls:'icon-nook',plain:true">取消</a>
+</div>
+
+<!-- 工具栏 结束-->

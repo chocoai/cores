@@ -1,0 +1,46 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- path edit/add  start -->
+<div id="addAdministrationDialog" class="easyui-dialog" title="新建一个综合类别" modal="true" closed="true"  draggable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:402px;height:257px;" closable="true">
+	<div id="addAdministrationDialog2" style="display:none;">
+		<div  style=" margin:5px; border:0;overflow-x:auto; overflow-y:auto;">
+			<input type="hidden" id="addOrEdit"/>
+			<form id="administrationAddEditForm" action="" method="post">
+		   	
+		   	  <table>
+		   	 		 <tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;">分类代码：</td>
+        				<td>
+        					<input id="oldAdministrationTypeCode" name="oldArchiveTypeCode" type="hidden"/>
+        				    <input id="oneAdministrationTypeCode" type="text" name="docTypeFlag" 
+                        	 class="easyui-validatebox" style="width:260px;" data-options="validType:'maxLength[100]'"
+                        	required="true" missingMessage="必填项" invalidMessage="类别代码已存在"
+                        	validType="remotett[sybp()+'/dictAdministrationTypeAction_checkTypeCode.action','docTypeCode','#oneArchiveTypeCode']" />
+       				 	</td>
+        			</tr>
+		   	  		<tr >
+        				<td width="80px;" align="right" height="30px;" style="padding-right: 10px;" >类别名称：</td>
+        				<td >
+						 <input id="oneAdministrationTypeName" type="text" name="docTypeName" 
+                        	 class="easyui-validatebox" style="width:260px;" data-options="validType:'maxLength[100]'"
+                        	required="true" missingMessage="必填项" invalidMessage="类别名称已存在"
+                        	validType="remotett[sybp()+'/dictAdministrationTypeAction_checkTypeName.action','docTypeName','#oneAdministrationTypeName']" />
+       				 	</td>
+        			</tr>
+        			
+        			
+        			
+        		</table>
+		    </form>
+		</div>
+<!-- 工具栏 开始-->
+<div id="dialogToolbar">
+	<a class="easyui-linkbutton" onclick="saveOneAdministration();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+	<a class="easyui-linkbutton" onclick="javascript:$('#addAdministrationDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	<input id="continueAddCheckBox" type="checkbox" style="position: absolute;top:37px;">
+	<span id="continueAddLabel" style="margin-left: 15px;">连续添加</span>
+</div>
+<!-- 工具栏 结束-->
+	</div>
+</div>
+<!-- path edit/add end -->

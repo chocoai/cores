@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.contract.TblStudyItem" table="tblStudyItem" >
+        <id name="id" type="java.lang.String">
+            <column name="id" length="20" />
+        </id>
+        <property name="contractCode" type="java.lang.String">
+            <column name="contractCode"  length="50"/>
+        </property>
+        <property name="tiNo" type="java.lang.String">
+            <column name="tiNo"  length="50"/>
+        </property>
+        <property name="studyTypeCode" type="java.lang.String">
+            <column name="studyTypeCode"  length="50"/>
+        </property>
+        <property name="studyName" type="java.lang.String">
+            <column name="studyName"  length="200" />
+        </property>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo"  length="50" />
+        </property>
+        <property name="glpFlag" type="java.lang.Integer">
+            <column name="glpFlag"  length="1"/>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  length="200"/>
+        </property>
+        <property name="sdCode" type="java.lang.String">
+            <column name="sdCode"  length="50"/>
+        </property>
+        <property name="sd" type="java.lang.String">
+            <column name="sd"  length="50"/>
+        </property>
+        <property name="qaCode" type="java.lang.String">
+            <column name="qaCode"  length="50"/>
+        </property>
+        <property name="qa" type="java.lang.String">
+            <column name="qa"  length="50"/>
+        </property>
+        <property name="sdManager" type="java.lang.String">
+            <column name="sdManager"  length="50"/>
+        </property>
+        <property name="sdState" type="java.lang.Integer">
+            <column name="sdState"  length="1"/>
+        </property>
+        <property name="qaState" type="java.lang.Integer">
+            <column name="qaState"  length="1"/>
+        </property>
+        <property name="sdAppointDate" type="java.sql.Timestamp">
+            <column name="sdAppointDate" />
+        </property>
+        <property name="qaAppointDate" type="java.sql.Timestamp">
+            <column name="qaAppointDate" />
+        </property>
+        <property name="fmCode" type="java.lang.String">
+            <column name="fmCode"  length="50"/>
+        </property>
+        <property name="fm" type="java.lang.String">
+            <column name="fm"  length="50"/>
+        </property>
+        <property name="studyState" type="java.lang.Integer">
+            <column name="studyState"  length="2"/>
+        </property>
+        <property name="animalType" type="java.lang.String">
+            <column name="animalType"  length="20"/>
+        </property>
+        <property name="animalStrain" type="java.lang.String">
+            <column name="animalStrain"  length="20"/>
+        </property>
+        <property name="animalAge" type="java.lang.String">
+            <column name="animalAge"  length="20"/>
+        </property>
+        <property name="numMale" type="java.lang.Integer">
+            <column name="numMale"/>
+        </property>
+        <property name="numFemale" type="java.lang.Integer">
+            <column name="numFemale"/>
+        </property>
+        <property name="state" type="integer">
+            <column name="state"  length="2" />
+        </property>
+       
+        <property name="pathSD" type="java.lang.String">
+            <column name="pathSD"  length="50"/>
+        </property>
+        <property name="pathSDCode" type="java.lang.String">
+            <column name="pathSDCode"  length="50"/>
+        </property>
+        <property name="paState" type="java.lang.Integer">
+            <column name="paState"  length="1"/>
+        </property>
+         <property name="pathSDDate" type="java.sql.Timestamp">
+            <column name="pathSDDate" />
+        </property>
+          <property name="finishDate" type="java.sql.Timestamp">
+            <column name="finishDate" />
+        </property>
+    </class>
+</hibernate-mapping>

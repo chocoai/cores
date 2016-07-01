@@ -1,0 +1,14 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="approvalQAChkPlanDialog" class="easyui-dialog" title="审批检查计划" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:535px;height:345px;" closable="true">
+			<div id="approvalQAChkPlanDialog2" style="display:'';" closable="true">
+		   	 	<div id="approvalQAChkPlanList" class="easyui-datagrid"></div>
+		   	 	
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="acceptChkPlanApplyButton" class="easyui-linkbutton" onclick="acceptChkPlanApply(2);" data-options="iconCls:'icon-ok',plain:true">确认</a>
+		<a id="rejectChkPlanApplyButton" class="easyui-linkbutton" onclick="acceptChkPlanApply(-1);" data-options="iconCls:'icon-cancel',plain:true">退回</a>
+	</div>
+	<!-- 工具栏 结束-->

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.path">
+    <class name="com.lanen.model.path.TblAnatomyReq" table="tblAnatomyReq" >
+       <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="studyNo" type="java.lang.String">
+            <column name="studyNo" length="20" />
+        </property>
+        <property name="reqNo" type="java.lang.Integer">
+            <column name="reqNo" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="author" length="20" />
+        </property>
+        <property name="createTime" type="java.sql.Timestamp">
+            <column name="createTime" />
+        </property>       
+        <property name="submitFlag" type="java.lang.Integer">
+            <column name="submitFlag" />
+        </property>
+        <property name="submitter" type="java.lang.String">
+            <column name="submitter" length="20" />
+        </property>
+        <property name="submitDate" type="java.sql.Timestamp">
+            <column name="submitDate" />
+        </property> 
+        <property name="anatomyRsn" type="java.lang.Integer">
+            <column name="anatomyRsn" />
+        </property>
+        <property name="anatomyPlanNum" type="java.lang.Integer">
+            <column name="anatomyPlanNum" />
+        </property>
+        <property name="testPhase" type="java.lang.String">
+            <column name="testPhase" length="60" />
+        </property>
+        <property name="beginDate" type="java.sql.Timestamp">
+            <column name="beginDate" />
+        </property>
+        <property name="endDate" type="java.sql.Timestamp">
+            <column name="endDate" />
+        </property>
+        <property name="visceraWeighFlag" type="java.lang.Integer">
+            <column name="visceraWeighFlag" />
+        </property>
+        <property name="visceraFixedFlag" type="java.lang.Integer">
+            <column name="visceraFixedFlag" />
+        </property>
+        <property name="anatomyCheckFlag" type="java.lang.Integer">
+            <column name="anatomyCheckFlag" />
+        </property>
+        <property name="histopathCheckFlag" type="java.lang.Integer">
+            <column name="histopathCheckFlag" />
+        </property>
+        <property name="tempFlag" type="java.lang.Integer">
+            <column name="tempFlag" />
+        </property>
+        <property name="tempConfirmTime" type="java.sql.Timestamp">
+            <column name="tempConfirmTime" />
+        </property>
+        <property name="tempConfirmMan" type="java.lang.String">
+            <column name="tempConfirmMan" length="20" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

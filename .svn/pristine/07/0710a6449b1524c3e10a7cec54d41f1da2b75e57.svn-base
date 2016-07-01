@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.clinicaltest">
+    <class name="com.lanen.model.clinicaltest.TblInstrumentVerification" table="tblInstrumentVerification" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="instrumentName" type="java.lang.String">
+            <column name="instrumentName"  length="200"/>
+        </property>
+        <property name="verType" type="java.lang.String">
+            <column name="verType"  length="20"/>
+        </property>
+        <property name="verDate" type="timestamp">
+            <column name="verDate" />
+        </property>
+        <property name="valiDate" type="timestamp">
+            <column name="valiDate" />
+        </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator"  length="20"/>
+        </property>
+        <property name="operatUnit" type="java.lang.String">
+            <column name="operatUnit"  length="100"/>
+        </property>
+        
+        <!-- dictInstrument, 本类与DictInstrument的多对一的关系 -->
+        <many-to-one name="dictInstrument" class="DictInstrument" column="instrumentId" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

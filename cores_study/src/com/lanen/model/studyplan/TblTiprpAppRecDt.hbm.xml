@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.studyplan">
+    <class name="com.lanen.model.studyplan.TblTiprpAppRecDt" table="tblTiprpAppRecDt" >
+        <id name="id" type="java.lang.String">
+            <column name="id"  length="20"/>
+        </id>
+        <property name="StudyNo" type="java.lang.String">
+            <column name="StudyNo"  length="20"/>
+        </property>
+        <property name="AppSn" type="java.lang.Integer">
+            <column name="AppSn"  />
+        </property>
+        <property name="RecDt" type="timestamp">
+            <column name="RecDt" />
+        </property>
+        <property name="RecMan" type="java.lang.String">
+            <column name="RecMan"  length="20"/>
+        </property>
+        <property name="RecTimel" type="timestamp">
+            <column name="RecTimel" />
+        </property>
+        <property name="PrpStatus" type="java.lang.Integer">
+            <column name="PrpStatus" />
+        </property>
+         <many-to-one name="tblTiprpAppInd" column="StudyNoId" class="TblTiprpAppInd" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+
+
+.edit_table table{
+	border-collapse:collapse;
+	right:0;
+	bottom:0;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.edit_table table td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:4px 30px;
+	text-align:left;
+}

@@ -1,0 +1,40 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 相同专题类别的所有专题   开始 -->
+	<div id="selectCheckTableDialog" class="easyui-dialog" title="选择检查表" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar2'" style="display:'';width:400px;height:500px;" closable="true">
+			<div id="selectCheckTableDialog2" style="display:none;">
+					<div style="float:left; width:380px;">
+						<table style="top:1px;width:380px;height:60px;">
+							<tr>
+								<td>编 号：</td>
+								<td><input id="selectChkTblCodeLabel" ></td>
+							</tr>
+							<tr>
+								<td>检查表名称：</td>
+								<td><input id="selectChkTblNameLabel" ></td>
+							</tr>
+						</table>
+						
+						<table id="selectChkTblTable" class="easyui-datagrid" style="top:10px;width:380px;height:360px;"   
+						        data-options="singleSelect:true,">   
+						    <thead>   
+						        <tr>
+						          	<th data-options="field:'chkTblId',title:'chkTblId',hidden:true"></th> 
+						            <th data-options="field:'chkTblCode',title:'编号',width:100"></th> 
+						            <th data-options="field:'chkTblName',title:'检查表名称',width:258"></th>  
+						        </tr>   
+						    </thead>   
+						</table>
+					</div>
+					
+			   
+			    
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar2">
+		<a id="selectButton2" class="easyui-linkbutton" onclick="saveCheckTableAndItemButton();" data-options="iconCls:'icon-add',plain:true">确定</a>
+		<a id="backButton2" class="easyui-linkbutton" onclick="javascript:$('#selectCheckTableDialog').dialog('close');" data-options="iconCls:'icon-back',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 专题类别   结束 -->
