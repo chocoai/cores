@@ -1,0 +1,44 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="miscarriageAddEditDialog" class="easyui-dialog" title="添加流产登记记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:570px;height:270px;" closable="true">
+			<div id="miscarriageAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="miscarriageAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="tableCss2" style="top:70px;">
+                  <tr>
+                    <td width="60px;">母猴编号：</td><td><input type="hidden" id="oldmonkeyid"  />
+                            <input id="monkeyid" type="text" name="monkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHave.action','monkeyid','#oldmonkeyid']" />
+                    </td> 
+                    <td width="60px;">流产时间：</td><td><input id="miscarriagedate" name="miscarriagedate" class="easyui-datebox" required="true" editable="false"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">责任兽医：</td><td><input id="veterinarian" name="veterinarian" /></td>
+                    <td width="60px;">保定人员：</td><td><input id="protector"  name="protector" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">记录人员：</td><td><input id="recorder"  name="recorder" /></td>
+                    <td width="60px;">档案录入：</td><td><input id="operater" name="operater"/></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">流产原因: </td><td colspan="3"><textarea style="resize: none" id="remarks"  name="remarks" cols="45" rows="1"/></textarea>
+                    <!--<input id="remarks" name="remarks"/>-->
+                    </td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="miscarriageAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#miscarriageAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

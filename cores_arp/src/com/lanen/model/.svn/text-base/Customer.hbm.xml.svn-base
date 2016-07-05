@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Customer" table="customer" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name"  />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="telephone" length="50"/>
+        </property>
+        <property name="fax" type="java.lang.String">
+            <column name="fax"  length="50" />
+        </property>
+        <property name="zrpcode" type="java.lang.String">
+            <column name="zrpcode"  length="20" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address"   />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="url"   />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"   />
+        </property>
+        <property name="cname" type="java.lang.String">
+            <column name="cname" length="50" />
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex"  length="4" />
+        </property>
+        <property name="ctelephone" type="java.lang.String">
+            <column name="ctelephone"  length="20" />
+        </property>
+        <property name="moble" type="java.lang.String">
+            <column name="moble"  length="20" />
+        </property>
+        <property name="mail" type="java.lang.String">
+            <column name="mail"  length="20" />
+        </property>
+         <property name="postion" type="java.lang.String">
+            <column name="postion"  length="20" />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted"  length="4" />
+        </property>
+        <property name="modified_by" type="java.lang.Long">
+            <column name="modified_by"  length="20" />
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime"   />
+        </property>
+        <property name="created_by" type="java.lang.Long">
+            <column name="created_by"  length="20" />
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>

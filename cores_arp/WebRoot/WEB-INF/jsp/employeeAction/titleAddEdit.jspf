@@ -1,0 +1,41 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="titleAddEditDialog" class="easyui-dialog" title="添加职称信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddEditTitToolbar'" style="display:'';width:200px;height:180px;" closable="true">
+			<div id="titleAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditTit">
+            <!-- 添加过后的客户Id  -->
+			  <form id="titleAddEditForm" action="" method="post">
+			  <input type="hidden" id="titid" name="id" >
+		   	  <div class="edit_table">
+                <table  class="title" style="top:70px;">
+                  <tr><td>职称名：  </td></tr>
+                  <tr>
+                    <td><input type="hidden" id="oldtitname"  />
+                            <input id="titname" type="text" name="name" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="职称名已存在" 
+                        	validType="remotett[sybp()+'/titleAction_checkName.action','name','#oldtitname']" />
+                    </td> 
+                  <!--   <td>职称名：<input id="titname" name="name" class="easyui-validatebox" data-options="required:true"/>
+                         <span></span>
+                    </td> -->
+                  </tr>
+                  <tr>
+                    <td>描述：<input id="titdescription" name="description" /></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="titleAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogAddEditTitToolbar">
+		<a id="saveTitDialogButton" class="easyui-linkbutton" onclick="onDialogSaveTitButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backTitAddEditButton" class="easyui-linkbutton" onclick="javascript:$('#titleAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

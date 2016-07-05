@@ -1,0 +1,73 @@
+.tableCss{
+	border-collapse:collapse;
+	position: absolute;
+	top:35px;
+	left:10px;
+	right:0;
+	bottom:0;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.tableCss td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:6px 12px;
+	text-align:left;
+}
+
+.tableCss1{
+	border-collapse:collapse;
+	position: absolute;
+	top:35px;
+	left:30px;
+	right:0;
+	bottom:0;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.tableCss1 td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:6px 12px;
+	text-align:left;
+}
+.tableCss2{
+	border-collapse:collapse;
+	position: absolute;
+	top:35px;
+	left:20px;
+	right:0;
+	bottom:0;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.tableCss2 td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:6px 12px;
+	text-align:left;
+}
+.tableCss3{
+	border-collapse:collapse;
+	position: absolute;
+	top:35px;
+	left:30px;
+	right:0;
+	bottom:0;
+	overflow-x: auto; 
+	overflow-y: auto; 
+}
+.tableCss3 td{
+	border-top:1px solid #e3e6eb;
+	border-bottom:1px solid #e3e6eb;
+	border-left:1px solid #e3e6eb;
+	border-right:1px solid #e3e6eb;
+	padding:3px 6px;
+	text-align:left;
+}

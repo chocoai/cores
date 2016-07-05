@@ -1,0 +1,36 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="xTableDialog" class="easyui-dialog" title="X光检测" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:190px;" closable="true">
+			<div id="xTableDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="xTableForm" action="" method="post">
+			  <input type="hidden" id="x_exportid" name="x_exportid" >
+			  <input type="hidden" id="x_monkeylist" name="x_monkeylist" >
+		   	  <div class="edit_table">
+                <table  class="x" style="top:70px;">
+                  <tr>
+                    <td>检测部位：</td><td><input id="checkarea" name="checkarea"  />
+                           
+                    </td> 
+                    <td>检测兽医：</td><td><input id="x_veterinarian" name="x_veterinarian" />
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>保定人员：</td><td><input id="x_protector" name="x_protector"/></td>
+                    <td>记录人员：</td><td><input id="x_recorder"  name="x_recorder" /></td>
+                  </tr>
+                  <tr>
+                    <td>备注：</td><td><input id="x_remark"  name="x_remark" /></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="xTable_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="xSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="cancelXButton();" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

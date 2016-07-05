@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.RolePrivilege" table="role_privilege" >
+        <id name="roleId" column="roleId" type="java.lang.String">
+			<!--<generator class="native" />
+		--><column name="roleId" length="30" />
+		</id>
+
+        <property name="privilegeId" type="java.lang.String">
+            <column name="privilegeId" length="30" />
+        </property>
+
+           
+    </class>
+</hibernate-mapping>

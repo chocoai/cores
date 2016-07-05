@@ -1,0 +1,94 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="virusTableDialog" class="easyui-dialog" title="病毒检测" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:770px;height:270px;" closable="true">
+			<div id="virusTableDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="virusTableForm" action="" method="post">
+			  <input type="hidden" id="virus_exportid" name="virus_exportid" >
+			  <input type="hidden" id="virus_monkeylist" name="virus_monkeylist" >
+		   	  <div class="edit_table">
+                <table  class="virus" style="top:70px;">
+                  <tr>
+                    <td>血清号：</td><td><input name="xueq" id="xueq"  class="easyui-validatebox" data-options="required:true,validType:''"/>
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>检测兽医：</td><td><input id="virus_veterinarian" name="virus_veterinarian" /></td>
+                    <td>保定人员：</td><td><input id="virus_protector"  name="virus_protector" /></td>
+                  </tr>
+                  <tr>
+                    <td>记录人员：</td><td><input id="virus_recorder"  name="virus_recorder" /></td>
+                  </tr>
+                  <tr>
+                     <td>B—V：</td><td>阴性<input id="bv" name="bv" type="radio" value="0"/>阳性<input id="bv" name="bv" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px;"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>STLV：</td><td>阴性<input id="stlv" name="stlv" type="radio" value="0"/>阳性<input id="stlv" name="stlv" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>SRV：</td><td>阴性<input id="srv" name="srv" type="radio" value="0"/>阳性<input id="srv" name="srv" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>SIV：</td><td>阴性<input id="siv" name="siv" type="radio" value="0"/>阳性<input id="siv" name="siv" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>FILO：</td><td>阴性<input id="filo" name="filo" type="radio" value="0"/>阳性<input id="filo" name="filo" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>Measles：</td><td>阴性<input id="" name="" type="radio" value="0"/>阳性<input id="" name="" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>Hepatitis A：</td><td>阴性<input id="" name="" type="radio" value="0"/>阳性<input id="" name="" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>Hepatitis B：</td><td>阴性<input id="" name="" type="radio" value="0"/>阳性<input id="" name="" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>Monkey Pox：</td><td>阴性<input id="" name="" type="radio" value="0"/>阳性<input id="" name="" type="radio" value="1"/></td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td
+                     ><td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr>
+                     <td>Rabies：</td><td>阴性<input id="" name="" type="radio" value="0"/>&nbsp;阳性<input id="" name="" type="radio" value="1"/>&nbsp;</td>
+                     <td>检测方法:</td><td><input id="" name="" style="width:60px"/></td>
+                     <td>药品名:<input id="" name="" style="width:40px"/></td>
+                     <td>用药量:<input id="" name="" style="width:40px"/></td>
+                  </tr>
+                  <tr><td>备注：</td><td><input name="virus_remark" id="virus_remark" /></td></tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="virusTable_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="virusSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="cancelVirusButton();" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

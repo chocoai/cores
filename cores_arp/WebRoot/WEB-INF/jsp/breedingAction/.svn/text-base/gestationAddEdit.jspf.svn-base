@@ -1,0 +1,51 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="gestationAddEditDialog" class="easyui-dialog" title="添加妊娠检查记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:200px;" closable="true">
+			<div id="gestationAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的Id  -->
+			  <form id="gestationAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table" style="padding-top:2px;">
+                <table  class="gestation" style="top:70px;">
+                  <tr>
+                    <td>母猴编号：<input type="hidden" id="oldmonkeyid"  />
+                            <input id="addmonkeyid" type="text" name="monkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHaveM.action','motherid','#oldmonkeyid']" />
+                    </td> 
+                    <td>检查日期：<input id="checkdate" name="checkdate" class="easyui-datebox" required="true" editable="false"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>是否有胎：<select id="ishave" class="easyui-combobox" name="ishave" style="width:100px;"  panelHeight=70  editable="false">
+								    <option value="0">没有</option>   
+								    <option value="1">有</option>   
+								</select>  </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input id="remarks" name="remarks"/>  </td>
+                  </tr>
+                  <tr>
+                    <td>负责兽医：<input id="veterinarian" name="veterinarian"/></td>
+                     <td>保定人员：<input id="protector" name="protector"/></td>
+                  </tr>
+                  <tr>
+                     <td>数据记录：<input id="recorder" name="recorder"/> </td>
+                     <td>档案录入：<input id="operater" name="operater"/> </td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="gestationAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#gestationAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

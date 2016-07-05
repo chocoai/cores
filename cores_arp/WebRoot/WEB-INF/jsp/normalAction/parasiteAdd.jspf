@@ -1,0 +1,31 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="parasiteAddDialog" class="easyui-dialog" title="添加寄生虫检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddParasiteToolbar'" style="display:'';width:820px;height:280px;" closable="true">
+			<div id="parasiteAddDialog2" style="display:none;">
+		    <div >
+			  <form id="parasiteAddForm" action="" method="post">
+			  <input type="hidden" id="depid" name="id" >
+			  <input type="hidden" id="parasite_normalid" name="parasite_normalid"/>
+		   	  <div class="edit_table">
+                <table  class="parasite" style="top:70px;">
+                  <tr><td>动物编号：</td><td><input id="par_monkeyid" name="par_monkeyid" disabled="true"></input></td><td>样品描述：</td><td><input id="yb_id" name="yb_id"/></td>
+                    	<td>采样日期：</td><td><input id="getybdate" name="getybdate" class="easyui-datebox" required="true" editable="false"/></td></tr>              
+                  <tr>
+                    <td>检测兽医：</td><td><input id="par_veterinarian" name="par_veterinarian"/></td> <td>保定人员：</td><td><input id="par_protector" name="par_protector"/></td>
+                  <td>记录人员：</td><td><input id="par_recorder" name="par_recorder"/></td>
+                  </tr>
+                  <tr>
+                    <td>检疫时间：</td><td><input id="par_cdate" name="par_cdate" class="easyui-datebox" required="true" editable="false"/></td><td>体表状况：</td><td><input id="par_remark" name="par_remark"/></td> 
+                  </tr>
+                  <table id="par">               
+                </table>
+            </div>
+		      </form>
+		        <a id="parasiteAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddParasiteToolbar">
+		<a id="saveParasiteDialogButton" class="easyui-linkbutton" onclick="onDialogSaveParasiteButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backParasiteAddButton" class="easyui-linkbutton" onclick="javascript:$('#parasiteAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

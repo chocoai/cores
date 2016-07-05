@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="changeroom" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="196ac352-2f8d-44b6-8235-be4b11bae712">
+	<property name="ireport.zoom" value="1.4641000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="changeroomDate" class="java.lang.String"/>
+	<parameter name="titleMsg" class="java.lang.String"/>
+	<parameter name="titleMsg_En" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="animalType" class="java.lang.String"/>
+	<parameter name="changeRoomNum" class="java.lang.String"/>
+	<field name="yareaname" class="java.lang.String"/>
+	<field name="yroomname" class="java.lang.String"/>
+	<field name="ylh" class="java.lang.String"/>
+	<field name="monkeyid" class="java.lang.String"/>
+	<field name="changeinarea" class="java.lang.String"/>
+	<field name="weight" class="java.lang.String"/>
+	<field name="sex" class="java.lang.String"/>
+	<field name="changeinroom" class="java.lang.String"/>
+	<field name="lhao" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="changeroomreason" class="java.lang.String"/>
+	<field name="ykeeper" class="java.lang.String"/>
+	<field name="xkeeper" class="java.lang.String"/>
+	<variable name="index" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$V{index}.valueOf(1)]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="3d847830-f53f-40cb-8900-344185a5d86d" x="424" y="70" width="100" height="12"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[调拨单号：]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8870dc89-f954-4bc4-94bc-2930a68c91e3" x="139" y="0" width="257" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titleMsg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c8f8455a-0fa5-4956-ae9c-835f0f027322" x="161" y="23" width="216" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titleMsg_En}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="93ba1789-5456-4cd2-9c74-a76357c951f9" x="174" y="43" width="193" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a2be02e8-5e60-4fd2-bf91-7a8d4750668d" x="465" y="70" width="70" height="12"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{changeRoomNum}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ce3dc399-c99f-40c8-bf2d-aca409b48775" x="0" y="70" width="100" height="12"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[动物品种：]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="567cf260-42f4-453c-8ef1-98e0b2be62d4" x="50" y="70" width="100" height="12"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{animalType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="08704866-2b2d-4f29-ac44-e27e86f4c276" x="229" y="70" width="100" height="12"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[调拨日期：]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b8ec99f5-c4fe-4b70-abe8-b9200d6785d0" x="271" y="70" width="114" height="12"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{changeroomDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="69be05f8-37d0-4f9a-a879-8d464e0e5415" x="0" y="0" width="534" height="27"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="24a2186a-eb8e-4539-8d7a-c513fbf5b4c1" x="27" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="5331f992-1fbd-4b53-91d5-34204ba7093e" x="62" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="e6aeccb5-e62d-44e7-b114-3ad1bc093906" x="100" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="85943424-67b8-483f-be3f-60219ce72739" x="174" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="e3ce5eee-1b52-449b-ba89-4cf7d0f6d4b2" x="215" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="a7898962-fb64-4bc8-ac21-2f21fe2d45c7" x="241" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="1a9d8da3-0e30-48cc-bd5c-0417b2c67d54" x="273" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="93ceb178-3e5c-4010-a45b-32cb76efc4b7" x="315" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="c3843fd5-a43d-4550-9e20-798df11182db" x="351" y="0" width="1" height="27"/>
+			</line>
+			<line>
+				<reportElement uuid="99b22571-a7a8-4bb4-9b9d-c9e70d430df8" x="434" y="0" width="1" height="26"/>
+			</line>
+			<line>
+				<reportElement uuid="a8d02188-047a-4c16-bb89-4f55dc894832" x="485" y="0" width="1" height="27"/>
+			</line>
+			<staticText>
+				<reportElement uuid="1b58e44d-3c7f-4f4a-9f44-11ad34e25acb" x="28" y="0" width="34" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[原区域]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6a1ffef-f980-4a77-9896-809a25594a2f" x="63" y="0" width="37" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[原房舍]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="165208eb-f770-4b10-b4b5-a47e2e15faa2" x="101" y="0" width="31" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[原笼号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="331ca251-fd4d-46de-8229-4e0f2331b55a" x="216" y="0" width="25" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[性别]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6399fa3c-7448-45c5-aa12-9d6c82115453" x="241" y="0" width="31" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[体重(当前)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="14f78df0-9698-4c8a-8d32-e34f1f10820e" x="274" y="0" width="41" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[现区域]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="afce89ef-67ad-40b2-958b-8870f66de7c2" x="316" y="0" width="35" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[现房舍]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="429c0001-26d8-4770-9308-be31fa1bab27" x="486" y="0" width="48" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[备注]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e5d4cfc-0532-4a85-9921-1835bf1dd63e" x="436" y="0" width="49" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[调舍原因]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="65753318-fc2e-4138-8f58-2ec831af54da" x="0" y="0" width="27" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[序号]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="13709e0f-63e9-473b-bef3-0a33f1a251d0" x="132" y="0" width="1" height="27"/>
+			</line>
+			<staticText>
+				<reportElement uuid="37c58add-7ac1-472e-93bd-3cf2d8831adc" x="352" y="0" width="32" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[现笼号]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e3d5663d-2b53-438a-989f-5e8c738ba244" x="384" y="0" width="1" height="27"/>
+			</line>
+			<staticText>
+				<reportElement uuid="b6fc8d5f-9db7-44a5-a018-baab45af300f" x="385" y="0" width="49" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[现饲养员]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f7233d4c-6cab-4158-8a63-0801d212f8aa" x="133" y="0" width="41" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[原饲养员]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="10747b8f-917c-4921-bea7-f274429d4a6f" x="175" y="0" width="40" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[猴子编号]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="4cfcb26c-cc2a-4a9b-8389-63925ad341d2" x="0" y="0" width="534" height="23"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="e860bbef-46ba-49ec-980e-db06771995af" x="27" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="f7a6d4c0-0c59-4606-bb21-26823ab1d57a" x="62" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="747d5534-ea20-4cff-9dbe-594a7e842fda" x="100" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="0fce51f6-ff23-42e0-9da9-752adfa91255" x="174" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="244e9eba-f3ab-487f-bf5b-7042d4a32da5" x="215" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="b1aa2546-d620-43d3-8c74-e11926f21e64" x="241" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="bea12abd-35f1-4814-8bef-1e9bff9820b1" x="273" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="817becd2-e032-42b9-b219-2bd218b2a681" x="315" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="94c5b18b-934f-4aea-9fdf-07f4a3d89053" x="351" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="5cf9394a-4ab0-4ab5-b444-c0bc7e114710" x="434" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="24458345-8192-4c5b-bea9-257b70b55428" x="485" y="0" width="1" height="23"/>
+			</line>
+			<textField>
+				<reportElement uuid="4fa5b20e-443e-45d6-907f-a2f3dfbaea96" x="0" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{index}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2dc0477a-a722-4cdd-901c-7c63c9aa0e28" x="29" y="0" width="33" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{yareaname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5ce4b593-fae2-4342-a8af-a41c4672640d" x="63" y="0" width="37" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{yroomname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0e925b1d-5a1c-42c4-a286-52d59834be8c" x="174" y="0" width="41" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monkeyid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cbb1d0ce-d537-4536-be8f-febe94218864" x="216" y="0" width="25" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sex}==0?"公":"母"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0c0c38e0-87a7-46ef-a1f6-75d2dac42b2a" x="242" y="0" width="31" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="337252af-411e-4830-abf4-a1a9061c2090" x="274" y="0" width="41" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{changeinarea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="56b7a1f9-8cc4-418d-8f1c-1484a0452607" x="316" y="0" width="35" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{changeinroom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a69619dc-1e17-43df-8f4a-5fff3c180ef0" x="352" y="0" width="32" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lhao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="88cacf73-23b0-4946-8af1-051ad3354d07" x="487" y="0" width="47" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remark}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8a575636-f474-43d7-940f-b23416531949" x="436" y="0" width="49" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{changeroomreason}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="067ca858-85bd-4e3e-8c94-78872a632ca2" x="101" y="1" width="31" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ylh}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="08e57056-5193-418c-9f82-e2c80018fc24" x="132" y="0" width="1" height="23"/>
+			</line>
+			<line>
+				<reportElement uuid="48141105-03ea-40ba-b481-429836a115ec" x="384" y="0" width="1" height="23"/>
+			</line>
+			<textField>
+				<reportElement uuid="8fff9b64-c1b7-44f9-93fa-1e764b4f5347" x="385" y="1" width="49" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{xkeeper}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fdddf916-0a59-4470-b419-312a253e7b1e" x="133" y="1" width="41" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ykeeper}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Task" table="task" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+        <property name="typeid" type="java.lang.Integer">
+            <column name="typeid" length="20"/>
+        </property>
+         <property name="porptyid" type="java.lang.String">
+            <column name="porptyid" length="255"  />
+        </property>
+         <property name="ower" type="java.lang.Long">
+            <column name="ower" length="20"/>
+        </property>
+        <property name="begindate" type="java.sql.Date">
+            <column name="begindate"  />
+        </property>
+        <property name="enddate" type="java.sql.Date">
+            <column name="enddate"  />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" length="20"/>
+        </property>
+        <property name="isremind" type="java.lang.Integer">
+            <column name="isremind" length="4"/>
+        </property>
+        <property name="monkeys" type="java.lang.String">
+            <column name="monkeys" />
+        </property>
+        <property name="protectors" type="java.lang.String">
+            <column name="protectors" />
+        </property>
+        <property name="recorders" type="java.lang.String">
+            <column name="recorders" />
+        </property>
+        <property name="veterinarians" type="java.lang.String">
+            <column name="veterinarians" />
+        </property>
+        <property name="dateid" type="java.lang.String">
+            <column name="dateid" length="50"/>
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="title" length="255"/>
+        </property>
+        <property name="contant" type="java.lang.String">
+            <column name="contant" />
+        </property>
+        <property name="lookers" type="java.lang.String">
+            <column name="lookers" length="255"/>
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime" />
+        </property>
+        <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by" length="20"/>
+        </property>
+        <property name="created_by" type="java.lang.Integer">
+            <column name="created_by" length="20"/>
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime" />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted" length="4"/>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" />
+        </property>
+        <property name="keeper" type="java.lang.String">
+            <column name="keeper" length="255"/>
+        </property>
+        <property name="tbjy" type="java.lang.String">
+            <column name="tbjy" length="255"/>
+        </property>
+        
+        <property name="bdjy" type="java.lang.String">
+            <column name="bdjy" length="255"/>
+        </property>
+        <property name="tb" type="java.lang.String">
+            <column name="tb" length="255"/>
+        </property>
+        <property name="jsc" type="java.lang.String">
+            <column name="jsc" length="255"/>
+        </property>
+        <property name="xjjy" type="java.lang.String">
+            <column name="xjjy" length="255"/>
+        </property>
+        <property name="ym" type="java.lang.String">
+            <column name="ym" length="255"/>
+        </property>
+        <property name="crb" type="java.lang.String">
+            <column name="crb" length="255"/>
+        </property>
+        <property name="x" type="java.lang.String">
+            <column name="x" length="255"/>
+        </property>
+        <property name="saleid" type="java.lang.String">
+            <column name="saleid" length="255"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

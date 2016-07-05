@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Security_er" table="secyrity_er" >
+        <id name="id" column="id" type="java.lang.Integer">
+			<generator class="native" />
+		</id>
+
+        <property name="employee_id" type="java.lang.String">
+            <column name="employee_id"  length="36"/>
+        </property>
+        <property name="role_id" type="java.lang.Integer">
+            <column name="role_id" />
+        </property>
+        
+        
+    </class>
+</hibernate-mapping>

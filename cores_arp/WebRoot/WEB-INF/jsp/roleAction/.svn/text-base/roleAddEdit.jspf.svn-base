@@ -1,0 +1,44 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 离乳登记 edit/add开始 -->
+	<div id="weaningAddEditDialog" class="easyui-dialog" title="添加离乳登记记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:270px;" closable="true">
+			<div id="weaningAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的客户Id  -->
+			  <form id="weaningAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td width="60px;">仔猴编号：<input type="hidden" id="childmonkeyid"  />
+                            <input id="addmonkeyid" type="text" name="monkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHave.action','monkeyid','#oldmonkeyid']" />
+                    </td> 
+                    <td width="60px;">离乳日期：<input id="leavebreastdate" name="leavebreastdate" class="easyui-datebox" required="true" editable="false"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">母猴编号：<input id="motherid" name="motherid" class=""  editable="false"/></td>
+                    <td width="60px;">责任饲养员：<input id="keeper"  name="keeper" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">档案录入：<input id="operater"  name="operater" /></td>
+                    <td>备注：<input id="remark" name="remark"/></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="weaningAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#weaningAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

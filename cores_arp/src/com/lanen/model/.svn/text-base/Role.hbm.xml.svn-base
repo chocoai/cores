@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Role" table="security_role" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name"  />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+       
+       <!-- privileges属性，本类与Privilege的多对多的关系-->
+        <set name="privileges" table="role_privilege" lazy="false" inverse="true" cascade="save-update">
+           <key column="roleId"></key>
+           <many-to-many class="Privilege" column="privilegeId"></many-to-many>
+        </set>
+         
+        <!-- users属性，本类与User的多对多的关系-->
+        <!--<set name="users" table="security_er" inverse="true">
+          <key column="role_id"></key>
+          <many-to-many class="Employee" column="employee_id"></many-to-many>
+        </set>
+    --></class>
+</hibernate-mapping>

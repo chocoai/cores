@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Observation" table="observation" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid"  length="20"/>
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" />
+        </property>
+        
+        <property name="observationtime" type="java.lang.String">
+            <column name="observationtime" />
+        </property>
+   		<property name="observationdate" type="java.lang.String">
+            <column name="observationdate" />
+        </property>
+        <property name="observer" type="java.lang.Long">
+            <column name="observer"  length="20" />
+        </property> 
+  		<property name="deleted" type="java.lang.Integer">
+            <column name="deleted" length="4"  />
+        </property>
+    </class>
+</hibernate-mapping>

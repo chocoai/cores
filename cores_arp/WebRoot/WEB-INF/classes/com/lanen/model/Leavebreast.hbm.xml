@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Leavebreast" table="leavebreast" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+        <property name="leavebreastdate" type="java.lang.String">
+            <column name="leavebreastdate" length="20" />
+        </property>
+        <property name="leavebreastweight" type="java.lang.Float">
+            <column name="leavebreastweight" length="9"  />
+        </property>
+         <property name="keeper" type="java.lang.Integer">
+            <column name="keeper" length="20" />
+        </property>
+        <property name="recorder" type="java.lang.Integer">
+            <column name="recorder" length="20" />
+        </property>
+        
+        <property name="operater" type="java.lang.Integer">
+            <column name="operater" length="20"  />
+        </property>
+        
+         <property name="deleted" type="java.lang.Integer">
+            <column name="deleted" length="4"  />
+        </property>
+        <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by" length="20"  />
+        </property>
+         <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime"   />
+        </property>
+        <property name="created_by" type="java.lang.Integer">
+            <column name="created_by"  length="20" />
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime"   />
+        </property>
+        
+        <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid" length="20"  />
+        </property>
+        <property name="motherid" type="java.lang.String">
+            <column name="motherid" length="20"  />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"   />
+        </property>
+    </class>
+</hibernate-mapping>

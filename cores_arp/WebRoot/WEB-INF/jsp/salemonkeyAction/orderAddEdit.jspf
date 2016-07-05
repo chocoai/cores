@@ -1,0 +1,52 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="orderAddEditDialog" class="easyui-dialog" title="添加选候订单" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:400px;" closable="true">
+			<div id="orderAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="orderAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td width="60px;">订单编号：<input type="hidden" id="oldTitle"  />
+                            <input id="title" type="text" name="title" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="订单编号已存在" 
+                        	 validType="remotett[sybp()+'/saleAction_checkTitleHave.action','title','#oldTitle']" />
+                    </td> 
+                    <td width="60px;">猴子种类：<input id="monkeytype" name="monkeytype" />
+        			</td>
+                  </tr>
+                   <tr>
+                    <td width="60px;">销售地：<input id="saleaddress_id" name="saleaddress_id" /></td>
+                    <td width="60px;">销售日期：<input id="saledate"  name="saledate" class="easyui-datebox" required="true" editable="false"/></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">主管：<input id="boss" name="boss" /></td>
+                    <td width="60px;">销售类型：<input id="saletype"  name="saletype" required="true"/></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">省厅批文：<input id="cites" name="cites" /></td>
+                    <td width="60px;">运输编号：<input id="carriagenumber"  name="carriagenumber" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">销售许可批号：<input id="approveserial" name="approveserial" /></td>
+                    <td width="60px;">运输许可批号：<input id="trance"  name="trance" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">选择条件：<input id="tiaojian"  name="tiaojian" /></td>
+                    <td>备注：<input id="remark" name="remark"/></td>
+                  </tr>
+                  </table>
+            </div>
+		      </form>
+		        <a id="orderAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#orderAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

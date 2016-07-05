@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Normal" table="normal" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+        <property name="checkdate" type="java.util.Date">
+            <column name="checkdate" />
+        </property>
+         <property name="tb" type="java.lang.String">
+            <column name="tb" length="20"  />
+        </property>
+         <property name="surface" type="java.lang.String">
+            <column name="surface" length="20"/>
+        </property>
+        <property name="parasite" type="java.lang.String">
+            <column name="parasite" length="20"/>
+        </property>
+        <property name="virus" type="java.lang.String">
+            <column name="virus" length="20"/>
+        </property>
+        <property name="bacteria" type="java.lang.String">
+            <column name="bacteria" length="20"/>
+        </property>
+        <property name="x" type="java.lang.String">
+            <column name="x" length="20"/>
+        </property>
+        <property name="vaccine" type="java.lang.String">
+            <column name="vaccine" length="20"/>
+        </property>
+        
+        <property name="infectious" type="java.lang.String">
+            <column name="infectious" length="20"/>
+        </property>
+        <property name="monkeylist" type="java.lang.String">
+            <column name="monkeylist" />
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime" />
+        </property>
+        <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by" length="20"/>
+        </property>
+        <property name="created_by" type="java.lang.Integer">
+            <column name="created_by" length="20"/>
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime" />
+        </property>
+        <property name="deleted" type="java.lang.Byte">
+            <column name="deleted" length="4"/>
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="title" length="255"/>
+        </property>
+        <property name="boss" type="java.lang.Integer">
+            <column name="boss" length="20"/>
+        </property>
+        <property name="quarantinetype" type="java.lang.String">
+            <column name="quarantinetype" length="50"/>
+        </property>
+        <property name="normallist" type="java.lang.String">
+            <column name="normallist" />
+        </property>
+        
+        <property name="xcg" type="java.lang.String">
+            <column name="xcg" />
+        </property>
+        <property name="xysh" type="java.lang.String">
+            <column name="xysh" />
+        </property>
+        
+        <property name="qc" type="java.lang.String">
+            <column name="qc" />
+        </property>
+        <!--<property name="status" type="java.lang.String">
+            <column name="status" />
+        </property>
+    --></class>
+</hibernate-mapping>

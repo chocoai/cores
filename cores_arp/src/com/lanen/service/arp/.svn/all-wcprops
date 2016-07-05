@@ -1,0 +1,641 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp
+END
+LeavebreastServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/LeavebreastServiceImpl.java
+END
+QcServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/QcServiceImpl.java
+END
+RoutineService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RoutineService.java
+END
+NormalService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/NormalService.java
+END
+XServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/XServiceImpl.java
+END
+InfectiousServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/InfectiousServiceImpl.java
+END
+RolePrivilegeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RolePrivilegeServiceImpl.java
+END
+ObservationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ObservationService.java
+END
+SymptomsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SymptomsService.java
+END
+XyshService.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/XyshService.java
+END
+LeavebreastService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/LeavebreastService.java
+END
+DisinfectantServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DisinfectantServiceImpl.java
+END
+EducationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/EducationServiceImpl.java
+END
+EmployeeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/EmployeeServiceImpl.java
+END
+QcService.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/QcService.java
+END
+TitleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/TitleServiceImpl.java
+END
+HospitalServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/HospitalServiceImpl.java
+END
+ApprovalServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ApprovalServiceImpl.java
+END
+SaleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SaleServiceImpl.java
+END
+SymptomsareaServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SymptomsareaServiceImpl.java
+END
+XService.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/XService.java
+END
+MiscarriageServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/MiscarriageServiceImpl.java
+END
+InfectiousService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/InfectiousService.java
+END
+RolePrivilegeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RolePrivilegeService.java
+END
+WeightServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/WeightServiceImpl.java
+END
+WeaningServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/WeaningServiceImpl.java
+END
+DisinfectantService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DisinfectantService.java
+END
+EducationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/EducationService.java
+END
+GestationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/GestationServiceImpl.java
+END
+EmployeeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/EmployeeService.java
+END
+TitleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/TitleService.java
+END
+HospitalService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/HospitalService.java
+END
+ApprovalService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ApprovalService.java
+END
+SaleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SaleService.java
+END
+SymptomsareaService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SymptomsareaService.java
+END
+DepartmentServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DepartmentServiceImpl.java
+END
+MiscarriageService.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/MiscarriageService.java
+END
+WeightService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/WeightService.java
+END
+WeaningService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/WeaningService.java
+END
+SalemonkeyServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SalemonkeyServiceImpl.java
+END
+SchedulePlanServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SchedulePlanServiceImpl.java
+END
+AreaServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/AreaServiceImpl.java
+END
+DisinfectantmaterialService.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DisinfectantmaterialService.java
+END
+VaccineServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/VaccineServiceImpl.java
+END
+BacteriaServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/BacteriaServiceImpl.java
+END
+GestationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/GestationService.java
+END
+BreedingServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/BreedingServiceImpl.java
+END
+DepartmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DepartmentService.java
+END
+XcgServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/XcgServiceImpl.java
+END
+ChangeroomServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ChangeroomServiceImpl.java
+END
+DeathServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DeathServiceImpl.java
+END
+SalemonkeyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SalemonkeyService.java
+END
+SchedulePlanService.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SchedulePlanService.java
+END
+PrivilegeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/PrivilegeServiceImpl.java
+END
+AreaService.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/AreaService.java
+END
+VaccineService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/VaccineService.java
+END
+IndividualServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/IndividualServiceImpl.java
+END
+BacteriaService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/BacteriaService.java
+END
+SurfaceServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SurfaceServiceImpl.java
+END
+BreedingService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/BreedingService.java
+END
+XcgService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/XcgService.java
+END
+ChangeroomService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ChangeroomService.java
+END
+IploginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/IploginServiceImpl.java
+END
+CustomerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/CustomerServiceImpl.java
+END
+RoleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RoleServiceImpl.java
+END
+DeathService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DeathService.java
+END
+PrivilegeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/PrivilegeService.java
+END
+PositionServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/PositionServiceImpl.java
+END
+RoomDisinfectRecordServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RoomDisinfectRecordServiceImpl.java
+END
+IndividualService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/IndividualService.java
+END
+SurfaceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SurfaceService.java
+END
+ParasiteServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ParasiteServiceImpl.java
+END
+VirusServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/VirusServiceImpl.java
+END
+DisinfectantmaterialImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/DisinfectantmaterialImpl.java
+END
+ChildbirthServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ChildbirthServiceImpl.java
+END
+TreasuryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/TreasuryServiceImpl.java
+END
+IploginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/IploginService.java
+END
+CustomerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/CustomerService.java
+END
+RoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RoleService.java
+END
+ExportServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ExportServiceImpl.java
+END
+PositionService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/PositionService.java
+END
+RoomDisinfectRecordService.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RoomDisinfectRecordService.java
+END
+ParasiteService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ParasiteService.java
+END
+VirusService.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/VirusService.java
+END
+ChildbirthService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ChildbirthService.java
+END
+TreasuryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/TreasuryService.java
+END
+InventoryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/InventoryServiceImpl.java
+END
+ExportService.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ExportService.java
+END
+HospitaldlServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/HospitaldlServiceImpl.java
+END
+AnimaltypeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/AnimaltypeServiceImpl.java
+END
+TbServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/TbServiceImpl.java
+END
+YzcServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/YzcServiceImpl.java
+END
+QuarantineServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/QuarantineServiceImpl.java
+END
+PubliccodeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/PubliccodeServiceImpl.java
+END
+InventoryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/InventoryService.java
+END
+HospitaldlService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/HospitaldlService.java
+END
+AnimaltypeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/AnimaltypeService.java
+END
+TbService.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/TbService.java
+END
+YzcService.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/YzcService.java
+END
+QuarantineService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/QuarantineService.java
+END
+RoutineServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/RoutineServiceImpl.java
+END
+PubliccodeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/PubliccodeService.java
+END
+NormalServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/NormalServiceImpl.java
+END
+ObservationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/ObservationServiceImpl.java
+END
+SymptomsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/SymptomsServiceImpl.java
+END
+XyshServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/com/lanen/service/arp/XyshServiceImpl.java
+END

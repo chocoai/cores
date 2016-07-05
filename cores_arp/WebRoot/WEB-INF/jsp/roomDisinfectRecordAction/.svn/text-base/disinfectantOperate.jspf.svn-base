@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="disfectantOperateDialog" class="easyui-dialog" title="消毒液信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogdisfectantToolbar'" style="display:'';width:520px;height:415px;" closable="true">
+		<div id="disfectantOperateDialog2" style="display:none;align:center;">
+			    <div style="align:center;margin-left:15px">	
+			      <table id="disfectantTable" ></table>
+			    <a id="selectDisfectant_event"></a>
+			     <input id ="clickName" type="hidden" >
+			    </div>
+		    </div>  
+   </div>
+	<!-- 工具栏 开始-->
+	<div id="dialogdisfectantToolbar">
+		<a id="addDisfectantButton" class="easyui-linkbutton" onclick="onaddDisfectantButton();" data-options="iconCls:'icon-serveradd',plain:true">添加</a>
+		<a id="editDisfectantButton" class="easyui-linkbutton" onclick="oneditDisfectantButton();" data-options="iconCls:'icon-serveredit',plain:true">编辑</a>
+		<a id="delDisfectantButton" class="easyui-linkbutton" onclick="ondelDisfectantButton();" data-options="iconCls:'icon-serverdelete',plain:true">删除</a>
+		<a id="backDisfectantButton" class="easyui-linkbutton" onclick="javascript:$('#disfectantOperateDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

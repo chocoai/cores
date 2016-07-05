@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="departmentOperateDialog" class="easyui-dialog" title="部门信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogDepToolbar'" style="display:'';width:440px;height:415px;" closable="true">
+		<div id="departmentOperateDialog2" style="display:none;align:center;">
+			    <div style="align:center;margin-left:15px">	
+			      <table id="departmentTable" ></table>
+			    <a id="selectCustomer_event"></a>
+			     <input id ="clickName" type="hidden" >
+			    </div>
+		    </div>  
+   </div>
+	<!-- 工具栏 开始-->
+	<div id="dialogDepToolbar">
+		<a id="addDepartmentButton" class="easyui-linkbutton" onclick="onaddDepButton();" data-options="iconCls:'icon-linkadd',plain:true">添加</a>
+		<a id="editDepartmentButton" class="easyui-linkbutton" onclick="oneditDepButton();" data-options="iconCls:'icon-linkedit',plain:true">编辑</a>
+		<a id="delDepartmentButton" class="easyui-linkbutton" onclick="ondelDepButton();" data-options="iconCls:'icon-linkdelete',plain:true">删除</a>
+		<a id="backDepButton" class="easyui-linkbutton" onclick="javascript:$('#departmentOperateDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

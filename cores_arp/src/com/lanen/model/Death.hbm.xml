@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Death" table="death" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid"  length="20"/>
+        </property>
+        <property name="deathdate" type="java.sql.Timestamp">
+            <column name="deathdate" />
+        </property>
+        <property name="dissectdate" type="java.sql.Timestamp">
+            <column name="dissectdate"   />
+        </property>
+        <property name="veterinarian" type="java.lang.Long">
+            <column name="veterinarian"  length="20" />
+        </property>
+        <property name="dissectveterinarian" type="java.lang.Long">
+            <column name="dissectveterinarian"  length="20" />
+        </property>
+        <property name="pathology" type="java.lang.Long">
+            <column name="pathology"  length="20" />
+        </property>
+        <property name="boss" type="java.lang.Long">
+            <column name="boss"  length="20" />
+        </property>
+        <property name="keeper" type="java.lang.Long">
+            <column name="keeper"  length="20" />
+        </property>
+        <property name="remarks" type="java.lang.String">
+            <column name="remarks"  />
+        </property>
+        <property name="bl_remarks" type="java.lang.String">
+            <column name="bl_remarks"   />
+        </property>
+        <property name="sc_remarks" type="java.lang.String">
+            <column name="sc_remarks"  length="20" />
+        </property>
+        <property name="recorder" type="java.lang.Long">
+            <column name="recorder"   />
+        </property>
+        <property name="operater" type="java.lang.Long">
+            <column name="operater"  length="20" />
+        </property>
+        <property name="hair" type="java.lang.String">
+            <column name="hair" />
+        </property>
+        <property name="mucousmembrane" type="java.lang.String">
+            <column name="mucousmembrane"   />
+        </property>
+        <property name="nativehole" type="java.lang.String">
+            <column name="nativehole"   />
+        </property>
+        <property name="muscle" type="java.lang.String">
+            <column name="muscle"   />
+        </property>
+        <property name="mouthcavity" type="java.lang.String">
+            <column name="mouthcavity"   />
+        </property>
+        <property name="brain" type="java.lang.String">
+            <column name="brain"   />
+        </property>
+        <property name="hart" type="java.lang.String">
+            <column name="hart"   />
+        </property>
+        <property name="lung" type="java.lang.String">
+            <column name="lung"   />
+        </property>
+        <property name="stomach" type="java.lang.String">
+            <column name="stomach"   />
+        </property>
+        <property name="liver" type="java.lang.String">
+            <column name="liver"   />
+        </property>
+        <property name="gall" type="java.lang.String">
+            <column name="gall"   />
+        </property>
+        <property name="spleen" type="java.lang.String">
+            <column name="spleen"   />
+        </property>
+        <property name="pancreas" type="java.lang.String">
+            <column name="pancreas"   />
+        </property>
+        <property name="smallintestines" type="java.lang.String">
+            <column name="smallintestines"   />
+        </property>
+        <property name="largeintestine" type="java.lang.String">
+            <column name="largeintestine"   />
+        </property>
+        <property name="kidney" type="java.lang.String">
+            <column name="kidney"   />
+        </property>
+        <property name="adrenalgland" type="java.lang.String">
+            <column name="adrenalgland"   />
+        </property>
+        <property name="bladder" type="java.lang.String">
+            <column name="bladder"   />
+        </property>
+        <property name="genitals" type="java.lang.String">
+            <column name="genitals"   />
+        </property>
+        <property name="others" type="java.lang.String">
+            <column name="others"   />
+        </property>
+        <property name="special" type="java.lang.String">
+            <column name="special"   />
+        </property>
+    </class>
+</hibernate-mapping>

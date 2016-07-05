@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="parasiteLookDialog" class="easyui-dialog" title="查看寄生虫检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogLookParasiteToolbar'" style="display:'';width:400px;height:280px;" closable="true">
+			<div id="parasiteLookDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDep">
+			  <form id="parasiteLookForm" action="" method="post">
+			  <input type="hidden" id="depid" name="id" >
+		   	  <div class="edit_table">
+                <table  id="lookParasite">
+                	            
+                </table>
+            </div>
+		      </form>
+		        <a id="parasiteLook_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogLookParasiteToolbar">
+		<a id="backParasiteLookButton" class="easyui-linkbutton" onclick="javascript:$('#parasiteLookDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">返回</a>
+	</div>

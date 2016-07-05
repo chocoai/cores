@@ -1,0 +1,87 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<property name="dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+
+	<!-- 其他配置 -->
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 导入映射配置 -->
+	<mapping resource="com/lanen/model/Employee.hbm.xml" />
+
+	<mapping resource="com/lanen/model/Department.hbm.xml" />
+	<mapping resource="com/lanen/model/Position.hbm.xml" />
+	<mapping resource="com/lanen/model/Security_er.hbm.xml" />
+	<mapping resource="com/lanen/model/Security_role.hbm.xml" />
+	<mapping resource="com/lanen/model/Area.hbm.xml" />
+	<mapping resource="com/lanen/model/Notes.hbm.xml" />
+	<mapping resource="com/lanen/model/Product.hbm.xml" />
+	<mapping resource="com/lanen/model/Security_ru.hbm.xml" />
+	<mapping resource="com/lanen/model/Security_unit.hbm.xml" />
+	<mapping resource="com/lanen/model/Education.hbm.xml" />
+	<mapping resource="com/lanen/model/Title.hbm.xml" />
+	<!-- 个体猴子 -->
+	<mapping resource="com/lanen/model/Individual.hbm.xml" />
+	<!-- 动物种类配置 -->
+	<mapping resource="com/lanen/model/Animaltype.hbm.xml" />
+	<mapping resource="com/lanen/model/Weight.hbm.xml" />
+	<mapping resource="com/lanen/model/RoomDisinfectRecord.hbm.xml" />
+	<mapping resource="com/lanen/model/Disinfectant.hbm.xml" />
+	<mapping resource="com/lanen/model/Disinfectantmaterial.hbm.xml" />
+	<mapping resource="com/lanen/model/Death.hbm.xml" />
+	<mapping resource="com/lanen/model/Changeroom.hbm.xml" />
+	<mapping resource="com/lanen/model/Salemonkey.hbm.xml" />
+	<mapping resource="com/lanen/model/Sale.hbm.xml" />
+	<mapping resource="com/lanen/model/Approval.hbm.xml" />
+	<mapping resource="com/lanen/model/Customer.hbm.xml" />
+	<mapping resource="com/lanen/model/Inventory.hbm.xml" />
+	<mapping resource="com/lanen/model/Breeding.hbm.xml" />
+	<mapping resource="com/lanen/model/Gestation.hbm.xml" />
+	<mapping resource="com/lanen/model/Childbirth.hbm.xml" />
+	<!-- 流产登记 -->
+	<mapping resource="com/lanen/model/Miscarriage.hbm.xml" />
+	<!-- 离乳登记 -->
+	<mapping resource="com/lanen/model/Leavebreast.hbm.xml" />
+	<!-- 常规检疫 -->
+	<mapping resource="com/lanen/model/Quarantine.hbm.xml" />
+	<mapping resource="com/lanen/model/Virus.hbm.xml" />
+	<mapping resource="com/lanen/model/Parasite.hbm.xml" />
+	<mapping resource="com/lanen/model/Bacteria.hbm.xml" />
+	<mapping resource="com/lanen/model/Vaccine.hbm.xml" />
+	<mapping resource="com/lanen/model/Infectious.hbm.xml" />
+	<mapping resource="com/lanen/model/Tb.hbm.xml" />
+	<mapping resource="com/lanen/model/X.hbm.xml" />
+	<mapping resource="com/lanen/model/Xcg.hbm.xml" />
+	<mapping resource="com/lanen/model/Xysh.hbm.xml" />
+	<mapping resource="com/lanen/model/Normal.hbm.xml" />
+	<!-- 防疫配置 -->
+	<mapping resource="com/lanen/model/Surface.hbm.xml" />
+
+	<!-- 常规治疗 -->
+	<mapping resource="com/lanen/model/Hospitaldl.hbm.xml" />
+	<!-- 住院治疗 -->
+	<mapping resource="com/lanen/model/Hospital.hbm.xml" />
+	<!-- 疾病字典 -->
+	<mapping resource="com/lanen/model/Treasury.hbm.xml" />
+	<mapping resource="com/lanen/model/Symptoms.hbm.xml" />
+	<mapping resource="com/lanen/model/Symptomsarea.hbm.xml" />
+
+	<mapping resource="com/lanen/model/Publiccode.hbm.xml" />
+
+	<mapping resource="com/lanen/model/Role.hbm.xml" />
+	<mapping resource="com/lanen/model/Privilege.hbm.xml" />
+	<mapping resource="com/lanen/model/Iplogin.hbm.xml" />
+	<mapping resource="com/lanen/model/Yzc.hbm.xml" />
+	<mapping resource="com/lanen/model/Qc.hbm.xml" />
+	<mapping resource="com/lanen/model/Task.hbm.xml" />
+	
+	<mapping resource="com/lanen/model/Observation.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

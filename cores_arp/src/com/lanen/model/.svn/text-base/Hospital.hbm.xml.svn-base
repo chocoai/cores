@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model.contract">
+    <class name="com.lanen.model.Hospital" table="hospital" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid"  length="20"/>
+        </property>
+        <property name="treatveterinarian" type="java.lang.Integer">
+            <column name="treatveterinarian" length="20"/>
+        </property>
+        <property name="inveterinarian" type="java.lang.Integer">
+            <column name="inveterinarian"  length="20" />
+        </property>
+        <property name="treatdate" type="java.util.Date">
+            <column name="treatdate"  />
+        </property>
+        <property name="treatmode" type="java.lang.String">
+            <column name="treatmode"   />
+        </property>
+        <property name="treatresoult" type="java.lang.String">
+            <column name="treatresoult"   />
+        </property>
+        <property name="treatprotector" type="java.lang.Integer">
+            <column name="treatprotector"   length="20"/>
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime"  />
+        </property>
+        <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by"  length="20" />
+        </property>
+        <property name="created_by" type="java.lang.Integer">
+            <column name="created_by"  length="20" />
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime"  />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted" length="4"/>
+        </property>
+        <property name="inkeeper" type="java.lang.Integer">
+            <column name="inkeeper"  length="20" />
+        </property>
+        <property name="outveterinarian" type="java.lang.Integer">
+            <column name="outveterinarian"  length="20" />
+        </property>
+        <property name="outkeeper" type="java.lang.Integer">
+            <column name="outkeeper" length="20" />
+        </property>
+        <property name="indate" type="java.lang.String">
+            <column name="indate"  length="20" />
+        </property>
+        <property name="outdate" type="java.lang.String">
+            <column name="outdate"  length="20"/>
+        </property>
+        <property name="roomid" type="java.lang.Integer">
+            <column name="roomid" length="20" />
+        </property>
+        <property name="checkdate" type="java.lang.String">
+            <column name="checkdate"  length="20" />
+        </property>
+        <property name="fbdate" type="java.lang.String">
+            <column name="fbdate"  length="20" />
+        </property>
+        <property name="s_name" type="java.lang.String">
+            <column name="s_name" length="255" />
+        </property>
+        <property name="sareaid" type="java.lang.Integer">
+            <column name="sareaid"  length="20" />
+        </property>
+        <property name="sremark" type="java.lang.String">
+            <column name="sremark"  />
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="reason" />
+        </property>
+        <property name="resoult" type="java.lang.String">
+            <column name="resoult"   />
+        </property>
+         <property name="checkveterinarian" type="java.lang.Integer">
+            <column name="checkveterinarian"   length="20"/>
+        </property>
+         <property name="checkprotector" type="java.lang.Integer">
+            <column name="checkprotector" length="20"/>
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="50" />
+        </property>
+         <property name="treatmenttype" type="java.lang.Integer">
+            <column name="treatmenttype"  length="20"/>
+        </property>
+        
+        
+        <property name="inremark" type="java.lang.String">
+            <column name="inremark"  />
+        </property>
+        <property name="outremark" type="java.lang.String">
+            <column name="outremark" />
+        </property>
+        <property name="addsy" type="java.lang.String">
+            <column name="addsy"   length="20"/>
+        </property>
+         <property name="cf" type="java.lang.String">
+            <column name="cf"   length="255"/>
+        </property>
+         <property name="lhao" type="java.lang.String">
+            <column name="lhao" length="50"/>
+        </property>
+        <property name="outroom" type="java.lang.String">
+            <column name="outroom" length="20" />
+        </property>
+         <property name="hokeeper" type="java.lang.String">
+            <column name="hokeeper"  length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

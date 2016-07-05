@@ -1,0 +1,44 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="departmentAddEditDialog" class="easyui-dialog" title="添加部门信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddEditDepToolbar'" style="display:'';width:200px;height:180px;" closable="true">
+			<div id="departmentAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDep">
+            <!-- 添加过后的客户Id  -->
+			  <form id="departmentAddEditForm" action="" method="post">
+			  <input type="hidden" id="depid" name="id" >
+		   	  <div class="edit_table">
+                <table  class="department" style="top:70px;">
+                  <tr>
+                    <td>部门名：</td>
+                  </tr>
+                  <tr>
+                    
+                    <td>  <input type="hidden" id="olddepname"  />
+                          <input id="depname" type="text" name="name" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="部门名已存在" 
+                        	validType="remotett[sybp()+'/departmentAction_checkName.action','name','#olddepname']" />
+                    </td> 
+                 <!--    <td>部门名：<input id="depname" name="name" class="easyui-validatebox" data-options="required:true"/>
+                         <span></span>
+                    </td>--> 
+                  </tr>
+                  <tr>
+                    <td>描述：<input id="depdescription" name="description" /></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="departmentAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogAddEditDepToolbar">
+		<a id="saveDepDialogButton" class="easyui-linkbutton" onclick="onDialogSaveDelButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backDepAddEditButton" class="easyui-linkbutton" onclick="javascript:$('#departmentAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

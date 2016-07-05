@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Inventory" table="inventory" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="inventoryType" type="java.lang.Integer">
+            <column name="inventoryType"  length="4" />
+        </property>
+        <property name="roomId" type="java.lang.Long">
+            <column name="roomId" />
+        </property>
+        <property name="maleMonkeyCount" type="java.lang.String">
+            <column name="maleMonkeyCount"  length="20" />
+        </property>
+        <property name="realmaleMonkeyCount" type="java.lang.String">
+            <column name="realmaleMonkeyCount"  length="20" />
+        </property>
+        <property name="femaleMonkeyCount" type="java.lang.String">
+            <column name="femaleMonkeyCount"  length="20" />
+        </property>
+        <property name="realfemaleMonkeyCount" type="java.lang.String">
+            <column name="realfemaleMonkeyCount"  length="20" />
+        </property>
+        <property name="yuchengMonkeyCount" type="java.lang.String">
+            <column name="yuchengMonkeyCount"  length="20" />
+        </property>
+        <property name="realyuchengMonkeyCount" type="java.lang.String">
+            <column name="realyuchengMonkeyCount"  length="20" />
+        </property>
+        <property name="cubMonkeyCount" type="java.lang.String">
+            <column name="cubMonkeyCount"  length="20" />
+        </property>
+        <property name="realcubMonkeyCount" type="java.lang.String">
+            <column name="realcubMonkeyCount"  length="20" />
+        </property>
+        <property name="totalCount" type="java.lang.String">
+            <column name="totalCount"  length="20" />
+        </property>
+        <property name="realtotalCount" type="java.lang.String">
+            <column name="realtotalCount"  length="20" />
+        </property>
+        <property name="inventoryDate" type="java.sql.Timestamp">
+            <column name="inventoryDate"   />
+        </property>
+        <property name="keeper" type="java.lang.Long">
+            <column name="keeper"   />
+        </property>
+        <property name="buildingName" type="java.lang.String">
+            <column name="buildingName"  length="30" />
+        </property>
+       
+        
+        
+    </class>
+</hibernate-mapping>

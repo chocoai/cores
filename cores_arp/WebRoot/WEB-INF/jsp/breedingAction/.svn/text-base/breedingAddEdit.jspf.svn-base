@@ -1,0 +1,63 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="breedingAddEditDialog" class="easyui-dialog" title="添加发情配种记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:240px;" closable="true">
+			<div id="breedingAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的Id  -->
+			  <form id="breedingAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table" style="padding-top:2px;">
+                <table  class="breeding" style="top:70px;">
+                  <tr>
+                    <td>母猴编号：<input type="hidden" id="oldmonkeyid"  />
+                            <input id="addmonkeyid" type="text" name="monkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHaveM.action','motherid','#oldmonkeyid']" />
+                    </td> 
+                    <td>发情日期：<input id="oestrusdate" name="oestrusdate" class="easyui-datebox" required="true" editable="false"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>发情类型：<input id="oestrustype" name="oestrustype"/><!-- <select id="oestrustype" class="easyui-combobox" name="oestrustype" style="width:100px;"  panelHeight=70  editable="false">
+								    <option value="27">自然发情</option>   
+								    <option value="28">人工发情</option>   
+								</select> -->  </td>
+                    <td>配种日期：<input id="breedingdate" name="breedingdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" > <input type="hidden" id="oldmailmonkeyids"  />
+                                                                   公猴编号：<input id="malesmonkeyid" name="malesmonkeyid" style="width:255px;"
+                                          class="easyui-validatebox" invalidMessage="公猴编号输入有误"
+                                          validType="remotett[sybp()+'/individualAction_checkMailMonkeyidsHave.action','mailMonkeyids','#oldmailmonkeyids']"/>(不止一个用逗号隔开)
+                                   <!--  <input id="malesmonkeyCombobox"/>-->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>交配日期：<input id="matingdate" name="matingdate" class="easyui-datebox" required="true" editable="false"/></td>
+                    <td>负责兽医：<input id="veterinarian" name="veterinarian"/></td>
+                  </tr>
+                  <tr>
+                     <td>保定人员：<input id="protector" name="protector"/></td>
+                     <td>数据记录：<input id="recorder" name="recorder"/> </td>
+                  </tr>
+                  <tr>
+                     <td>档案录入：<input id="operater" name="operater"/> </td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input id="remark" name="remark"/>  </td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="breedingAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#breedingAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

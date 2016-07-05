@@ -1,0 +1,36 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="vaccineTableDialog" class="easyui-dialog" title="疫苗接种" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:190px;" closable="true">
+			<div id="vaccineTableDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="vaccineTableForm" action="" method="post">
+			  <input type="hidden" id="vaccine_exportid" name="vaccine_exportid" >
+			  <input type="hidden" id="vaccine_monkeylist" name="vaccine_monkeylist" >
+		   	  <div class="edit_table">
+                <table  class="vaccine" style="top:70px;">
+                  <tr>
+                    <td>疫苗类型：<input id="vaccineType" name="vaccineType"  />
+                            
+                    </td> 
+                    <td>检测兽医：<input id="vacci_veterinarian" name="vacci_veterinarian" />
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>保定人员：<input id="vacci_protector" name="vacci_protector" /></td>
+                    <td>记录人员：<input id="vacci_recorder"  name="vacci_recorder" /></td>
+                  </tr>
+                  <tr>
+                    <td>备注：<input id="vacci_remark"  name="vacci_remark" /></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="vaccineTable_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="vaccineSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="cancelVaccineButton();" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

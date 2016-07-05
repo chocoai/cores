@@ -1,0 +1,28 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="bacteriaAddDialog" class="easyui-dialog" title="添加细菌检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddBacteriaToolbar'" style="display:'';width:820px;height:280px;" closable="true">
+			<div id="bacteriaAddDialog2" style="display:none;">
+		    <div >
+			  <form id="bacteriaAddForm" action="" method="post">
+			  <input type="hidden" id="bacteria_normalid" name="bacteria_normalid" />
+		   	  <div class="edit_table">
+                <table  class="department" style="top:70px;">
+                  <tr><td>动物编号：</td><td><input id="bac_monkeyid" name="bac_monkeyid" disabled="true"></input></td><td>记录人员：</td><td><input id="bac_recorder" name="bac_recorder"/></td>            
+                  <td>检测兽医：</td><td><input id="bac_veterinarian" name="bac_veterinarian"/></td>
+                  <tr>
+                     <td>保定人员：</td><td><input id="bac_protector" name="bac_protector"/></td>
+                  <td>检疫时间：</td><td><input id="bac_cdate" name="bac_cdate" class="easyui-datebox" required="true" editable="false"/></td><td>备注：</td><td><input id="bac_remark" name="bac_remark"/></td>
+                  </tr>
+                  
+                  <table id="bac">               
+                </table>
+            </div>
+		      </form>
+		        <a id="bacteriaAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddBacteriaToolbar">
+		<a id="saveBacteriaDialogButton" class="easyui-linkbutton" onclick="onDialogSaveBacteriaButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backBacteriaAddButton" class="easyui-linkbutton" onclick="javascript:$('#bacteriaAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

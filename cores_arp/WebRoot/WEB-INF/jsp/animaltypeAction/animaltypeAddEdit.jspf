@@ -1,0 +1,33 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="animaltypeAddEditDialog" class="easyui-dialog" title="猴场配置" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:500px;height:270px;" closable="true">
+			<div id="animaltypeAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="animaltypeAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td width="70px;">品种名称：</td>
+                     <td>       <input id="name" type="text" name="name" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项"   />
+                    </td>  
+                  </tr>
+                  <tr>
+                    <td >描述：</td>
+                    <td ><textarea rows="7" cols="46" id="desciption" name="desciption" style="resize: none" ></textarea> <!--<input id="desciption"  name="desciption" />--></td>
+                  </tr>
+                  
+                </table>
+            </div>
+		      </form>
+		        <a id="animaltypeAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#animaltypeAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

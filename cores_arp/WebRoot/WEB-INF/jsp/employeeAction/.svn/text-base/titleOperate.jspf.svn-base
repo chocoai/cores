@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="titleOperateDialog" class="easyui-dialog" title="职称信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogTitToolbar'" style="display:'';width:440px;height:415px;" closable="true">
+		<div id="titleOperateDialog2" style="display:none;align:center;">
+			    <div style="align:center;margin-left:15px">	
+			      <table id="titleTable" ></table>
+			    <a id="selectRole_event"></a>
+			     <input id ="clickName" type="hidden" >
+			    </div>
+		    </div>  
+   </div>
+	<!-- 工具栏 开始-->
+	<div id="dialogTitToolbar">
+		<a id="addTitleButton" class="easyui-linkbutton" onclick="onaddTitButton();" data-options="iconCls:'icon-driveadd',plain:true">添加</a>
+		<a id="editTitleButton" class="easyui-linkbutton" onclick="oneditTitButton();" data-options="iconCls:'icon-driveedit',plain:true">编辑</a>
+		<a id="delTitleButton" class="easyui-linkbutton" onclick="ondelTitButton();" data-options="iconCls:'icon-drivedelete',plain:true">删除</a>
+		<a id="backTitButton" class="easyui-linkbutton" onclick="javascript:$('#titleOperateDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

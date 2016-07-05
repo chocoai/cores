@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Position" table="position" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name"  length="64"/>
+        </property>
+        <property name="department_id" type="java.lang.Integer">
+            <column name="department_id" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description"   />
+        </property>
+       
+       
+        <!-- tblRigon,本类与TblRigon的多对一的关系
+        <many-to-one name="tblRigon" column="regionCode" class="TblRigon" lazy="false"></many-to-one>
+         -->
+    </class>
+</hibernate-mapping>
+         

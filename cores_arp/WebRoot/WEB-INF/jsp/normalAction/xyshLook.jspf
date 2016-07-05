@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="xyshLookDialog" class="easyui-dialog" title="查看血液生化检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogLookXyshToolbar'" style="display:'';width:400px;height:280px;" closable="true">
+			<div id="xyshLookDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDep">
+			  <form id="xyshLookForm" action="" method="post">
+			  <input type="hidden" id="depid" name="id" >
+		   	  <div class="edit_table">
+                <table  id="lookXysh">
+                	            
+                </table>
+            </div>
+		      </form>
+		        <a id="xyshLook_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogLookXyshToolbar">
+		<a id="backXyshLookButton" class="easyui-linkbutton" onclick="javascript:$('#xyshLookDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">返回</a>
+	</div>

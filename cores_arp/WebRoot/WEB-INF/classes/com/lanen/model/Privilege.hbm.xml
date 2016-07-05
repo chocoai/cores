@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Privilege" table="sys_function" >
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+        </id>
+        <property name="sid" type="java.lang.String">
+            <column name="sid" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="url" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+         
+        <!-- roles属性，本类与Role的多对多的关系 -->
+        <set name="roles" table="role_privilege" lazy="false">
+        <key column="privilegeId"></key>
+        <many-to-many class="Role" column="roleId"></many-to-many>
+        </set>
+        
+    </class>
+</hibernate-mapping>

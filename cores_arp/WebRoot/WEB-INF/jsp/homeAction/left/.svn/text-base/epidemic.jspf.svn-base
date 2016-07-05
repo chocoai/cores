@@ -1,0 +1,27 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <table id="selectTable3" class="easyui-datagrid">   
+		    <thead >   
+		        <tr> 
+		            <th data-options="field:'id',width:170,hidden:true,align:'center'"  ></th> 
+		            <th data-options="field:'select',width:170,align:'left'"  ></th>   
+		        </tr>   
+		    </thead>   
+		    <tbody>    
+		         <!--  <tr > 
+		            <td>1</td>
+		            <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;常规检疫</td>
+		         </tr> -->  
+		         <tr>   
+		         <td>2</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;动物检疫</td>
+		         </tr>  
+		          <tr>   
+		          <td>3</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;防疫配置</td>
+		         </tr> 
+		          <!--<tr>   
+		          <td>4</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房舍消毒</td>
+		         </tr>  
+			  --></tbody>   
+</table> 

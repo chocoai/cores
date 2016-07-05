@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="positionOperateDialog" class="easyui-dialog" title="职位信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogPosToolbar'" style="display:'';width:440px;height:415px;" closable="true">
+		<div id="positionOperateDialog2" style="display:none;align:center;">
+			    <div style="align:center;margin-left:15px">	
+			      <table id="positionTable" ></table>
+			    <a id="selectPosition_event"></a>
+			     <input id ="clickName" type="hidden" >
+			    </div>
+		    </div>  
+   </div>
+	<!-- 工具栏 开始-->
+	<div id="dialogPosToolbar">
+		<a id="addPositionButton" class="easyui-linkbutton" onclick="onaddPosButton();" data-options="iconCls:'icon-serveradd',plain:true">添加</a>
+		<a id="editPositionButton" class="easyui-linkbutton" onclick="oneditPosButton();" data-options="iconCls:'icon-serveredit',plain:true">编辑</a>
+		<a id="delPositionButton" class="easyui-linkbutton" onclick="ondelPosButton();" data-options="iconCls:'icon-serverdelete',plain:true">删除</a>
+		<a id="backPosButton" class="easyui-linkbutton" onclick="javascript:$('#positionOperateDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

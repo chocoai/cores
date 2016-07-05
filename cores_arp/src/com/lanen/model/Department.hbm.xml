@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Department" table="department" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name"  length="64"/>
+        </property>
+        <property name="issales" type="java.lang.Integer">
+            <column name="issales" length="3"/>
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted" length="1"  />
+        </property>
+        <property name="createdby" type="java.lang.String">
+            <column name="createdby"  length="36" />
+        </property>
+        <property name="modifiedby" type="java.lang.String">
+            <column name="modifiedby" length="36"  />
+        </property>
+        <property name="dateentered" type="java.sql.Timestamp">
+            <column name="dateentered"   />
+        </property>
+        <property name="datemodified" type="java.sql.Timestamp">
+            <column name="datemodified"  />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description"  />
+        </property>
+    </class>
+</hibernate-mapping>
+         

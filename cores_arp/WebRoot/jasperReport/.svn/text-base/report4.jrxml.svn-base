@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e4bdbd7-2663-40da-8688-c11492440f98">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="logoImage" class="java.lang.String"/>
+	<parameter name="userName" class="java.lang.String"/>
+	<parameter name="animalType" class="java.lang.String"/>
+	<parameter name="inventoryDate" class="java.lang.String"/>
+	<field name="area" class="java.lang.String"/>
+	<field name="monkeyType" class="java.lang.String"/>
+	<field name="room" class="java.lang.String"/>
+	<field name="monkeyCount" class="java.lang.String"/>
+	<field name="field5" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89">
+			<image>
+				<reportElement uuid="ed3eaf45-f2cf-4d3a-9747-b6b58827c1a9" x="4" y="0" width="56" height="50"/>
+				<imageExpression><![CDATA[$P{logoImage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="2197d1cb-2ef9-447e-ae03-c359dc97e332" x="220" y="15" width="303" height="35"/>
+				<textElement>
+					<font fontName="宋体" size="24"/>
+				</textElement>
+				<text><![CDATA[2015年8月份饲养数量统计表]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="907d8030-9b2e-4b9f-ba44-b7c414556c94" x="2" y="69" width="100" height="20"/>
+				<textElement>
+					<font fontName="宋体" size="14"/>
+				</textElement>
+				<text><![CDATA[姓名：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3e07f81b-e3b3-4613-be27-88005c031673" x="268" y="69" width="100" height="20"/>
+				<textElement>
+					<font fontName="宋体" size="14"/>
+				</textElement>
+				<text><![CDATA[品种：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a0a90221-b00b-45fe-b98a-09226e048bf7" x="625" y="69" width="100" height="20"/>
+				<textElement>
+					<font fontName="宋体" size="14"/>
+				</textElement>
+				<text><![CDATA[盘点日期：]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="107a0a49-d5b6-4ad5-b16a-955c8ebdd01f" x="41" y="69" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{userName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="35fb37f5-0580-4b05-acc8-782c39113b41" x="313" y="69" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{animalType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a3e34b00-cfd0-4e91-9e83-3ffcdc80b4c1" x="702" y="69" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{inventoryDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="125" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="fa2a304e-3133-4be5-bae6-a1566bd7dbef" x="0" y="0" width="802" height="125"/>
+				<crosstabHeaderCell>
+					<cellContents/>
+				</crosstabHeaderCell>
+				<rowGroup name="area" width="70">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{area}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<textField>
+								<reportElement uuid="89b291d0-1084-4744-9ea2-00b01d35cf70" style="Crosstab Data Text" x="0" y="0" width="70" height="43"/>
+								<textElement>
+									<font fontName="宋体" size="24" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{area}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="monkeyType" width="70">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{monkeyType}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<textField>
+								<reportElement uuid="caa47885-ab18-43f4-9955-da26f0c90180" style="Crosstab Data Text" x="0" y="0" width="70" height="43"/>
+								<textElement>
+									<font fontName="宋体" size="24" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{monkeyType}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="room" height="70">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{room}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<textField>
+								<reportElement uuid="2578711d-aceb-43fa-8e99-1c74f05db890" style="Crosstab Data Text" x="0" y="0" width="113" height="33"/>
+								<textElement>
+									<font fontName="宋体" size="24" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{room}==null?"":$V{room}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement uuid="ac806cc9-4392-4d06-853c-4b27c669ab67" style="Crosstab Data Text" x="0" y="33" width="50" height="37"/>
+								<textElement>
+									<font fontName="宋体" size="24" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<text><![CDATA[应盘]]></text>
+							</staticText>
+							<staticText>
+								<reportElement uuid="aceda226-70d3-4474-914d-9450f0c58175" style="Crosstab Data Text" x="50" y="33" width="63" height="37"/>
+								<textElement>
+									<font fontName="宋体" size="24" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<text><![CDATA[实盘]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="monkeyCountMeasure" class="java.lang.String">
+					<measureExpression><![CDATA[$F{monkeyCount}]]></measureExpression>
+				</measure>
+				<crosstabCell width="113" height="43">
+					<cellContents>
+						<textField>
+							<reportElement uuid="966e6c4d-d1f6-4736-b1aa-4dd18472b388" style="Crosstab Data Text" x="0" y="0" width="50" height="43"/>
+							<textElement>
+								<font fontName="宋体" size="24" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{monkeyCountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

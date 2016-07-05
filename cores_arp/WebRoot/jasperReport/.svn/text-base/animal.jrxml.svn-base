@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="animal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="05c65283-9562-4176-8a29-346ea766a0a5">
+	<property name="ireport.zoom" value="1.6105100000000012"/>
+	<property name="ireport.x" value="33"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="company" class="java.lang.String"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="keeper" class="java.lang.String"/>
+	<parameter name="blongarea" class="java.lang.String"/>
+	<parameter name="printdate" class="java.lang.String"/>
+	<parameter name="logoImage" class="java.lang.String"/>
+	<field name="roomname" class="java.lang.String"/>
+	<field name="monkeyid" class="java.lang.String"/>
+	<field name="index" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<textField>
+				<reportElement uuid="5bd6b15b-5a39-4215-8690-02d05432b215" x="36" y="18" width="135" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" size="8" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{company}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1ceacd47-8783-40ed-bd58-1fd422c43b9d" x="185" y="36" width="171" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="12" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ca5b7344-d579-454c-bfa8-503d4b8b6479" x="60" y="84" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{keeper}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5f8e5b47-29e7-4461-b9c6-3c3829d2aba3" x="0" y="84" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[责任饲养员：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6276fddf-5477-4c0e-a48b-30173347e694" x="229" y="84" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<text><![CDATA[饲养区域：]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="aae56e64-afce-4ecb-8e30-b089133dce2c" x="279" y="84" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{blongarea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4607388a-a331-4b28-9c90-261375fb420d" x="459" y="84" width="76" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{printdate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="d68ec087-08c0-4dc5-bf65-63468e80ff6e" x="0" y="35" width="535" height="1"/>
+			</line>
+			<image>
+				<reportElement uuid="29e83923-552a-4bb5-aa9c-71433c180f6b" x="0" y="0" width="47" height="34"/>
+				<imageExpression><![CDATA[$P{logoImage}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="f4d9158b-2d1e-46a0-ac39-b244f3f117f4" x="0" y="0" width="535" height="42"/>
+				<rowGroup name="index" width="70">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{index}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="ad0a3ac2-740e-4bc6-9bb1-b60f36a05c92" style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+								<textElement>
+									<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{index}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="roomname" height="30">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{roomname}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="d7e70e47-b81d-4dfb-b59d-ac8604425fea" style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
+								<textElement>
+									<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{roomname}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="monkeyidMeasure" class="java.lang.String">
+					<measureExpression><![CDATA[$F{monkeyid}]]></measureExpression>
+				</measure>
+				<crosstabCell width="50" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement uuid="371fcf62-a12a-4d50-a33d-0aff66e9a837" style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement>
+								<font pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{monkeyidMeasure}!=null ?  $V{monkeyidMeasure}: ""]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

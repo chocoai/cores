@@ -1,0 +1,73 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="exportAddDialog" class="easyui-dialog" title="添加出口检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:870px;height:225px;" closable="true">
+			<div id="exportAddDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="exportAddForm" action="" method="post">
+			  <input type="hidden" id="exportid" name="exportid" >
+		   	  <div class="edit_table">
+                <table  class="export" style="top:70px;">
+                  <tr>
+                    <td>检疫单号：</td>
+                    <td>
+                        	 <input id="title" type="text" name="title" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项,且只能输数字" invalidMessage="检疫单号不符合规则" 
+                        	 validType="remotett[sybp()+'/normalAction_checkNormalidHave.action','title','#oldmonkeyid']" />
+                    
+                  </tr>
+                  <tr>
+                    <td>检疫主管：</td>
+                    <td><input id="boss" name="boss" />
+                    </td>
+                    <td>检疫时间：</td>
+                    <td><input id="checkdate" name="checkdate" class="easyui-datebox" required="true" editable="false"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>所属区域：</td>
+                    <td><input id="area" name="area" />
+                    </td>
+                    <td>房号：</td>
+                    <td><input id="room" name="room" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>选择动物编号：</td>
+                    <td><input  id="monkey" name="monkey" />
+                     
+                    <td>已经选中：</td>
+                    <td><textarea id="monkeylist" name="monkeylist" rows="1" cols="40" ></textarea></td> 
+                  </tr>  
+                  <tr>
+                  	<td>检疫兽医：</td>
+                    <td><input id="recorder" name="recorder" />
+                    </td>
+                    <td>保定人员：</td>
+                    <td><input id="protector" name="protector" />
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td>检疫项目：</td>
+                    <td><input type="checkbox" id="surface" name="surface" value="体表" onclick="showp(this);"/>体表
+                    <input type="checkbox" id="tb" name="tb" value="TB" onclick="showp(this);"/>TB
+                    <input type="checkbox" id="parasite" name="parasite" value="寄生虫" onclick="showp(this);"/>寄生虫
+                    <input type="checkbox" id="virus" name="virus" value="病毒" onclick="showp(this);"/>病毒
+                    <input type="checkbox" id="bacteria" name="bacteria" value="细菌" onclick="showp(this);"/>细菌
+                    <input type="checkbox" id="vaccine" name="vaccine" value="疫苗" onclick="showp(this);"/>疫苗
+                    <input type="checkbox" id="x" name="x" value="X光" onclick="showp(this);"/>X光
+                    <input type="checkbox" id="infectious" name="infectious" value="传染病" onclick="showp(this);"/>传染病
+                    </td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="exportAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#exportAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

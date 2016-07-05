@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Security_ru" table="security_ru" >
+        <id name="id" column="id" type="java.lang.Integer">
+			<generator class="native" />
+		</id>
+
+        <property name="role_id" type="java.lang.Integer">
+            <column name="role_id"  />
+        </property>
+        <property name="unit_id" type="java.lang.Integer">
+            <column name="unit_id" />
+        </property>
+        <property name="permission" type="java.lang.Integer">
+            <column name="permission" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

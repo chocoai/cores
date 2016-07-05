@@ -1,0 +1,90 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="customerAddEditDialog" class="easyui-dialog" title="添加员工信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:400px;" closable="true">
+			<div id="customerAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的客户Id  -->
+            <input type="hidden" id="cuid" value="${cuid}" name="cuid"/>
+			  <form id="customerAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="employee" style="top:70px;">
+                  <tr>
+                    <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<input id="name" name="name" class="easyui-validatebox" data-options="required:true"/></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别：<select id="sex" name="sex" class="easyui-combobox" panelHeight="50">
+        						<option value="0">女</option>
+        						<option value="1">男</option>
+        					</select>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色：<input id="roles" name="roles" /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账号：<input id="userid" name="userid" /></td>
+                  </tr>
+                  <tr> 
+                    <td>登录密码：<input id="password" name="password" type="password"/></td>
+                    <td>确认密码：<input id="repassword" name="repassword" type="password" required="true" class="easyui-validatebox"  validType="equalTo['#password']" invalidMessage="两次输入密码不匹配"/></td>
+                  </tr>
+                  <tr>
+                    <td>出生年月：<input id="bod" type="text" name="bod" class="easyui-datebox"  editable="false" style="width:126px;"></input></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;婚否：<select id="married" name="married" class="easyui-combobox" panelHeight="50">
+        						<option value="0">未婚</option>
+        						<option value="1">已婚</option>
+        					</select>
+                    </td>
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学校：<input id="school" name="school"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专业：<input id="zye" name="zye"/></td>
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;民族：<input id="national" name="national"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍贯：<input id="jguan" name="jguan"/> </td>
+                     
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学历：<input id="xueli" name="xueli"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职称：<input id="zhic" name="zhic"/></td>
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：<input id="phone" name="phone"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机：<input id="mobile" name="mobile"/></td>
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址：<input id="address" name="address"/></td>
+                     <td>电子邮件：<input id="email" name="email"/></td>
+                  </tr>
+                  <tr>
+                     <td>入职时间：<input id="intime" type="text" name="intime" class="easyui-datebox" required="true" editable="false" style="width:126px;"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工号：<input type="hidden" id="oldemployeeid"  />
+                            <input id="employeeid" type="text" name="employeeid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="工号已存在" 
+                        	validType="remotett[sybp()+'/employeeAction_checkEmployeeid.action','employeeid','#oldemployeeid']" />
+                    </td> 
+                   <!-- <td>工号：<input id="employeeid" name="employeeid" class="easyui-validatebox" data-options="required:true" /></td> -->  
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;部门：<input id="departmentid" name="departmentid"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职位：<input id="positionid" name="positionid"/></td>
+                  </tr>
+                  <tr>
+                      <td>身份证号：<input id="sfz" name="sfz"/></td>
+                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input id="description" name="description"/></td>
+                  </tr>  
+                </table>
+            </div>
+		      </form>
+		        <a id="customerAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#customerAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

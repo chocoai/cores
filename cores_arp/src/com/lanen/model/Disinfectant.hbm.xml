@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Disinfectant" table="disinfectant" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        
+        <property name="disinfectantCode" type="java.lang.String">
+            <column name="disinfectantCode"  length="50"/>
+        </property>
+        <property name="validdate" type="java.sql.Timestamp">
+            <column name="validdate" />
+        </property>
+        <property name="createdBy" type="java.lang.Long">
+            <column name="createdBy"   />
+        </property>
+        <property name="createdDate" type="java.sql.Timestamp">
+            <column name="createdDate"  length="20" />
+        </property>
+       
+        
+        
+    </class>
+</hibernate-mapping>

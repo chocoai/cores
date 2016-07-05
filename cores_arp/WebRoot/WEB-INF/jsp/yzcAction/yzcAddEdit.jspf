@@ -1,0 +1,70 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="yzcAddEditDialog" class="easyui-dialog" title="添加养殖场信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:580px;height:470px;" closable="true">
+			<div id="yzcAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="yzcAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td width="60px;">养殖场名称：</td><td>
+                            <input id="yzcmane" type="text" name="yzcmane" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项"   />
+                    </td> 
+                    <td width="60px;">详细地址：</td><td><input id="xxdz" name="xxdz" />
+        			</td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">单位性质：</td><td><input id="dwxz" name="dwxz" class=""  editable="false"/></td>
+                    <td width="60px;">负责人：</td><td><input id="fzr"  name="fzr" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">法人代表：</td><td><input id="frdb"  name="frdb" /></td>
+                    <td>邮政编码：</td><td><input id="yzbm" name="yzbm"/></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">联系电话：</td><td><input id="lxdh" name="lxdh" class=""  editable="false"/></td>
+                    <td width="60px;">中级人数：</td><td><input id="zjrs"  name="zjrs" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">技术人数：</td><td><input id="jsrs" name="jsrs" class=""  editable="false"/></td>
+                    <td width="60px;">兽医人数：</td><td><input id="syyrs"  name="syyrs" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">饲养人数：</td><td><input id="syrs" name="syrs" class=""  editable="false"/></td>
+                    <td width="60px;">检测人数：</td><td><input id="jcrs"  name="jcrs" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">后勤人数：</td><td><input id="hqrs" name="hqrs" class=""  editable="false"/></td>
+                    <td width="60px;">管理员数：</td><td><input id="glrs"  name="glrs" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">职工总数：</td><td><input id="zgzrs" name="zgzrs" class=""  editable="false"/></td>
+                    <td width="60px;">建筑面积：</td><td><input id="jzmj"  name="jzmj" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">饲养面积：</td><td><input id="symj" name="symj" class=""  editable="false"/></td>
+                    <td width="60px;">实验室：</td><td><input id="sys"  name="keeper" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">检疫房：</td><td><input id="jyf" name="jyf" class=""  editable="false"/></td>
+                    <td width="60px;">饲料房：</td><td><input id="slf"  name="slf" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">兽医室：</td><td width="60px;"><input id="syf" name="syf" class=""  editable="false"/></td>
+                    <td width="60px;">仪器设备：</td><td width="60px;"><input id="yqsb"  name="yqsb" /></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="yzcAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#yzcAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

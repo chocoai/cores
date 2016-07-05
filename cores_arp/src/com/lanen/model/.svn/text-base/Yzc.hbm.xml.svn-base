@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Yzc" table="yzc" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="yzcmane" type="java.lang.String">
+            <column name="yzcmane" length="100" />
+        </property>
+        <property name="frdb" type="java.lang.String">
+            <column name="frdb" length="50" />
+        </property>
+        
+       
+        
+        <property name="dwxz" type="java.lang.String">
+            <column name="dwxz"  length="50" />
+        </property>
+        
+        <property name="fzr" type="java.lang.String">
+            <column name="fzr" length="50"  />
+        </property> 
+        
+        
+        <property name="xxdz" type="java.lang.String">
+            <column name="xxdz" length="200"  />
+        </property>
+        <property name="yzbm" type="java.lang.String">
+            <column name="yzbm" length="20"  />
+        </property>
+        
+        <property name="lxdh" type="java.lang.String">
+            <column name="lxdh" length="50"/>
+        </property>
+        <property name="zjrs" type="java.lang.String">
+            <column name="zjrs" length="20"/>
+        </property>
+        <property name="syrs" type="java.lang.String">
+            <column name="syrs" length="20"/>
+        </property>
+        <property name="syyrs" type="java.lang.String">
+            <column name="syyrs" length="20"/>
+        </property>
+        <property name="jcrs" type="java.lang.String">
+            <column name="jcrs" length="20"/>
+        </property>
+        <property name="hqrs" type="java.lang.String">
+            <column name="hqrs" length="20"/>
+        </property>
+        <property name="glrs" type="java.lang.String">
+            <column name="glrs" length="20"/>
+        </property>
+        <property name="zgzrs" type="java.lang.String">
+            <column name="zgzrs" length="20"/>
+        </property>
+        <property name="jzmj" type="java.lang.String">
+            <column name="jzmj" length="50"/>
+        </property>
+        <property name="symj" type="java.lang.String">
+            <column name="symj" length="50"/>
+        </property>
+        <property name="sys" type="java.lang.String">
+            <column name="sys" length="50"/>
+        </property>
+        <property name="jyf" type="java.lang.String">
+            <column name="jyf" length="50"/>
+        </property>
+        <property name="slf" type="java.lang.String">
+            <column name="slf" length="50"/>
+        </property>
+        <property name="syf" type="java.lang.String">
+            <column name="syf" length="50"/>
+        </property>
+        <property name="yqsb" type="java.lang.String">
+            <column name="yqsb" />
+        </property>
+        <property name="jsrs" type="java.lang.String">
+            <column name="jsrs" length="20"/>
+        </property>
+        
+        
+          
+
+
+		 <property name="createtime" type="timestamp">
+            <column name="createtime"  />
+        </property>
+        
+        <property name="modified_by" type="java.lang.Long">
+            <column name="modified_by" length="20"  />
+        </property>
+        
+         <property name="created_by" type="java.lang.Long">
+            <column name="created_by" length="20"  />
+        </property>
+        <property name="lastmodifytime" type="timestamp">
+            <column name="lastmodifytime" />
+        </property>
+         <property name="deleted" type="java.lang.Integer">
+            <column name="deleted" length="4"  />
+        </property>
+    </class>
+</hibernate-mapping>

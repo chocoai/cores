@@ -1,0 +1,50 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="areaAddEditDialog" class="easyui-dialog" title="添加区域信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:225px;" closable="true">
+			<div id="areaAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的客户Id  -->
+			  <form id="areaAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="area" style="top:70px;">
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;区域名：<input type="hidden" id="oldareaname"  />
+                            <input id="areaname" type="text" name="areaname" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="名称已存在" 
+                        	validType="remotett[sybp()+'/areaAction_checkAreaName.action','areaname','#oldareaname']" />
+                    </td> 
+                    <td>所属区域：<input id="blongarea" name="blongarea"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>动物类型：<input id="animaltype" name="animaltype" /></td>
+                    <td>&nbsp;&nbsp;&nbsp;饲养员：<input id="keeper"  name="keeper" /></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主管：<input id="boss"  name="boss" /></td>
+                       <td>档案记录：<input id="reader" name="reader"/>
+                    </td>
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;兽医：<input id="veterinarian" name="veterinarian"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input id="remarks" name="remarks"/></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="areaAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#areaAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	&nbsp;&nbsp;注：房舍名称格式[所属区域-房舍]
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

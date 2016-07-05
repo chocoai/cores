@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Qc" table="qc" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+        <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid" length="20" />
+        </property>
+        <property name="protector" type="java.lang.String">
+            <column name="protector" length="20"  />
+        </property>
+         <property name="recorder" type="java.lang.String">
+            <column name="recorder" length="20"/>
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime"  />
+        </property>
+        
+        <property name="modified_by" type="java.lang.Long">
+            <column name="modified_by" length="20"  />
+        </property>
+        
+         <property name="created_by" type="java.lang.Long">
+            <column name="created_by" length="20"  />
+        </property>
+        <property name="lastmodifytime" type="timestamp">
+            <column name="lastmodifytime" />
+        </property>
+         <property name="deleted" type="java.math.BigInteger">
+            <column name="deleted" length="4"  />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"  />
+        </property>
+        <property name="veterinarian" type="java.lang.String">
+            <column name="veterinarian" length="20"  />
+        </property>
+        
+        <property name="normal_id" type="java.lang.Integer">
+            <column name="normal_id" length="20"  />
+        </property>
+        <property name="cdate" type="java.sql.Timestamp">
+            <column name="cdate" />
+        </property>
+        <property name="ptype" type="java.lang.String">
+            <column name="ptype" length="50" />
+        </property>
+        <property name="dateid" type="java.lang.String">
+            <column name="dateid" length="50"  />
+        </property>
+        <property name="qcbd" type="java.lang.String">
+            <column name="qcbd" length="20"  />
+        </property>
+        <property name="qcyp" type="java.lang.String">
+            <column name="qcyp" length="255"  />
+        </property>
+        <property name="qcrq" type="java.lang.String">
+            <column name="qcrq" length="50"  />
+        </property>
+        <property name="qcry" type="java.lang.String">
+            <column name="qcry" length="20"  />
+        </property>
+        <property name="qcyl" type="java.lang.String">
+            <column name="qcyl" length="255"  />
+        </property>
+        
+         <property name="process" type="java.lang.String">
+            <column name="process" length="20"  />
+        </property>
+         <property name="pccode" type="java.lang.String">
+            <column name="pccode" length="20"  />
+        </property>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="surfaceLookDialog" class="easyui-dialog" title="查看体表检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogLookSurfaceToolbar'" style="display:'';width:400px;height:280px;" closable="true">
+			<div id="surfaceLookDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDep">
+			  <form id="surfaceLookForm" action="" method="post">
+			  <input type="hidden" id="depid" name="id" >
+		   	  <div class="edit_table">
+                <table  id="lookSurface">
+                	            
+                </table>
+            </div>
+		      </form>
+		        <a id="surfaceLook_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogLookSurfaceToolbar">
+		<a id="backSurfaceLookButton" class="easyui-linkbutton" onclick="javascript:$('#surfaceLookDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">返回</a>
+	</div>

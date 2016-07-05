@@ -1,0 +1,32 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="infectiousAddDialog" class="easyui-dialog" title="添加传染病检测信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddInfectiousToolbar'" style="display:'';width:520px;height:280px;" closable="true">
+			<div id="infectiousAddDialog2" style="display:none;">
+		    <div >
+			  <form id="infectiousAddForm" action="" method="post">
+			  <input type="hidden" id="infectious_normalid" name="infectious_normalid" >
+		   	  <div class="edit_table">
+                <table  class="department" style="top:70px;">
+                  <tr><td>动物编号：</td><td><input id="inf_monkeyid" name="inf_monkeyid" disabled="true"></input></td>
+                  <td>检疫时间：</td><td><input id="inf_cdate" name="inf_cdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  <tr><td>传染病名称:</td><td><input id="inf_crbmc" name="inf_crbmc" /></td><td>检测兽医：</td><td><input id="inf_veterinarian" name="inf_veterinarian"/></td></tr>
+                  <tr>
+                     <td>检测药品名称：</td><td><input id="inf_drugsname" name="inf_drugsname"/></td><td>药剂量：</td><td><input id="inf_drugscount" name="inf_drugscount"/></td>
+                  </tr>
+                  <tr>
+                     <td>保定人员：</td><td><input id="inf_protector" name="inf_protector"/></td><td>记录人员：</td><td><input id="inf_recorder" name="inf_recorder"/></td>
+                  </tr>
+                  <tr><td>备注：</td><td>
+                  	<textarea id="inf_remark" name="inf_remark" rows="1" cols="10"></textarea>
+                  </td></tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="infectiousAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddInfectiousToolbar">
+		<a id="saveInfectiousDialogButton" class="easyui-linkbutton" onclick="onDialogSaveInfectiousButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backInfectiousAddButton" class="easyui-linkbutton" onclick="javascript:$('#infectiousAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

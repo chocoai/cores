@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Individual" table="individual" >
+        <id name="id" column="id" type="java.lang.Integer">
+			<generator class="native" />
+		</id>
+
+       <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid" length="20" />
+        </property>
+       
+        <property name="birthday" type="java.lang.String">
+            <column name="birthday"  length="20"/>
+        </property>
+        
+        <property name="frid" type="java.lang.String">
+            <column name="frid"  length="20"/>
+        </property>
+         <property name="animaltype" type="java.lang.Integer">
+            <column name="animaltype"  length="11"/>
+        </property>
+         <property name="agetype" type="java.lang.Integer">
+            <column name="agetype"  length="11"/>
+        </property>
+         <property name="iszhongqun" type="java.lang.Integer">
+            <column name="iszhongqun"  length="4"/>
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex"  length="4"/>
+        </property>
+        <property name="source" type="java.lang.Integer">
+            <column name="source"  length="4"/>
+        </property>
+         <property name="generation" type="java.lang.Integer">
+            <column name="generation"  length="4"/>
+        </property>
+         <property name="leavebreastdate" type="java.lang.String">
+            <column name="leavebreastdate"  length="20"/>
+        </property>
+        <property name="currentweight" type="java.lang.Double">
+            <column name="currentweight"  />
+        </property>
+        <property name="birthdayweight" type="java.lang.Double">
+            <column name="birthdayweight"  />
+        </property>
+         <property name="leavebreastweight" type="java.lang.Double">
+            <column name="leavebreastweight"  />
+        </property>
+        <property name="fatherid" type="java.lang.String">
+            <column name="fatherid"  length="20"/>
+        </property>
+          <property name="motherid" type="java.lang.String">
+            <column name="motherid"  length="20"/>
+        </property>
+        <property name="blongarea" type="java.lang.Integer">
+            <column name="blongarea"  length="20"/>
+        </property>
+         <property name="dong" type="java.lang.Integer">
+            <column name="dong"  length="20"/>
+        </property>
+         <property name="room" type="java.lang.Integer">
+            <column name="room"  length="20"/>
+         </property>
+         <property name="keeper" type="java.lang.Integer">
+            <column name="keeper"  length="20"/>
+         </property>
+          <property name="veterinarian" type="java.lang.Integer">
+            <column name="veterinarian"  length="20"/>
+         </property>
+          <property name="operater" type="java.lang.Integer">
+            <column name="operater"  length="20"/>
+         </property>
+          <property name="deleted" type="java.lang.Integer">
+            <column name="deleted"  length="4"/>
+         </property>
+          <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by"  length="20"/>
+         </property>
+          <property name="createtime" type="timestamp">
+            <column name="createtime"  />
+         </property>
+          <property name="created_by" type="java.lang.Integer">
+            <column name="created_by"  length="20"/>
+         </property>
+          <property name="lastmodifytime" type="timestamp">
+            <column name="lastmodifytime"  />
+         </property>
+          <property name="tnid" type="java.lang.String">
+            <column name="tnid"  length="50"/>
+         </property>
+         <property name="ysz" type="java.lang.String">
+            <column name="ysz"  length="200"/>
+         </property>
+          <property name="yjdate" type="java.lang.String">
+            <column name="yjdate"  length="20"/>
+         </property>
+          <property name="sourceaddress" type="java.lang.String">
+            <column name="sourceaddress"  length="20"/>
+         </property>
+           <property name="yjaddress" type="java.lang.String">
+            <column name="yjaddress"  length="20"/>
+         </property>
+         <property name="remark" type="java.lang.String">
+            <column name="remark"  />
+         </property>
+          <property name="status" type="java.lang.Integer">
+            <column name="status"  length="11"/>
+         </property>
+          <property name="lhao" type="java.lang.String">
+            <column name="lhao"  />
+         </property>
+           <property name="currentdate" type="java.lang.String">
+            <column name="currentdate"  length="50"/>
+         </property>
+        <property name="image" type="java.lang.String">
+            <column name="image"  length="50"/>
+         </property>
+           <property name="weighingDate" type="timestamp">
+            <column name="weighingDate"  />
+         </property>
+            <property name="chipid" type="java.lang.String">
+            <column name="chipid"  length="50"/>
+         </property>
+    </class>
+</hibernate-mapping>

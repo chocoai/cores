@@ -1,0 +1,52 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="changeroomAddEditDialog" class="easyui-dialog" title="添加调栏记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:570px;height:370px;" closable="true">
+			<div id="changeroomAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的客户Id  -->
+			  <form id="changeroomAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+                <table  class="tableCss1" style="top:100px;">
+                  <tr>
+                    <td width="60px;">动物编号：</td><td><input type="hidden" id="oldmonkeyid"  />
+                            <input id="addmonkeyid" type="text" name="monkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHave.action','monkeyid','#oldmonkeyid']" />
+                    </td> 
+                    <td width="60px;">调栏日期：</td><td><input id="changeroomdate" name="changeroomdate" class="easyui-datebox" required="true" editable="false"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">调入区域：</td><td><input id="changeinarea" name="changeinarea" /></td>
+                    <td width="60px;">调入房间：</td><td><input id="changeinroom"  name="changeinroom" /></td>
+                  </tr>
+                  <tr>
+                    <td width="60px;">调入笼号：</td><td><input id="lhao"  name="lhao" /></td>
+                    <td width="60px;">保定人员：</td><td><input id="protector" name="protector"/></td>
+                  </tr>
+                  <tr>
+                     <td width="60px;">数据记录：</td><td><input id="recorder" name="recorder"/> </td>
+                     <!--  <td>档案录入：<input id="operater" name="operater"/> </td>-->
+                     <td width="60px;">指定饲养员：</td><td><input id="operater" name="operater"/> </td>
+                  </tr>
+                  <tr>
+                     <!-- <td>&nbsp;&nbsp;&nbsp;原笼号：<input id="ylh" name="ylh"/>  </td> -->
+                     <td width="60px;">备注：</td><td><input id="remark" name="remark"/>  </td>
+                  </tr>
+                  
+                </table>
+		      </form>
+		        <a id="changeroomAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#changeroomAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

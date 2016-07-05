@@ -1,0 +1,44 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="symptomsAddEditDialog" class="easyui-dialog" title="添加症状信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:225px;" closable="true">
+			<div id="symptomsAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="symptomsAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="area" style="top:70px;">
+                  <tr>
+                    <td>症状名称：</td>
+                    <td><input id="name"  name="name" /></td>
+                  </tr>
+                  <tr>
+                    <td>疾病系统：</td>
+                    <td><select id="symptomssite" name="symptomssite" class="easyui-combobox" style="width:100px;" editable="false" data-options="panelHeight:100"></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>发病原因：</td>
+                    <td><input id="reason" name="reason"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>症状描述：</td>
+                    <td><input id="symptomsremark" name="symptomsremark"/>
+                    </td>
+                  </tr>  
+                </table>
+            </div>
+		      </form>
+		        <a id="symptomsAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#symptomsAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

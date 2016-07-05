@@ -1,0 +1,40 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="infectiousTableDialog" class="easyui-dialog" title="传染病检测" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:190px;" closable="true">
+			<div id="infectiousTableDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="infectiousTableForm" action="" method="post">
+			  <input type="hidden" id="infectious_exportid" name="infectious_exportid" >
+			  <input type="hidden" id="infectious_monkeylist" name="infectious_monkeylist" >
+		   	  <div class="edit_table">
+                <table  class="infectious" style="top:70px;">
+                  <tr>
+                    <td>传染病名称：</td><td><input id="infectiousName" name="infectiousName"  />        
+                    </td> 
+                    <td>检测兽医：</td><td><input id="infe_veterinarian" name="infe_veterinarian" />
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>检测药品名称：</td><td><input id="infe_name" name="infe_name" /></td>
+                    <td>药剂量：</td><td><input id="infe_count"  name="infe_count" /></td>
+                  </tr>
+                  <tr>
+                    <td>保定人员：</td><td><input id="infe_protector"  name="infe_protector" /></td>
+                    <td>记录人员：</td><td><input id="infe_recorder" name="infe_recorder"/></td>
+                  </tr>
+                  <tr>
+                     <td>备注：</td><td><input id="infe_remark" name="infe_remark"/></td>
+                  </tr>
+                  
+                </table>
+            </div>
+		      </form>
+		        <a id="infectiousTable_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="infectiousSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="cancelInfectiousButton();" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

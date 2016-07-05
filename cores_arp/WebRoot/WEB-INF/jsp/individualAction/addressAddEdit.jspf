@@ -1,0 +1,26 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="addressAddEditDialog" class="easyui-dialog" title="添加/编辑引进地" modal="true" closed="true" 
+		data-options="toolbar:'#dialogDisToolbar'" style="display:'';width:280px;height:180px;" closable="true">
+			<div id="addressAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDis">
+			  <form id="addressAddEditForm" action="" method="post">
+			  <input type="hidden" id="addressId" name="addressId" >
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td>名称：<input name="name" id="name"  class="easyui-validatebox" data-options="required:true"/>              
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>描述：<input id="desciption"  name="desciption" /></td>
+                  </tr>
+                </table>
+		      </form>
+		        <a id="addressAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogDisToolbar">
+		<a id="saveAddressInfoDialogButton" class="easyui-linkbutton" onclick="onAddressDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backDisButton" class="easyui-linkbutton" onclick="javascript:$('#addressAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

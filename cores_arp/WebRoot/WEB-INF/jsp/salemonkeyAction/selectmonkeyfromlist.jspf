@@ -1,0 +1,35 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="selectmonkeyDialog" class="easyui-dialog" title="挑选猴子" modal="true" closed="true" 
+		data-options="toolbar:'#dialogdisfectantToolbar'" style="display:'';width:520px;height:415px;" closable="true">
+		<div id="selectmonkeyDialog2" style="display:none;align:center;">
+			    <div style="align:center;margin-left:15px">	
+			      <form id="selectmonkeyDialogForm" action="" method="post">
+			        <input type="hidden" id="saleid" name="id" >
+		   	                    猴子编号：
+		   	        <input type="hidden" id="outmonkeyid"  />
+                            <input id="selectmonkeyid" type="text" name="selectmonkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="该猴子已经被选" 
+                        	 validType="remotett[sybp()+'/saleAction_checkOutMonkeyHave.action','selectmonkeyid','#outmonkeyid']" /> 
+		   	        <a id="searchmonkeyButton" class="easyui-linkbutton" onclick="onSearchmonkeyButton();" data-options="iconCls:'icon-search',plain:true">搜索</a>
+                    <div id="monkeyinfo" style="display:none;"></div>
+                    <table id="selectMonkey"></table>
+                    <div id="selectToobar" style="display:none;">
+                      <a id="selectedButton" class="easyui-linkbutton" onclick="onSelectedButton();" data-options="iconCls:'icon-search',plain:true">选中</a><br/>
+                    </div>                              
+                                                   已经选中：
+				<textarea id="monkeylist" name="monkeylist" rows="10" cols="40" ></textarea>
+			</form>
+			      <a id="selectmonkeyDialog_event"></a>
+			      <input id ="clickName" type="hidden" >
+			    </div>
+		    </div>  
+   </div>
+	<!-- 工具栏 开始-->
+	<div id="dialogdisfectantToolbar">
+		<a id="saleSelectButton" class="easyui-linkbutton" onclick="onsaleSelectButton();" data-options="iconCls:'icon-serveradd',plain:true">确定</a>
+		<a id="backSelectButton" class="easyui-linkbutton" onclick="javascript:$('#selectmonkeyDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

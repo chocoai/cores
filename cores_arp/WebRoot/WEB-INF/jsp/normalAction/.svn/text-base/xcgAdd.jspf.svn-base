@@ -1,0 +1,37 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="xcgAddDialog" class="easyui-dialog" title="添加血常规检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddXcgToolbar'" style="display:'';width:520px;height:280px;" closable="true">
+			<div id="xcgAddDialog2" style="display:none;">
+		    <div >
+			  <form id="xcgAddForm" action="" method="post">
+			  <input type="hidden" id="xcg_normalid" name="xcg_normalid" >
+		   	  <div class="edit_table">
+                <table  class="department" style="top:70px;">
+                  <tr><td>动物编号：</td><td><input id="xcg_monkeyid" name="xcg_monkeyid" disabled="true"></input></td>
+                  <td>检疫时间：</td><td><input id="xcg_cdate" name="xcg_cdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  <tr><td>WBC:</td><td><input id="wbc" name="wbc" /></td>
+                  <td>RBC:</td><td><input id="rbc" name="rbc" /></td></tr>
+                  <tr><td>HGB:</td><td><input id="hgb" name="hgb" /></td>
+                  <td>HCT:</td><td><input id="hct" name="hct" /></td></tr>
+                  <tr><td>PLT:</td><td><input id="plt" name="plt" /></td>
+                  <td>MCV:</td><td><input id="mcv" name="mcv" /></td></tr>
+                  <tr><td>MCH:</td><td><input id="mch" name="mch" /></td>
+                  <td>MCHC:</td><td><input id="mchc" name="mchc" /></td></tr>
+                  <tr><td>LYM:</td><td><input id="lym" name="lym" /></td>
+                  <td>MID:</td><td><input id="mid" name="mid" /></td></tr>
+                  <tr><td>GRA:</td><td><input id="gra" name="gra" /></td><td>检测兽医：</td><td><input id="xcg_veterinarian" name="xcg_veterinarian"/></td></tr>
+                  <tr>
+                     <td>保定人员：</td><td><input id="xcg_protector" name="xcg_protector"/></td><td>记录人员：</td><td><input id="xcg_recorder" name="xcg_recorder"/></td>
+                  </tr>
+                  <tr><td>备注:</td><td><input id="xcg_remark" name="xcg_remark" /></td></tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="xcgAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddXcgToolbar">
+		<a id="saveXcgDialogButton" class="easyui-linkbutton" onclick="onDialogSaveXcgButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backXcgAddButton" class="easyui-linkbutton" onclick="javascript:$('#xcgAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

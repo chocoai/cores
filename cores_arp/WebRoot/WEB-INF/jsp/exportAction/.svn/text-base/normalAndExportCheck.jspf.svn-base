@@ -1,0 +1,28 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="showCheckDialog" class="easyui-dialog" title="检疫查看" modal="true" closed="true" 
+		data-options="toolbar:'#dialogDisToolbar'" style="display:'';width:340px;height:280px;" closable="true">
+			<div id="showCheckDialog2" style="display:none;">
+		    <div >
+			  <form id="addressAddEditForm" action="" method="post">
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td>检疫编号：<input name="title" id="view_title" />              
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>检疫动物：<input id="view_monkeylist"  name="monkeylist" /></td>
+                  </tr>
+                  <tr>
+                    <td>检疫日期：<input id="view_checkdate"  name="checkdate" class="easyui-datebox"/></td>
+                  </tr>
+                  <tr>
+                     <td>检疫主管：<input id="view_boss"  name="boss" class="easyui-combobox" data-options="valueField:'id',textField:'text',url:'sybp()+/employeeAction_loadListEmployee.action'"/></td>
+                  </tr>
+                </table>
+		      </form>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogDisToolbar">
+		<a id="backShowCheckButton" class="easyui-linkbutton" onclick="javascript:$('#showCheckDialog').dialog('close');" data-options="iconCls:'icon-undo',plain:true">返回</a>
+	</div>

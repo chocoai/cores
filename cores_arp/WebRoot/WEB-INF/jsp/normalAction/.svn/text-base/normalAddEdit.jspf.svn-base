@@ -1,0 +1,33 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="normalAddEditDialog" class="easyui-dialog" title="添加动物常规检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddEditNormalToolbar'" style="display:'';width:520px;height:280px;" closable="true">
+			<div id="normalAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditNormal">
+			  <form id="normalAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="normal" style="top:70px;">
+                  <tr><td>动物编号：</td><td><input type="hidden" id="monkeyid"  />
+                            <input id="normal_monkeyid" type="text" name="normal_monkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHave.action','monkeyid','#oldmonkeyid']" /></td>
+                  <td>检疫时间：</td><td><input id="normal_cdate" name="normal_cdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  <tr><td>检测兽医：</td><td><input id="normal_veterinarian" name="normal_veterinarian"/></td>
+                  <td>保定人员：</td><td><input id="normal_protector" name="normal_protector"/></td></tr>
+                  <tr>
+                     <td>记录人员：</td><td><input id="normal_recorder" name="normal_recorder"/></td>
+                     <td>备注:</td><td><input id="normal_remark" name="normal_remark" /></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="normalAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddEditNormalToolbar">
+		<a id="saveNormalDialogButton" class="easyui-linkbutton" onclick="onDialogSaveNormalButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backNormalDialogButton" class="easyui-linkbutton" onclick="javascript:$('#normalAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

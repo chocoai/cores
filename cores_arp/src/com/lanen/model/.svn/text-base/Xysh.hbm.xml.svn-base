@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Xysh" table="xysh" >
+        <id name="id" column="id" type="java.lang.Integer">
+			<generator class="native" />
+		</id>
+		<property name="bhao" type="java.lang.String">
+            <column name="bhao" length="20" />
+        </property>
+        <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid" length="20" />
+        </property>
+        
+        <property name="createtime" type="timestamp">
+            <column name="createtime"  />
+        </property>
+        
+        <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by" length="20"  />
+        </property>
+        
+         <property name="created_by" type="java.lang.Integer">
+            <column name="created_by" length="20"  />
+        </property>
+        <property name="lastmodifytime" type="timestamp">
+            <column name="lastmodifytime" />
+        </property>
+         <property name="deleted" type="java.lang.Byte">
+            <column name="deleted" length="4"  />
+        </property>
+        
+        <property name="veterinarian" type="java.lang.String">
+            <column name="veterinarian"  length="20" />
+        </property>
+        
+        <property name="normal_id" type="java.lang.Integer">
+            <column name="normal_id" length="20"  />
+        </property> 
+        
+        <property name="cdate" type="java.util.Date">
+            <column name="cdate"  />
+        </property>
+        <property name="ptype" type="java.lang.String">
+            <column name="ptype" length="50"  />
+        </property>
+        <property name="dateid" type="java.lang.String">
+            <column name="dateid" length="50"  />
+        </property>
+        
+        <property name="ast" type="java.lang.String">
+            <column name="ast" length="20"/>
+        </property>
+        <property name="alt" type="java.lang.String">
+            <column name="alt" length="20"/>
+        </property>
+        <property name="alp" type="java.lang.String">
+            <column name="alp" length="25"/>
+        </property>
+        <property name="tp" type="java.lang.String">
+            <column name="tp" length="25"/>
+        </property>
+        <property name="alb" type="java.lang.String">
+            <column name="alb" length="25"/>
+        </property>
+        <property name="ggt" type="java.lang.String">
+            <column name="ggt" length="25"/>
+        </property>
+        <property name="tbil" type="java.lang.String">
+            <column name="tbil" length="25"/>
+        </property>
+        <property name="bun" type="java.lang.String">
+            <column name="bun" length="25"/>
+        </property>
+        <property name="crea" type="java.lang.String">
+            <column name="crea" length="25"/>
+        </property>
+        <property name="glu" type="java.lang.String">
+            <column name="glu" length="25"/>
+        </property>
+        <property name="tg" type="java.lang.String">
+            <column name="tg" length="25"/>
+        </property>
+        <property name="chol" type="java.lang.String">
+            <column name="chol" length="25"/>
+        </property>
+        <property name="ldh" type="java.lang.String">
+            <column name="ldh" length="25"/>
+        </property>
+        <property name="ck" type="java.lang.String">
+            <column name="ck" length="25"/>
+        </property>
+        <property name="na" type="java.lang.String">
+            <column name="na" length="25"/>
+        </property>
+        <property name="k" type="java.lang.String">
+            <column name="k" length="25"/>
+        </property>
+        <property name="ci" type="java.lang.String">
+            <column name="ci" length="25"/>
+        </property>
+        
+        
+         <property name="process" type="java.lang.String">
+            <column name="process"  length="20"/>
+        </property>
+         <property name="pccode" type="java.lang.String">
+            <column name="pccode" length="20"  />
+        </property>   
+
+    </class>
+</hibernate-mapping>

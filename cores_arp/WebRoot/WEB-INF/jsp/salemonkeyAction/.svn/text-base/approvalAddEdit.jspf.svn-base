@@ -1,0 +1,38 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="approvalAddEditDialog" class="easyui-dialog" title="添加/编辑许可证" modal="true" closed="true" 
+		data-options="toolbar:'#dialogDisToolbar'" style="display:'';width:340px;height:280px;" closable="true">
+			<div id="approvalAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDis">
+			  <form id="approvalAddEditForm" action="" method="post">
+			  <input type="hidden" id="approvalId" name="approvalId" >
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td>许可证标题：<input name="title" id="approvalTitle"  class="easyui-validatebox" data-options="required:true"/>              
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>许可批号：<input id="phao"  name="phao" class="easyui-validatebox" data-options="required:true"/></td>
+                  </tr>
+                  <tr>
+                    <td>申请主题：<input id="head"  name="head" /></td>
+                  </tr>
+                  <tr>
+                    <td>申请内容：<input id="content"  name="content" /></td>
+                  </tr>
+                  <tr>
+                    <td>批准日期：<input id="approvaldate"  name="approvaldate" class="easyui-datebox"/></td>
+                  </tr>
+                  <tr>
+                     <td>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：<input id="remark"  name="remark" /></td>
+                  </tr>
+                </table>
+		      </form>
+		        <a id="approvalAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogDisToolbar">
+		<a id="saveApprovalInfoDialogButton" class="easyui-linkbutton" onclick="onApprovalDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backDisButton" class="easyui-linkbutton" onclick="javascript:$('#approvalAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

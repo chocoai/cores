@@ -1,0 +1,29 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="vaccineAddDialog" class="easyui-dialog" title="添加疫苗接种信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddVaccineToolbar'" style="display:'';width:520px;height:280px;" closable="true">
+			<div id="vaccineAddDialog2" style="display:none;">
+		    <div >
+			  <form id="vaccineAddForm" action="" method="post">
+			  <input type="hidden" id="vaccine_normalid" name="vaccine_normalid"/>
+		   	  <div class="edit_table">
+                <table  class="department" style="top:70px;">
+                  <tr><td>动物编号：</td><td><input id="vac_monkeyid" name="vac_monkeyid" disabled="true"></input></td>
+                  <td>检疫时间：</td><td><input id="vac_cdate" name="vac_cdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  <tr><td>疫苗类型:</td><td><input id="vac_ymlx" name="vac_ymlx" /></td><td>检测兽医：</td><td><input id="vac_veterinarian" name="vac_veterinarian"/></td></tr>
+                  <tr>
+                     <td>保定人员：</td><td><input id="vac_protector" name="vac_protector"/></td><td>记录人员：</td><td><input id="vac_recorder" name="vac_recorder"/></td>
+                  </tr>
+                  <tr><td>备注：</td><td>
+                  	<textarea id="vac_remark" name="vac_remark" rows="1" cols="10"></textarea>
+                  </td></tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="vaccineAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddVaccineToolbar">
+		<a id="saveVaccineDialogButton" class="easyui-linkbutton" onclick="onDialogSaveVaccineButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backVaccineAddButton" class="easyui-linkbutton" onclick="javascript:$('#vaccineAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

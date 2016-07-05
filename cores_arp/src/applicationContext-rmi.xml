@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+           >
+	<!-- userService配置 -->
+	 <bean id="Service1" class="org.springframework.remoting.rmi.RmiServiceExporter">
+	 	<!-- 调用Service -->
+       <property name="service">
+          <ref bean="employeeServiceImpl"/>
+       </property>
+       <!-- value值是给用户调用 -->
+       <property name="serviceName">
+          <value>UserService</value>
+       </property>
+       <!-- service 接口 -->
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.EmployeeService</value>
+       </property>
+       <!-- 注册端口号 -->
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service3" class="org.springframework.remoting.rmi.RmiServiceExporter">
+    	<property name="service">
+    		<ref bean="areaServiceImpl"/>
+    	</property>
+    	<property name="serviceName">
+    		<value>AreaService</value>
+    	</property>
+    	<property name="serviceInterface">
+    		<value>com.lanen.service.arp.AreaService</value>
+    	</property>
+    	<property name="registryPort">
+    		<value>6688</value>
+    	</property>
+    </bean>  
+     <!-- TblLogService配置       日志-->
+    <bean id="Service2" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="iploginServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>IploginService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.IploginService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+     
+	<bean id="Service4" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="individualServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>IndividualService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.IndividualService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service5" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="leavebreastServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>LeavebreastService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.LeavebreastService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service6" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="changeroomServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>ChangeroomService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.ChangeroomService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service7" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="deathServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>DeathService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.DeathService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service8" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="childbirthServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>ChildbirthService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.ChildbirthService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service9" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="gestationServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>GestationService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.GestationService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service10" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="vaccineServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>VaccineService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.VaccineService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service11" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="xcgServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>XcgService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.XcgService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service12" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="xyshServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>XyshService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.XyshService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service13" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="virusServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>VirusService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.VirusService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service14" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="normalServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>NormalService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.NormalService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service15" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="quarantineServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>QuarantineService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.QuarantineService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service16" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="observationServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>ObservationService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.ObservationService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service17" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="weightServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>WeightService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.WeightService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service18" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="breedingServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>OestrusService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.BreedingService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+    
+    <bean id="Service19" class="org.springframework.remoting.rmi.RmiServiceExporter">
+       <property name="service">
+          <ref bean="miscarriageServiceImpl"/>
+       </property>
+       <property name="serviceName">
+          <value>MiscarriageService</value>
+       </property>
+       <property name="serviceInterface">
+          <value>com.lanen.service.arp.MiscarriageService</value>
+       </property>
+       <property name="registryPort">
+          <value>6688</value>
+       </property>
+    </bean>
+</beans>

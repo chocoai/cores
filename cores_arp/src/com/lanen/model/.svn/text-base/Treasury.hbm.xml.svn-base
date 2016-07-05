@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Treasury" table="treasury" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="symptomsremark" type="java.lang.String">
+            <column name="symptomsremark"  />
+        </property>
+        <property name="symptomssite" type="java.lang.Integer">
+            <column name="symptomssite" length="20"/>
+        </property>
+        <property name="prevention" type="java.lang.String">
+            <column name="prevention"   />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name"  length="255" />
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="reason"   />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted"  length="4" />
+        </property>
+        <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by"  length="20" />
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime"   />
+        </property>
+        <property name="created_by" type="java.lang.Integer">
+            <column name="created_by"  length="20"/>
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime"   />
+        </property>
+        <property name="treasurydate" type="java.sql.Date">
+            <column name="treasurydate" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

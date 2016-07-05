@@ -1,0 +1,34 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="bacteriaAddEditDialog" class="easyui-dialog" title="添加细菌信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:270px;height:125px;" closable="true">
+			<div id="bacteriaAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="bacteriaAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="area" style="top:70px;">
+                  <tr>
+                    <td>细菌名称：</td>
+                    <td><input id="name"  name="name" /></td>
+                  </tr>
+                  <tr>
+                    <td>备注：</td>
+                    <td><input id="remark" name="remark"/>
+                    </td>
+                  </tr>  
+                </table>
+            </div>
+		      </form>
+		        <a id="bacteriaAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#bacteriaAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

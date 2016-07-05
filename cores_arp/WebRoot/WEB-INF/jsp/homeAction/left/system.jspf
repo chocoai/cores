@@ -1,0 +1,31 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <table id="selectTable5" class="easyui-datagrid">   
+		    <thead >   
+		        <tr> 
+		             <th data-options="field:'id',width:170,hidden:true,align:'center'"  ></th> 
+		            <th data-options="field:'select',width:170,align:'left'"  ></th>   
+		        </tr>   
+		    </thead>   
+		    <tbody>    
+		         <tr > 
+		            <td>1</td>
+		            <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人员设置</td>
+		         </tr>   
+		         <tr>   
+		         <td>2</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统日志</td>
+		         </tr>  
+		          <tr>   
+		          <td>3</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色设置</td>
+		         </tr> 
+		           <tr>   
+		          <td>4</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;养殖场信息</td>
+		         </tr>
+		         <tr>
+		         <td>5</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;猴场配置</td>
+		         </tr>  
+			    </tbody>   
+</table> 

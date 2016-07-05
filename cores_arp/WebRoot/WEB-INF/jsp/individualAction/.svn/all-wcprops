@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/WebRoot/WEB-INF/jsp/individualAction
+END
+addressAddEdit.jspf
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/WebRoot/WEB-INF/jsp/individualAction/addressAddEdit.jspf
+END
+addressOperate.jspf
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/WebRoot/WEB-INF/jsp/individualAction/addressOperate.jspf
+END
+list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/WebRoot/WEB-INF/jsp/individualAction/list.jsp
+END
+listAnimalByMore.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/WebRoot/WEB-INF/jsp/individualAction/listAnimalByMore.jsp
+END
+individualAddEdit.jspf
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/WebRoot/WEB-INF/jsp/individualAction/individualAddEdit.jspf
+END
+listAnimalByArea.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/WebRoot/WEB-INF/jsp/individualAction/listAnimalByArea.jsp
+END

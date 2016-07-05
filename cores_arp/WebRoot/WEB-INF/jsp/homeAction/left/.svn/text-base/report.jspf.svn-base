@@ -1,0 +1,63 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <table id="selectTable7" class="easyui-datagrid">   
+		    <thead >   
+		        <tr> 
+		            <th data-options="field:'id',width:170,hidden:true,align:'center'"  ></th> 
+		            <th data-options="field:'select',width:170,align:'left'"  ></th>   
+		        </tr>   
+		    </thead>   
+		    <tbody>    
+		         <tr > 
+		            <td>1</td>
+		            <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;饲养数量</td>
+		         </tr>   
+		         <tr>   
+		         <td>2</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;动物在库明细</td>
+		         </tr>  
+		          <tr>   
+		          <td>3</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;离乳记录</td>
+		         </tr> 
+		          <tr>   
+		          <td>4</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;猴群调拨</td>
+		         </tr>
+		         <tr>   
+		          <td>5</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;体格检查</td>
+		         </tr>
+		         <tr>   
+		          <td>6</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;病毒检测</td>
+		         </tr>
+		         <!-- <tr>   
+		          <td>7</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;体外寄生虫</td>
+		         </tr> -->
+		         <tr>   
+		          <td>8</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;寄生虫检测</td>
+		         </tr>
+		         <tr>   
+		          <td>9</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TB检测记录</td>
+		         </tr>
+		         <tr>   
+		          <td>10</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;细菌检测记录</td>
+		         </tr>
+		         <tr>   
+		          <td>11</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;驱虫记录</td>
+		         </tr>
+		         <tr>   
+		          <td>12</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;血常规,血生化</td>
+		         </tr>
+		         <tr>   
+		          <td>13</td>
+		           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;疫苗接种</td>
+		         </tr>
+			  </tbody>   
+</table> 

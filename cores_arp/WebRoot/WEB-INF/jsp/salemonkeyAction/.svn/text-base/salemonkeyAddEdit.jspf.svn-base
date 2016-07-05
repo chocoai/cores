@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="saleMonkeyDialog" class="easyui-dialog" title="挑选猴子" modal="true" closed="true" 
+		data-options="toolbar:'#dialogsaleMonkeyToolbar'" style="display:'';width:810px;height:300px;" closable="true">
+		<div id="saleMonkeyDialog2" style="display:none;align:center;">
+			    <div style="align:center;margin-left:15px">	
+			      <form id="selectmonkeyDialogForm" action="" method="post">
+                    <table id="saleMonkey"></table>
+			     </form>
+			      <a id="saleMonkeyDialog_event"></a>
+			      <input id ="clickName" type="hidden" >
+			    </div>
+		    </div>  
+   </div>
+	<!-- 工具栏 开始-->
+	<div id="dialogsaleMonkeyToolbar">
+		<a id="saleAddButton" class="easyui-linkbutton" onclick="onsaleAddButton();" data-options="iconCls:'icon-serveradd',plain:true">添加出场记录</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#saleMonkeyDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

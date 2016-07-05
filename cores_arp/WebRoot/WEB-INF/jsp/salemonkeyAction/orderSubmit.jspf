@@ -1,0 +1,49 @@
+﻿<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="orderSubmitDialog" class="easyui-dialog" title="确认选候订单" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:640px;height:420px;" closable="true">
+			<div id="orderSubmitDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="orderSubmitForm" action="" method="post">
+			  <input type="hidden" id="submit_id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+                    <td width="80px;">订单编号：</td><td><input type="text" id="submit_title"  name="title" disabled="true" />  
+                    </td> 
+                    <td width="80px;">猴子种类：</td><td><input id="submit_monkeytype" name="monkeytype" disabled="true" />
+        			</td>
+                  </tr>
+                  <tr><td width="80px">完成选猴编号：</td><td colspan="3"><input id="submit_monkeylist" name="monkeylist" disabled="true" style="width:400px;height:16px;"/></td></tr>
+                   <tr>
+                    <td width="80px;">销售地：</td><td><input id="submit_saleaddress_id" name="saleaddress_id" disabled="true"/></td>
+                    <td width="80px;">销售日期：</td><td><input id="submit_saledate"  name="saledate" class="easyui-datebox" required="true" editable="true" disabled="true"/></td>
+                  </tr>
+                  <tr>
+                    <td width="80px;">主管：</td><td><input id="submit_boss" name="boss" disabled="true"/></td>
+                    <td width="80px;">销售类型：</td><td><input id="submit_saletype"  name="saletype"  disabled="true"/></td>
+                  </tr>
+                  <tr>
+                    <td width="80px;">省厅批文：</td><td><input id="submit_cites" name="cites" disabled="true"/></td>
+                    <td width="80px;">运输编号：</td><td><input id="submit_carriagenumber"  name="carriagenumber" disabled="true"/></td>
+                  </tr>
+                  <tr>
+                    <td width="80px;">销售许可批号：</td><td><input id="submit_approveserial" name="approveserial" disabled="true"/></td>
+                    <td width="80px;">运输许可批号：</td><td><input id="submit_trance"  name="trance" disabled="true"/></td>
+                  </tr>
+                  <tr>
+                    <td width="80px;">选择条件：</td><td><input id="submit_tiaojian"  name="tiaojian" disabled="true"/></td>
+                    <td>备注：</td><td><input id="submit_remark" name="remark" disabled="true"/></td>
+                  </tr>
+                  </table>
+            </div>
+		      </form>
+		        <a id="orderSubmit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveSubmitDialogButton" class="easyui-linkbutton" onclick="onSubmitDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#orderSubmitDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

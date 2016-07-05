@@ -1,0 +1,37 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="xyshAddDialog" class="easyui-dialog" title="添加血液生化检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddXyshToolbar'" style="display:'';width:520px;height:280px;" closable="true">
+			<div id="xyshAddDialog2" style="display:none;">
+		    <div >
+			  <form id="xyshAddForm" action="" method="post">
+			  <input type="hidden" id="xysh_normalid" name="xysh_normalid" >
+		   	  <div class="edit_table">
+                <table  class="department" style="top:70px;">
+                  <tr><td>动物编号：</td><td><input id="xysh_monkeyid" name="xysh_monkeyid" disabled="true"></input></td>
+                  <td>检疫时间：</td><td><input id="xysh_cdate" name="xysh_cdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  <tr><td>AST:</td><td><input id="ast" name="ast" /></td>
+                  <td>ALT:</td><td><input id="alt" name="alt" /></td></tr>
+                  <tr><td>ALP:</td><td><input id="alp" name="alp" /></td>
+                  <td>TP:</td><td><input id="tp" name="tp" /></td></tr>
+                  <tr><td>ALB:</td><td><input id="alb" name="alb" /></td>
+                  <td>GGT:</td><td><input id="ggt" name="ggt" /></td></tr>
+                  <tr><td>TBIL:</td><td><input id="tbil" name="tbil" /></td>
+                  <td>BUN:</td><td><input id="bun" name="bun" /></td></tr>
+                  <tr><td>CREA:</td><td><input id="crea" name="crea" /></td>
+                  <td>GLU:</td><td><input id="glu" name="glu" /></td></tr>
+                  <tr><td>TG:</td><td><input id="tg" name="tg" /></td><td>CHOL:</td><td><input id="chol" name="chol" /></td></tr>
+                  <tr><td>LDH:</td><td><input id="ldh" name="ldh" /></td><td>CK:</td><td><input id="ck" name="ck" /></td></tr>
+                  <tr><td>NA:</td><td><input id="na" name="na" /></td><td>K:</td><td><input id="k" name="k" /></td></tr>
+                  <tr><td>CI:</td><td><input id="ci" name="ci" /></td><td>检测兽医：</td><td><input id="xysh_veterinarian" name="xysh_veterinarian"/></td></tr>
+                  
+                </table>
+            </div>
+		      </form>
+		        <a id="xyshAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddXyshToolbar">
+		<a id="saveXyshDialogButton" class="easyui-linkbutton" onclick="onDialogSaveXyshButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backXyshAddButton" class="easyui-linkbutton" onclick="javascript:$('#xyshAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src
+END
+Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/Test.java
+END
+struts.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/struts.xml
+END
+SIMSUN.TTC
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/SIMSUN.TTC
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/applicationContext.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/log4j.properties
+END
+applicationContext-rmi.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/applicationContext-rmi.xml
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/jdbc.properties
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/hibernate.cfg.xml
+END
+jasperreports.properties
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/cores/!svn/ver/45/%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/web/cores_arp/trunk/cores_arp/src/jasperreports.properties
+END

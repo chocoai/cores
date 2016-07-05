@@ -1,0 +1,45 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="roomDisinfectRecordAddEditDialog" class="easyui-dialog" title="添加房间消毒记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:225px;" closable="true">
+			<div id="roomDisinfectRecordAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的客户Id  -->
+			  <form id="roomDisinfectRecordAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="roomDisinfectRecord" style="top:70px;">
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区域：<input  id="blongarea" name="blongarea" />
+                    </td> 
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房间：
+                         <input id="area_id" name="area_id"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;消毒液：<input id="disinfectant_id" name="disinfectant_id" /></td>
+                    <td>消毒日期：<input id="disinfectDate"  name="disinfectDate" class="easyui-datebox" required="true" editable="false"/></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;操作者：<input id="operator_id"  name="operator_id" /></td>
+                    <td>消毒方式：<input id="disinfectType" name="disinfectType"/></td>
+                    
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;记录者：<input id="recorder_id" name="recorder_id"/></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="roomDisinfectRecordAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#roomDisinfectRecordAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

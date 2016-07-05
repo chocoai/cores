@@ -1,0 +1,46 @@
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="privilegeDialog" class="easyui-dialog" title="角色授权" modal="true" closed="true" draggable="false" closable="false"
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:270px;height:320px;" closable="true">
+			<div id="privilegeDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="privilegeForm" action="" method="post">
+			  <input type="hidden" id="rolesid" name="id" >
+		   	  <div class="edit_table">
+                <table  class="tableCss1" style="top:70px;">
+                  <tr>
+						<td width="70px;" height="30px;" align="right">角色名称:</td>
+						<td ><input id="rolesname" name="name" type="text" style="width:120px;"></td>
+					</tr>
+					<!--<tr>
+						<td width="70px;" height="30px;" align="right">权限名称:</td>
+						<td>
+							<input id="privilege" name="zl" type="checkbox" value="1" checked="checked"/>总揽<br/>
+							<input id="privilege" name="bb" type="checkbox" value="2" checked="checked"/>报表<br/>
+							<input id="privilege" name="sy" type="checkbox" value="3" checked="checked"/>饲养管理<br/>
+							<input id="privilege" name="fz" type="checkbox" value="4" checked="checked"/>繁殖管理<br/>
+							<input id="privilege" name="fy" type="checkbox" value="5" checked="checked"/>防疫管理<br/>
+							<input id="privilege" name="zl1" type="checkbox" value="6" checked="checked"/>治疗管理<br/>
+							<input id="privilege" name="xt" type="checkbox" value="7" checked="checked"/>系统管理<br/>
+						</td>
+						</tr>-->
+					<tr>
+				 		<td colspan="2" align="center" style="width:200px">
+						<table id="privilegeTable" class="easyui-datagrid" style="width:190px;height:200px" >   
+						</table> 
+						</td>
+				 </tr>
+                </table>
+            </div>
+		      </form>
+		      
+		        <a id="privilege_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="savePrivilegeButton" class="easyui-linkbutton" onclick="onPrivilegeSaveButton();" data-options="iconCls:'icon-ok',plain:true">保存</a>
+		<a id="backPrivilegeButton" class="easyui-linkbutton" onclick="javascript:$('#privilegeDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">返回</a>
+	</div>

@@ -1,0 +1,21 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="bacteriaLookDialog" class="easyui-dialog" title="查看细菌检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogLookBacteriaToolbar'" style="display:'';width:400px;height:280px;" closable="true">
+			<div id="bacteriaLookDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDep">
+			  <form id="bacteriaLookForm" action="" method="post">
+			  <input type="hidden" id="depid" name="id" >
+		   	  <div class="edit_table">
+                <table  id="lookBacteria">
+                	            
+                </table>
+            </div>
+		      </form>
+		        <a id="bacteriaLook_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogLookBacteriaToolbar">
+		<a id="backBacteriaLookButton" class="easyui-linkbutton" onclick="javascript:$('#bacteriaLookDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">返回</a>
+	</div>

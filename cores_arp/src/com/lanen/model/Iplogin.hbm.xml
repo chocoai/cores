@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Iplogin" table="iplogin" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="ip" type="java.lang.String">
+            <column name="ip" />
+        </property>
+        <property name="createtime" type="timestamp">
+            <column name="createtime" />
+        </property>
+         <property name="modified_by" type="java.lang.Long">
+            <column name="modified_by" length="20"  />
+        </property>
+         <property name="created_by" type="java.lang.Long">
+            <column name="created_by" length="20"  />
+        </property>
+        <property name="lastmodifytime" type="timestamp">
+            <column name="lastmodifytime" />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted" />
+        </property>
+        <property name="datastring" type="java.lang.String">
+            <column name="datastring" />
+        </property>
+    </class>
+</hibernate-mapping>

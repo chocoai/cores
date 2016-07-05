@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Hospitaldl" table="hospitaldl" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="monkeyid" type="java.lang.String">
+            <column name="monkeyid" />
+        </property>
+        <property name="zlrq" type="java.sql.Timestamp">
+            <column name="zlrq" />
+        </property>
+        <property name="zzmc" type="java.lang.String">
+            <column name="zzmc"   />
+        </property>
+        <property name="cf" type="java.lang.String">
+            <column name="cf"  />
+        </property>
+        <property name="treatveterinarian" type="java.lang.Integer">
+            <column name="treatveterinarian"   />
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime"   />
+        </property>
+        <property name="modified_by" type="java.lang.Integer">
+            <column name="modified_by"   />
+        </property>
+        <property name="created_by" type="java.lang.Integer">
+            <column name="created_by"   />
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime"   />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted"   />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark"   />
+        </property>
+        
+    </class>
+</hibernate-mapping>

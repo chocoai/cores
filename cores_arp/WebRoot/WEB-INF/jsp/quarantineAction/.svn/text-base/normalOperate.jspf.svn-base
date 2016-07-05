@@ -1,0 +1,77 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="normalOperateDialog" class="easyui-dialog" title="常规检疫操作" modal="true" closed="true" 
+		data-options="toolbar:'#dialogNormalOperateToolbar'" style="display:'';width:470px;height:425px;" closable="true">
+			<div id="normalOperateDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="normalid" name="normalid">
+			  <form id="normalOperateForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  id="operateTable" class="" style="top:70px;">
+                  <tr>
+                    <td>动物编号：</td>
+                    <td><input id="monkeyids"  name="monkeyids" class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHave.action','monkeyid','#oldmonkeyid']"/></td>
+                  </tr>
+                  <tr>
+                    <td>体表检测：</td>
+                    <td><a id="add" name="add" class="easyui-linkbutton" onclick="addSurfaceButton();" data-options="iconCls:'icon-add',plain:true"/>添加体表检测；<a id="look" name="look" class="easyui-linkbutton" onclick="lookSurfaceButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>寄生虫检测：</td>
+                    <td><a id="add1" name="add" class="easyui-linkbutton" onclick="addParasiteButton();" data-options="iconCls:'icon-add',plain:true"/>添加寄生虫检测；<a id="look1" name="look" class="easyui-linkbutton" onclick="lookParasiteButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>病毒检测：</td>
+                    <td><a id="add2" name="add" class="easyui-linkbutton" onclick="addVirusButton();" data-options="iconCls:'icon-add',plain:true"/>添加病毒检测；<a id="look2" name="look" class="easyui-linkbutton" onclick="lookVirusButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>细菌检测：</td>
+                    <td><a id="add3" name="add" class="easyui-linkbutton" onclick="addBacteriaButton();" data-options="iconCls:'icon-add',plain:true"/>添加细菌检测；<a id="look3" name="look" class="easyui-linkbutton" onclick="lookBacteriaButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>疫苗检测：</td>
+                    <td><a id="add4" name="add" class="easyui-linkbutton" onclick="addVaccineButton();" data-options="iconCls:'icon-add',plain:true"/>添加疫苗检测；<a id="look4" name="look" class="easyui-linkbutton" onclick="lookVaccineButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>传染病检测：</td>
+                    <td><a id="add5" name="add" class="easyui-linkbutton" onclick="addInfectiousButton();" data-options="iconCls:'icon-add',plain:true"/>添加传染病检测；<a id="look5" name="look" class="easyui-linkbutton" onclick="lookInfectiousButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>tb检测：</td>
+                    <td><a id="add6" name="add" class="easyui-linkbutton" onclick="addTbButton();" data-options="iconCls:'icon-add',plain:true"/>添加tb检测；<a id="look6" name="look" class="easyui-linkbutton" onclick="lookTbButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>x光检测：</td>
+                    <td><a id="add7" name="add" class="easyui-linkbutton" onclick="addXButton();" data-options="iconCls:'icon-add',plain:true"/>添加x光检测；<a id="look7" name="look" class="easyui-linkbutton" onclick="lookXButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>血常规检测：</td>
+                    <td><a id="add8" name="add" class="easyui-linkbutton" onclick="addXcgButton();" data-options="iconCls:'icon-add',plain:true"/>添加血常规检测；<a id="look8" name="look" class="easyui-linkbutton" onclick="lookXcgButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>血液生化检测：</td>
+                    <td><a id="add9" name="add" class="easyui-linkbutton" onclick="addXyshButton();" data-options="iconCls:'icon-add',plain:true"/>添加血液生化检测；<a id="look9" name="look" class="easyui-linkbutton" onclick="lookXyshButton();" data-options="iconCls:'icon-ok',plain:true"/>查看
+                    </td>
+                  </tr>  
+                </table>
+            </div>
+		      </form>
+		      
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogNormalOperateToolbar">
+		
+		<a id="backNormalOperateButton" class="easyui-linkbutton" onclick="javascript:$('#normalOperateDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">返回</a>
+	</div>

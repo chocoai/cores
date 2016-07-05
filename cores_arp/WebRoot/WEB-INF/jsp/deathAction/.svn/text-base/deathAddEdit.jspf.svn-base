@@ -1,0 +1,60 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="deathAddEditDialog" class="easyui-dialog" title="添加死亡记录" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:270px;" closable="true">
+			<div id="deathAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+            <!-- 添加过后的客户Id  -->
+			  <form id="deathAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="death" style="top:70px;">
+                  <tr>
+                    <td>动物编号：<input type="hidden" id="oldmonkeyid"  />
+                            <input id="addmonkeyid" type="text" name="monkeyid" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="动物不存在" 
+                        	 validType="remotett[sybp()+'/individualAction_checkMonkeyidHave.action','monkeyid','#oldmonkeyid']" />
+                    </td> 
+                    <td>死亡日期：<input id="deathdate" name="deathdate" class="easyui-datebox" required="true" editable="false"/>
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>解剖日期：<input id="adddissectdate" name="dissectdate" class="easyui-datebox"  editable="false"/></td>
+                    <td>房间兽医：<input id="veterinarian"  name="veterinarian" /></td>
+                  </tr>
+                  <tr>
+                    <td>解剖兽医：<input id="dissectveterinarian"  name="dissectveterinarian" /></td>
+                    <td>病理人员：<input id="pathology" name="pathology"/></td>
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主管：<input id="boss" name="boss"/></td>
+                     <td>&nbsp;&nbsp;&nbsp;饲养员：<input id="keeper" name="keeper"/></td>
+                  </tr>
+                  <tr>
+                     <td>剖检结论：<input id="remarks" name="remarks"/>  </td>
+                     <td>病理结论：<input id="bl_remarks" name="bl_remarks"/>  </td>
+                  </tr>
+                  <tr>
+                     <td>主管结论：<input id="sc_remarks" name="sc_remarks"/>  </td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他：<input id="others" name="others"/>  </td>
+                  </tr>
+                  <tr>
+                     <td>数据记录：<input id="recorder" name="recorder"/> </td>
+                     <td>档案录入：<input id="operater" name="operater"/> </td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="deathAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#deathAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

@@ -1,0 +1,34 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="virusAddDialog" class="easyui-dialog" title="添加病毒检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddVirusToolbar'" style="display:'';width:820px;height:380px;" closable="true">
+			<div id="virusAddDialog2" style="display:none;">
+		    <div >
+			  <form id="virusAddForm" action="" method="post">
+			  <input type="hidden" id="virus_normalid" name="virus_normalid" >
+		   	  <div class="edit_table">
+                <table class="department" style="top:70px;">
+                <tr>
+                	<td>动物编号：</td><td><input id="vir_monkeyid" name="vir_monkeyid" disabled="true"></input></td>
+                	<td>血清号：</td><td><input id="xueq" name="xueq"></input></td>
+                	<td>检疫时间：</td><td><input id="vir_cdate" name="vir_cdate" class="easyui-datebox" required="true" editable="false"/></td></tr>
+                 <tr>
+                    <td>检测兽医：</td><td><input id="vir_veterinarian" name="vir_veterinarian"/></td> 
+                    <td>保定人员：</td><td><input id="vir_protector" name="vir_protector"/></td>
+                    <td>记录人员：</td><td><input id="vir_recorder" name="vir_recorder"/></td>
+                 </tr>
+				<tr>
+					<td>备注：</td><td colspan="5"><input type="text" id="vir_remark" name="vir_remark"/></td>
+				</tr>
+                 <table id="vir"> </table>             
+                                  
+                </table>
+            </div>
+		      </form>
+		        <a id="virusAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddVirusToolbar">
+		<a id="saveVirusDialogButton" class="easyui-linkbutton" onclick="onDialogSaveVirusButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backVirusAddButton" class="easyui-linkbutton" onclick="javascript:$('#virusAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

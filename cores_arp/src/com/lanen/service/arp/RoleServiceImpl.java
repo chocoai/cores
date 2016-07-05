@@ -1,0 +1,234 @@
+package com.lanen.service.arp;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.hibernate.Query;
+import org.springframework.stereotype.Service;
+
+import com.lanen.base.BaseLongDaoImpl;
+import com.lanen.model.Privilege;
+import com.lanen.model.Role;
+import com.lanen.model.Security_er;
+@Service
+public class RoleServiceImpl extends BaseLongDaoImpl<Role> implements
+		RoleService {
+
+	public Map<String, Object> getRoles(String page,String rows) {
+		String sql="select id,name,description " +
+				" FROM Security_role";
+		
+		Query query=getSession().createSQLQuery(sql);
+		
+		List<?> listSql=query.list();
+		//当为缺省值的时候进行赋值        
+		int currentpage = Integer.parseInt((page == null || page == "0") ? "1": page);//第几页
+		int pagesize = Integer.parseInt((rows == null || rows == "0") ? "10": rows);//每页多少行 
+		List<?> list = query.setFirstResult((currentpage - 1) * pagesize).setMaxResults(pagesize).list();
+		List<Role> lists=new ArrayList<Role>();
+
+		if(list!=null){
+			for(Object obj:list){
+				Role role=new Role();
+				Object[] objs=(Object[])obj;
+				role.setId((Long.valueOf(objs[0]+"")));
+				role.setName((String)objs[1]);
+				role.setDescription((String)objs[2]);
+				lists.add(role);
+			}
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("rows", lists);
+		map.put("total", listSql.size());
+		return map;
+	}
+	//根绝功能组得到下属权限
+	public String getPrivilegeByModule(String name){
+		String sql="select functions from sys_module";
+		if(!"".equals(name)&&name!=null){
+			sql=sql+" where name=:name";
+		}
+		Query query=getSession().createSQLQuery(sql);
+		if(!"".equals(name)&&name!=null){
+			query.setParameter("name", name);
+		}
+		String functions=(String) query.list().get(0);
+		
+		return functions;
+	}
+	//通过id查询权限名称
+	public String getPrivilegeById(Long id){
+		String sql="select name from sys_function";
+		if(!"".equals(id)&&id!=null){
+			sql=sql+" where id=:id";
+		}
+		Query query=getSession().createSQLQuery(sql);
+		if(!"".equals(id)&&id!=null){
+			query.setParameter("id", id);
+		}
+		return (String)query.list().get(0);
+	}
+	public boolean checkRolePrivilegeById(String roleid,Long id){
+		String sql="select count(privilegeId) from role_privilege where roleId=:roleid and privilegeId=:id";
+		BigInteger count=(BigInteger) getSession().createSQLQuery(sql).setParameter("roleid", roleid).setParameter("id", id).list().get(0);
+		if(count.intValue()>0){
+			return true;
+		}
+		return false;
+	}
+	
+	//角色下拉选
+	public List<Map<String, String>> getAllRoles() {
+		String sql="SELECT ID,NAME FROM security_role ";
+		Query query = getSession().createSQLQuery(sql);
+		List<?> list = query.list();
+		List<Map<String, String>> mapList = new ArrayList<Map<String, String>>();
+		Map<String, String> map = null;
+		for(Object obj:list){
+			Object[] objs = (Object[]) obj;
+			map = new HashMap<String, String>();
+			map.put("id", objs[0]+"");
+			map.put("text", (String) objs[1]);
+			mapList.add(map);
+		}
+		return mapList;
+	}
+	public Integer getRoleId(String employeeid){
+		String sql="select role_id from security_er where employee_id=?";
+		Query query=getSession().createSQLQuery(sql);
+		query.setParameter(0, employeeid);
+		return (Integer)query.list().get(0);
+	}
+	//通过id,----------roles查询该用户角色
+	public List<?> getRolesById(String id){
+		String sql="select e.id,e.employeeid,er.role_id," +
+				"(select name from security_role r where r.id=er.role_id) as rolename," +
+				"(select description from security_role r where r.id=er.role_id) as description" +
+				" from employee e,security_er er where er.employee_id=e.employeeid and id=:id";
+		Query query=getSession().createSQLQuery(sql);
+		query.setParameter("id", id);
+		return query.list();
+	}
+	public void saveRoleById(Security_er er){
+		String sql="insert into security_er(employee_id,role_id) values(?,?)";
+		Query query = getSession().createSQLQuery(sql);
+		query.setParameter(1,er.getRole_id());
+		query.setParameter(0, er.getEmployee_id());
+		query.executeUpdate();
+	}
+	public void updateRoleById(Security_er er){
+		String sql="update security_er set role_id=:roleid where employee_id=:employeeid";
+		Query query = getSession().createSQLQuery(sql);
+		query.setParameter("roleid",er.getRole_id());
+		query.setParameter("employeeid", er.getEmployee_id());
+		query.executeUpdate();
+	}
+	public void updateEmployeeRole(String old,String newss){
+		String sql="update security_er set employee_id=:newEmployeeId where employee_id=:oldEmployeeId";
+		Query query = getSession().createSQLQuery(sql);
+		query.setParameter("newEmployeeId",newss);
+		query.setParameter("oldEmployeeId", old);
+		query.executeUpdate();
+	}
+	public List<?> getRoleById(Integer id){
+		String hql="From Security_role where id=?";
+		Query query=getSession().createQuery(hql).setParameter(0, id);
+		return (List<?>)query.list();
+	}
+	public List<?> getRoleByIds(Long id){
+		String hql="From Role where id=?";
+		Query query=getSession().createQuery(hql).setParameter(0, id);
+		return (List<?>)query.list();
+	}
+	public List<?> getPrivilegeByRoleid(String roleid){
+		String sql="select roleid,privilegeid from role_privilege ";
+		if(!"".equals(roleid)&&roleid!=null){
+			sql=sql+" where roleid=:roleid";
+		}
+		Query query=getSession().createSQLQuery(sql);
+		if(!"".equals(roleid)&&roleid!=null){
+			query.setParameter("roleid", roleid);
+		}
+		return (List<?>)query.list();
+	}
+	public List<Privilege> getAllPrivileges(){
+		String hql="From Privilege";
+		Query query=getSession().createQuery(hql);
+		return query.list();
+	}
+	public boolean deleteRolePrivileges(String roleid){
+		String sql="delete from role_privilege where roleId=:roleid";
+		Query query=getSession().createSQLQuery(sql);
+		query.setParameter("roleid", roleid);
+		return query.executeUpdate()>0?true:false;
+	}
+	public boolean insertRolePrivileges(String roleid,String privilegeid){
+		String sql="insert into role_privilege(roleId,privilegeId) values(?,?)";
+		Query query=getSession().createSQLQuery(sql);
+		query.setParameter(0, roleid);
+		query.setParameter(1, privilegeid);
+		return query.executeUpdate()>0?true:false;
+	}
+	//小写.
+	public Map<String, Object> getRoles(String page,String rows, String name) {
+		String sql="select id,name,description " +
+				" FROM security_role";
+		if(!"".equals(name)&&name!=null){
+			sql=sql+" where name=:name";
+		}
+		Query query=getSession().createSQLQuery(sql);
+		if(!"".equals(name)&&name!=null){
+			query.setParameter("name", name);
+		}
+		List<?> listSql=query.list();
+		//当为缺省值的时候进行赋值        
+		int currentpage = Integer.parseInt((page == null || page == "0") ? "1": page);//第几页
+		int pagesize = Integer.parseInt((rows == null || rows == "0") ? "10": rows);//每页多少行 
+		List<?> list = query.setFirstResult((currentpage - 1) * pagesize).setMaxResults(pagesize).list();
+		List<Role> lists=new ArrayList<Role>();
+
+		if(list!=null){
+			for(Object obj:list){
+				Role role=new Role();
+				Object[] objs=(Object[])obj;
+				role.setId((Long.valueOf(objs[0]+"")));
+				role.setName((String)objs[1]);
+				role.setDescription((String)objs[2]);
+				lists.add(role);
+			}
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("rows", lists);
+		map.put("total", listSql.size());
+		return map;
+	}
+	public List<?> getSysPrivilege() {
+		String sql="select id,name,description from sys_function";
+		Query query=getSession().createSQLQuery(sql);
+		return query.list();
+	}
+	public boolean checkRolePrivilege(String roleid, String privilegeid) {
+		String sql="select count(*) from role_privilege where 1=1 ";
+		if(!"".equals(roleid)&&roleid!=null){
+			sql=sql+" and roleId=:roleid";
+		}
+		if(!"".equals(privilegeid)&&privilegeid!=null){
+			sql=sql+" and privilegeId=:privilegeid";
+		}
+		Query query=getSession().createSQLQuery(sql);
+		if(!"".equals(roleid)&&roleid!=null){
+			query.setParameter("roleid", roleid);
+		}
+		if(!"".equals(privilegeid)&&privilegeid!=null){
+			query.setParameter("privilegeid", privilegeid);
+		}
+		BigInteger i=(BigInteger) query.list().get(0);
+		if(i.intValue()>0){
+			return true;
+		}
+		return false;
+	}
+}

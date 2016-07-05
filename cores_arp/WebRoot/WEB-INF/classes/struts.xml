@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<!-- 配置扩展名为action -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 让OGNL中可以使用静态的方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- -->
+	<constant name="struts.custom.i18n.resources" value="msg" />
+	<package name="default" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+		<interceptors>
+			<!-- 声明一个拦截器 -->
+			<interceptor name="checkePrivilege"
+				class="com.lanen.interceptor.CheckPrivilegeInterceptor"></interceptor>
+			<!-- 重新定义defaultStack拦截器栈，需要先判断权限 -->
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="checkePrivilege" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 配置全局的Result -->
+		<global-results>
+			<result name="loginUI">/WEB-INF/jsp/userAction/loginUI.jsp</result>
+			<result name="noPrivilegeError">/noPrivilegeError.jsp</result>
+			<result name="systemError">/systemError.jsp</result>
+			<result name="toLogout" type="redirectAction">userAction_logout</result>
+			<result name="toIndexSystem" type="redirectAction">homeAction_indexSystemSet
+			</result>
+		</global-results>
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp
+			</result>
+			<result name="success">/xls_test.jsp</result>
+		</action>
+		<!-- 首页 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+		<!-- 员工信息管理 -->
+		<action name="employeeAction_*" class="employeeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/employeeAction/{1}.jsp</result>
+		</action>
+		<!-- 猴子饲养管理 -->
+		<action name="individualAction_*" class="individualAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/individualAction/{1}.jsp</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/vnd.ms-excel,charset=ISO8859-1</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+				<param name="inputName">fileInput</param>
+			</result>
+			<result name="exportWord" type="stream">
+				<param name="contentType">application/msword,charset=ISO8859-1</param>
+				<param name="contentDisposition">attachment;filename="${fileNameForWord}"</param>
+				<param name="bufferSize">4096</param>
+				<param name="inputName">fileInput</param>
+			</result>
+			<result name="breedList">/WEB-INF/jsp/breedingAction/populationInformation.jsp
+			</result>
+		</action>
+		<!-- 部门信息管理 -->
+		<action name="departmentAction_*" class="departmentAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/departmentAction/{1}.jsp</result>
+		</action>
+		<!-- 职位信息管理 -->
+		<action name="positionAction_*" class="positionAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/positionAction/{1}.jsp</result>
+		</action>
+		<!-- 区域信息管理 -->
+		<action name="areaAction_*" class="areaAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/areaAction/{1}.jsp</result>
+			<!-- 饲养数量 -->
+			<result name="areaRecord">/WEB-INF/jsp/reportAction/areaRecord.jsp</result>
+			<result name="areaReport">/WEB-INF/jsp/reportAction/areaReport.jsp</result>
+			<result name="areaByReport" type="jasper">
+				<!--<param name="location">/jasperReport/area.jasper</param>
+				-->
+				<param name="location">/jasperReport/feeding.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+			<!-- 在库明细 -->
+			<result name="animalRecord">/WEB-INF/jsp/reportAction/animalRecord.jsp
+			</result>
+			<result name="animalReport">/WEB-INF/jsp/reportAction/animalReport.jsp
+			</result>
+			<result name="animalByReport" type="jasper">
+				<param name="location">/jasperReport/animal.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<!-- 学历管理 -->
+		<action name="educationAction_*" class="educationAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/educationAction/{1}.jsp</result>
+		</action>
+		<!-- 职称管理 -->
+		<action name="titleAction_*" class="titleAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/titleAction/{1}.jsp</result>
+		</action>
+		<!-- 生长记录 -->
+		<action name="weightAction_*" class="weightAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/weightAction/{1}.jsp</result>
+
+			<result name="weightRecord">/WEB-INF/jsp/reportAction/weightRecord.jsp
+			</result>
+			<result name="weightReport">/WEB-INF/jsp/reportAction/weightReport.jsp
+			</result>
+			<result name="weightByReport" type="jasper">
+				<param name="location">/jasperReport/weight.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">sourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<!-- 房间消毒记录管理 -->
+		<action name="roomDisinfectRecordAction_*" class="roomDisinfectRecordAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/roomDisinfectRecordAction/{1}.jsp
+			</result>
+		</action>
+		<!-- 消毒液管理 -->
+		<action name="disinfectantAction_*" class="disinfectantAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/disinfectantAction/{1}.jsp</result>
+		</action>
+		<!-- 消毒液配方管理 -->
+		<action name="disinfectantMaterialAction_*" class="disinfectantMaterialAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/disinfectantMaterialAction/{1}.jsp
+			</result>
+		</action>
+		<!-- 死亡登记管理 -->
+		<action name="deathAction_*" class="deathAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/deathAction/{1}.jsp</result>
+		</action>
+		<!-- 调栏记录管理 -->
+		<action name="changeroomAction_*" class="changeroomAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/changeroomAction/{1}.jsp</result>
+
+			<result name="changeroomRecord">/WEB-INF/jsp/reportAction/changeroomRecord.jsp
+			</result>
+			<result name="changeroomReport">/WEB-INF/jsp/reportAction/changeroomReport.jsp
+			</result>
+			<result name="changeroomByReport" type="jasper">
+				<param name="location">/jasperReport/changeroom.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<!-- 出场记录管理 -->
+		<action name="salemonkeyAction_*" class="salemonkeyAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/salemonkeyAction/{1}.jsp</result>
+		</action>
+		<!-- 订单管理 -->
+		<action name="saleAction_*" class="saleAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/saleAction/{1}.jsp</result>
+		</action>
+		<!-- 盘点管理 -->
+		<action name="inventoryAction_*" class="inventoryAction"
+			method="{1}">
+			<result name="{1}">/WEB-INF/jsp/inventoryAction/{1}.jsp</result>
+			<result name="export" type="stream">
+				<param name="contentType">application/vnd.ms-excel,charset=ISO8859-1</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+				<param name="inputName">fileInput</param>
+			</result>
+			<result name="export1" type="stream">
+				<param name="contentType">application/vnd.ms-excel,charset=ISO8859-1</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+				<param name="inputName">fileInput</param>
+			</result>
+		</action>
+		<!-- 发情配种管理 -->
+		<action name="breedingAction_*" class="breedingAction" method="{1}">
+			<result name="breedingList">/WEB-INF/jsp/breedingAction/breedingList.jsp
+			</result>
+		</action>
+		<!-- 妊娠检查管理 -->
+		<action name="gestationAction_*" class="gestationAction"
+			method="{1}">
+			<result name="gestationList">/WEB-INF/jsp/breedingAction/gestationList.jsp
+			</result>
+		</action>
+		<!-- 产仔登记管理 -->
+		<action name="childbirthAction_*" class="childbirthAction"
+			method="{1}">
+			<result name="childbirthList">/WEB-INF/jsp/breedingAction/childbirthList.jsp
+			</result>
+		</action>
+
+
+		<!-- 流产登记 -->
+		<action name="miscarriageAction_*" class="miscarriageAction"
+			method="{1}">
+			<result name="miscarriageList">/WEB-INF/jsp/miscarriageAction/miscarriageList.jsp
+			</result>
+		</action>
+		<!-- 离乳登记 -->
+		<action name="weaningAction_*" class="weaningAction" method="{1}">
+			<result name="weaningList">/WEB-INF/jsp/weaningAction/weaningList.jsp
+			</result>
+		</action>
+		<!--常规检疫 -->
+		<action name="routineAction_*" class="routineAction" method="{1}">
+			<result name="normalList">/WEB-INF/jsp/quarantineAction/normalList.jsp
+			</result>
+		</action>
+		<action name="tbAction_*" class="tbAction" method="{1}">
+
+			<result name="tbRecord">/WEB-INF/jsp/reportAction/tbRecord.jsp</result>
+			<result name="tbReport">/WEB-INF/jsp/reportAction/tbReport.jsp</result>
+			<result name="tbByReport" type="jasper">
+				<param name="location">/jasperReport/tb.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<action name="xAction_*" class="XAction" method="{1}">
+		</action>
+		<action name="xcgAction_*" class="xcgAction" method="{1}">
+			<result name="xcgRecord">/WEB-INF/jsp/reportAction/xcgRecord.jsp</result>
+			<result name="xcgReport">/WEB-INF/jsp/reportAction/xcgReport.jsp</result>
+			<result name="xcgByReport" type="jasper">
+				<param name="location">/jasperReport/xcg.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+			
+			<result name="xcgRecord1">/WEB-INF/jsp/reportAction/xcgRecord1.jsp</result>
+			<result name="xcgReport1">/WEB-INF/jsp/reportAction/xcgReport1.jsp</result>
+		</action>
+		<action name="xyshAction_*" class="xyshAction" method="{1}">
+			<result name="xyshRecord">/WEB-INF/jsp/reportAction/xyshRecord.jsp</result>
+			<result name="xyshReport">/WEB-INF/jsp/reportAction/xyshReport.jsp</result>
+			<result name="xyshByReport" type="jasper">
+				<param name="location">/jasperReport/xysh.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<action name="normalAction_*" class="normalAction" method="{1}">
+		</action>
+		<!-- 寄生虫 -->
+		<action name="parasiteAction_*" class="parasiteAction" method="{1}">
+
+			<result name="inParasiteRecord">/WEB-INF/jsp/reportAction/inParasiteRecord.jsp
+			</result>
+			<result name="inParasiteReport">/WEB-INF/jsp/reportAction/inParasiteReport.jsp
+			</result>
+			<result name="inParasiteByReport" type="jasper">
+				<param name="location">/jasperReport/inParasite.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+
+			<result name="outParasiteRecord">/WEB-INF/jsp/reportAction/outParasiteRecord.jsp
+			</result>
+			<result name="outParasiteReport">/WEB-INF/jsp/reportAction/outParasiteReport.jsp
+			</result>
+			<result name="outParasiteByReport" type="jasper">
+				<param name="location">/jasperReport/outParasite.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<!--防疫配置 -->
+		<action name="quarantineAction_*" class="quarantineAction"
+			method="{1}">
+			<result name="quarantineList">/WEB-INF/jsp/quarantineAction/quarantineList.jsp
+			</result>
+			<result name="virusList">/WEB-INF/jsp/quarantineAction/virusList.jsp
+			</result>
+			<result name="bacteriaList">/WEB-INF/jsp/quarantineAction/bacteriaList.jsp
+			</result>
+			<result name="vaccineList">/WEB-INF/jsp/quarantineAction/vaccineList.jsp
+			</result>
+			<result name="infectiousList">/WEB-INF/jsp/quarantineAction/infectiousList.jsp
+			</result>
+		</action>
+		<action name="virusAction_*" class="virusAction" method="{1}">
+			<result name="virusList">/WEB-INF/jsp/quarantineAction/virusList.jsp
+			</result>
+
+			<result name="virusRecord">/WEB-INF/jsp/reportAction/virusRecord.jsp
+			</result>
+			<result name="virusReport">/WEB-INF/jsp/reportAction/virusReport.jsp
+			</result>
+			<result name="virusByReport" type="jasper">
+				<param name="location">/jasperReport/virus.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<action name="bacteriaAction_*" class="bacteriaAction" method="{1}">
+			<result name="bacteriaList">/WEB-INF/jsp/quarantineAction/bacteriaList.jsp
+			</result>
+
+			<result name="bacteriaRecord">/WEB-INF/jsp/reportAction/bacteriaRecord.jsp
+			</result>
+			<result name="bacteriaReport">/WEB-INF/jsp/reportAction/bacteriaReport.jsp
+			</result>
+			<result name="bacteriaByReport" type="jasper">
+				<param name="location">/jasperReport/bacteria.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<action name="vaccineAction_*" class="vaccineAction" method="{1}">
+			<result name="vaccineList">/WEB-INF/jsp/quarantineAction/vaccineList.jsp
+			</result>
+			<result name="vaccineRecord">/WEB-INF/jsp/reportAction/vaccineRecord.jsp
+			</result>
+			<result name="vaccineLoadToReport">/WEB-INF/jsp/reportAction/vaccineReport.jsp
+			</result>
+			<result name="vaccinePrintToReport" type="jasper">
+				<param name="location">/jasperReport/vaccine.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<action name="infectiousAction_*" class="infectiousAction"
+			method="{1}">
+			<result name="infectiousList">/WEB-INF/jsp/quarantineAction/infectiousList.jsp
+			</result>
+		</action>
+		<action name="parasiteMAction_*" class="parasiteMAction"
+			method="{1}">
+			<result name="parasiteMList">/WEB-INF/jsp/quarantineAction/parasiteMList.jsp
+			</result>
+		</action>
+		<action name="virusMAction_*" class="virusMAction" method="{1}">
+			<result name="virusMList">/WEB-INF/jsp/quarantineAction/virusMList.jsp
+			</result>
+		</action>
+		<action name="bacteriaMAction_*" class="bacteriaMAction"
+			method="{1}">
+			<result name="bacteriaMList">/WEB-INF/jsp/quarantineAction/bacteriaMList.jsp
+			</result>
+		</action>
+
+		<!-- 疾病字典 -->
+		<action name="treasuryAction_*" class="treasuryAction" method="{1}">
+			<result name="treasuryList">/WEB-INF/jsp/treasuryAction/treasuryList.jsp
+			</result>
+
+			<result name="treasuryReport">/WEB-INF/jsp/reportAction/treasuryReport.jsp
+			</result>
+			<result name="treasuryByReport" type="jasper">
+				<param name="location">/jasperReport/treasury.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<action name="symptomsareaAction_*" class="symptomsareaAction"
+			method="{1}">
+			<result name="symptomsareaList">/WEB-INF/jsp/treasuryAction/symptomsareaList.jsp
+			</result>
+		</action>
+		<action name="symptomsAction_*" class="symptomsAction" method="{1}">
+			<result name="symptomsList">/WEB-INF/jsp/treasuryAction/symptomsList.jsp
+			</result>
+		</action>
+
+		<!-- 常规治疗 -->
+		<action name="hospitaldlAction_*" class="hospitaldlAction"
+			method="{1}">
+			<result name="hospitaldlList">/WEB-INF/jsp/hospitaldlAction/hospitaldlList.jsp
+			</result>
+		</action>
+		<!-- 住院治疗 -->
+		<action name="hospitalAction_*" class="hospitalAction" method="{1}">
+			<result name="hospitalList">/WEB-INF/jsp/hospitalAction/hospitalList.jsp
+			</result>
+		</action>
+
+		<!-- 出口检疫 -->
+		<action name="exportAction_*" class="exportAction" method="{1}">
+			<result name="exportList">/WEB-INF/jsp/exportAction/exportList.jsp</result>
+			<result name="addList">/WEB-INF/jsp/exportAction/addList.jsp</result>
+			<result name="export" type="stream">
+				<!-- <param name="contentType">application/vnd.ms-excel,charset=ISO8859-1</param>-->
+				<param name="contentType">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,charset=ISO8859-1</param>
+				<param name="contentDisposition">attachment;filename="${fileName}.xlsx"</param>
+				<param name="bufferSize">4096</param>
+				<param name="inputName">fileInput</param>
+			</result>
+		</action>
+
+		<!-- 体表检测 -->
+		<action name="surfaceAction_*" class="surfaceAction" method="{1}">
+		</action>
+
+		<action name="reportAction_*" class="reportAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/reportAction/{1}.jsp</result>
+			<!--<result name="report">/WEB-INF/jsp/reportAction/report.jsp</result>
+			<result name="feedingToReport" type="jasper">
+				<param name="location">/jasperReport/report4.jasper</param>
+				
+				<param name="location">/jasperReport/feeding.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">sourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>-->
+		</action>
+
+		<!-- 离乳记录报表 -->
+		<action name="leavebreastAction_*" class="leavebreastAction"
+			method="{1}">
+			<result name="leavebreastRecord">/WEB-INF/jsp/reportAction/leavebreastRecord.jsp
+			</result>
+			<result name="leavebreastReport">/WEB-INF/jsp/reportAction/leavebreastReport.jsp
+			</result>
+			<result name="leavebreastByReport" type="jasper">
+				<param name="location">/jasperReport/leavebreast.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+		<!-- 驱虫记录报表 -->
+		<action name="qcAction_*" class="qcAction" method="{1}">
+
+			<result name="qcRecord">/WEB-INF/jsp/reportAction/qcRecord.jsp</result>
+			<result name="qcReport">/WEB-INF/jsp/reportAction/qcReport.jsp</result>
+			<result name="qcByReport" type="jasper">
+				<param name="location">/jasperReport/qc.jasper</param>
+				<param name="format">PDF</param>
+				<param name="documentName">${fileName}</param>
+				<param name="dataSource">dataSourceList</param>
+				<param name="reportParameters">paraMap</param>
+			</result>
+		</action>
+
+		<!-- 角色权限 -->
+		<action name="roleAction_*" class="roleAction" method="{1}">
+			<result name="roleList">/WEB-INF/jsp/roleAction/roleList.jsp</result>
+			<!--<result name="privilege">/WEB-INF/jsp/roleAction/privilege.jsp</result>
+		--></action>
+		<action name="iploginAction_*" class="iploginAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/iploginAction/{1}.jsp</result>
+		</action>
+		<action name="yzcAction_*" class="yzcAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/yzcAction/{1}.jsp</result>
+		</action>
+		<action name="animaltypeAction_*" class="animaltypeAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/animaltypeAction/{1}.jsp</result>
+		</action>
+		
+		<!-- 工作安排 -->
+		<action name="schedulePlanAction_*" class="schedulePlanAction" method="{1}">
+			<result name="{1}">/WEB-INF/jsp/schedulePlanAction/{1}.jsp</result>
+			<result name="select">/WEB-INF/jsp/schedulePlanAction/select.jsp</result>
+		</action>
+	</package>
+	<package name="jfreechart" namespace="/" extends="jfreechart-default">
+		<!-- 疾病统计 -->
+		<action name="jfreecharAction_*" class="jfreecharAction"
+			method="{1}">
+			<result name="success" type="chart">
+				<param name="width">600</param>
+				<param name="height">400</param>
+			</result>
+		</action>
+		<!-- 计划汇总 -->
+		<action name="schedulePlanAction_*" class="schedulePlanAction" method="{1}">
+			<result name="success" type="chart">
+				<param name="width">600</param>
+				<param name="height">500</param>
+			</result>
+			<result name="{1}">/WEB-INF/jsp/schedulePlanAction/{1}.jsp</result>
+			<result name="select">/WEB-INF/jsp/schedulePlanAction/select.jsp</result>
+		</action>
+	</package>
+	
+</struts>

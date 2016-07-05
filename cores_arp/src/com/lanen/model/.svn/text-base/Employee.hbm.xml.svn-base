@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Employee" table="employee" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name"  length="30"/>
+        </property>
+        <property name="userid" type="java.lang.String">
+            <column name="userid" length="20"/>
+        </property>
+        <property name="employeeid" type="java.lang.String">
+            <column name="employeeid"  length="64" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password"  length="100" />
+        </property>
+        <!--<property name="roles" type="java.lang.String">
+            <column name="role_id"  length="225" />
+        </property>
+        --><property name="description" type="java.lang.String">
+            <column name="description"   />
+        </property>
+        <property name="dateentered" type="java.sql.Timestamp">
+            <column name="dateentered"   />
+        </property>
+        <property name="datemodified" type="java.sql.Timestamp">
+            <column name="datemodified"  />
+        </property>
+        <property name="modifiedby" type="java.lang.String">
+            <column name="modifiedby"  length="36" />
+        </property>
+        <property name="createdby" type="java.lang.String">
+            <column name="createdby"  length="36" />
+        </property>
+        <property name="positionid" type="java.lang.Integer">
+            <column name="position_id"  length="11" />
+        </property>
+        <property name="departmentid" type="java.lang.Integer">
+            <column name="department_id" length="11"/>
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone"  length="50" />
+        </property>
+        <property name="mobile" type="java.lang.String">
+            <column name="mobile"  length="50" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="100" />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted"  length="1" />
+        </property>
+        <property name="image" type="java.lang.String">
+            <column name="image"  length="255"/>
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex" length="4" />
+        </property>
+        <property name="married" type="java.lang.Integer">
+            <column name="married"  length="4" />
+        </property>
+        <property name="xueli" type="java.lang.Integer">
+            <column name="xueli"  length="20" />
+        </property>
+        <property name="jguan" type="java.lang.String">
+            <column name="jguan" length="50" />
+        </property>
+        <property name="zhic" type="java.lang.Integer">
+            <column name="zhic"  length="20" />
+        </property>
+        <property name="sfz" type="java.lang.String">
+            <column name="sfz"  length="50" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" length="200"/>
+        </property>
+        <property name="intime" type="java.sql.Timestamp">
+            <column name="intime"   />
+        </property>
+         <property name="bod" type="java.sql.Timestamp">
+            <column name="bod"   />
+        </property>
+         <property name="national" type="java.lang.String">
+            <column name="national" length="20"/>
+        </property>
+        <property name="school" type="java.lang.String">
+            <column name="school" length="50" />
+        </property>
+         <property name="zye" type="java.lang.String">
+            <column name="zye"  length="50"/>
+        </property>
+        
+        <!-- roles1属性，本类与Role的多对多的关系  -->
+        <!--<set name="roles1" table="security_er" lazy="false" cascade="save-update" inverse="false">
+           <key column="employee_id"></key>
+           <many-to-many class="Role" column="role_id"></many-to-many>
+        </set>
+    -->
+    	<many-to-one name="roles1" column="role_id" cascade="all" class="Role" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

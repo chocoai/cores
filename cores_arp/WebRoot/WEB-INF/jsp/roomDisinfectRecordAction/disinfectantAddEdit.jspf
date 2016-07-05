@@ -1,0 +1,63 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="disinfectantAddEditDialog" class="easyui-dialog" title="添加消毒液" modal="true" closed="true" 
+		data-options="toolbar:'#dialogDisToolbar'" style="display:'';width:540px;height:380px;" closable="true">
+			<div id="disinfectantAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditDis">
+            <!-- 添加过后的消毒液Id  -->
+			  <form id="disinfectantAddEditForm" action="" method="post">
+			  <input type="hidden" id="disinfectantid" name="id" >
+			  <input type="hidden" id="dmListString" name="dmListString" >
+		   	  <div class="edit_table">
+                <table  class="disinfectant" style="top:70px;">
+                  <tr>
+                    <td>消毒液编号：
+                    <input type="hidden" id="olddisinfectantCode"  />
+                          <input id="disinfectantCode" type="text" name="disinfectantCode" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="消毒液编号已存在" 
+                        	 value="" readonly="true"
+                        	validType="remotett[sybp()+'/disinfectantAction_checkCode.action','disinfectantCode','#olddisinfectantCode']" />
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;有效日期：<input id="validdate"  name="validdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配制者：<input id="createdBy"  name="createdBy" required="true"/></td>
+                  </tr>
+                  <tr>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;配制日期：<input id="createdDate"  name="createdDate" class="easyui-datebox" required="true" editable="false"/></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		    &nbsp;&nbsp;  消毒液配方：
+		      <form id="disinfectantmaterialAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+		   	  
+                <div style="align:center;margin-left:15px">	
+			      <table id="disfectantmaterialTable" ></table>
+			    </div>  
+            </div>
+		      </form>
+		        <a id="disinfectantAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogDisToolbar">
+		<a id="saveDisDialogButton" class="easyui-linkbutton" onclick="onDisDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backDisButton" class="easyui-linkbutton" onclick="javascript:$('#disinfectantAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<div id="dmToolbar">
+		<a id="addDmButton" class="easyui-linkbutton" onclick="onaddDmButton();" data-options="iconCls:'icon-serveradd',plain:true">添加</a>
+		<a id="delDmButton" class="easyui-linkbutton" onclick="ondelDmButton();" data-options="iconCls:'icon-serverdelete',plain:true">删除</a>
+		<!--  <a id="editDmButton" class="easyui-linkbutton" onclick="oneditDmButton();" data-options="iconCls:'icon-serveredit',plain:true">编辑</a>
+		
+		<a id="backDmButton" class="easyui-linkbutton" onclick="javascript:$('#disfectantOperateDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>-->
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

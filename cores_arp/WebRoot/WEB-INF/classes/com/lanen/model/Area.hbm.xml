@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.Area" table="area" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="areatype" type="java.lang.Integer">
+            <column name="areatype"  length="4"/>
+        </property>
+        <property name="areaname" type="java.lang.String">
+            <column name="areaname" />
+        </property>
+        <property name="blongarea" type="java.lang.Long">
+            <column name="blongarea"  length="20" />
+        </property>
+        <property name="animaltype" type="java.lang.Long">
+            <column name="animaltype"  length="20" />
+        </property>
+        <property name="roompinxi" type="java.lang.Integer">
+            <column name="roompinxi"  length="20" />
+        </property>
+        <property name="keeper" type="java.lang.Long">
+            <column name="keeper"  length="20" />
+        </property>
+        <property name="boss" type="java.lang.Long">
+            <column name="boss"  length="20" />
+        </property>
+        <property name="remarks" type="java.lang.String">
+            <column name="remarks"  />
+        </property>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="deleted"  length="4" />
+        </property>
+        <property name="modified_by" type="java.lang.Long">
+            <column name="modified_by"  length="20" />
+        </property>
+        <property name="createtime" type="java.sql.Timestamp">
+            <column name="createtime"   />
+        </property>
+        <property name="created_by" type="java.lang.Long">
+            <column name="created_by"  length="20" />
+        </property>
+        <property name="lastmodifytime" type="java.sql.Timestamp">
+            <column name="lastmodifytime" />
+        </property>
+        <property name="reader" type="java.lang.Long">
+            <column name="reader"  length="20" />
+        </property>
+        <property name="veterinarian" type="java.lang.Long">
+            <column name="veterinarian"  length="20" />
+        </property>
+       
+        
+        
+    </class>
+</hibernate-mapping>

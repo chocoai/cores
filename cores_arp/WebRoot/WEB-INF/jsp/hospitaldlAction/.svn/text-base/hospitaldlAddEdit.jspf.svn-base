@@ -1,0 +1,51 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="hospitaldlAddEditDialog" class="easyui-dialog" title="添加常规治疗信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:470px;height:225px;" closable="true">
+			<div id="hospitaldlAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="hospitaldlAddEditForm" action="" method="post">
+			  <input type="hidden" id="id" name="id" >
+		   	  <div class="edit_table">
+                <table  class="area" style="top:70px;">
+                  <tr>
+                    <td>动物编号：</td>
+                    <td><input id="monkeyid"  name="monkeyid" /></td>
+                  </tr>
+                  <tr>
+                    <td>治疗日期：</td>
+                    <td><input id="zlrq" name="zlrq" class="easyui-datebox" style="width:100px;" editable="false"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>主治兽医：</td>
+                    <td><input id="treatveterinarian" name="treatveterinarian"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>症状名称：</td>
+                    <td><input id="zzmc" name="zzmc"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>处方内容：</td>
+                    <td><input id="cf" name="cf"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>备注：</td>
+                    <td><input id="remark" name="remark"/>
+                    </td>
+                  </tr>  
+                </table>
+            </div>
+		      </form>
+		        <a id="hospitaldlAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#hospitaldlAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

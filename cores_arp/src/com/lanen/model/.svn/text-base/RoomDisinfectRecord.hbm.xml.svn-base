@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.lanen.model">
+    <class name="com.lanen.model.RoomDisinfectRecord" table="roomdisinfectrecord" >
+        <id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+
+        <property name="area_id" type="java.lang.Long">
+            <column name="area_id"  />
+        </property>
+        <property name="disinfectant_id" type="java.lang.Long">
+            <column name="disinfectant_id" />
+        </property>
+        <property name="disinfectDate" type="java.sql.Timestamp">
+            <column name="disinfectDate"  />
+        </property>
+        <property name="operator_id" type="java.lang.Long">
+            <column name="operator_id"   />
+        </property>
+        <property name="disinfectType" type="java.lang.String">
+            <column name="disinfectType"  length="30" />
+        </property>
+        <property name="recorder_id" type="java.lang.Long">
+            <column name="recorder_id"   />
+        </property>
+        
+       
+        
+        
+    </class>
+</hibernate-mapping>

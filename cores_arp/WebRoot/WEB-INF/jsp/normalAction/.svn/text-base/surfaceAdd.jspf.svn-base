@@ -1,0 +1,29 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="surfaceAddDialog" class="easyui-dialog" title="添加体表检疫信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddSurfaceToolbar'" style="display:'';width:520px;height:280px;" closable="true">
+			<div id="surfaceAddDialog2" style="display:none;">
+		    <div >
+			  <form id="surfaceAddForm" action="" method="post">
+			  <input type="hidden" id="depid" name="id" >
+			  <input type="hidden" id="surface_normalid" name="surface_normalid" >
+		   	  <div class="edit_table">
+                <table  class="department" style="top:70px;">
+                  <tr><td colspan="1">动物编号：</td><td colspan="3"><input id="sur_monkeyid" name="sur_monkeyid" disabled="true"></input></td>
+                  
+                  <tr><td>检疫时间：</td><td><input id="sur_cdate" name="sur_cdate" class="easyui-datebox" required="true" editable="false"/></td>
+                  <td>检测兽医：</td><td><input id="sur_veterinarian" name="sur_veterinarian"/></td></tr>
+                  <tr>
+                     <td>保定人员：</td><td><input id="sur_protector" name="sur_protector"/></td><td>记录人员：</td><td><input id="sur_recorder" name="sur_recorder"/></td>
+                  </tr>
+                  <tr><td>备注:</td><td><input id="sur_remark" name="sur_remark" /></td></tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="surfaceAdd_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogAddSurfaceToolbar">
+		<a id="saveSurfaceDialogButton" class="easyui-linkbutton" onclick="onDialogSaveSurfaceButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backSurfaceAddButton" class="easyui-linkbutton" onclick="javascript:$('#surfaceAddDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>

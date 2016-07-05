@@ -1,0 +1,46 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="positionAddEditDialog" class="easyui-dialog" title="添加职位信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogAddEditPosToolbar'" style="display:'';width:200px;height:220px;" closable="true">
+			<div id="positionAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEditPos">
+            <!-- 添加过后的客户Id  -->
+			  <form id="positionAddEditForm" action="" method="post">
+			  <input type="hidden" id="posid" name="id" >
+		   	  <div class="edit_table">
+                <table  class="position" style="top:70px;">
+                  <tr>
+                    <td>职位名：</td>
+                  </tr>
+                  <tr>
+                    <td>  <input type="hidden" id="oldposname"  />
+                            <input id="posname" type="text" name="name" 
+                        	 class="easyui-validatebox"  data-options="required:true"
+                        	 missingMessage="必填项" invalidMessage="职位名已存在" 
+                        	validType="remotett[sybp()+'/positionAction_checkName.action','name','#oldposname']" />
+                    </td> 
+                   <!--  <td>职位名：<input id="posname" name="name" class="easyui-validatebox" data-options="required:true"/>
+                         <span></span> 
+                    </td>-->
+                  </tr>
+                  <tr>
+                    <td>部门：<input id="posdepartmentid" name="department_id" required:true/></td>
+                  </tr>
+                  <tr>
+                    <td>描述：<input id="posdescription" name="description" /></td>
+                  </tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="positionAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogAddEditPosToolbar">
+		<a id="savePosDialogButton" class="easyui-linkbutton" onclick="onDialogSavePosButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backPosAddEditButton" class="easyui-linkbutton" onclick="javascript:$('#positionAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

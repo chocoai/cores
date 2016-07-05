@@ -1,0 +1,149 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<!-- 试验计划 edit/add开始 -->
+	<div id="individualAddEditDialog" class="easyui-dialog" title="添加个体信息" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:725px;height:450px;" closable="true">
+			<div id="individualAddEditDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="individualAddEditForm" name= "individualAddEditForm"action="" method="post">
+			  <input type="hidden" id="inid" name="id" >
+	                <table  class="tableCss1" style="top:70px;">
+	                  <tr>
+	                    <td width="60px;" >动物编号</td>
+	                    <td >
+	                      
+	                       <input type="hidden" id="oldMonkeyid"  />
+                            <input id="addOrEditMonkeyid" type="text" name="monkeyid" 
+                        	 class="easyui-validatebox" style="width:100px;" 
+                        	required="true" missingMessage="必填项" invalidMessage="编号已存在"  data-options="validType:'maxLength[15]'"
+                        	validType="remotett[sybp()+'/individualAction_checkMonkeyid.action','monkeyid','#oldMonkeyid']" />
+	                      <!--  <input id="monkeyid" style="width:100px;"   name="monkeyid" class="easyui-validatebox" data-options="validType:'maxLength[15]'"/> -->
+	                    </td>
+	                    <td width="60px;">动物性别</td>
+	                    <td width="60px;">
+	                           <select id="sex" name="sex" class="easyui-combobox" editable="false" style="width:100px;"  panelHeight="50" required="true">
+	        						<option value="0">公</option>
+	        						<option value="1">母</option>
+	        					</select>
+	        			</td>
+	        			<td width="60px;">动物种类</td>
+	                    <td width="60px;">
+	                             <select id="addOreditAnimaltype" name="animaltype" class="easyui-combobox" style="width:100px;" editable="false" data-options="panelHeight:100,required:true" >  
+							   </select>
+	        			</td>
+	                  </tr>
+	                  <!--  birthday -->
+	                  <tr>
+	                    <td>出生日期</td>
+	                    <td><input id="birthday" type="text" name="birthday" class="easyui-datebox"  style="width:100px;" editable="false"   /></td>
+	                    <td>年龄阶段</td>
+	                    <td width="60px;">
+							   <select id="agetype" name="agetype" class="easyui-combobox" style="width:100px;" editable="false" panelHeight="80" data-options="required:true">
+	        						<option value="1">仔猴</option>
+	        						<option value="2">育成猴</option>
+	        						<option value="3">成年猴</option>
+	        					</select>
+	        			</td>
+	        			<td>代数</td>
+	        			<td width="60px;">
+							   <select id="generation" name="generation" class="easyui-combobox" style="width:100px;"   panelHeight="130" >
+	        						<option value="1">1</option>
+	        						<option value="2">2</option>
+	        						<option value="3">3</option>
+	        						<option value="4">4</option>
+	        						<option value="5">5</option>
+	        					</select>
+	        			</td>
+	                  </tr>
+	                    <tr>
+	                      <td>来源</td>
+	                      <td >
+	                          <!--  <select id="source" name="source" class="easyui-combobox" style="width:100px;"  panelHeight="80" data-options="required:true">
+	        						<option value="10">自繁</option>
+	        						<option value="11">引进</option>
+	        					</select>-->
+	                         <input id="source" name="source" width="100px"/>
+	                      </td>
+	                      <td width="60px;" >饲养员<!-- keeper --></td>
+	                      <td>
+	                         <input id="addOrEditkeeper" type="text" name="keeper" class="easyui-validatebox" data-options="validType:'maxLength[20]'" style="width:100px;"></input>
+	                      </td>
+	                      <td width="60px;" >兽医<!-- veterinarian --></td>
+	                      <td>
+	                        <input id="addOrEditVeterinarian" type="text" name="veterinarian" class="easyui-validatebox" data-options="validType:'maxLength[20]'"  style="width:100px;"></input>
+	                      </td>
+	                    </tr>
+	                    <!-- weighingDate -->
+	                    <tr>
+	                     <td>当前体重</td>
+	                     <td ><input id="currentweight" name="currentweight" class="easyui-validatebox"  style="width:75px;" data-options="validType:'twoDecimalPlaces'"/>(kg)</td>
+	                     <td width="60px;" >称重日期</td>
+	                     <td><input id="weighingDate" type="text" name="weighingDate" class="easyui-datebox"  style="width:100px;"   /></td>
+	                     <td width="60px;" >区域&nbsp;</td>
+	                     <td><!-- <input id="blongarea" type="text" name="blongarea" class="easyui-combobox"/> --><input id="blongarea" type="text" name="blongarea" class="easyui-combobox"   style="width:100px;"/>
+	                     <!-- <input id="dong" type="text" name="dong" class="easyui-combotree" data-options="validType:'maxLength[20]'" panelWidth="120"  style="width:100px;"></input>--></td>
+	                   </tr>
+	                   <tr>
+	                    <td width="60px;" >国家编号</td>
+	                    <td ><input id="tnid" style="width:100px;"   name="tnid" class="easyui-validatebox" data-options="validType:'maxLength[15]'"/></td>
+	                    <td width="60px;">状态</td>
+	                    <td width="60px;">
+	                           <select id="status" name="status" class="easyui-combobox" style="width:100px;"  panelHeight="50" data-options="required:true">
+	        						<option value="1">在场</option>
+	        						<option value="2">待销售</option>
+	        					</select>
+	        			</td>
+	        			<td width="60px;">房间<br/>笼号</td>
+	                    <td width="60px;"><!--<input id="room" type="text" name="room" class="easyui-combobox" data-options="validType:'maxLength[20]'" style="width:100px;"></input>-->
+	                            <input id="room" type="text" name="room" style="width:100px;"></input>
+	                            <input id="lhao" name="lhao" class="easyui-validatebox" data-options="validType:'maxLength[15]'" style="width:100px;">  
+							    </input>
+	        			</td>
+	                  </tr>
+	                   <tr>
+	                     <td width="60px;" >母亲编号</td>
+	                     <td><input id="motherid" name="motherid" style="width:100px;"  class="easyui-validatebox"  invalidMessage="编号不存在"  data-options="validType:'maxLength[15]'"
+                        	validType="remote[sybp()+'/individualAction_checkMonkeyidHaveM.action','motherid']" /></td>
+	                     <td width="60px;" >父亲编号</td><!-- checkMonkeyidHaveF -->
+	                     <td><input id="fatherid" name="fatherid" style="width:100px;"  class="easyui-validatebox" invalidMessage="编号不存在"  data-options="validType:'maxLength[15]'"
+                        	validType="remote[sybp()+'/individualAction_checkMonkeyidHaveF.action','fatherid']"/></td>
+	                     <td></td>
+	                     <td ></td>
+	                   </tr>
+	                   <tr>
+	                    <td>离乳日期</td>
+	                    <td><input id="leavebreastdate" type="text" name="leavebreastdate" class="easyui-datebox"  style="width:100px;"   /></td>
+	                    <td>离乳体重</td>
+	                    <td><input id="leavebreastweight" name="leavebreastweight" class="easyui-validatebox"  style="width:75px;" data-options="validType:'twoDecimalPlaces'"/>(kg)</td>
+	                    <td>出生体重</td>
+	                    <td><input id="birthdayweight" name="birthdayweight" class="easyui-validatebox"  style="width:75px;" data-options="validType:'twoDecimalPlaces'"/>(kg)</td>
+	                   </tr>
+	                    <tr>
+	                    <td>引进地</td>
+	                    <td colspan="2"><input id="AddOrEdityjaddress" type="text" name="AddOrEdityjaddress" class="easyui-validatebox" data-options="validType:'maxLength[15]'"  style="width:150px;"   /></td>
+	                    <td>引进时间</td>
+	                    <td colspan="2"><input id="yjdate" type="text" name="yjdate" class="easyui-datebox"  style="width:100px;"   /></td>
+	                   </tr>
+	                   <tr>
+	                    <td>运输证号</td>
+	                    <td colspan="2"><input id="ysz" name="ysz" class="easyui-validatebox"  style="width:200px;" data-options="validType:'maxLength[40]'"/></td>
+	                    <td>体内芯片</td>
+	                    <td colspan="2"><input id="chipid" name="chipid" class="easyui-validatebox"  style="width:180px;" data-options="validType:'maxLength[40]'" /></td>
+	                   </tr> 
+	                   <tr>
+	                    <td>备注</td>
+	                    <td colspan="5"><input id="remark" name="remark" class="easyui-validatebox"  style="width:550px;" data-options="validType:'maxLength[40]'"/></td>
+	                   </tr>
+	                </table>
+		      </form>
+		        <a id="individualAddEdit_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<!-- 工具栏 开始-->
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="onDialogSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="javascript:$('#individualAddEditDialog').dialog('close');" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
+	<!-- 工具栏 结束-->
+	<!-- 试验计划 edit/add结束 -->

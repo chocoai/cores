@@ -1,0 +1,57 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+	<div id="bacteriaTableDialog" class="easyui-dialog" title="细菌检测" modal="true" closed="true" 
+		data-options="toolbar:'#dialogToolbar'" style="display:'';width:770px;height:270px;" closable="true">
+			<div id="bacteriaTableDialog2" style="display:none;">
+		    <div >
+		    <input type="hidden" id="addOrEdit">
+			  <form id="bacteriaTableForm" action="" method="post">
+			  <input type="hidden" id="bacteria_exportid" name="bacteria_exportid" >
+			  <input type="hidden" id="bacteria_monkeylist" name="bacteria_monkeylist" >
+		   	  <div class="edit_table">
+                <table  class="bacteria" style="top:70px;">
+                  <tr>
+                    <td>检测兽医：</td><td>
+                            <input id="bacte_veterinarian" name="bacte_veterinarian" />
+                    </td> 
+                    <td>保定人员：</td><td><input id="bacte_protector" name="bacte_protector"  />
+        			</td>
+                  </tr>
+                  <tr>
+                    <td>记录人员：</td><td><input id="bacte_recorder" name="bacte_recorder" /></td>
+                  </tr>
+                  <tr>
+                     <td>Hepatitis A：阴性<input id="HepatitisA" name="HepatitisA" type="radio" value="0"/>阳性<input id="HepatitisA" name="HepatitisA" type="radio" value="1"/></td>
+                     <td>检测方法:<input id="HepatitisA_qconfig_id" name="HepatitisA_qconfig_id" style="width:60px;"/>
+                     	药品名:<input id="HepatitisA_drung_name" name="HepatitisA_drung_name" style="width:40px;"/>
+                     	用药量:<input id="HepatitisA_drung_count" name="HepatitisA_drung_count" style="width:40px;"/></td>
+                  </tr>
+                  <tr>
+                     <td>Hepatitis B：阴性<input id="HepatitisB" name="HepatitisB" type="radio" value="0"/>阳性<input id="HepatitisB" name="HepatitisB" type="radio" value="1"/></td>
+                     <td>检测方法:<input id="HepatitisB_qconfig_id" name="HepatitisA_qconfig_id" style="width:60px;"/>
+                     	药品名:<input id="HepatitisB_drung_name" name="HepatitisB_drung_name" style="width:40px;"/>
+                     	用药量:<input id="HepatitisB_drung_count" name="HepatitisB_drung_count" style="width:40px;"/></td>
+                  </tr>
+                  <tr>
+                     <td>Monkey Pox：阴性<input id="MonkeyPox" name="MonkeyPox" type="radio" value="0"/>阳性<input id="MonkeyPox" name="MonkeyPox" type="radio" value="1"/></td>
+                     <td>检测方法:<input id="MonkeyPox_qconfig_id" name="MonkeyPox_qconfig_id" style="width:60px;"/>
+                     	药品名:<input id="MonkeyPox_drung_name" name="MonkeyPox_drung_name" style="width:40px;"/>
+                     	用药量:<input id="MonkeyPox_drung_count" name="MonkeyPox_drung_count" style="width:40px;"/></td>
+                  </tr>
+                  <tr>
+                     <td>Rabies：阴性<input id="Rabies" name="Rabies" type="radio" value="0"/>阳性<input id="Rabies" name="Rabies" type="radio" value="1"/></td>
+                     <td>检测方法:<input id="Rabies_qconfig_id" name="Rabies_qconfig_id" style="width:60px;"/>
+                     	药品名:<input id="Rabies_drung_name" name="Rabies_drung_name" style="width:40px;"/>
+                     	用药量:<input id="Rabies_drung_count" name="Rabies_drung_count" style="width:40px;"/></td>
+                  </tr>
+                  <tr><td>备注：<input name="bacte_remark" id="bacte_remark" /></td></tr>
+                </table>
+            </div>
+		      </form>
+		        <a id="bacteriaTable_event"></a>
+		    </div>
+		    </div>
+	</div>
+	<div id="dialogToolbar">
+		<a id="saveDialogButton" class="easyui-linkbutton" onclick="bacteriaSaveButton();" data-options="iconCls:'icon-ok',plain:true">确定</a>
+		<a id="backButton" class="easyui-linkbutton" onclick="cancelBacteriaButton();" data-options="iconCls:'icon-nook',plain:true">取消</a>
+	</div>
